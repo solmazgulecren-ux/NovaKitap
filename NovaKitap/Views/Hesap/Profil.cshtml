@@ -1,0 +1,45 @@
+﻿@model NovaKitap.Models.Kullanicilar
+
+@{
+    ViewData["Title"] = "Hesabım";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card p-4 shadow-lg" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px;">
+                
+                <div class="d-flex align-items-center border-bottom pb-4 mb-4" style="border-color: var(--grey-accent) !important;">
+                    <div style="width: 80px; height: 80px; background-color: var(--silver); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--space-dark); box-shadow: 0 0 15px var(--star-beige);">
+                        👤
+                    </div>
+                    <div class="ms-4">
+                        <h2 class="mb-0" style="color: var(--star-beige);">✦ @Model.AdSoyad</h2>
+                        <p class="text-muted mb-0 fs-5">Uzay Gezgini</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="text-muted small text-uppercase">Ad Soyad</label>
+                        <p class="fs-5" style="color: var(--text-light);">@Model.AdSoyad</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="text-muted small text-uppercase">E-Posta Adresi</label>
+                        <p class="fs-5" style="color: var(--text-light);">@Model.Email</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center" style="border-color: var(--grey-accent) !important;">
+                    <a asp-controller="Home" asp-action="Kaydedilenler" class="btn btn-outline-light">
+                        <span style="color: var(--star-beige);">✦</span> Yıldızladığım Kitaplar
+                    </a>
+                    
+                    <a asp-controller="Hesap" asp-action="CikisYap" class="btn btn-danger" style="background-color: #8b0000; border: none;">
+                        Çıkış Yap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

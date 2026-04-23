@@ -1,0 +1,76 @@
+﻿@model NovaKitap.Models.Kitaplar
+
+@{
+    ViewData["Title"] = Model.KitapAdi;
+}
+
+<div class="container-fluid py-4 mb-5">
+    <a asp-controller="Home" asp-action="Index" class="text-decoration-none mb-3 d-inline-block" style="color: var(--silver);">
+        &larr; Galaksiye (Anasayfaya) Dön
+    </a>
+
+    <div class="card shadow-lg p-5" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px;">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div style="position: relative; display: inline-block;">
+                    <img src="@(string.IsNullOrEmpty(Model.KapakResimUrl) ? "https://via.placeholder.com/400x600/1B2A4A/C0C0C0?text=Kapak+Yok" : Model.KapakResimUrl)"
+                         alt="@Model.KitapAdi"
+                         class="img-fluid shadow-lg"
+                         style="border-radius: 10px; max-height: 550px; object-fit: cover; border: 1px solid var(--grey-accent);">
+                </div>
+            </div>
+
+            <div class="col-md-8 d-flex flex-column justify-content-between ps-md-4 mt-4 mt-md-0">
+                <div>
+                    <h1 style="color: var(--star-beige); font-weight: bold; letter-spacing: 1px;">✦ @Model.KitapAdi</h1>
+                    
+                    <h4 class="mb-4" style="color: var(--silver); font-style: italic;">
+                        Yazar: <span style="color: #ffffff;">@Model.Yazar.AdSoyad</span>
+                    </h4>
+
+                    <div class="p-4 mb-4 shadow-sm" style="background-color: rgba(192, 192, 192, 0.05); border-left: 4px solid var(--star-beige); border-radius: 8px;">
+                        <h6 style="color: var(--star-beige); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Kitap Özeti</h6>
+                        <p style="color: var(--text-light); line-height: 1.8; font-size: 1.1rem; margin-bottom: 0;">
+                            @Model.Aciklama
+                        </p>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-sm-6 mb-2">
+                            <strong style="color: var(--silver);">Sayfa Sayısı:</strong>
+                            <span style="color: var(--text-light);">@Model.SayfaSayisi</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <strong style="color: var(--silver);">Kategori:</strong>
+                            <span style="color: var(--text-light);">@Model.Kategori.KategoriAdi</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <strong style="color: var(--silver);">Yayınevi:</strong>
+                            <span style="color: var(--text-light);">@(Model.Yayinevi ?? "Bilinmiyor")</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <strong style="color: var(--silver);">İlk Basım Yılı:</strong>
+                            <span style="color: var(--text-light);">@(Model.BasimYili.HasValue ? Model.BasimYili.Value.ToString() : "Bilinmiyor")</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-auto border-top pt-4" style="border-color: var(--grey-accent) !important;">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span style="color: var(--silver); font-size: 1.2rem;">Fiyat:</span>
+                        <h2 class="mb-0" style="color: #ffffff; font-weight: bold;">₺@Model.Fiyat.ToString("N2")</h2>
+                    </div>
+                    
+                    <div class="d-flex gap-3">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-light flex-grow-1 py-3" style="font-weight: 500; font-size: 1.1rem;">
+                            Alışverişe Devam Et
+                        </a>
+                        <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@Model.KitapId" class="btn btn-nova flex-grow-1 py-3 shadow" style="font-weight: bold; font-size: 1.1rem;">
+                            Sepete Ekle 🛒
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

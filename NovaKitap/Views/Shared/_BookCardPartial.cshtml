@@ -1,0 +1,46 @@
+﻿@model NovaKitap.Models.Kitaplar
+
+@{
+    bool isSaved = false;
+    
+    // ViewBag içindeki veri int veya int? olsa bile çalışan garanti kontrol yapısı
+    if (ViewBag.KaydedilenIdler != null)
+    {
+        foreach (var id in ViewBag.KaydedilenIdler)
+        {
+            if (id == Model.KitapId)
+            {
+                isSaved = true;
+                break;
+            }
+        }
+    }
+}
+
+<div class="book-card p-0 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 12px; overflow: hidden; position: relative; transition: 0.3s;">
+    
+    <button class="save-star-btn"
+            onclick="toggleStar(this, @Model.KitapId)"
+            title="Kaydet"
+            style="position: absolute; top: 10px; right: 10px; background: rgba(11, 16, 33, 0.7); border: none; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s;
+        color: @(isSaved ? "#ffffff" : "var(--star-beige)");
+        text-shadow: @(isSaved ? "0 0 10px var(--star-beige)" : "none");">
+        @(isSaved ? "✦" : "✧")
+    </button>
+    
+    <img src="@(string.IsNullOrEmpty(Model.KapakResimUrl) ? "https://via.placeholder.com/220x300/1B2A4A/C0C0C0?text=Kapak+Yok" : Model.KapakResimUrl)"
+         alt="@Model.KitapAdi"
+         class="img-fluid w-100"
+         style="height: 280px; object-fit: cover;">
+    
+    <div class="p-3">
+        <h6 class="text-white text-truncate mb-1" title="@Model.KitapAdi">@Model.KitapAdi</h6>
+        <p class="text-muted small mb-3">₺@Model.Fiyat.ToString("N2")</p>
+        
+        <div class="d-flex justify-content-between mt-auto">
+            <a asp-controller="Home" asp-action="Detay" asp-route-id="@Model.KitapId" class="btn btn-sm btn-outline-light w-50 me-1">İncele</a>
+            
+            <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@Model.KitapId" class="btn btn-sm btn-nova w-50 ms-1">Sepete Ekle</a>
+        </div>
+    </div>
+</div>

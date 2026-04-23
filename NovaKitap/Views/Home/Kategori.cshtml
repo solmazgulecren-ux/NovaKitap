@@ -1,0 +1,33 @@
+﻿@model List<NovaKitap.Models.Kitaplar>
+
+@{
+    ViewData["Title"] = ViewBag.KategoriAdi + " Kitapları";
+}
+
+<div class="container-fluid">
+    <div class="d-flex align-items-center mb-4">
+        <h2 style="color: var(--silver);">
+            <span style="color: var(--star-beige);">✦</span> @ViewBag.KategoriAdi Kategorisi
+        </h2>
+    </div>
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var kitap in Model)
+            {
+                <div class="col-md-3 col-sm-6 mb-4 d-flex justify-content-center">
+                    <partial name="_BookCardPartial" model="kitap" />
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert" style="background-color: var(--space-blue); color: var(--text-light); border: 1px solid var(--grey-accent);">
+                    Görünüşe göre bu yıldız sisteminde henüz kitap keşfedilmedi...
+                </div>
+            </div>
+        }
+    </div>
+</div>

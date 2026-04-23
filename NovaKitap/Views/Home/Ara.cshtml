@@ -1,0 +1,15 @@
+﻿@model List<NovaKitap.Models.Kitaplar>
+
+<div class="container-fluid">
+    <h2 class="mb-4" style="color: var(--silver);">
+        <span style="color: var(--star-beige);">✦</span> '@ViewBag.AramaKelimesi' İçin Sonuçlar
+    </h2>
+    <div class="row">
+        @foreach (var kitap in Model)
+        {
+            <div class="col-md-3 col-sm-6 mb-4 d-flex justify-content-center">
+                <partial name="_BookCardPartial" model="kitap" />
+            </div>
+        }
+    </div>
+</div>

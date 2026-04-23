@@ -1,0 +1,66 @@
+﻿@model NovaKitap.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<div class="container-fluid">
+    
+    <div class="mb-5">
+        <h3 class="mb-3" style="color: var(--silver);">
+            <span style="color: var(--star-beige);">✧</span> Yeni Çıkanlar
+        </h3>
+        <div class="book-row-container">
+            @if (Model.YeniCikanlar != null && Model.YeniCikanlar.Any())
+            {
+                foreach (var kitap in Model.YeniCikanlar)
+                {
+                    <partial name="_BookCardPartial" model="kitap" />
+                }
+            }
+            else
+            {
+                <p class="text-muted">Bu kategoride henüz kitap bulunmuyor. (Veritabanına kitap eklediğinizde burada görünecektir.)</p>
+            }
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h3 class="mb-3" style="color: var(--silver);">
+            <span style="color: var(--star-beige);">✧</span> En Çok Satanlar
+        </h3>
+        <div class="book-row-container">
+            @if (Model.CokSatanlar != null && Model.CokSatanlar.Any())
+            {
+                foreach (var kitap in Model.CokSatanlar)
+                {
+                    <partial name="_BookCardPartial" model="kitap" />
+                }
+            }
+            else
+            {
+                <p class="text-muted">Bu kategoride henüz kitap bulunmuyor.</p>
+            }
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h3 class="mb-3" style="color: var(--silver);">
+            <span style="color: var(--star-beige);">✦</span> Sizin İçin Seçilenler
+        </h3>
+        <div class="book-row-container">
+            @if (Model.Onerilenler != null && Model.Onerilenler.Any())
+            {
+                foreach (var kitap in Model.Onerilenler)
+                {
+                    <partial name="_BookCardPartial" model="kitap" />
+                }
+            }
+            else
+            {
+                <p class="text-muted">Bu kategoride henüz kitap bulunmuyor.</p>
+            }
+        </div>
+    </div>
+
+</div>

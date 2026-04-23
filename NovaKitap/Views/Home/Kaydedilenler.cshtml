@@ -1,0 +1,30 @@
+﻿@model List<NovaKitap.Models.Kitaplar>
+
+@{
+    ViewData["Title"] = "Kaydedilenler";
+}
+
+<div class="container-fluid">
+    <h2 class="mb-4" style="color: var(--silver);">
+        <span style="color: var(--star-beige);">✦</span> Yıldızladığım Kitaplar
+    </h2>
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var kitap in Model)
+            {
+                <div class="col-md-3 col-sm-6 mb-4 d-flex justify-content-center">
+                    <partial name="_BookCardPartial" model="kitap" />
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center p-5" style="background-color: var(--space-blue); border-radius: 15px; border: 1px dashed var(--silver);">
+                <p style="color: var(--silver);">Henüz hiçbir yıldıza sahip değilsin. Keşfe çıkmaya ne dersin?</p>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-nova mt-3">Anasayfaya Dön</a>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model NovaKitap.Models.Kullanicilar
+
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<div class="container d-flex justify-content-center align-items-center mt-5 mb-5">
+    <div class="card p-4 shadow-lg" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); width: 100%; max-width: 450px; border-radius: 12px;">
+        <div class="text-center mb-4">
+            <h2 style="color: var(--star-beige);">✦ NOVA'ya Katıl</h2>
+            <p style="color: var(--silver);">Kendi evrenini inşa etmeye başla.</p>
+        </div>
+
+        <form asp-action="KayitOl" method="post">
+            <div class="mb-3">
+                <label class="form-label text-light">Adınız Soyadınız</label>
+                <input asp-for="AdSoyad" type="text" class="form-control nova-search" required placeholder="Örn: Ada Lovelace" />
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label text-light">E-posta Adresi</label>
+                <input asp-for="Email" type="email" class="form-control nova-search" required placeholder="ornek@email.com" />
+            </div>
+            
+            <div class="mb-4">
+                <label class="form-label text-light">Şifre</label>
+                <input asp-for="Sifre" type="password" class="form-control nova-search" required placeholder="Güçlü bir şifre belirleyin" />
+            </div>
+            
+            <button type="submit" class="btn btn-nova w-100 mb-3">Yolculuğa Başla (Kayıt Ol)</button>
+        </form>
+
+        <div class="text-center mt-2">
+            <span style="color: var(--silver);">Zaten bir yıldız haritan var mı? </span>
+            <a asp-action="GirisYap" style="color: var(--star-beige); text-decoration: none; font-weight: bold;">Giriş Yap</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

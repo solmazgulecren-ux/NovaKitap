@@ -1,0 +1,110 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Nova Kitap</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg nova-navbar py-3">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold fs-3" asp-controller="Home" asp-action="Index">
+                    <span style="color: var(--star-beige);">✦</span> NOVA
+                </a>
+        
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Kategoriler">Kategoriler</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Kaydedilenler">Kaydedilenler</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="YeniCikanlar">Yeni Çıkanlar</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="EnCokSatanlar">En Çok Satanlar</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Yazarlar">Yazarlarımız</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Sepet">Sepet</a></li>
+                    </ul>
+            
+                    <form class="d-flex me-3" action="/Home/Ara" method="get">
+                        <input class="form-control nova-search me-2" type="search" name="q" placeholder="Kitap veya yazar ara..." aria-label="Search">
+                        <button class="btn btn-outline-secondary" style="color: var(--silver); border-color: var(--silver);" type="submit">Ara</button>
+                    </form>
+            
+                    @{
+                        // Oturumdaki kullanıcı adını okumaya çalışıyoruz
+                        var adSoyad = HttpContextAccessor.HttpContext?.Session.GetString("KullaniciAdSoyad");
+                    }
+
+                    @if (!string.IsNullOrEmpty(adSoyad))
+                    {
+                        <a asp-controller="Hesap" asp-action="Profil" class="nav-profile text-decoration-none d-flex align-items-center" style="padding: 5px 15px; border-radius: 50px; background-color: rgba(192, 192, 192, 0.1); transition: 0.3s;">
+                            <div class="profile-circle" style="width: 35px; height: 35px; background-color: var(--silver); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; color: var(--space-dark); font-size: 1.2rem;">
+                                👤
+                            </div>
+                            <span class="profile-name" style="color: var(--text-light); font-weight: 500;">@adSoyad</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Hesap" asp-action="GirisYap" class="btn btn-nova">Giriş Yap</a>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 nova-sidebar">
+                <h4 class="text-center mb-4" style="color: var(--silver);">Kategoriler</h4>
+                <div class="d-flex flex-column px-2">
+                    @{
+                        // Hangi kategoride olduğumuzu URL'den alıyoruz
+                        var aktifKategori = Context.Request.Query["id"].ToString();
+                    }
+
+                    <a href="/Home/Kategori?id=1&isim=Klasik" class="category-btn text-decoration-none d-block @(aktifKategori == "1" ? "aktif-kategori" : "")">
+                        <span class="polaris-icon">@(aktifKategori == "1" ? "✦" : "✧")</span> Klasik
+                    </a>
+                    <a href="/Home/Kategori?id=2&isim=Edebiyat" class="category-btn text-decoration-none d-block @(aktifKategori == "2" ? "aktif-kategori" : "")">
+                        <span class="polaris-icon">@(aktifKategori == "2" ? "✦" : "✧")</span> Edebiyat
+                    </a>
+                    <a href="/Home/Kategori?id=3&isim=Psikoloji" class="category-btn text-decoration-none d-block @(aktifKategori == "3" ? "aktif-kategori" : "")">
+                        <span class="polaris-icon">@(aktifKategori == "3" ? "✦" : "✧")</span> Psikoloji
+                    </a>
+                    <a href="/Home/Kategori?id=4&isim=Tarih" class="category-btn text-decoration-none d-block @(aktifKategori == "4" ? "aktif-kategori" : "")">
+                        <span class="polaris-icon">@(aktifKategori == "4" ? "✦" : "✧")</span> Tarih
+                    </a>
+                    <a href="/Home/Kategori?id=5&isim=Felsefe" class="category-btn text-decoration-none d-block @(aktifKategori == "5" ? "aktif-kategori" : "")">
+                        <span class="polaris-icon">@(aktifKategori == "5" ? "✦" : "✧")</span> Felsefe
+                    </a>
+                    <a href="/Home/Kategori?id=6&isim=Polisiye" class="category-btn text-decoration-none d-block @(aktifKategori == "6" ? "aktif-kategori" : "")">
+                        <span class="polaris-icon">@(aktifKategori == "6" ? "✦" : "✧")</span> Polisiye
+                    </a>
+                    <a href="/Home/Kategori?id=7&isim=Roman" class="category-btn text-decoration-none d-block @(aktifKategori == "7" ? "aktif-kategori" : "")">
+                        <span class="polaris-icon">@(aktifKategori == "7" ? "✦" : "✧")</span> Roman
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-10 p-4">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
