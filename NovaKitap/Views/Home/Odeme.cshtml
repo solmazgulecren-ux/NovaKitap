@@ -1,0 +1,128 @@
+﻿@model NovaKitap.Models.OdemeViewModel
+
+@{
+    ViewData["Title"] = "Ödeme Ekranı";
+    
+    // Sağ tarafta ürünleri listelerken aynı olanları grupluyoruz
+    var grupluKitaplar = Model.SepetKitaplari
+        .GroupBy(k => k.KitapId)
+        .Select(g => new { Kitap = g.First(), Adet = g.Count() })
+        .ToList();
+}
+
+<div class="container-fluid py-4">
+    <h2 class="mb-4" style="color: var(--silver);"><span style="color: var(--star-beige);">✦</span> Ödeme ve Teslimat</h2>
+
+    <div class="row">
+        <!-- SOL PANEL: ADRES VE KART BİLGİLERİ -->
+        <div class="col-md-7">
+            <div class="card p-4 mb-4 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 10px;">
+                <h4 style="color: #ffffff; border-bottom: 1px solid var(--grey-accent); padding-bottom: 10px;">1. Teslimat Adresi</h4>
+                
+                @if (Model.KullaniciAdresleri.Any())
+                {
+                    <form asp-controller="Home" asp-action="SiparisiTamamla" method="post">
+                        @foreach (var adres in Model.KullaniciAdresleri)
+                        {
+                            <div class="form-check mt-3 p-3" style="border: 1px solid var(--silver); border-radius: 8px; background-color: rgba(255,255,255,0.02);">
+                                <input class="form-check-input ms-1" type="radio" name="seciliAdresId" value="@adres.AdresId" id="adres_@adres.AdresId" required>
+                                <label class="form-check-label ms-3 w-100" for="adres_@adres.AdresId" style="color: var(--silver);">
+                                    <strong style="color: #ffffff; font-size: 1.1rem;">@adres.AdresBasligi (@adres.Sehir)</strong><br />
+                                    @adres.AcikAdres
+                                </label>
+                            </div>
+                        }
+
+                        <h4 class="mt-5" style="color: #ffffff; border-bottom: 1px solid var(--grey-accent); padding-bottom: 10px;">2. Ödeme Yöntemi</h4>
+                        @if (Model.KullaniciKartlari.Any())
+                        {
+                            @foreach (var kart in Model.KullaniciKartlari)
+                            {
+                                <div class="form-check mt-3 p-3" style="border: 1px solid var(--silver); border-radius: 8px; background-color: rgba(255,255,255,0.02);">
+                                    <input class="form-check-input ms-1" type="radio" name="seciliKartId" value="@kart.KartId" id="kart_@kart.KartId" required>
+                                    <label class="form-check-label ms-3 w-100" for="kart_@kart.KartId" style="color: var(--silver);">
+                                        <strong style="color: #ffffff; font-size: 1.1rem;">@kart.KartBasligi - @kart.AdSoyad</strong><br />
+                                        **** **** **** @kart.KartNumarasi.Substring(Math.Max(0, kart.KartNumarasi.Length - 4))
+                                        <span class="ms-3" style="color: var(--star-beige);">SKT: @kart.SonKullanmaAy/@kart.SonKullanmaYil</span>
+                                    </label>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p class="text-danger mt-3">Kayıtlı kartınız bulunmuyor. Lütfen aşağıdan yeni bir kart ekleyin.</p>
+                        }
+
+                        <button type="submit" class="btn btn-nova w-100 mt-5 btn-lg py-3" style="font-weight: bold; font-size: 1.2rem;">Siparişi Onayla ve Bitir</button>
+                    </form>
+                }
+                else
+                {
+                    <p class="mt-3" style="color: var(--star-beige);">Kayıtlı adresiniz bulunmuyor. Lütfen siparişe devam etmek için bilgilerinizi kaydedin.</p>
+                }
+            </div>
+
+            <!-- YENİ VERİ EKLEME FORMLARI (AYDINLIK GİRİŞ ALANLARI) -->
+            <div class="card p-4 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 10px;">
+                <h5 class="mb-4" style="color: var(--silver);">+ Yeni Adres veya Kart Ekle</h5>
+                <div class="row">
+                    <div class="col-md-6 border-end border-secondary">
+                        <form asp-controller="Home" asp-action="YeniAdresEkle" method="post">
+                            <!-- Inputlar artık bembeyaz ve yazılar koyu -->
+                            <input type="text" name="AdresBasligi" class="form-control mb-3 py-2" placeholder="Adres Başlığı (Örn: Ev)" required style="background-color: #ffffff; color: #212529; border: none;">
+                            <input type="text" name="Sehir" class="form-control mb-3 py-2" placeholder="Şehir" required style="background-color: #ffffff; color: #212529; border: none;">
+                            <textarea name="AcikAdres" class="form-control mb-3" rows="3" placeholder="Açık adresinizi girin..." required style="background-color: #ffffff; color: #212529; border: none;"></textarea>
+                            <button type="submit" class="btn btn-outline-light w-100">Adresi Kaydet</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6 ps-md-4 mt-4 mt-md-0">
+                        <form asp-controller="Home" asp-action="YeniKartEkle" method="post">
+                            <input type="text" name="KartBasligi" class="form-control mb-3 py-2" placeholder="Kart Başlığı (Örn: Maaş Kartım)" required style="background-color: #ffffff; color: #212529; border: none;">
+                            <input type="text" name="AdSoyad" class="form-control mb-3 py-2" placeholder="Kart Üzerindeki İsim" required style="background-color: #ffffff; color: #212529; border: none;">
+                            <input type="text" name="KartNumarasi" class="form-control mb-3 py-2" placeholder="Kart Numarası (16 Hane)" required maxlength="16" style="background-color: #ffffff; color: #212529; border: none;">
+                            <div class="d-flex gap-2 mb-4">
+                                <input type="text" name="SonKullanmaAy" class="form-control py-2" placeholder="Ay (01)" required maxlength="2" style="background-color: #ffffff; color: #212529; border: none;">
+                                <input type="text" name="SonKullanmaYil" class="form-control py-2" placeholder="Yıl (2028)" required maxlength="4" style="background-color: #ffffff; color: #212529; border: none;">
+                            </div>
+                            <button type="submit" class="btn btn-outline-light w-100">Kartı Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAĞ PANEL: SİPARİŞ ÖZETİ VE KİTAP LİSTESİ -->
+        <div class="col-md-5">
+            <div class="card p-4 shadow-lg sticky-top" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px; top: 20px;">
+                <h4 style="color: #ffffff; border-bottom: 1px solid var(--grey-accent); padding-bottom: 10px; margin-bottom: 20px;">Sipariş Edilen Ürünler</h4>
+                
+                <!-- Sepetteki Ürünlerin Mini Listesi -->
+                <div class="mb-4 pe-2" style="max-height: 350px; overflow-y: auto;">
+                    @foreach (var item in grupluKitaplar)
+                    {
+                        var kitap = item.Kitap;
+                        <div class="d-flex align-items-center mb-3 pb-2" style="border-bottom: 1px dashed rgba(192, 192, 192, 0.3);">
+                            <img src="@kitap.KapakResimUrl" class="rounded" style="width: 50px; height: 75px; object-fit: cover;" alt="@kitap.KitapAdi">
+                            <div class="ms-3 flex-grow-1">
+                                <h6 style="color: #ffffff; margin-bottom: 2px;">@kitap.KitapAdi</h6>
+                                <small style="color: var(--silver);">@kitap.Yazar.AdSoyad</small>
+                            </div>
+                            <div class="text-end ms-2">
+                                <span style="color: var(--star-beige); font-weight: bold;">₺@((kitap.Fiyat * item.Adet).ToString("N2"))</span><br />
+                                @if (item.Adet > 1)
+                                {
+                                    <small style="color: var(--silver); font-size: 0.8rem;">x@(item.Adet) Adet</small>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="d-flex justify-content-between mt-2 pt-2" style="border-top: 2px solid var(--silver);">
+                    <h4 style="color: #ffffff; font-weight: bold;">Ödenecek Tutar</h4>
+                    <h4 style="color: var(--star-beige); font-weight: bold;">₺@Model.ToplamTutar.ToString("N2")</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
-
+@{
+    // O an bulunduğumuz sayfanın adını (Action) alıyoruz
+    var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
+}
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -9,6 +12,16 @@
     <title>@ViewData["Title"] - Nova Kitap</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+    <style>
+            /* Aktif Menü Linki Stili */
+            .active-nav-link {
+                color: var(--star-beige) !important;
+                font-weight: bold;
+                border-bottom: 2px solid var(--star-beige);
+                padding-bottom: 3px;
+            }
+    </style>
 </head>
 <body>
     <header>
@@ -18,22 +31,25 @@
                     <span style="color: var(--star-beige);">✦</span> NOVA
                 </a>
         
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
+                <!-- MOBİL MENÜ BUTONU (YILDIZ BEJİ) -->
+                <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--star-beige); padding: 4px 8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="var(--star-beige)" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Kategoriler">Kategoriler</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Kaydedilenler">Kaydedilenler</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="YeniCikanlar">Yeni Çıkanlar</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="EnCokSatanlar">En Çok Satanlar</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Yazarlar">Yazarlarımız</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Sepet">Sepet</a></li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-3 mt-lg-0">
+                        <li class="nav-item"><a class="nav-link @(currentAction == "Index" ? "active-nav-link" : "")" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+                        <li class="nav-item"><a class="nav-link @(currentAction == "Kategoriler" ? "active-nav-link" : "")" asp-controller="Home" asp-action="Kategoriler">Kategoriler</a></li>
+                        <li class="nav-item"><a class="nav-link @(currentAction == "Kaydedilenler" ? "active-nav-link" : "")" asp-controller="Home" asp-action="Kaydedilenler">Kaydedilenler</a></li>
+                        <li class="nav-item"><a class="nav-link @(currentAction == "YeniCikanlar" ? "active-nav-link" : "")" asp-controller="Home" asp-action="YeniCikanlar">Yeni Çıkanlar</a></li>
+                        <li class="nav-item"><a class="nav-link @(currentAction == "EnCokSatanlar" ? "active-nav-link" : "")" asp-controller="Home" asp-action="EnCokSatanlar">En Çok Satanlar</a></li>
+                        <li class="nav-item"><a class="nav-link @(currentAction == "Yazarlar" ? "active-nav-link" : "")" asp-controller="Home" asp-action="Yazarlar">Yazarlarımız</a></li>
+                        <li class="nav-item"><a class="nav-link @(currentAction == "Sepet" ? "active-nav-link" : "")" asp-controller="Home" asp-action="Sepet">Sepet</a></li>
                     </ul>
             
-                    <form class="d-flex me-3" action="/Home/Ara" method="get">
+                    <form class="d-flex me-3 mb-3 mb-lg-0" action="/Home/Ara" method="get">
                         <input class="form-control nova-search me-2" type="search" name="q" placeholder="Kitap veya yazar ara..." aria-label="Search">
                         <button class="btn btn-outline-secondary" style="color: var(--silver); border-color: var(--silver);" type="submit">Ara</button>
                     </form>
@@ -45,7 +61,7 @@
 
                     @if (!string.IsNullOrEmpty(adSoyad))
                     {
-                        <a asp-controller="Hesap" asp-action="Profil" class="nav-profile text-decoration-none d-flex align-items-center" style="padding: 5px 15px; border-radius: 50px; background-color: rgba(192, 192, 192, 0.1); transition: 0.3s;">
+                        <a asp-controller="Hesap" asp-action="Profil" class="nav-profile text-decoration-none d-flex align-items-center" style="padding: 5px 15px; border-radius: 50px; background-color: rgba(192, 192, 192, 0.1); transition: 0.3s; width: max-content;">
                             <div class="profile-circle" style="width: 35px; height: 35px; background-color: var(--silver); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; color: var(--space-dark); font-size: 1.2rem;">
                                 👤
                             </div>
@@ -54,7 +70,7 @@
                     }
                     else
                     {
-                        <a asp-controller="Hesap" asp-action="GirisYap" class="btn btn-nova">Giriş Yap</a>
+                        <a asp-controller="Hesap" asp-action="GirisYap" class="btn btn-nova" style="width: max-content;">Giriş Yap</a>
                     }
                 </div>
             </div>
@@ -106,5 +122,21 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Sepete Ekleme Giriş Uyarısı -->
+    @if (TempData["GirisUyarisi"] != null)
+    {
+        <div id="loginAlertModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; align-items: center; justify-content: center;">
+            <div class="card p-5 text-center shadow-lg" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px; max-width: 450px;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🔒</div>
+                <h3 class="mb-3" style="color: #ffffff;">Önce Giriş Yapmalısınız</h3>
+                <p class="mb-4" style="color: var(--silver); font-size: 1.1rem;">Sepetinize ürün ekleyebilmek için lütfen hesabınıza giriş yapın.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <button onclick="document.getElementById('loginAlertModal').style.display='none'" class="btn btn-outline-light w-50 py-2">Gezinmeye Devam Et</button>
+                    <a asp-controller="Hesap" asp-action="GirisYap" class="btn btn-nova w-50 py-2" style="font-weight: bold;">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+    }
 </body>
 </html>
