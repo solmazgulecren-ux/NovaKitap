@@ -6,9 +6,17 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.Json; // Sepet işlemleri için ŞART
 using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace NovaKitap.Controllers
 {
+    // ChatBot'tan gelen mesajı karşılamak için gereken sınıf
+    public class ChatRequest
+    {
+        public string Mesaj { get; set; } = "";
+    }
+
     public class HomeController : Controller
     {
         private readonly AppDbContext _context;
@@ -200,7 +208,6 @@ namespace NovaKitap.Controllers
 
             List<int> sepetIds = JsonSerializer.Deserialize<List<int>>(sepetJson) ?? new List<int>();
 
-            // FİYAT HATASINI ÇÖZEN KISIM: Contains yerine tek tek ekliyoruz ki aynı kitaptan 2 tane varsa 2'si de listeye girsin.
             var sepetKitaplari = new List<Kitaplar>();
             foreach (var id in sepetIds)
             {
@@ -258,7 +265,6 @@ namespace NovaKitap.Controllers
         }
 
         [HttpPost]
-        [HttpPost]
         public IActionResult SiparisiTamamla(int seciliAdresId, int seciliKartId)
         {
             var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
@@ -272,7 +278,6 @@ namespace NovaKitap.Controllers
 
             if (!sepetIds.Any()) return RedirectToAction("Sepet");
 
-            // AYNI FİYAT ÇÖZÜMÜNÜ SİPARİŞİ KAYDEDERKEN DE UYGULUYORUZ
             var sepetKitaplari = new List<Kitaplar>();
             foreach (var id in sepetIds)
             {
@@ -292,7 +297,6 @@ namespace NovaKitap.Controllers
             _context.Siparisler.Add(yeniSiparis);
             _context.SaveChanges();
 
-            // SİPARİŞ DETAYLARINI EKLERKEN DE AYNI LİSTEYİ KULLANIYORUZ
             foreach (var id in sepetIds)
             {
                 var kitap = sepetKitaplari.FirstOrDefault(k => k.KitapId == id);
@@ -313,15 +317,99 @@ namespace NovaKitap.Controllers
 
             return RedirectToAction("SiparisBasarili");
         }
+
         public IActionResult SiparisBasarili()
         {
             return View();
         }
+
         // Diğer boş sayfalar
         public IActionResult Kategoriler() => View();
         public IActionResult YeniCikanlar() => View();
         public IActionResult EnCokSatanlar() => View();
-        public IActionResult Yazarlar() => View();
+
+        public IActionResult Yazarlar()
+        {
+            var yazarListesi = _context.Yazarlars.ToList();
+            return View(yazarListesi);
+        }
+
         public IActionResult Privacy() => View();
+
+        // --- YENİ EKLENEN SAYFALAR ---
+        public IActionResult Kirtasiye()
+        {
+            return View();
+        }
+
+        public IActionResult Oyuncak()
+        {
+            return View();
+        }
+
+        public IActionResult Admin()
+        {
+            return View();
+        }
+
+        // --- YAPAY ZEKA (GEMINI API) ENTEGRASYONU ---
+        [HttpPost]
+        [HttpPost]
+        public async Task<IActionResult> AsistanCevap([FromBody] ChatRequest istek)
+        {
+            if (istek == null || string.IsNullOrEmpty(istek.Mesaj)) return BadRequest();
+
+            try
+            {
+                // 1. Veritabanından verileri çek
+                var aktifKitaplar = _context.Kitaplars
+                    .Include(k => k.Yazar)
+                    .Select(k => k.KitapAdi + " (" + k.Fiyat + " TL)")
+                    .ToList();
+
+                string dbVerisi = string.Join(" | ", aktifKitaplar);
+
+                string kullaniciAdSoyad = HttpContext.Session.GetString("KullaniciAdSoyad") ?? "Müşteri";
+                string kullaniciIlkAd = kullaniciAdSoyad.Split(' ')[0];
+
+                // 2. Basitleştirilmiş Prompt
+                string prompt = $"Sen 'Nova Asistan' adında bir yapay zekasın. Kullanıcı adı: {kullaniciIlkAd}. Soru: '{istek.Mesaj}'. Stoktaki kitaplar: {dbVerisi}. Stoklara göre kısa ve kibar cevap ver.";
+
+                // 3. API Bağlantısı
+
+                string apiKey = "AIzaSyDcDP6qH3lH7toHZK9_ePhtfz-ihmjh7jk";
+                string apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=" + apiKey;
+
+
+                using (var client = new HttpClient())
+                {
+                    var requestBody = new { contents = new[] { new { parts = new[] { new { text = prompt } } } } };
+                    var jsonContent = new StringContent(JsonSerializer.Serialize(requestBody), System.Text.Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync(apiUrl, jsonContent);
+                    var responseString = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        using (var doc = JsonDocument.Parse(responseString))
+                        {
+                            var root = doc.RootElement;
+                            var cevapMetni = root.GetProperty("candidates")[0].GetProperty("content").GetProperty("parts")[0].GetProperty("text").GetString();
+                            return Json(new { cevap = cevapMetni });
+                        }
+                    }
+                    else
+                    {
+                        // EĞER API HATA VERİRSE, HATAYI DİREKT EKRANA YAZDIRALIM Kİ NE OLDUĞUNU GÖRELİM!
+                        return Json(new { cevap = $"Google API Hatası: {response.StatusCode} - Detay: {responseString}" });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // KODDA BİR ÇÖKME OLURSA BURAYA DÜŞER
+                return Json(new { cevap = $"Sistem Hatası: {ex.Message}" });
+            }
+        }
     }
 }
