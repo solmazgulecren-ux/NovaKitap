@@ -117,3 +117,14 @@ public partial class AppDbContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Kendi girdiğin kitapların birkaç tanesini buraya kalıcı olarak ekliyoruz:
+        modelBuilder.Entity<Kitap>().HasData(
+            new Kitap { Id = 1, KitapAdi = "Yıldızlara Yolculuk", YazarAdi = "Carl Sagan", Fiyat = 150.00m },
+            new Kitap { Id = 2, KitapAdi = "Kutup Yıldızı'nın Sırrı", YazarAdi = "Arthur C. Clarke", Fiyat = 200.00m },
+            new Kitap { Id = 3, KitapAdi = "Mars Yıllıkları", YazarAdi = "Ray Bradbury", Fiyat = 180.00m }
+        );
+    }
