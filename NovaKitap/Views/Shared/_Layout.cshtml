@@ -8,6 +8,9 @@
     var adSoyad = HttpContextAccessor.HttpContext?.Session.GetString("KullaniciAdSoyad");
     // Asistan için sadece ilk ismi alıyoruz (Boşsa "Gezgin" diyoruz)
     var kullaniciIlkAd = !string.IsNullOrEmpty(adSoyad) ? adSoyad.Split(' ')[0] : "Gezgin";
+    
+    // Admin yetkisi kontrolü için rolü çekiyoruz
+    var aktifRol = HttpContextAccessor.HttpContext?.Session.GetString("KullaniciRolu");
 }
 <!DOCTYPE html>
 <html lang="tr">
@@ -40,6 +43,21 @@
                 <!-- Sağ Menü (Yıldızlar, Sepet & Profil) -->
                 <div class="d-flex align-items-center gap-3">
                     
+                    @if (aktifRol == "Admin")
+                    {
+                        <!-- Sadece Adminlerin tıklayıp gidebileceği gerçek link -->
+                        <a asp-controller="Admin" asp-action="UrunEkle" class="btn d-flex align-items-center gap-2 shadow-sm" style="background-color: var(--star-beige); color: var(--header-bg); border-radius: 20px; font-weight: bold;">
+                            <span style="font-size: 1.1rem;">⚙️</span> Admin Paneli
+                        </a>
+                    }
+                    else
+                    {
+                        <!-- Müşteriler veya giriş yapmamış kişiler tıkladığında uyarı veren sahte link -->
+                        <a href="#" onclick="alert('Buraya yetkiniz yok! Sadece sistem yöneticileri giriş yapabilir.'); return false;" class="btn d-flex align-items-center gap-2 shadow-sm" style="background-color: var(--star-beige); color: var(--header-bg); border-radius: 20px; font-weight: bold;">
+                            <span style="font-size: 1.1rem;">⚙️</span> Admin Paneli
+                        </a>
+                    }
+
                     <!-- YILDIZLADIKLARIM BUTONU -->
                     <a asp-controller="Home" asp-action="Kaydedilenler" class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 20px;">
                         <span style="color: var(--star-beige); font-size: 1.2rem;">✦</span> Yıldızladıklarım
@@ -88,6 +106,7 @@
             @RenderBody()
         </main>
     </div>
+    
     <button class="chatbot-toggle" onclick="document.getElementById('nova-chatbot').style.display='flex'">
         ✦
     </button>

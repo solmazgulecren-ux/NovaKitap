@@ -325,9 +325,56 @@ namespace NovaKitap.Controllers
 
         // Diğer boş sayfalar
         public IActionResult Kategoriler() => View();
-        public IActionResult YeniCikanlar() => View();
-        public IActionResult EnCokSatanlar() => View();
+        public IActionResult YeniCikanlar() =>
+            // Sayfaya 20 tane alalım
+            View(GetYeniCikanUrunlerListesi(20));
+        public IActionResult EnCokSatanlar()
+        {
+            var cokSatanUrunler = GetCokSatanUrunlerListesi(20);
+            return View(cokSatanUrunler);
+        }
+        private List<UrunViewModel> GetYeniCikanUrunlerListesi(int limit)
+        {
+            var kitaplar = _context.Kitaplars
+                .Where(k => k.YeniCikanMi == true)
+                .OrderByDescending(k => k.KitapId)
+                .Select(k => new UrunViewModel { Id = k.KitapId, UrunAdi = k.KitapAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kitap" })
+                .ToList();
 
+            var kirtasiyeler = _context.Kirtasiyelers
+                .Where(k => k.YeniCikanMi == true)
+                .OrderByDescending(k => k.KirtasiyeId)
+                .Select(k => new UrunViewModel { Id = k.KirtasiyeId, UrunAdi = k.UrunAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kirtasiye" })
+                .ToList();
+
+
+            return kitaplar.Concat(kirtasiyeler).Concat(_context.Oyuncaklars
+               .Where(o => o.YeniCikanMi == true)
+               .OrderByDescending(o => o.OyuncakId)
+               .Select(static o => new UrunViewModel
+               {
+                   Id = o.OyuncakId,
+                   UrunAdi = o.UrunAdi ?? "İsimsiz Ürün", // Eğer isim null ise hata verme, bunu yaz
+                   Fiyat = o.Fiyat,
+                   KapakResimUrl = o.KapakResimUrl ?? "/img/default.jpg", // Resim null ise varsayılan resmi koy
+                   UrunTipi = "Oyuncak"
+               })
+               .ToList()).Take(limit).ToList();
+        }
+
+        private List<UrunViewModel> GetCokSatanUrunlerListesi(int limit)
+        {
+            var kitaplar = _context.Kitaplars.Where(k => k.CokSatanMi == true)
+                .Select(k => new UrunViewModel { Id = k.KitapId, UrunAdi = k.KitapAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kitap" }).ToList();
+
+            var kirtasiyeler = _context.Kirtasiyelers.Where(k => k.CokSatanMi == true)
+                .Select(k => new UrunViewModel { Id = k.KirtasiyeId, UrunAdi = k.UrunAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kirtasiye" }).ToList();
+
+            var oyuncaklar = _context.Oyuncaklars.Where(o => o.CokSatanMi == true)
+                .Select(o => new UrunViewModel { Id = o.OyuncakId, UrunAdi = o.UrunAdi, Fiyat = o.Fiyat, KapakResimUrl = o.KapakResimUrl, UrunTipi = "Oyuncak" }).ToList();
+
+            return kitaplar.Concat(kirtasiyeler).Concat(oyuncaklar).Take(limit).ToList();
+        }
         public IActionResult Yazarlar()
         {
             var yazarListesi = _context.Yazarlars.ToList();
@@ -339,12 +386,38 @@ namespace NovaKitap.Controllers
         // --- YENİ EKLENEN SAYFALAR ---
         public IActionResult Kirtasiye()
         {
-            return View();
+            var kirtasiyeUrunleri = _context.Kirtasiyelers
+                .OrderByDescending(k => k.KirtasiyeId)
+                .Select(k => new UrunViewModel
+                {
+                    Id = k.KirtasiyeId,
+                    UrunAdi = k.UrunAdi,
+                    Fiyat = k.Fiyat,
+                    KapakResimUrl = k.KapakResimUrl,
+                    UrunTipi = "Kirtasiye"
+                }).ToList();
+
+            return View(kirtasiyeUrunleri);
         }
 
         public IActionResult Oyuncak()
         {
-            return View();
+            var oyuncaklar = _context.Oyuncaklars
+     .Where(o => o.YeniCikanMi == true)
+     .OrderByDescending(o => o.OyuncakId)
+     .Select(o => new UrunViewModel
+     {
+         Id = o.OyuncakId,
+         // Eğer veritabanında isim boşsa "Bilinmiyor" yaz, çökme!
+         UrunAdi = o.UrunAdi ?? "Bilinmiyor",
+         Fiyat = o.Fiyat,
+         // Eğer resim yoksa boş string gönder
+         KapakResimUrl = o.KapakResimUrl ?? "",
+         UrunTipi = "Oyuncak"
+     })
+     .ToList();
+
+            return View(oyuncaklar);
         }
 
         public IActionResult Admin()
@@ -354,14 +427,12 @@ namespace NovaKitap.Controllers
 
         // --- YAPAY ZEKA (GEMINI API) ENTEGRASYONU ---
         [HttpPost]
-        [HttpPost]
         public async Task<IActionResult> AsistanCevap([FromBody] ChatRequest istek)
         {
             if (istek == null || string.IsNullOrEmpty(istek.Mesaj)) return BadRequest();
 
             try
             {
-                // 1. Veritabanından verileri çek
                 var aktifKitaplar = _context.Kitaplars
                     .Include(k => k.Yazar)
                     .Select(k => k.KitapAdi + " (" + k.Fiyat + " TL)")
@@ -372,14 +443,10 @@ namespace NovaKitap.Controllers
                 string kullaniciAdSoyad = HttpContext.Session.GetString("KullaniciAdSoyad") ?? "Müşteri";
                 string kullaniciIlkAd = kullaniciAdSoyad.Split(' ')[0];
 
-                // 2. Basitleştirilmiş Prompt
                 string prompt = $"Sen 'Nova Asistan' adında bir yapay zekasın. Kullanıcı adı: {kullaniciIlkAd}. Soru: '{istek.Mesaj}'. Stoktaki kitaplar: {dbVerisi}. Stoklara göre kısa ve kibar cevap ver.";
-
-                // 3. API Bağlantısı
 
                 string apiKey = "AIzaSyDcDP6qH3lH7toHZK9_ePhtfz-ihmjh7jk";
                 string apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=" + apiKey;
-
 
                 using (var client = new HttpClient())
                 {
@@ -400,14 +467,12 @@ namespace NovaKitap.Controllers
                     }
                     else
                     {
-                        // EĞER API HATA VERİRSE, HATAYI DİREKT EKRANA YAZDIRALIM Kİ NE OLDUĞUNU GÖRELİM!
                         return Json(new { cevap = $"Google API Hatası: {response.StatusCode} - Detay: {responseString}" });
                     }
                 }
             }
             catch (Exception ex)
             {
-                // KODDA BİR ÇÖKME OLURSA BURAYA DÜŞER
                 return Json(new { cevap = $"Sistem Hatası: {ex.Message}" });
             }
         }

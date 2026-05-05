@@ -7,7 +7,7 @@ public partial class Kitaplar
 {
     public int KitapId { get; set; }
 
-    public string KitapAdi { get; set; } = null!;
+    public string? KitapAdi { get; set; } = null!;
 
     public string? Aciklama { get; set; }
 
@@ -17,6 +17,7 @@ public partial class Kitaplar
 
     public string? KapakResimUrl { get; set; }
 
+    public int? StokAdedi { get; set; } = 0;
     public bool? YeniCikanMi { get; set; }
 
     public bool? CokSatanMi { get; set; }

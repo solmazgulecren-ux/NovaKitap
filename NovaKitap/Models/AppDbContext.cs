@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-
+using NovaKitap.Models;
 namespace NovaKitap.Models;
 
 public partial class AppDbContext : DbContext
@@ -31,9 +31,10 @@ public partial class AppDbContext : DbContext
 
     public DbSet<Siparis> Siparisler { get; set; }
     public DbSet<SiparisDetayi> SiparisDetaylari { get; set; }
-
     public DbSet<Adresler> Adresler { get; set; }
     public DbSet<Kartlar> Kartlar { get; set; }
+    public virtual DbSet<Kirtasiyeler> Kirtasiyelers { get; set; }
+    public virtual DbSet<Oyuncaklar> Oyuncaklars { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=NovaKitapDB;Trusted_Connection=True;TrustServerCertificate=True;");
@@ -117,14 +118,3 @@ public partial class AppDbContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
-protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
-
-        // Kendi girdiğin kitapların birkaç tanesini buraya kalıcı olarak ekliyoruz:
-        modelBuilder.Entity<Kitap>().HasData(
-            new Kitap { Id = 1, KitapAdi = "Yıldızlara Yolculuk", YazarAdi = "Carl Sagan", Fiyat = 150.00m },
-            new Kitap { Id = 2, KitapAdi = "Kutup Yıldızı'nın Sırrı", YazarAdi = "Arthur C. Clarke", Fiyat = 200.00m },
-            new Kitap { Id = 3, KitapAdi = "Mars Yıllıkları", YazarAdi = "Ray Bradbury", Fiyat = 180.00m }
-        );
-    }

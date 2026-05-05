@@ -1,13 +1,48 @@
-﻿@{
-    ViewData["Title"] = "Yeni Çıkanlar"; // Burayı sayfanın adına göre değiştir
+﻿@model IEnumerable<NovaKitap.Models.UrunViewModel>
+
+@{
+    ViewData["Title"] = "Yeni Çıkan Ürünler";
 }
 
 <div class="container mt-5">
-    <h2 style="color: var(--silver);">
-        <span style="color: var(--star-beige);">✦</span> @ViewData["Title"]
+    <h2 class="text-center mb-4" style="color: var(--header-bg); font-weight: bold;">
+        <span style="color: var(--star-beige);">✦</span> Yeni Çıkanlar
     </h2>
-    <hr style="border-color: var(--grey-accent);" />
-    <div class="p-5 text-center" style="background-color: var(--space-blue); border-radius: 15px; border: 1px dashed var(--silver);">
-        <p class="text-muted fs-5">Bu sayfa şu an yapım aşamasındadır. Yıldızlar henüz buraya taşınmadı...</p>
+    <hr class="mb-5" style="width: 100px; margin: auto; border: 2px solid var(--star-beige);">
+
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        
+        <!-- YAPIŞTIRDIĞIMIZ O YENİ DÖNGÜ BURADA BAŞLIYOR -->
+        @foreach (var urun in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 position-relative" style="transition: transform 0.3s;">
+                    <span class="position-absolute top-0 start-0 badge rounded-pill bg-danger m-2 shadow-sm">Yeni</span>
+                    
+                    <img src="@urun.KapakResimUrl" class="card-img-top p-3" alt="@urun.UrunAdi" style="height: 250px; object-fit: contain;">
+                    
+                    <div class="card-body text-center">
+                        <h6 class="card-title fw-bold" style="color: var(--text-main);">@urun.UrunAdi</h6>
+                        <p class="card-text text-muted small fw-bold">@urun.Fiyat.ToString("C2")</p>
+                        
+                        <!-- Ürün Tipini (Kitap, Kırtasiye, Oyuncak) Gösteren Şık Rozet -->
+                        <span class="badge" style="background-color: var(--category-bg); color: white;">@urun.UrunTipi</span>
+                    </div>
+                    
+                    <div class="card-footer bg-transparent border-0 pb-3 text-center">
+                        <button class="btn btn-outline-light w-75 rounded-pill shadow-sm" style="color: var(--header-bg) !important; border-color: var(--header-bg) !important;">İncele</button>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- DÖNGÜ BURADA BİTİYOR -->
+
     </div>
 </div>
+
+<style>
+    .card:hover {
+        transform: translateY(-8px);
+        border-color: var(--star-beige) !important;
+    }
+</style>

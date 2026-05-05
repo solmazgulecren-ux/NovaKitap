@@ -1,14 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Kırtasiye Ürünleri";
+﻿@model IEnumerable<NovaKitap.Models.UrunViewModel>
+
+@{
+    ViewData["Title"] = "Kırtasiye";
 }
-<div class="container mt-4">
-    <h2 style="color: var(--silver);">
-        <span style="color: var(--star-beige);">✒️</span> @ViewData["Title"]
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4" style="color: var(--header-bg); font-weight: bold;">
+        <span style="color: var(--star-beige);">✒️</span> Kırtasiye Koleksiyonu
     </h2>
-    <hr style="border-color: var(--grey-accent);" />
-    <div class="p-5 text-center shadow-lg" style="background-color: var(--space-blue); border-radius: 15px; border: 1px dashed var(--star-beige);">
-        <div style="font-size: 4rem; margin-bottom: 20px;">🖋️📓</div>
-        <h3 style="color: #ffffff;">Kalemler ve Defterler Yakında Burada!</h3>
-        <p class="text-light fs-5 mt-3">Yeni eğitim-öğretim yılına özel kırtasiye ürünlerimiz raflara diziliyor...</p>
+    <hr class="mb-5" style="width: 100px; margin: auto; border: 2px solid var(--star-beige);">
+
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var urun in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 position-relative book-card">
+                    <img src="@urun.KapakResimUrl" class="card-img-top p-3" alt="@urun.UrunAdi" style="height: 250px; object-fit: contain;">
+                    
+                    <div class="card-body text-center">
+                        <h6 class="card-title fw-bold" style="color: var(--text-main);">@urun.UrunAdi</h6>
+                        <p class="card-text text-muted small fw-bold">@urun.Fiyat.ToString("C2")</p>
+                        <span class="badge" style="background-color: var(--category-bg); color: white;">@urun.UrunTipi</span>
+                    </div>
+                    
+                    <div class="card-footer bg-transparent border-0 pb-3 text-center">
+                        <button class="btn btn-outline-light w-75 rounded-pill shadow-sm" style="color: var(--header-bg) !important; border-color: var(--header-bg) !important;">İncele</button>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
