@@ -1,0 +1,1 @@
+﻿UPDATE Kullanicilar SET Rol = 'Admin' WHERE Email = 'senin_emailin@mail.com';
