@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema; // EKLENDİ
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NovaKitap.Models
 {
@@ -12,11 +12,15 @@ namespace NovaKitap.Models
         public int KullaniciId { get; set; }
         public DateTime SiparisTarihi { get; set; } = DateTime.Now;
 
-        [Column(TypeName = "decimal(18,2)")] // EKLENDİ
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ToplamTutar { get; set; }
 
         public string? SiparisDurumu { get; set; } = "Onay Bekliyor";
         public string? KargoAdresi { get; set; }
+
+        // --- HATAYI ÇÖZEN YENİ EKLENEN KISIM ---
+        public string? OdemeYontemi { get; set; }
+        // --------------------------------------
 
         public List<SiparisDetayi> SiparişDetaylari { get; set; }
     }

@@ -1,150 +1,86 @@
 ﻿@{
-    ViewData["Title"] = "Ürün Ekle - Yönetim Paneli";
+    ViewData["Title"] = "Yeni Ürün Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container mt-4 mb-5">
-    <div class="card shadow-sm border-0" style="border-radius: 15px; background-color: var(--bg-main);">
-        <div class="card-header border-0 text-white p-4" style="background-color: var(--header-bg); border-radius: 15px 15px 0 0;">
-            <h4 class="mb-0 fw-bold"><span style="color: var(--star-beige);">✦</span> Yeni Ürün Ekle</h4>
-            <small style="color: var(--grey-accent);">NovaKitap Envanter Yönetimi</small>
-        </div>
+    <!-- BAŞLIK VE GERİ DÖN BUTONU -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="color: var(--star-beige);">✦ Yeni Ürün Ekle</h2>
+        <a href="/Admin/Index" class="btn btn-outline-light">Geri Dön</a>
+    </div>
 
-        <div class="card-body p-4">
-            @if (TempData["Basari"] != null)
-            {
-                <div class="alert alert-success fw-bold">@TempData["Basari"]</div>
-            }
-
-            <form asp-controller="Admin" asp-action="UrunEkle" method="post">
-                <!-- 1. Ürün Tipi Seçimi -->
-                <div class="mb-4 p-3 rounded" style="background-color: #f8f9fa; border: 1px solid var(--grey-accent);">
-                    <label class="form-label fw-bold" style="color: var(--header-bg);">Eklenecek Ürün Tipini Seçin</label>
-                    <select class="form-select border-2" name="urunTipi" id="urunTipiSecici" style="border-color: var(--category-bg);" onchange="formGuncelle()">
-                        <option value="Kitap" selected>📚 Kitap</option>
-                        <option value="Kirtasiye">✒️ Kırtasiye</option>
-                        <option value="Oyuncak">🧸 Oyuncak</option>
+    <div class="card p-4 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 12px;">
+        <form action="/Admin/UrunEkle" method="post">
+            
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Ürün Türü</label>
+                    <select name="UrunTuru" id="UrunTuruSelect" class="form-select nova-search" required>
+                        <option value="Kitap">Kitap</option>
+                        <option value="Kirtasiye">Kırtasiye</option>
+                        <option value="Oyuncak">Oyuncak</option>
                     </select>
                 </div>
-
-                <!-- 2. Ortak Alanlar -->
-                <div class="row">
-                    <div class="col-md-8 mb-3">
-                        <label class="form-label fw-bold">Ürün Adı</label>
-                        <input name="urunAdi" class="form-control" placeholder="Ürün adını girin..." required />
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label class="form-label fw-bold">Fiyat (₺)</label>
-                        <input name="fiyat" type="number" step="0.01" class="form-control" placeholder="150.00" required />
-                    </div>
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Kategori</label>
+                    <!-- Kategori seçenekleri JavaScript ile doldurulacak -->
+                    <select name="Kategori" id="KategoriSelect" class="form-select nova-search" required>
+                    </select>
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-bold">Kategori</label>
-                        <select name="kategoriId" class="form-select" asp-items="ViewBag.Kategoriler">
-                            <option value="">-- Kategori Seçin --</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-bold">Kapak Resim URL</label>
-                        <input name="kapakResimUrl" class="form-control" placeholder="Resim linki..." />
-                    </div>
-                </div>
+            <div class="mb-3">
+                <label class="text-light mb-1">Ürün Adı</label>
+                <input type="text" name="UrunAdi" class="form-control nova-search" required placeholder="Ürünün adını girin" />
+            </div>
 
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Açıklama / Özet</label>
-                    <textarea name="aciklama" class="form-control" rows="3" placeholder="Ürün detaylarını buraya girin..."></textarea>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Fiyat (₺)</label>
+                    <input type="text" name="Fiyat" class="form-control nova-search" required placeholder="Örn: 150,50" />
                 </div>
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Başlangıç Stok Adedi</label>
+                    <input type="number" name="StokAdedi" class="form-control nova-search" required value="10" />
+                </div>
+            </div>
 
-                <!-- 3. DİNAMİK ALAN: KİTAP -->
-                <div id="kitapOzelAlanlar" class="p-3 mb-4 rounded urun-detay-alani" style="border: 1px dashed var(--category-bg);">
-                    <h6 class="fw-bold mb-3" style="color: var(--category-bg);">📚 Kitap Detayları</h6>
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label class="form-label">Yazar</label>
-                            <select name="yazarId" class="form-select" asp-items="ViewBag.Yazarlar">
-                                <option value="">-- Yazar Seçin --</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label class="form-label">Sayfa Sayısı</label>
-                            <input name="sayfaSayisi" type="number" class="form-control" />
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label class="form-label">Yayınevi</label>
-                            <input name="yayinevi" class="form-control" />
-                        </div>
-                        <div class="col-md-2 mb-3">
-                            <label class="form-label">Basım Yılı</label>
-                            <input name="basimYili" type="number" class="form-control" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. DİNAMİK ALAN: KIRTASİYE -->
-                <div id="kirtasiyeOzelAlanlar" class="p-3 mb-4 rounded urun-detay-alani" style="border: 1px dashed var(--star-beige); display: none;">
-                    <h6 class="fw-bold mb-3" style="color: var(--star-beige);">✒️ Kırtasiye Detayları</h6>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Marka</label>
-                            <input name="kirtasiyeMarka" class="form-control" placeholder="Örn: Faber-Castell" />
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Ürün Türü</label>
-                            <input name="urunTuru" class="form-control" placeholder="Örn: Defter, Dolma Kalem..." />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. DİNAMİK ALAN: OYUNCAK -->
-                <div id="oyuncakOzelAlanlar" class="p-3 mb-4 rounded urun-detay-alani" style="border: 1px dashed #e74c3c; display: none;">
-                    <h6 class="fw-bold mb-3" style="color: #e74c3c;">🧸 Oyuncak Detayları</h6>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Marka</label>
-                            <input name="oyuncakMarka" class="form-control" placeholder="Örn: LEGO, Hasbro..." />
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Yaş Grubu</label>
-                            <select name="yasGrubu" class="form-select">
-                                <option value="">-- Seçin --</option>
-                                <option value="0-3 Yaş">0-3 Yaş</option>
-                                <option value="3-6 Yaş">3-6 Yaş</option>
-                                <option value="7-12 Yaş">7-12 Yaş</option>
-                                <option value="12+ Yaş">12+ Yaş</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Aksiyon Butonları -->
-                <div class="text-end mt-2">
-                    <button type="submit" class="btn btn-nova px-5 py-2 fs-5" style="border-radius: 8px;">
-                        <span style="color: var(--header-bg);">Envantere Ekle ve Vitrine Çıkar</span>
-                    </button>
-                </div>
-            </form>
-        </div>
+            <button type="submit" class="btn btn-nova w-100">Sisteme ve Veritabanına Ekle</button>
+        </form>
     </div>
 </div>
 
+<!-- DİNAMİK KATEGORİ DEĞİŞİMİ İÇİN JAVASCRIPT -->
 <script>
-    function formGuncelle() {
-        var secilen = document.getElementById("urunTipiSecici").value;
-        
-        // Tüm detay alanlarını gizle
-        var detayAlanlari = document.getElementsByClassName("urun-detay-alani");
-        for (var i = 0; i < detayAlanlari.length; i++) {
-            detayAlanlari[i].style.display = "none";
+    document.addEventListener("DOMContentLoaded", function () {
+        const urunTuruSelect = document.getElementById("UrunTuruSelect");
+        const kategoriSelect = document.getElementById("KategoriSelect");
+
+        // Türlere göre kategoriler
+        const kategoriler = {
+            "Kitap": ["Edebiyat", "Klasik", "Bilim Kurgu", "Tarih", "Kişisel Gelişim", "Ders Kitabı"],
+            "Kirtasiye": ["Kalem", "Defter", "Silgi & Kalemtıraş", "Boya Malzemeleri", "Dosya & Klasör"],
+            "Oyuncak": ["Eğitici Oyuncak", "Kutu Oyunu", "Peluş", "Figür", "Yapboz (Puzzle)"]
+        };
+
+        // Seçime göre Kategori listesini güncelleyen fonksiyon
+        function kategorileriGuncelle() {
+            const secilenTur = urunTuruSelect.value;
+            kategoriSelect.innerHTML = ""; // Mevcut seçenekleri temizle
+
+            if (kategoriler[secilenTur]) {
+                kategoriler[secilenTur].forEach(function (kat) {
+                    const option = document.createElement("option");
+                    option.value = kat;
+                    option.textContent = kat;
+                    kategoriSelect.appendChild(option);
+                });
+            }
         }
-        
-        // Sadece seçileni göster
-        if (secilen === "Kitap") {
-            document.getElementById("kitapOzelAlanlar").style.display = "block";
-        } else if (secilen === "Kirtasiye") {
-            document.getElementById("kirtasiyeOzelAlanlar").style.display = "block";
-        } else if (secilen === "Oyuncak") {
-            document.getElementById("oyuncakOzelAlanlar").style.display = "block";
-        }
-    }
+
+        // Sayfa ilk yüklendiğinde ve seçim değiştiğinde çalıştır
+        urunTuruSelect.addEventListener("change", kategorileriGuncelle);
+        kategorileriGuncelle();
+    });
 </script>

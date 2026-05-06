@@ -45,8 +45,8 @@
                     
                     @if (aktifRol == "Admin")
                     {
-                        <!-- Sadece Adminlerin tıklayıp gidebileceği gerçek link -->
-                        <a asp-controller="Admin" asp-action="UrunEkle" class="btn d-flex align-items-center gap-2 shadow-sm" style="background-color: var(--star-beige); color: var(--header-bg); border-radius: 20px; font-weight: bold;">
+                        <!-- DÜZELTİLEN KISIM: asp-action="Index" yapıldı -->
+                        <a asp-controller="Admin" asp-action="Index" class="btn d-flex align-items-center gap-2 shadow-sm" style="background-color: var(--star-beige); color: var(--header-bg); border-radius: 20px; font-weight: bold;">
                             <span style="font-size: 1.1rem;">⚙️</span> Admin Paneli
                         </a>
                     }

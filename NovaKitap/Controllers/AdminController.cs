@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Http; // Session işlemleri için eklendi
+using Microsoft.AspNetCore.Http;
 using NovaKitap.Models;
 using System.Linq;
 
@@ -31,80 +31,129 @@ namespace NovaKitap.Controllers
         }
         // --------------------------------------------------
 
+        // GET: /Admin/Index (Kontrol Merkezi)
         [HttpGet]
-        public IActionResult UrunEkle()
+        public IActionResult Index()
         {
-            // Veritabanındaki kategori ve yazarları dropdown (seçim) kutuları için çekiyoruz
-            ViewBag.Kategoriler = new SelectList(_context.Kategorilers.ToList(), "KategoriId", "KategoriAdi");
-            ViewBag.Yazarlar = new SelectList(_context.Yazarlars.ToList(), "YazarId", "AdSoyad");
-
             return View();
         }
 
-        [HttpPost]
-        public IActionResult UrunEkle(
-     string urunTipi, string urunAdi, decimal fiyat, int? kategoriId, string kapakResimUrl, string aciklama,
-     // Kitap Özel
-     int? yazarId, int? sayfaSayisi, string yayinevi, int? basimYili,
-     // Kırtasiye Özel
-     string kirtasiyeMarka, string urunTuru,
-     // Oyuncak Özel
-     string oyuncakMarka, string yasGrubu)
+        // GET: /Admin/UrunEkle (Ürün Ekleme Sayfasını Açar)
+        [HttpGet]
+        public IActionResult UrunEkle()
         {
-            if (urunTipi == "Kitap")
+            return View();
+        }
+
+        // POST: /Admin/UrunEkle (Formdan gelen veriyi SQL'e kaydeder)
+        [HttpPost]
+        public IActionResult UrunEkle(string UrunTuru, string UrunAdi, decimal Fiyat, int StokAdedi)
+        {
+            if (UrunTuru == "Kitap")
             {
-                var yeniKitap = new Kitaplar
+                _context.Kitaplars.Add(new Kitaplar
                 {
-                    KitapAdi = urunAdi,
-                    Fiyat = fiyat,
-                    KategoriId = kategoriId,
-                    KapakResimUrl = kapakResimUrl,
-                    Aciklama = aciklama,
-                    YazarId = yazarId,
-                    SayfaSayisi = sayfaSayisi,
-                    Yayinevi = yayinevi,
-                    BasimYili = basimYili,
-                    YeniCikanMi = true,
-                    CokSatanMi = false // Otomatik vitrin kuralımız
-                };
-                _context.Kitaplars.Add(yeniKitap);
+                    KitapAdi = UrunAdi,
+                    Fiyat = Fiyat,
+                    StokAdedi = StokAdedi,
+                    YeniCikanMi = true, // Otomatik vitrine ekle
+                    CokSatanMi = false
+                });
             }
-            else if (urunTipi == "Kirtasiye")
+            else if (UrunTuru == "Kirtasiye")
             {
-                var yeniKirtasiye = new Kirtasiyeler
+                _context.Kirtasiyelers.Add(new Kirtasiyeler
                 {
-                    UrunAdi = urunAdi,
-                    Fiyat = fiyat,
-                    KategoriId = kategoriId,
-                    KapakResimUrl = kapakResimUrl,
-                    Aciklama = aciklama,
-                    Marka = kirtasiyeMarka,
-                    UrunTuru = urunTuru,
+                    UrunAdi = UrunAdi,
+                    Fiyat = Fiyat,
+                    StokAdedi = StokAdedi,
                     YeniCikanMi = true,
                     CokSatanMi = false
-                };
-                _context.Kirtasiyelers.Add(yeniKirtasiye);
+                });
             }
-            else if (urunTipi == "Oyuncak")
+            else if (UrunTuru == "Oyuncak")
             {
-                var yeniOyuncak = new Oyuncaklar
+                _context.Oyuncaklars.Add(new Oyuncaklar
                 {
-                    UrunAdi = urunAdi,
-                    Fiyat = fiyat,
-                    KategoriId = kategoriId,
-                    KapakResimUrl = kapakResimUrl,
-                    Aciklama = aciklama,
-                    Marka = oyuncakMarka,
-                    YasGrubu = yasGrubu,
+                    UrunAdi = UrunAdi,
+                    Fiyat = Fiyat,
+                    StokAdedi = StokAdedi,
                     YeniCikanMi = true,
                     CokSatanMi = false
-                };
-                _context.Oyuncaklars.Add(yeniOyuncak);
+                });
+            }
+
+            // SQL'e kesin kayıt yaptığımız yer
+            _context.SaveChanges();
+
+            TempData["Mesaj"] = "Ürün başarıyla eklendi ve vitrine gönderildi! ✦";
+            // Kayıttan sonra stok sayfasına yolla ki eklendiğini gözümüzle görelim
+            return RedirectToAction("StokYonetimi");
+        }
+
+        // GET: /Admin/StokYonetimi
+        [HttpGet]
+        public IActionResult StokYonetimi()
+        {
+            var viewModel = new StokYonetimiViewModel
+            {
+                Kitaplar = _context.Kitaplars.ToList(),
+                Kirtasiyeler = _context.Kirtasiyelers.ToList(),
+                Oyuncaklar = _context.Oyuncaklars.ToList()
+            };
+
+            return View(viewModel);
+        }
+
+        // POST: /Admin/StokGuncelle
+        [HttpPost]
+        public IActionResult StokGuncelle(string UrunTuru, int UrunId, int Stok, decimal Fiyat)
+        {
+            if (UrunTuru == "Kitap")
+            {
+                var urun = _context.Kitaplars.Find(UrunId);
+                if (urun != null) { urun.StokAdedi = Stok; urun.Fiyat = Fiyat; }
+            }
+            else if (UrunTuru == "Kirtasiye")
+            {
+                var urun = _context.Kirtasiyelers.Find(UrunId);
+                if (urun != null) { urun.StokAdedi = Stok; urun.Fiyat = Fiyat; }
+            }
+            else if (UrunTuru == "Oyuncak")
+            {
+                var urun = _context.Oyuncaklars.Find(UrunId);
+                if (urun != null) { urun.StokAdedi = Stok; urun.Fiyat = Fiyat; }
             }
 
             _context.SaveChanges();
-            TempData["Basari"] = $"{urunTipi} başarıyla eklendi ve 'Yeni Çıkanlar' vitrinine gönderildi! ✦";
-            return RedirectToAction("UrunEkle");
+
+            TempData["Mesaj"] = "Stok ve Fiyat başarıyla güncellendi!";
+            return RedirectToAction("StokYonetimi");
+        }
+
+        // GET: /Admin/SiparisYonetimi
+        [HttpGet]
+        public IActionResult SiparisYonetimi()
+        {
+            // Veritabanındaki Siparisler (Siparislers olarak tanımlı olabilir, DbContext'e göre düzeltilir)
+            var siparisler = _context.Siparisler.OrderByDescending(s => s.SiparisTarihi).ToList();
+            return View(siparisler);
+        }
+
+        // GET: /Admin/SiparisDetay 
+        [HttpGet]
+        public IActionResult SiparisDetay(int id)
+        {
+            var siparis = _context.Siparisler.FirstOrDefault(s => s.SiparisId == id);
+            if (siparis == null) return NotFound();
+
+            var kullanici = _context.Kullanicilars.FirstOrDefault(k => k.KullaniciId == siparis.KullaniciId);
+            var detaylar = _context.SiparisDetaylari.Where(d => d.SiparisId == id).ToList();
+
+            ViewBag.Kullanici = kullanici;
+            ViewBag.Detaylar = detaylar;
+
+            return View(siparis);
         }
     }
 }
