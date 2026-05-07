@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace NovaKitap.Models;
@@ -32,6 +32,6 @@ public partial class Kitaplar
 
     public virtual Yazarlar? Yazar { get; set; }
 
-    public string Yayinevi { get; set; }
+    public string? Yayinevi { get; set; }
     public int? BasimYili { get; set; }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -22,6 +22,6 @@ namespace NovaKitap.Models
         public string? OdemeYontemi { get; set; }
         // --------------------------------------
 
-        public List<SiparisDetayi> SiparişDetaylari { get; set; }
+        public List<SiparisDetayi> SiparisDetaylari { get; set; } = new();
     }
 }

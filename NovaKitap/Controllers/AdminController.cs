@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
 using NovaKitap.Models;
 using System.Linq;
-
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
 namespace NovaKitap.Controllers
 {
     public class AdminController : Controller
@@ -130,7 +132,66 @@ namespace NovaKitap.Controllers
             TempData["Mesaj"] = "Stok ve Fiyat başarıyla güncellendi!";
             return RedirectToAction("StokYonetimi");
         }
+        // GET: /Admin/KapaklariOtomatikCek
+        [HttpGet]
+        public async Task<IActionResult> KapaklariOtomatikCek()
+        {
+            // Veritabanındaki tüm kitapları çekiyoruz
+            var kitaplar = _context.Kitaplars.ToList();
+            int guncellenenSayi = 0;
 
+            using (var client = new HttpClient())
+            {
+                foreach (var kitap in kitaplar)
+                {
+                    try
+                    {
+                        // Kitap adını internet formatına çevirip Google'a soruyoruz
+                        string aramaMetni = Uri.EscapeDataString(kitap.KitapAdi);
+                        string url = $"https://www.googleapis.com/books/v1/volumes?q=intitle:{aramaMetni}";
+
+                        // Google'dan cevabı alıyoruz
+                        var response = await client.GetAsync(url);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var jsonString = await response.Content.ReadAsStringAsync();
+                            using var doc = JsonDocument.Parse(jsonString);
+                            var root = doc.RootElement;
+
+                            // Eğer Google bu kitabı bulduysa (items dizisi boş değilse)
+                            if (root.TryGetProperty("items", out var items) && items.GetArrayLength() > 0)
+                            {
+                                var volumeInfo = items[0].GetProperty("volumeInfo");
+                                if (volumeInfo.TryGetProperty("imageLinks", out var imageLinks))
+                                {
+                                    if (imageLinks.TryGetProperty("thumbnail", out var thumbnail))
+                                    {
+                                        // Resim linkini alıp güvenli (https) formata çeviriyoruz
+                                        string resimUrl = thumbnail.GetString().Replace("http://", "https://");
+
+                                        // SQL'deki KapakResimUrl alanını güncelliyoruz
+                                        kitap.KapakResimUrl = resimUrl;
+                                        guncellenenSayi++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        // Bir kitapta hata çıkarsa sistemi durdurma, diğerine geç
+                        continue;
+                    }
+                }
+            }
+
+            // Tüm yeni linkleri veritabanına topluca kaydediyoruz
+            await _context.SaveChangesAsync();
+
+            TempData["Mesaj"] = $"Harika! Tam {guncellenenSayi} kitabın gerçek kapağı Google'dan otomatik olarak çekildi ve veritabanına işlendi! ✦";
+            return RedirectToAction("StokYonetimi");
+        }
         // GET: /Admin/SiparisYonetimi
         [HttpGet]
         public IActionResult SiparisYonetimi()

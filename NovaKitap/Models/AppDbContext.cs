@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using NovaKitap.Models;
@@ -25,9 +25,7 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Yazarlar> Yazarlars { get; set; }
 
-    public DbSet<Adresler> Adreslers { get; set; }
 
-    public DbSet<Kartlar> Kartlars { get; set; }
 
     public DbSet<Siparis> Siparisler { get; set; }
     public DbSet<SiparisDetayi> SiparisDetaylari { get; set; }
@@ -113,6 +111,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.AdSoyad).HasMaxLength(150);
         });
 
+        modelBuilder.Seed();
         OnModelCreatingPartial(modelBuilder);
     }
 

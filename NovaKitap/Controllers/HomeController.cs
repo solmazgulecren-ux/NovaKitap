@@ -420,10 +420,7 @@ namespace NovaKitap.Controllers
             return View(oyuncaklar);
         }
 
-        public IActionResult Admin()
-        {
-            return View();
-        }
+
 
         // --- YAPAY ZEKA (GEMINI API) ENTEGRASYONU ---
         [HttpPost]
@@ -446,7 +443,7 @@ namespace NovaKitap.Controllers
                 string prompt = $"Sen 'Nova Asistan' adında bir yapay zekasın. Kullanıcı adı: {kullaniciIlkAd}. Soru: '{istek.Mesaj}'. Stoktaki kitaplar: {dbVerisi}. Stoklara göre kısa ve kibar cevap ver.";
 
                 string apiKey = "AIzaSyDcDP6qH3lH7toHZK9_ePhtfz-ihmjh7jk";
-                string apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=" + apiKey;
+                string apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey;
 
                 using (var client = new HttpClient())
                 {
