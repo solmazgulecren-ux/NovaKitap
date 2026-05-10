@@ -10,6 +10,11 @@
         <a href="/Admin/Index" class="btn btn-outline-light">Geri Dön</a>
     </div>
 
+    @if (TempData["Mesaj"] != null)
+    {
+        <div class="alert alert-success shadow-sm fw-bold">@TempData["Mesaj"]</div>
+    }
+
     <div class="card shadow-sm border-0" style="border-radius: 12px; overflow: hidden;">
         <table class="table table-hover align-middle mb-0">
             <thead style="background-color: var(--space-blue); color: var(--star-beige);">
@@ -39,22 +44,30 @@
                                 }
                                 else if (siparis.SiparisDurumu == "Kargoya Verildi")
                                 {
-
                                     <span class="badge bg-info text-dark">Kargoya Verildi</span>
                                 }
                                 else if (siparis.SiparisDurumu == "Tamamlandı")
                                 {
-
                                     <span class="badge bg-success">Tamamlandı</span>
                                 }
                                 else
                                 {
-
                                     <span class="badge bg-secondary">@siparis.SiparisDurumu</span>
                                 }
                             </td>
                             <td>
-                                <a href="/Admin/SiparisDetay/@siparis.SiparisId" class="btn btn-sm btn-primary fw-bold">Detayları Gör</a>
+                                <div class="d-flex gap-2">
+                                    <a href="/Admin/SiparisDetay/@siparis.SiparisId" class="btn btn-sm btn-primary fw-bold">Detay</a>
+                                    
+                                    @if (siparis.SiparisDurumu == "Onay Bekliyor")
+                                    {
+                                        <form action="/Admin/SiparisDurumGuncelle" method="post" class="m-0 p-0">
+                                            <input type="hidden" name="siparisId" value="@siparis.SiparisId" />
+                                            <input type="hidden" name="yeniDurum" value="Kargoya Verildi" />
+                                            <button type="submit" class="btn btn-sm btn-success fw-bold">Onayla</button>
+                                        </form>
+                                    }
+                                </div>
                             </td>
                         </tr>
                     }

@@ -75,18 +75,28 @@ namespace NovaKitap.Controllers
         public IActionResult Ara(string? q)
         {
             GetKaydedilenIdler();
+            if (string.IsNullOrEmpty(q)) return RedirectToAction("Index");
 
-            if (string.IsNullOrEmpty(q))
-            {
-                return RedirectToAction("Index");
-            }
+            string arama = q.ToLower();
 
-            var sonuclar = _context.Kitaplars
-                .Include(k => k.Yazar)
-                .Where(k => k.KitapAdi.Contains(q) || (k.Yazar != null && k.Yazar.AdSoyad.Contains(q)))
-                .ToList();
+            var kitaplar = _context.Kitaplars.Include(k => k.Yazar)
+                .Where(k => k.KitapAdi.ToLower().Contains(arama) || (k.Yazar != null && k.Yazar.AdSoyad.ToLower().Contains(arama)))
+                .Select(k => new UrunViewModel { Id = k.KitapId, UrunAdi = k.KitapAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kitap" }).ToList();
+
+            var kirtasiyeler = _context.Kirtasiyelers
+                .Where(k => k.UrunAdi.ToLower().Contains(arama) || (k.Marka != null && k.Marka.ToLower().Contains(arama)))
+                .Select(k => new UrunViewModel { Id = k.KirtasiyeId, UrunAdi = k.UrunAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kırtasiye" }).ToList();
+
+            var oyuncaklar = _context.Oyuncaklars
+                .Where(o => o.UrunAdi.ToLower().Contains(arama) || (o.Marka != null && o.Marka.ToLower().Contains(arama)))
+                .Select(o => new UrunViewModel { Id = o.OyuncakId, UrunAdi = o.UrunAdi, Fiyat = o.Fiyat, KapakResimUrl = o.KapakResimUrl, UrunTipi = "Oyuncak" }).ToList();
+
+            var sonuclar = kitaplar.Concat(kirtasiyeler).Concat(oyuncaklar).ToList();
 
             ViewBag.AramaKelimesi = q;
+
+            // Sonucları UrunViewModel listesi olarak dönüyoruz.
+            // Ara.cshtml sayfanın tasarımını YeniCikanlar.cshtml ile aynı yaparsan kusursuz çalışır!
             return View(sonuclar);
         }
 
@@ -141,25 +151,36 @@ namespace NovaKitap.Controllers
 
         // --- DETAY VE SEPET İŞLEMLERİ ---
 
-        public IActionResult Detay(int id)
+        // Ürün tipine göre detay sayfası (Kitap, Kirtasiye, Oyuncak)
+        public IActionResult Detay(int id, string tip = "Kitap")
         {
             GetKaydedilenIdler();
 
-            var kitap = _context.Kitaplars
-                .Include(k => k.Yazar)
-                .Include(k => k.Kategori)
-                .FirstOrDefault(k => k.KitapId == id);
+            if (tip == "Kirtasiye" || tip == "Kırtasiye") // Türkçe karakter ihtimaline karşı
+            {
+                var urun = _context.Kirtasiyelers.FirstOrDefault(k => k.KirtasiyeId == id);
+                if (urun == null) return RedirectToAction("Index");
 
+                return View("UrunDetay", new UrunViewModel { Id = urun.KirtasiyeId, UrunAdi = urun.UrunAdi, Fiyat = urun.Fiyat, KapakResimUrl = urun.KapakResimUrl, UrunTipi = "Kırtasiye", Aciklama = urun.Aciklama, Marka = urun.Marka, EkBilgi = urun.UrunTuru });
+            }
+            else if (tip == "Oyuncak")
+            {
+                var urun = _context.Oyuncaklars.FirstOrDefault(o => o.OyuncakId == id);
+                if (urun == null) return RedirectToAction("Index");
+
+                return View("UrunDetay", new UrunViewModel { Id = urun.OyuncakId, UrunAdi = urun.UrunAdi, Fiyat = urun.Fiyat, KapakResimUrl = urun.KapakResimUrl, UrunTipi = "Oyuncak", Aciklama = urun.Aciklama, Marka = urun.Marka, EkBilgi = urun.YasGrubu });
+            }
+
+            // Varsayılan: Kitap Detay
+            var kitap = _context.Kitaplars.Include(k => k.Yazar).Include(k => k.Kategori).FirstOrDefault(k => k.KitapId == id);
             if (kitap == null) return RedirectToAction("Index");
-
             return View(kitap);
         }
 
-        public IActionResult SepeteEkle(int id)
+        // Sepete eklerken artık tipi de gönderiyoruz ki ID'ler karışmasın
+        public IActionResult SepeteEkle(int id, string tip = "Kitap")
         {
             var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
-
-            // Eğer giriş yapılmamışsa uyarı modalını tetikle ve aynı sayfada kal
             if (kullaniciId == null)
             {
                 TempData["GirisUyarisi"] = true;
@@ -167,17 +188,16 @@ namespace NovaKitap.Controllers
             }
 
             string? sepetJson = HttpContext.Session.GetString("Sepetim");
+            // Sepeti artık string bir liste olarak tutalım: "Kitap-1", "Kirtasiye-5" gibi
+            List<string> sepet = string.IsNullOrEmpty(sepetJson)
+                ? new List<string>()
+                : JsonSerializer.Deserialize<List<string>>(sepetJson) ?? new List<string>();
 
-            List<int> sepet = string.IsNullOrEmpty(sepetJson)
-                ? new List<int>()
-                : JsonSerializer.Deserialize<List<int>>(sepetJson) ?? new List<int>();
-
-            sepet.Add(id);
+            sepet.Add($"{tip}-{id}");
             HttpContext.Session.SetString("Sepetim", JsonSerializer.Serialize(sepet));
 
             return RedirectToAction("Sepet");
         }
-
         public IActionResult Sepet()
         {
             GetKaydedilenIdler();

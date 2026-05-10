@@ -7,5 +7,8 @@
         public decimal Fiyat { get; set; } // Fiyat genelde NOT NULL olur, hata alırsan decimal? yapabilirsin.
         public string? KapakResimUrl { get; set; }
         public string? UrunTipi { get; set; }
+        public string? Aciklama { get; set; }
+        public string? Marka { get; set; }
+        public string? EkBilgi { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+
 namespace NovaKitap.Controllers
 {
     public class AdminController : Controller
@@ -49,7 +50,7 @@ namespace NovaKitap.Controllers
 
         // POST: /Admin/UrunEkle (Formdan gelen veriyi SQL'e kaydeder)
         [HttpPost]
-        public IActionResult UrunEkle(string UrunTuru, string UrunAdi, decimal Fiyat, int StokAdedi)
+        public IActionResult UrunEkle(string UrunTuru, string UrunAdi, decimal Fiyat, int StokAdedi, string? Aciklama, string? KapakResimUrl, string? Marka, int? KategoriId, string? EkBilgi)
         {
             if (UrunTuru == "Kitap")
             {
@@ -58,7 +59,10 @@ namespace NovaKitap.Controllers
                     KitapAdi = UrunAdi,
                     Fiyat = Fiyat,
                     StokAdedi = StokAdedi,
-                    YeniCikanMi = true, // Otomatik vitrine ekle
+                    Aciklama = Aciklama,
+                    KapakResimUrl = KapakResimUrl,
+                    Yayinevi = Marka,
+                    YeniCikanMi = true,
                     CokSatanMi = false
                 });
             }
@@ -69,6 +73,10 @@ namespace NovaKitap.Controllers
                     UrunAdi = UrunAdi,
                     Fiyat = Fiyat,
                     StokAdedi = StokAdedi,
+                    Aciklama = Aciklama,
+                    KapakResimUrl = KapakResimUrl,
+                    Marka = Marka,
+                    UrunTuru = EkBilgi, // Formdan gelen Ek Bilgi buraya yazılır
                     YeniCikanMi = true,
                     CokSatanMi = false
                 });
@@ -80,16 +88,17 @@ namespace NovaKitap.Controllers
                     UrunAdi = UrunAdi,
                     Fiyat = Fiyat,
                     StokAdedi = StokAdedi,
+                    Aciklama = Aciklama,
+                    KapakResimUrl = KapakResimUrl,
+                    Marka = Marka,
+                    YasGrubu = EkBilgi, // Formdan gelen Ek Bilgi buraya yazılır
                     YeniCikanMi = true,
                     CokSatanMi = false
                 });
             }
 
-            // SQL'e kesin kayıt yaptığımız yer
             _context.SaveChanges();
-
-            TempData["Mesaj"] = "Ürün başarıyla eklendi ve vitrine gönderildi! ✦";
-            // Kayıttan sonra stok sayfasına yolla ki eklendiğini gözümüzle görelim
+            TempData["Mesaj"] = "Detaylı ürün başarıyla eklendi! ✦";
             return RedirectToAction("StokYonetimi");
         }
 
@@ -132,6 +141,7 @@ namespace NovaKitap.Controllers
             TempData["Mesaj"] = "Stok ve Fiyat başarıyla güncellendi!";
             return RedirectToAction("StokYonetimi");
         }
+
         // GET: /Admin/KapaklariOtomatikCek
         [HttpGet]
         public async Task<IActionResult> KapaklariOtomatikCek()
@@ -147,7 +157,7 @@ namespace NovaKitap.Controllers
                     try
                     {
                         // Kitap adını internet formatına çevirip Google'a soruyoruz
-                        string aramaMetni = Uri.EscapeDataString(kitap.KitapAdi);
+                        string aramaMetni = Uri.EscapeDataString(kitap.KitapAdi ?? "İsimsiz Kitap");
                         string url = $"https://www.googleapis.com/books/v1/volumes?q=intitle:{aramaMetni}";
 
                         // Google'dan cevabı alıyoruz
@@ -192,6 +202,7 @@ namespace NovaKitap.Controllers
             TempData["Mesaj"] = $"Harika! Tam {guncellenenSayi} kitabın gerçek kapağı Google'dan otomatik olarak çekildi ve veritabanına işlendi! ✦";
             return RedirectToAction("StokYonetimi");
         }
+
         // GET: /Admin/SiparisYonetimi
         [HttpGet]
         public IActionResult SiparisYonetimi()
@@ -215,6 +226,53 @@ namespace NovaKitap.Controllers
             ViewBag.Detaylar = detaylar;
 
             return View(siparis);
+        }
+
+        [HttpPost]
+        public IActionResult SiparisDurumGuncelle(int siparisId, string yeniDurum)
+        {
+            var siparis = _context.Siparisler.FirstOrDefault(s => s.SiparisId == siparisId);
+            if (siparis != null)
+            {
+                siparis.SiparisDurumu = yeniDurum;
+                _context.SaveChanges();
+                TempData["Mesaj"] = $"#{siparisId} numaralı sipariş başarıyla '{yeniDurum}' olarak güncellendi!";
+            }
+            return RedirectToAction("SiparisYonetimi");
+        }
+
+        // --- ÜRÜN KALDIRMA (SİLME) METODU ---
+        [HttpPost]
+        public IActionResult UrunKaldir(string UrunTuru, int UrunId)
+        {
+            try
+            {
+                if (UrunTuru == "Kitap")
+                {
+                    var urun = _context.Kitaplars.Find(UrunId);
+                    if (urun != null) _context.Kitaplars.Remove(urun);
+                }
+                else if (UrunTuru == "Kirtasiye")
+                {
+                    var urun = _context.Kirtasiyelers.Find(UrunId);
+                    if (urun != null) _context.Kirtasiyelers.Remove(urun);
+                }
+                else if (UrunTuru == "Oyuncak")
+                {
+                    var urun = _context.Oyuncaklars.Find(UrunId);
+                    if (urun != null) _context.Oyuncaklars.Remove(urun);
+                }
+
+                _context.SaveChanges();
+                TempData["Mesaj"] = "Ürün başarıyla sistemden kaldırıldı!";
+            }
+            catch
+            {
+                // Eğer ürün daha önce bir siparişte satıldıysa veya kaydedildiyse veritabanı silmeye izin vermez.
+                TempData["Hata"] = "Bu ürün geçmiş siparişlerde yer aldığı için tamamen silinemez. Bunun yerine stok adedini 0 yapabilirsiniz.";
+            }
+
+            return RedirectToAction("StokYonetimi");
         }
     }
 }

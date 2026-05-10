@@ -237,3 +237,24 @@ main .card [style*="color: var(--silver)"] {
         background-color: var(--header-bg) !important;
         color: #ffffff !important;
     }
+
+.nova-category-bar .nav-link {
+    color: #ffffff !important;
+    /* Yazılar varsayılan olarak beyaz olsun */
+}
+
+    .nova-category-bar .nav-link:focus,
+    .nova-category-bar .nav-link.active,
+    .nova-category-bar .active-nav-link {
+        color: var(--header-bg) !important;
+        background-color: var(--star-beige) !important;
+        border-radius: 5px;
+        /* Tıklanınca ve aktifken Lacivert yazı, Yıldız Beji arkaplan */
+    }
+
+    .nova-category-bar .nav-link:hover {
+        color: var(--header-bg) !important;
+        background-color: var(--star-beige) !important;
+        border-radius: 5px;
+        /* Üzerine gelince (Hover) de aynı tepkiyi versin */
+    }

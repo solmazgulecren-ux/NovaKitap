@@ -14,8 +14,11 @@
     {
         <div class="alert alert-success shadow-sm">@TempData["Mesaj"]</div>
     }
+    @if (TempData["Hata"] != null)
+    {
+        <div class="alert alert-danger shadow-sm">@TempData["Hata"]</div>
+    }
 
-    <!-- Sekmeler -->
     <ul class="nav nav-tabs" id="stokTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active fw-bold text-dark" data-bs-toggle="tab" data-bs-target="#kitap" type="button" role="tab">Kitaplar</button>
@@ -28,10 +31,8 @@
         </li>
     </ul>
 
-    <!-- Sekme İçerikleri -->
     <div class="tab-content bg-white p-0 border border-top-0 shadow-sm" id="stokTabContent" style="border-radius: 0 0 12px 12px; overflow: hidden;">
         
-        <!-- 1. KİTAPLAR TABLOSU -->
         <div class="tab-pane fade show active" id="kitap" role="tabpanel">
             <table class="table table-hover align-middle mb-0">
                 <thead style="background-color: var(--space-blue); color: var(--star-beige);">
@@ -46,11 +47,19 @@
                             <td><input type="number" form="form-kitap-@item.KitapId" name="Stok" value="@item.StokAdedi" class="form-control form-control-sm" style="width: 90px;" /></td>
                             <td><input type="text" form="form-kitap-@item.KitapId" name="Fiyat" value="@item.Fiyat" class="form-control form-control-sm" style="width: 100px;" /></td>
                             <td>
-                                <form id="form-kitap-@item.KitapId" action="/Admin/StokGuncelle" method="post" class="m-0 p-0">
-                                    <input type="hidden" name="UrunTuru" value="Kitap" />
-                                    <input type="hidden" name="UrunId" value="@item.KitapId" />
-                                    <button type="submit" class="btn btn-sm btn-success fw-bold">Kaydet</button>
-                                </form>
+                                <div class="d-flex gap-1">
+                                    <form id="form-kitap-@item.KitapId" action="/Admin/StokGuncelle" method="post" class="m-0 p-0">
+                                        <input type="hidden" name="UrunTuru" value="Kitap" />
+                                        <input type="hidden" name="UrunId" value="@item.KitapId" />
+                                        <button type="submit" class="btn btn-sm btn-success fw-bold">Kaydet</button>
+                                    </form>
+                                    
+                                    <form action="/Admin/UrunKaldir" method="post" class="m-0 p-0" onsubmit="return confirm('Bu ürünü sistemden kaldırmak istediğinize emin misiniz?');">
+                                        <input type="hidden" name="UrunTuru" value="Kitap" />
+                                        <input type="hidden" name="UrunId" value="@item.KitapId" />
+                                        <button type="submit" class="btn btn-sm btn-danger fw-bold">Kaldır</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     }
@@ -58,7 +67,6 @@
             </table>
         </div>
 
-        <!-- 2. KIRTASİYE TABLOSU -->
         <div class="tab-pane fade" id="kirtasiye" role="tabpanel">
             <table class="table table-hover align-middle mb-0">
                 <thead style="background-color: var(--space-blue); color: var(--star-beige);">
@@ -73,11 +81,19 @@
                             <td><input type="number" form="form-kirtasiye-@item.KirtasiyeId" name="Stok" value="@item.StokAdedi" class="form-control form-control-sm" style="width: 90px;" /></td>
                             <td><input type="text" form="form-kirtasiye-@item.KirtasiyeId" name="Fiyat" value="@item.Fiyat" class="form-control form-control-sm" style="width: 100px;" /></td>
                             <td>
-                                <form id="form-kirtasiye-@item.KirtasiyeId" action="/Admin/StokGuncelle" method="post" class="m-0 p-0">
-                                    <input type="hidden" name="UrunTuru" value="Kirtasiye" />
-                                    <input type="hidden" name="UrunId" value="@item.KirtasiyeId" />
-                                    <button type="submit" class="btn btn-sm btn-success fw-bold">Kaydet</button>
-                                </form>
+                                <div class="d-flex gap-1">
+                                    <form id="form-kirtasiye-@item.KirtasiyeId" action="/Admin/StokGuncelle" method="post" class="m-0 p-0">
+                                        <input type="hidden" name="UrunTuru" value="Kirtasiye" />
+                                        <input type="hidden" name="UrunId" value="@item.KirtasiyeId" />
+                                        <button type="submit" class="btn btn-sm btn-success fw-bold">Kaydet</button>
+                                    </form>
+                                    
+                                    <form action="/Admin/UrunKaldir" method="post" class="m-0 p-0" onsubmit="return confirm('Bu ürünü sistemden kaldırmak istediğinize emin misiniz?');">
+                                        <input type="hidden" name="UrunTuru" value="Kirtasiye" />
+                                        <input type="hidden" name="UrunId" value="@item.KirtasiyeId" />
+                                        <button type="submit" class="btn btn-sm btn-danger fw-bold">Kaldır</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     }
@@ -85,7 +101,6 @@
             </table>
         </div>
 
-        <!-- 3. OYUNCAKLAR TABLOSU -->
         <div class="tab-pane fade" id="oyuncak" role="tabpanel">
             <table class="table table-hover align-middle mb-0">
                 <thead style="background-color: var(--space-blue); color: var(--star-beige);">
@@ -100,17 +115,24 @@
                             <td><input type="number" form="form-oyuncak-@item.OyuncakId" name="Stok" value="@item.StokAdedi" class="form-control form-control-sm" style="width: 90px;" /></td>
                             <td><input type="text" form="form-oyuncak-@item.OyuncakId" name="Fiyat" value="@item.Fiyat" class="form-control form-control-sm" style="width: 100px;" /></td>
                             <td>
-                                <form id="form-oyuncak-@item.OyuncakId" action="/Admin/StokGuncelle" method="post" class="m-0 p-0">
-                                    <input type="hidden" name="UrunTuru" value="Oyuncak" />
-                                    <input type="hidden" name="UrunId" value="@item.OyuncakId" />
-                                    <button type="submit" class="btn btn-sm btn-success fw-bold">Kaydet</button>
-                                </form>
+                                <div class="d-flex gap-1">
+                                    <form id="form-oyuncak-@item.OyuncakId" action="/Admin/StokGuncelle" method="post" class="m-0 p-0">
+                                        <input type="hidden" name="UrunTuru" value="Oyuncak" />
+                                        <input type="hidden" name="UrunId" value="@item.OyuncakId" />
+                                        <button type="submit" class="btn btn-sm btn-success fw-bold">Kaydet</button>
+                                    </form>
+                                    
+                                    <form action="/Admin/UrunKaldir" method="post" class="m-0 p-0" onsubmit="return confirm('Bu ürünü sistemden kaldırmak istediğinize emin misiniz?');">
+                                        <input type="hidden" name="UrunTuru" value="Oyuncak" />
+                                        <input type="hidden" name="UrunId" value="@item.OyuncakId" />
+                                        <button type="submit" class="btn btn-sm btn-danger fw-bold">Kaldır</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>

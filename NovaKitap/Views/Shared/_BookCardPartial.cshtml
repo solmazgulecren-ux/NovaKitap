@@ -16,10 +16,12 @@
         }
     }
 }
-
 <div class="book-card p-0 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 12px; overflow: hidden; position: relative; transition: 0.3s; display: flex; flex-direction: column; height: 100%;">
     
-    <!-- YILDIZ (KAYDET) BUTONU -->
+    <span class="badge position-absolute top-0 start-0 m-2" style="background-color: #FFD700; color: #000; font-weight: bold; z-index: 5;">
+        Kitap
+    </span>
+
     <button class="save-star-btn"
             onclick="toggleStar(this, @Model.KitapId)"
             title="Kaydet"
@@ -29,32 +31,26 @@
         @(isSaved ? "✦" : "✧")
     </button>
     
-    <!-- SQL'DEN GELEN KİTAP KAPAĞI -->
     <img src="@(string.IsNullOrEmpty(Model.KapakResimUrl) ? "https://via.placeholder.com/220x300/1B2A4A/C0C0C0?text=Kapak+Yok" : Model.KapakResimUrl)"
          alt="@Model.KitapAdi"
          class="img-fluid w-100"
          style="height: 280px; object-fit: cover;">
     
-    <!-- KİTAP DETAYLARI -->
     <div class="p-3 d-flex flex-column flex-grow-1">
-        <!-- Kitap Adı -->
         <h6 class="text-white text-truncate mb-1" title="@Model.KitapAdi">@Model.KitapAdi</h6>
         
-        <!-- Yayınevi (Eskiden ikinci bir fiyattı, buraya yayınevini ekledik) -->
         <p class="text-muted small mb-2 text-truncate" title="@Model.Yayinevi">
             @(string.IsNullOrEmpty(Model.Yayinevi) ? "Nova Kitap" : Model.Yayinevi)
         </p>
         
-        <!-- Fiyat -->
         <h5 class="mt-auto mb-3" style="color: var(--star-beige); font-weight: bold; font-size: 1.15rem;">
             @Model.Fiyat.ToString("N2") ₺
         </h5>
         
-        <!-- Butonlar -->
-        <div class="d-flex justify-content-between">
-            <a asp-controller="Home" asp-action="Detay" asp-route-id="@Model.KitapId" class="btn btn-sm btn-outline-light w-50 me-1" style="border-radius: 8px;">İncele</a>
+        <div class="d-flex gap-2">
+            <a asp-controller="Home" asp-action="Detay" asp-route-id="@Model.KitapId" asp-route-tip="Kitap" class="btn btn-sm btn-outline-light flex-fill py-2" style="border-radius: 8px;">İncele</a>
             
-            <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@Model.KitapId" class="btn btn-sm btn-nova w-50 ms-1" style="border-radius: 8px;">Sepete Ekle</a>
+            <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@Model.KitapId" asp-route-tip="Kitap" class="btn btn-sm btn-nova flex-fill py-2" style="border-radius: 8px;">Sepete Ekle</a>
         </div>
     </div>
 </div>
