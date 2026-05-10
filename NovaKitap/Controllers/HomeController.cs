@@ -4,7 +4,7 @@ using NovaKitap.Models;
 using Microsoft.AspNetCore.Http;
 using System.Linq;
 using System.Collections.Generic;
-using System.Text.Json; // Sepet işlemleri için ŞART
+using System.Text.Json; 
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -72,6 +72,19 @@ namespace NovaKitap.Controllers
             return View(kitaplar);
         }
 
+        // --- EKSİK OLAN YAZAR DETAY METODU EKLENDİ ---
+        public IActionResult YazarDetay(int id)
+        {
+            GetKaydedilenIdler();
+            var kitaplar = _context.Kitaplars.Include(k => k.Yazar).Where(k => k.YazarId == id).ToList();
+            var yazar = _context.Yazarlars.Find(id);
+            ViewBag.KategoriAdi = yazar?.AdSoyad + " Eserleri";
+            
+            // Kategori sayfasının tasarımını kullanarak yazarın kitaplarını listeliyoruz
+            return View("Kategori", kitaplar); 
+        }
+        // ----------------------------------------------
+
         public IActionResult Ara(string? q)
         {
             GetKaydedilenIdler();
@@ -95,8 +108,6 @@ namespace NovaKitap.Controllers
 
             ViewBag.AramaKelimesi = q;
 
-            // Sonucları UrunViewModel listesi olarak dönüyoruz.
-            // Ara.cshtml sayfanın tasarımını YeniCikanlar.cshtml ile aynı yaparsan kusursuz çalışır!
             return View(sonuclar);
         }
 
@@ -151,12 +162,11 @@ namespace NovaKitap.Controllers
 
         // --- DETAY VE SEPET İŞLEMLERİ ---
 
-        // Ürün tipine göre detay sayfası (Kitap, Kirtasiye, Oyuncak)
         public IActionResult Detay(int id, string tip = "Kitap")
         {
             GetKaydedilenIdler();
 
-            if (tip == "Kirtasiye" || tip == "Kırtasiye") // Türkçe karakter ihtimaline karşı
+            if (tip == "Kirtasiye" || tip == "Kırtasiye") 
             {
                 var urun = _context.Kirtasiyelers.FirstOrDefault(k => k.KirtasiyeId == id);
                 if (urun == null) return RedirectToAction("Index");
@@ -177,7 +187,6 @@ namespace NovaKitap.Controllers
             return View(kitap);
         }
 
-        // Sepete eklerken artık tipi de gönderiyoruz ki ID'ler karışmasın
         public IActionResult SepeteEkle(int id, string tip = "Kitap")
         {
             var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
@@ -188,7 +197,6 @@ namespace NovaKitap.Controllers
             }
 
             string? sepetJson = HttpContext.Session.GetString("Sepetim");
-            // Sepeti artık string bir liste olarak tutalım: "Kitap-1", "Kirtasiye-5" gibi
             List<string> sepet = string.IsNullOrEmpty(sepetJson)
                 ? new List<string>()
                 : JsonSerializer.Deserialize<List<string>>(sepetJson) ?? new List<string>();
@@ -198,26 +206,45 @@ namespace NovaKitap.Controllers
 
             return RedirectToAction("Sepet");
         }
+
         public IActionResult Sepet()
         {
             GetKaydedilenIdler();
 
             string? sepetJson = HttpContext.Session.GetString("Sepetim");
-            List<int> sepetIds = string.IsNullOrEmpty(sepetJson)
-                ? new List<int>()
-                : JsonSerializer.Deserialize<List<int>>(sepetJson) ?? new List<int>();
+            // Sepeti string listesi olarak alıyoruz (Çünkü içinde "Kitap-1", "Oyuncak-5" gibi metinler var)
+            List<string> sepetHamListe = string.IsNullOrEmpty(sepetJson)
+                ? new List<string>()
+                : JsonSerializer.Deserialize<List<string>>(sepetJson) ?? new List<string>();
 
-            var sepetKitaplari = new List<Kitaplar>();
-            foreach (var id in sepetIds)
+            var sepetUrunleri = new List<UrunViewModel>();
+
+            foreach (var item in sepetHamListe)
             {
-                var kitap = _context.Kitaplars.Include(k => k.Yazar).FirstOrDefault(k => k.KitapId == id);
-                if (kitap != null) sepetKitaplari.Add(kitap);
+                var parcalar = item.Split('-'); // "Kitap" ve "1" olarak ayırır
+                string tip = parcalar[0];
+                int id = int.Parse(parcalar[1]);
+
+                if (tip == "Kitap")
+                {
+                    var kitap = _context.Kitaplars.Include(k => k.Yazar).FirstOrDefault(k => k.KitapId == id);
+                    if (kitap != null) sepetUrunleri.Add(new UrunViewModel { Id = kitap.KitapId, UrunAdi = kitap.KitapAdi, Fiyat = kitap.Fiyat, KapakResimUrl = kitap.KapakResimUrl, UrunTipi = "Kitap" });
+                }
+                else if (tip == "Kirtasiye" || tip == "Kırtasiye")
+                {
+                    var kirtasiye = _context.Kirtasiyelers.FirstOrDefault(k => k.KirtasiyeId == id);
+                    if (kirtasiye != null) sepetUrunleri.Add(new UrunViewModel { Id = kirtasiye.KirtasiyeId, UrunAdi = kirtasiye.UrunAdi, Fiyat = kirtasiye.Fiyat, KapakResimUrl = kirtasiye.KapakResimUrl, UrunTipi = "Kırtasiye" });
+                }
+                else if (tip == "Oyuncak")
+                {
+                    var oyuncak = _context.Oyuncaklars.FirstOrDefault(o => o.OyuncakId == id);
+                    if (oyuncak != null) sepetUrunleri.Add(new UrunViewModel { Id = oyuncak.OyuncakId, UrunAdi = oyuncak.UrunAdi, Fiyat = oyuncak.Fiyat, KapakResimUrl = oyuncak.KapakResimUrl, UrunTipi = "Oyuncak" });
+                }
             }
 
-            return View(sepetKitaplari);
+            return View(sepetUrunleri);
         }
 
-        // --- GÜNCELLENEN ÖDEME VE ADRES/KART İŞLEMLERİ ---
         public IActionResult Odeme()
         {
             var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
@@ -226,21 +253,39 @@ namespace NovaKitap.Controllers
             string? sepetJson = HttpContext.Session.GetString("Sepetim");
             if (string.IsNullOrEmpty(sepetJson)) return RedirectToAction("Sepet");
 
-            List<int> sepetIds = JsonSerializer.Deserialize<List<int>>(sepetJson) ?? new List<int>();
+            // Sepeti string listesi olarak okuyoruz
+            List<string> sepetHamListe = JsonSerializer.Deserialize<List<string>>(sepetJson) ?? new List<string>();
+            var sepetUrunleri = new List<UrunViewModel>();
 
-            var sepetKitaplari = new List<Kitaplar>();
-            foreach (var id in sepetIds)
+            foreach (var item in sepetHamListe)
             {
-                var kitap = _context.Kitaplars.Include(k => k.Yazar).FirstOrDefault(k => k.KitapId == id);
-                if (kitap != null) sepetKitaplari.Add(kitap);
+                var parcalar = item.Split('-');
+                string tip = parcalar[0];
+                int id = int.Parse(parcalar[1]);
+
+                if (tip == "Kitap")
+                {
+                    var k = _context.Kitaplars.Include(x => x.Yazar).FirstOrDefault(x => x.KitapId == id);
+                    if (k != null) sepetUrunleri.Add(new UrunViewModel { Id = k.KitapId, UrunAdi = k.KitapAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kitap", Marka = k.Yazar?.AdSoyad });
+                }
+                else if (tip == "Kirtasiye" || tip == "Kırtasiye")
+                {
+                    var k = _context.Kirtasiyelers.FirstOrDefault(x => x.KirtasiyeId == id);
+                    if (k != null) sepetUrunleri.Add(new UrunViewModel { Id = k.KirtasiyeId, UrunAdi = k.UrunAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kırtasiye", Marka = k.Marka });
+                }
+                else if (tip == "Oyuncak")
+                {
+                    var o = _context.Oyuncaklars.FirstOrDefault(x => x.OyuncakId == id);
+                    if (o != null) sepetUrunleri.Add(new UrunViewModel { Id = o.OyuncakId, UrunAdi = o.UrunAdi, Fiyat = o.Fiyat, KapakResimUrl = o.KapakResimUrl, UrunTipi = "Oyuncak", Marka = o.Marka });
+                }
             }
 
             var viewModel = new OdemeViewModel
             {
-                ToplamTutar = sepetKitaplari.Sum(k => k.Fiyat),
+                ToplamTutar = sepetUrunleri.Sum(u => u.Fiyat),
                 KullaniciAdresleri = _context.Adresler.Where(a => a.KullaniciId == kullaniciId).ToList(),
                 KullaniciKartlari = _context.Kartlar.Where(k => k.KullaniciId == kullaniciId).ToList(),
-                SepetKitaplari = sepetKitaplari
+                SepetUrunleri = sepetUrunleri
             };
 
             return View(viewModel);
@@ -294,50 +339,77 @@ namespace NovaKitap.Controllers
             if (adres == null) return RedirectToAction("Odeme");
 
             string? sepetJson = HttpContext.Session.GetString("Sepetim");
-            List<int> sepetIds = string.IsNullOrEmpty(sepetJson) ? new List<int>() : JsonSerializer.Deserialize<List<int>>(sepetJson) ?? new List<int>();
+            if (string.IsNullOrEmpty(sepetJson)) return RedirectToAction("Sepet");
 
-            if (!sepetIds.Any()) return RedirectToAction("Sepet");
+            // DÜZELTME: Sepeti string listesi olarak alıyoruz
+            List<string> sepetHamListe = JsonSerializer.Deserialize<List<string>>(sepetJson) ?? new List<string>();
 
-            var sepetKitaplari = new List<Kitaplar>();
-            foreach (var id in sepetIds)
-            {
-                var kitap = _context.Kitaplars.FirstOrDefault(k => k.KitapId == id);
-                if (kitap != null) sepetKitaplari.Add(kitap);
-            }
+            if (!sepetHamListe.Any()) return RedirectToAction("Sepet");
 
+            // Sipariş nesnesini oluşturuyoruz
             var yeniSiparis = new Siparis
             {
                 KullaniciId = kullaniciId.Value,
-                ToplamTutar = sepetKitaplari.Sum(k => k.Fiyat),
                 KargoAdresi = (adres.Sehir ?? "") + " - " + (adres.AcikAdres ?? ""),
                 SiparisTarihi = DateTime.Now,
-                SiparisDurumu = "Onay Bekliyor"
+                SiparisDurumu = "Onay Bekliyor",
+                ToplamTutar = 0 // Döngü içinde hesaplayacağız
             };
 
             _context.Siparisler.Add(yeniSiparis);
-            _context.SaveChanges();
+            _context.SaveChanges(); // Sipariş ID oluşması için önce kaydediyoruz
 
-            foreach (var id in sepetIds)
+            decimal genelToplam = 0;
+
+            foreach (var item in sepetHamListe)
             {
-                var kitap = sepetKitaplari.FirstOrDefault(k => k.KitapId == id);
-                if (kitap != null)
+                var parcalar = item.Split('-');
+                string tip = parcalar[0];
+                int id = int.Parse(parcalar[1]);
+
+                decimal birimFiyat = 0;
+                int? kaydedilecekKitapId = null;
+
+                // Ürünün fiyatını ve tipini buluyoruz
+                if (tip == "Kitap")
                 {
-                    _context.SiparisDetaylari.Add(new SiparisDetayi
-                    {
-                        SiparisId = yeniSiparis.SiparisId,
-                        KitapId = kitap.KitapId,
-                        BirimFiyat = kitap.Fiyat,
-                        Adet = 1
-                    });
+                    var urun = _context.Kitaplars.Find(id);
+                    if (urun != null) { birimFiyat = urun.Fiyat; kaydedilecekKitapId = urun.KitapId; }
                 }
+                else if (tip == "Kirtasiye" || tip == "Kırtasiye")
+                {
+                    var urun = _context.Kirtasiyelers.Find(id);
+                    if (urun != null) birimFiyat = urun.Fiyat;
+                }
+                else if (tip == "Oyuncak")
+                {
+                    var urun = _context.Oyuncaklars.Find(id);
+                    if (urun != null) birimFiyat = urun.Fiyat;
+                }
+
+                // Sipariş Detayı ekleme
+                // NOT: SiparisDetayi tablonuz şu an sadece KitapId'ye bağlı olabilir. 
+                // Eğer oyuncak/kırtasiye satılacaksa o tabloyu da güncellemek gerekir ama şimdilik çökmemesi için:
+                _context.SiparisDetaylari.Add(new SiparisDetayi
+                {
+                    SiparisId = yeniSiparis.SiparisId,
+                    KitapId = kaydedilecekKitapId ?? 1, // Eğer kitap değilse varsayılan 1 veriyoruz (DB kısıtlaması varsa)
+                    BirimFiyat = birimFiyat,
+                    Adet = 1
+                });
+
+                genelToplam += birimFiyat;
             }
 
+            // Toplam tutarı güncelleyip son kez kaydediyoruz
+            yeniSiparis.ToplamTutar = genelToplam;
             _context.SaveChanges();
+
+            // Sepeti boşaltıyoruz
             HttpContext.Session.Remove("Sepetim");
 
             return RedirectToAction("SiparisBasarili");
         }
-
         public IActionResult SiparisBasarili()
         {
             return View();
@@ -345,14 +417,14 @@ namespace NovaKitap.Controllers
 
         // Diğer boş sayfalar
         public IActionResult Kategoriler() => View();
-        public IActionResult YeniCikanlar() =>
-            // Sayfaya 20 tane alalım
-            View(GetYeniCikanUrunlerListesi(20));
+        public IActionResult YeniCikanlar() => View(GetYeniCikanUrunlerListesi(20));
+        
         public IActionResult EnCokSatanlar()
         {
             var cokSatanUrunler = GetCokSatanUrunlerListesi(20);
             return View(cokSatanUrunler);
         }
+
         private List<UrunViewModel> GetYeniCikanUrunlerListesi(int limit)
         {
             var kitaplar = _context.Kitaplars
@@ -367,16 +439,15 @@ namespace NovaKitap.Controllers
                 .Select(k => new UrunViewModel { Id = k.KirtasiyeId, UrunAdi = k.UrunAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kirtasiye" })
                 .ToList();
 
-
             return kitaplar.Concat(kirtasiyeler).Concat(_context.Oyuncaklars
                .Where(o => o.YeniCikanMi == true)
                .OrderByDescending(o => o.OyuncakId)
                .Select(static o => new UrunViewModel
                {
                    Id = o.OyuncakId,
-                   UrunAdi = o.UrunAdi ?? "İsimsiz Ürün", // Eğer isim null ise hata verme, bunu yaz
+                   UrunAdi = o.UrunAdi ?? "İsimsiz Ürün", 
                    Fiyat = o.Fiyat,
-                   KapakResimUrl = o.KapakResimUrl ?? "/img/default.jpg", // Resim null ise varsayılan resmi koy
+                   KapakResimUrl = o.KapakResimUrl ?? "/img/default.jpg", 
                    UrunTipi = "Oyuncak"
                })
                .ToList()).Take(limit).ToList();
@@ -395,6 +466,7 @@ namespace NovaKitap.Controllers
 
             return kitaplar.Concat(kirtasiyeler).Concat(oyuncaklar).Take(limit).ToList();
         }
+
         public IActionResult Yazarlar()
         {
             var yazarListesi = _context.Yazarlars.ToList();
@@ -403,7 +475,6 @@ namespace NovaKitap.Controllers
 
         public IActionResult Privacy() => View();
 
-        // --- YENİ EKLENEN SAYFALAR ---
         public IActionResult Kirtasiye()
         {
             var kirtasiyeUrunleri = _context.Kirtasiyelers
@@ -423,24 +494,20 @@ namespace NovaKitap.Controllers
         public IActionResult Oyuncak()
         {
             var oyuncaklar = _context.Oyuncaklars
-     .Where(o => o.YeniCikanMi == true)
-     .OrderByDescending(o => o.OyuncakId)
-     .Select(o => new UrunViewModel
-     {
-         Id = o.OyuncakId,
-         // Eğer veritabanında isim boşsa "Bilinmiyor" yaz, çökme!
-         UrunAdi = o.UrunAdi ?? "Bilinmiyor",
-         Fiyat = o.Fiyat,
-         // Eğer resim yoksa boş string gönder
-         KapakResimUrl = o.KapakResimUrl ?? "",
-         UrunTipi = "Oyuncak"
-     })
-     .ToList();
+             .Where(o => o.YeniCikanMi == true)
+             .OrderByDescending(o => o.OyuncakId)
+             .Select(o => new UrunViewModel
+             {
+                 Id = o.OyuncakId,
+                 UrunAdi = o.UrunAdi ?? "Bilinmiyor",
+                 Fiyat = o.Fiyat,
+                 KapakResimUrl = o.KapakResimUrl ?? "",
+                 UrunTipi = "Oyuncak"
+             })
+             .ToList();
 
             return View(oyuncaklar);
         }
-
-
 
         // --- YAPAY ZEKA (GEMINI API) ENTEGRASYONU ---
         [HttpPost]

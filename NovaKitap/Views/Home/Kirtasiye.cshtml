@@ -27,14 +27,16 @@
                         
                         <h5 class="mt-auto mb-2" style="color: var(--star-beige); font-weight: bold;">₺@urun.Fiyat.ToString("N2")</h5>
                     </div>
-                    
                     <div class="card-footer bg-transparent border-0 pb-3 text-center d-flex gap-2">
-                        <a asp-controller="Home" asp-action="Detay" asp-route-id="@urun.Id" asp-route-tip="Kırtasiye"
-                           class="btn btn-sm btn-outline-light flex-fill py-2 rounded-pill">İncele</a>
-                        
-                        <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@urun.Id" asp-route-tip="Kırtasiye"
-                           class="btn btn-sm btn-nova flex-fill py-2 rounded-pill">Ekle 🛒</a>
+                        <a href="/Home/Detay?id=@urun.Id&tip=Kirtasiye" class="btn btn-sm btn-outline-light flex-fill py-2 rounded-pill">
+                            İncele
+                        </a>
+    
+                        <a href="/Home/SepeteEkle?id=@urun.Id&tip=Kirtasiye" class="btn btn-sm btn-nova flex-fill py-2 rounded-pill">
+                            Ekle 🛒
+                        </a>
                     </div>
+                   
                 </div>
             </div>
         }

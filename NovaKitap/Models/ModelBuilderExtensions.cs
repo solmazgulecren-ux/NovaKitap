@@ -198,6 +198,129 @@ namespace NovaKitap.Models
                 new Kirtasiyeler { KirtasiyeId = 99, UrunAdi = "Şerit Silici (Daksil)", Aciklama = "Tükenmez kalem hatalarını anında kapatıp üzerine yazmaya izin veren şerit.", Fiyat = 40.00m, KapakResimUrl = "/img/kirtasiye/urun_99.jpg", YeniCikanMi = false, CokSatanMi = true, StokAdedi = 250, Marka = "Tipp-Ex", UrunTuru = "Ofis" },
                 new Kirtasiyeler { KirtasiyeId = 100, UrunAdi = "Uzay Temalı Sırt Çantası", Aciklama = "Ortopedik sırt desteği.", Fiyat = 850.00m, KapakResimUrl = "/img/kirtasiye/urun_100.jpg", YeniCikanMi = true, CokSatanMi = true, StokAdedi = 30, Marka = "Nova Travel", UrunTuru = "Çanta" }
             );
+
+
+            // 5. OYUNCAKLAR (100 ADET - TAM LİSTE)
+            modelBuilder.Entity<Oyuncaklar>().HasData(
+                new Oyuncaklar { OyuncakId = 1, UrunAdi = "LEGO City Polis İstasyonu", Fiyat = 1450.00m, Marka = "LEGO", YasGrubu = "6+", StokAdedi = 15, KapakResimUrl = "/img/oyuncak/urun_1.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 2, UrunAdi = "Barbie Sonsuz Hareket Bebeği", Fiyat = 550.00m, Marka = "Mattel", YasGrubu = "3+", StokAdedi = 30, KapakResimUrl = "/img/oyuncak/urun_2.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 3, UrunAdi = "Hot Wheels 50'li Araba Seti", Fiyat = 2200.00m, Marka = "Hot Wheels", YasGrubu = "3+", StokAdedi = 10, KapakResimUrl = "/img/oyuncak/urun_3.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 4, UrunAdi = "Monopoly Dijital Bankacılık", Fiyat = 850.00m, Marka = "Hasbro", YasGrubu = "8+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_4.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 5, UrunAdi = "Nerf Ultra One", Fiyat = 1200.00m, Marka = "Nerf", YasGrubu = "8+", StokAdedi = 12, KapakResimUrl = "/img/oyuncak/urun_5.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 6, UrunAdi = "Fisher-Price Eğitici Tablet", Fiyat = 450.00m, Marka = "Fisher-Price", YasGrubu = "1-3 Yaş", StokAdedi = 40, KapakResimUrl = "/img/oyuncak/urun_6.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 7, UrunAdi = "Play-Doh Mutfak Atölyesi", Fiyat = 380.00m, Marka = "Hasbro", YasGrubu = "3+", StokAdedi = 50, KapakResimUrl = "/img/oyuncak/urun_7.jpg", YeniCikanMi = false, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 8, UrunAdi = "Scrabble Junior", Fiyat = 420.00m, Marka = "Mattel", YasGrubu = "5+", StokAdedi = 25, KapakResimUrl = "/img/oyuncak/urun_8.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 9, UrunAdi = "Remote Control Rock Crawler", Fiyat = 1100.00m, Marka = "Maisto", YasGrubu = "6+", StokAdedi = 18, KapakResimUrl = "/img/oyuncak/urun_9.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 10, UrunAdi = "Clementoni Robotik Laboratuvarı", Fiyat = 950.00m, Marka = "Clementoni", YasGrubu = "8+", StokAdedi = 15, KapakResimUrl = "/img/oyuncak/urun_10.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 11, UrunAdi = "Star Wars Millennium Falcon LEGO", Fiyat = 3500.00m, Marka = "LEGO", YasGrubu = "12+", StokAdedi = 5, KapakResimUrl = "/img/oyuncak/urun_11.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 12, UrunAdi = "LOL Surprise! O.M.G. Bebek", Fiyat = 750.00m, Marka = "MGA", YasGrubu = "4+", StokAdedi = 22, KapakResimUrl = "/img/oyuncak/urun_12.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 13, UrunAdi = "Transformers Optimus Prime", Fiyat = 650.00m, Marka = "Hasbro", YasGrubu = "6+", StokAdedi = 30, KapakResimUrl = "/img/oyuncak/urun_13.jpg", YeniCikanMi = false, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 14, UrunAdi = "Manyetik Satranç Takımı", Fiyat = 250.00m, Marka = "StarGames", YasGrubu = "6+", StokAdedi = 100, KapakResimUrl = "/img/oyuncak/urun_14.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 15, UrunAdi = "Peluş Ayı Nova 100cm", Fiyat = 900.00m, Marka = "NovaToys", YasGrubu = "0+", StokAdedi = 10, KapakResimUrl = "/img/oyuncak/urun_15.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 16, UrunAdi = "Uno Kart Oyunu", Fiyat = 120.00m, Marka = "Mattel", YasGrubu = "7+", StokAdedi = 200, KapakResimUrl = "/img/oyuncak/urun_16.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 17, UrunAdi = "Puzzle 1000 Parça: Galaksi", Fiyat = 280.00m, Marka = "Anatolian", YasGrubu = "12+", StokAdedi = 45, KapakResimUrl = "/img/oyuncak/urun_17.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 18, UrunAdi = "Ahşap Mutfak Seti", Fiyat = 1850.00m, Marka = "Woody", YasGrubu = "3+", StokAdedi = 8, KapakResimUrl = "/img/oyuncak/urun_18.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 19, UrunAdi = "Marvel Spider-Man Figür", Fiyat = 450.00m, Marka = "Hasbro", YasGrubu = "4+", StokAdedi = 40, KapakResimUrl = "/img/oyuncak/urun_19.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 20, UrunAdi = "Baby Alive Mama Yiyen Bebek", Fiyat = 850.00m, Marka = "Hasbro", YasGrubu = "3+", StokAdedi = 25, KapakResimUrl = "/img/oyuncak/urun_20.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 21, UrunAdi = "Hatchimals Pixies", Fiyat = 620.00m, Marka = "Spin Master", YasGrubu = "5+", StokAdedi = 35, KapakResimUrl = "/img/oyuncak/urun_21.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 22, UrunAdi = "Thomas & Friends Tren Seti", Fiyat = 580.00m, Marka = "Fisher-Price", YasGrubu = "3+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_22.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 23, UrunAdi = "Enchantimals Bebek ve Hayvanı", Fiyat = 220.00m, Marka = "Mattel", YasGrubu = "4+", StokAdedi = 60, KapakResimUrl = "/img/oyuncak/urun_23.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 24, UrunAdi = "Jenga Klasik", Fiyat = 350.00m, Marka = "Hasbro", YasGrubu = "6+", StokAdedi = 150, KapakResimUrl = "/img/oyuncak/urun_24.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 25, UrunAdi = "Slime Dev Yapım Seti", Fiyat = 180.00m, Marka = "NovaFun", YasGrubu = "5+", StokAdedi = 80, KapakResimUrl = "/img/oyuncak/urun_25.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 26, UrunAdi = "Güneş Sistemi Maket Kiti", Fiyat = 320.00m, Marka = "SciencePlay", YasGrubu = "8+", StokAdedi = 30, KapakResimUrl = "/img/oyuncak/urun_26.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 27, UrunAdi = "Pilli Işıklı Keman", Fiyat = 450.00m, Marka = "MusicStar", YasGrubu = "5+", StokAdedi = 15, KapakResimUrl = "/img/oyuncak/urun_27.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 28, UrunAdi = "Tabu XL", Fiyat = 550.00m, Marka = "Hasbro", YasGrubu = "12+", StokAdedi = 40, KapakResimUrl = "/img/oyuncak/urun_28.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 29, UrunAdi = "Risk Strateji Oyunu", Fiyat = 720.00m, Marka = "Hasbro", YasGrubu = "10+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_29.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 30, UrunAdi = "Duyusal Kum Seti 2kg", Fiyat = 250.00m, Marka = "SandMagic", YasGrubu = "3+", StokAdedi = 70, KapakResimUrl = "/img/oyuncak/urun_30.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 31, UrunAdi = "Frozen 2 Elsa Kostümü", Fiyat = 480.00m, Marka = "Disney", YasGrubu = "4-6 Yaş", StokAdedi = 15, KapakResimUrl = "/img/oyuncak/urun_31.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 32, UrunAdi = "Eğitici Sayılar Abaküsü", Fiyat = 150.00m, Marka = "Woody", YasGrubu = "3+", StokAdedi = 50, KapakResimUrl = "/img/oyuncak/urun_32.jpg", YeniCikanMi = false, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 33, UrunAdi = "Walkie Talkie Telsiz Seti", Fiyat = 650.00m, Marka = "SpyKit", YasGrubu = "8+", StokAdedi = 25, KapakResimUrl = "/img/oyuncak/urun_33.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 34, UrunAdi = "Lego Technic Yarış Arabası", Fiyat = 1150.00m, Marka = "LEGO", YasGrubu = "10+", StokAdedi = 12, KapakResimUrl = "/img/oyuncak/urun_34.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 35, UrunAdi = "Büyük Boy Yazı Tahtası", Fiyat = 580.00m, Marka = "NovaArt", YasGrubu = "3+", StokAdedi = 10, KapakResimUrl = "/img/oyuncak/urun_35.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 36, UrunAdi = "Minecraft Steve Figür Seti", Fiyat = 340.00m, Marka = "Mattel", YasGrubu = "6+", StokAdedi = 45, KapakResimUrl = "/img/oyuncak/urun_36.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 37, UrunAdi = "Trivial Pursuit Aile Boyu", Fiyat = 620.00m, Marka = "Hasbro", YasGrubu = "8+", StokAdedi = 18, KapakResimUrl = "/img/oyuncak/urun_37.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 38, UrunAdi = "Pilsan Akülü Araba 12V", Fiyat = 7500.00m, Marka = "Pilsan", YasGrubu = "3-8 Yaş", StokAdedi = 5, KapakResimUrl = "/img/oyuncak/urun_38.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 39, UrunAdi = "Twister Eğlence Matı", Fiyat = 420.00m, Marka = "Hasbro", YasGrubu = "6+", StokAdedi = 60, KapakResimUrl = "/img/oyuncak/urun_39.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 40, UrunAdi = "Doktor Seti Çantalı", Fiyat = 220.00m, Marka = "ToyMed", YasGrubu = "3+", StokAdedi = 90, KapakResimUrl = "/img/oyuncak/urun_40.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 41, UrunAdi = "Lego Duplo Hayvan Çiftliği", Fiyat = 680.00m, Marka = "LEGO", YasGrubu = "2+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_41.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 42, UrunAdi = "Batman Batmobile Araç", Fiyat = 780.00m, Marka = "DC Comics", YasGrubu = "4+", StokAdedi = 15, KapakResimUrl = "/img/oyuncak/urun_42.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 43, UrunAdi = "Barbie Veteriner Seti", Fiyat = 650.00m, Marka = "Mattel", YasGrubu = "3+", StokAdedi = 25, KapakResimUrl = "/img/oyuncak/urun_43.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 44, UrunAdi = "Süper Doktor Oyunu", Fiyat = 490.00m, Marka = "Hasbro", YasGrubu = "6+", StokAdedi = 35, KapakResimUrl = "/img/oyuncak/urun_44.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 45, UrunAdi = "K'Nex Mühendislik Seti", Fiyat = 890.00m, Marka = "K-Nex", YasGrubu = "9+", StokAdedi = 14, KapakResimUrl = "/img/oyuncak/urun_45.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 46, UrunAdi = "Kız Kulesi Maketi", Fiyat = 180.00m, Marka = "Woody", YasGrubu = "10+", StokAdedi = 100, KapakResimUrl = "/img/oyuncak/urun_46.jpg", YeniCikanMi = false, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 47, UrunAdi = "Vahşi Hayvanlar Figür Seti", Fiyat = 320.00m, Marka = "WildLife", YasGrubu = "3+", StokAdedi = 50, KapakResimUrl = "/img/oyuncak/urun_47.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 48, UrunAdi = "Teleskop Başlangıç Seti", Fiyat = 1450.00m, Marka = "SciencePlay", YasGrubu = "8+", StokAdedi = 8, KapakResimUrl = "/img/oyuncak/urun_48.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 49, UrunAdi = "Bratz Retro Bebek", Fiyat = 820.00m, Marka = "MGA", YasGrubu = "6+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_49.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 50, UrunAdi = "Domino 100 Parça Renkli", Fiyat = 240.00m, Marka = "Woody", YasGrubu = "4+", StokAdedi = 80, KapakResimUrl = "/img/oyuncak/urun_50.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 51, UrunAdi = "Lego Ninjago Ejderha Seti", Fiyat = 950.00m, Marka = "LEGO", YasGrubu = "8+", StokAdedi = 15, KapakResimUrl = "/img/oyuncak/urun_51.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 52, UrunAdi = "Disney Princess Şato", Fiyat = 3800.00m, Marka = "Disney", YasGrubu = "3+", StokAdedi = 4, KapakResimUrl = "/img/oyuncak/urun_52.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 53, UrunAdi = "Hot Wheels Şehir Macerası", Fiyat = 1650.00m, Marka = "Hot Wheels", YasGrubu = "4+", StokAdedi = 10, KapakResimUrl = "/img/oyuncak/urun_53.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 54, UrunAdi = "Catan Masa Oyunu", Fiyat = 850.00m, Marka = "Kosmos", YasGrubu = "10+", StokAdedi = 30, KapakResimUrl = "/img/oyuncak/urun_54.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 55, UrunAdi = "Bakugan Başlangıç Paketi", Fiyat = 450.00m, Marka = "Spin Master", YasGrubu = "6+", StokAdedi = 55, KapakResimUrl = "/img/oyuncak/urun_55.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 56, UrunAdi = "Paw Patrol Dev Devriye Aracı", Fiyat = 1250.00m, Marka = "Spin Master", YasGrubu = "3+", StokAdedi = 18, KapakResimUrl = "/img/oyuncak/urun_56.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 57, UrunAdi = "Pilsan Lego Masa Seti", Fiyat = 750.00m, Marka = "Pilsan", YasGrubu = "2+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_57.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 58, UrunAdi = "Harry Potter Asa (Işıklı)", Fiyat = 520.00m, Marka = "WizardWorld", YasGrubu = "6+", StokAdedi = 40, KapakResimUrl = "/img/oyuncak/urun_58.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 59, UrunAdi = "Squishmallows Yumuşak Yastık", Fiyat = 450.00m, Marka = "Kellytoy", YasGrubu = "0+", StokAdedi = 35, KapakResimUrl = "/img/oyuncak/urun_59.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 60, UrunAdi = "Guess Who? (Bil Bakalım Kim?)", Fiyat = 320.00m, Marka = "Hasbro", YasGrubu = "6+", StokAdedi = 60, KapakResimUrl = "/img/oyuncak/urun_60.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 61, UrunAdi = "Lego Friends Kafe Seti", Fiyat = 580.00m, Marka = "LEGO", YasGrubu = "6+", StokAdedi = 25, KapakResimUrl = "/img/oyuncak/urun_61.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 62, UrunAdi = "Magic Mixies Sihirli Kazan", Fiyat = 1850.00m, Marka = "Moose Toys", YasGrubu = "5+", StokAdedi = 12, KapakResimUrl = "/img/oyuncak/urun_62.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 63, UrunAdi = "Hot Wheels Renk Değiştirenler", Fiyat = 180.00m, Marka = "Hot Wheels", YasGrubu = "3+", StokAdedi = 120, KapakResimUrl = "/img/oyuncak/urun_63.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 64, UrunAdi = "Mikroskop Seti (1200x)", Fiyat = 750.00m, Marka = "SciencePlay", YasGrubu = "10+", StokAdedi = 22, KapakResimUrl = "/img/oyuncak/urun_64.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 65, UrunAdi = "Barbie Dreamtopia Denizkızı", Fiyat = 580.00m, Marka = "Mattel", YasGrubu = "3+", StokAdedi = 45, KapakResimUrl = "/img/oyuncak/urun_65.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 66, UrunAdi = "Cluedo Dedektiflik Oyunu", Fiyat = 520.00m, Marka = "Hasbro", YasGrubu = "8+", StokAdedi = 30, KapakResimUrl = "/img/oyuncak/urun_66.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 67, UrunAdi = "Lego Star Wars Boba Fett", Fiyat = 1100.00m, Marka = "LEGO", YasGrubu = "14+", StokAdedi = 10, KapakResimUrl = "/img/oyuncak/urun_67.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 68, UrunAdi = "Pokemon Battle Figure 3-Pack", Fiyat = 380.00m, Marka = "Jazwares", YasGrubu = "4+", StokAdedi = 65, KapakResimUrl = "/img/oyuncak/urun_68.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 69, UrunAdi = "Kayıp Kelimeler Hece Oyunu", Fiyat = 180.00m, Marka = "EğiticiDünya", YasGrubu = "5+", StokAdedi = 100, KapakResimUrl = "/img/oyuncak/urun_69.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 70, UrunAdi = "Büyük Boy Basketbol Potası", Fiyat = 1250.00m, Marka = "Sporty", YasGrubu = "6+", StokAdedi = 8, KapakResimUrl = "/img/oyuncak/urun_70.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 71, UrunAdi = "Lego Minecraft Kale Savaşı", Fiyat = 820.00m, Marka = "LEGO", YasGrubu = "8+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_71.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 72, UrunAdi = "Barbie Gardırop Seti", Fiyat = 950.00m, Marka = "Mattel", YasGrubu = "3+", StokAdedi = 15, KapakResimUrl = "/img/oyuncak/urun_72.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 73, UrunAdi = "Playmobil Korsan Gemisi", Fiyat = 1450.00m, Marka = "Playmobil", YasGrubu = "4+", StokAdedi = 7, KapakResimUrl = "/img/oyuncak/urun_73.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 74, UrunAdi = "Carcassonne Strateji Oyunu", Fiyat = 780.00m, Marka = "Z-Man Games", YasGrubu = "8+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_74.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 75, UrunAdi = "Uçan Helikopter (Sensorlü)", Fiyat = 320.00m, Marka = "TechToys", YasGrubu = "8+", StokAdedi = 50, KapakResimUrl = "/img/oyuncak/urun_75.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 76, UrunAdi = "Disney Cars Şimşek McQueen", Fiyat = 650.00m, Marka = "Mattel", YasGrubu = "3+", StokAdedi = 30, KapakResimUrl = "/img/oyuncak/urun_76.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 77, UrunAdi = "FurReal Sevimli Ayıcık", Fiyat = 1100.00m, Marka = "Hasbro", YasGrubu = "4+", StokAdedi = 12, KapakResimUrl = "/img/oyuncak/urun_77.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 78, UrunAdi = "Amiral Battı Klasik Oyunu", Fiyat = 380.00m, Marka = "Hasbro", YasGrubu = "7+", StokAdedi = 40, KapakResimUrl = "/img/oyuncak/urun_78.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 79, UrunAdi = "Lego Technic Kepçe", Fiyat = 920.00m, Marka = "LEGO", YasGrubu = "9+", StokAdedi = 15, KapakResimUrl = "/img/oyuncak/urun_79.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 80, UrunAdi = "Glow in the Dark Slime Kit", Fiyat = 220.00m, Marka = "NovaFun", YasGrubu = "5+", StokAdedi = 60, KapakResimUrl = "/img/oyuncak/urun_80.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 81, UrunAdi = "Nerf Fortnite Blaster", Fiyat = 850.00m, Marka = "Nerf", YasGrubu = "8+", StokAdedi = 25, KapakResimUrl = "/img/oyuncak/urun_81.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 82, UrunAdi = "Barbie Tatil Villası", Fiyat = 1350.00m, Marka = "Mattel", YasGrubu = "3+", StokAdedi = 10, KapakResimUrl = "/img/oyuncak/urun_82.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 83, UrunAdi = "Hot Wheels Akrobasi Seti", Fiyat = 720.00m, Marka = "Hot Wheels", YasGrubu = "4+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_83.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 84, UrunAdi = "Stratego Savaş Oyunu", Fiyat = 480.00m, Marka = "Jumbo", YasGrubu = "8+", StokAdedi = 35, KapakResimUrl = "/img/oyuncak/urun_84.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 85, UrunAdi = "Manyetik Bloklar 100 Parça", Fiyat = 950.00m, Marka = "MagnaTiles", YasGrubu = "3+", StokAdedi = 22, KapakResimUrl = "/img/oyuncak/urun_85.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 86, UrunAdi = "Talking Tom İnteraktif Kedi", Fiyat = 320.00m, Marka = "Dragon-I", YasGrubu = "3+", StokAdedi = 55, KapakResimUrl = "/img/oyuncak/urun_86.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 87, UrunAdi = "Ahşap Blok Tren", Fiyat = 280.00m, Marka = "Woody", YasGrubu = "18 Ay+", StokAdedi = 45, KapakResimUrl = "/img/oyuncak/urun_87.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 88, UrunAdi = "Okçuluk Seti (Vantuzlu)", Fiyat = 420.00m, Marka = "Sporty", YasGrubu = "6+", StokAdedi = 30, KapakResimUrl = "/img/oyuncak/urun_88.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 89, UrunAdi = "Barbie Spa Günü Bebek", Fiyat = 520.00m, Marka = "Mattel", YasGrubu = "3+", StokAdedi = 25, KapakResimUrl = "/img/oyuncak/urun_89.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 90, UrunAdi = "Lego Classic Pencereler Paketi", Fiyat = 450.00m, Marka = "LEGO", YasGrubu = "4+", StokAdedi = 50, KapakResimUrl = "/img/oyuncak/urun_90.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 91, UrunAdi = "My Little Pony Işıklı Figür", Fiyat = 350.00m, Marka = "Hasbro", YasGrubu = "3+", StokAdedi = 40, KapakResimUrl = "/img/oyuncak/urun_91.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 92, UrunAdi = "Air Hockey Masaüstü", Fiyat = 650.00m, Marka = "FunGames", YasGrubu = "6+", StokAdedi = 15, KapakResimUrl = "/img/oyuncak/urun_92.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 93, UrunAdi = "Çizim Tableti (LCD Yazı)", Fiyat = 220.00m, Marka = "TechToys", YasGrubu = "3+", StokAdedi = 100, KapakResimUrl = "/img/oyuncak/urun_93.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 94, UrunAdi = "Polly Pocket Şato Çantası", Fiyat = 480.00m, Marka = "Mattel", YasGrubu = "4+", StokAdedi = 30, KapakResimUrl = "/img/oyuncak/urun_94.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 95, UrunAdi = "Hulk Aksiyon Figürü 30cm", Fiyat = 450.00m, Marka = "Hasbro", YasGrubu = "4+", StokAdedi = 20, KapakResimUrl = "/img/oyuncak/urun_95.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 96, UrunAdi = "Risk Game of Thrones Edition", Fiyat = 1250.00m, Marka = "Hasbro", YasGrubu = "16+", StokAdedi = 10, KapakResimUrl = "/img/oyuncak/urun_96.jpg", YeniCikanMi = true, CokSatanMi = false },
+                new Oyuncaklar { OyuncakId = 97, UrunAdi = "Gitar Başlangıç Seti", Fiyat = 850.00m, Marka = "MusicStar", YasGrubu = "8+", StokAdedi = 12, KapakResimUrl = "/img/oyuncak/urun_97.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 98, UrunAdi = "Lego Creator 3'ü 1 Arada Kuş", Fiyat = 320.00m, Marka = "LEGO", YasGrubu = "7+", StokAdedi = 40, KapakResimUrl = "/img/oyuncak/urun_98.jpg", YeniCikanMi = true, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 99, UrunAdi = "Mikado Çubukları Dev Boy", Fiyat = 150.00m, Marka = "FunGames", YasGrubu = "6+", StokAdedi = 100, KapakResimUrl = "/img/oyuncak/urun_99.jpg", YeniCikanMi = false, CokSatanMi = true },
+                new Oyuncaklar { OyuncakId = 100, UrunAdi = "Rubik Kübü 3x3 Orijinal", Fiyat = 220.00m, Marka = "Rubik", YasGrubu = "8+", StokAdedi = 150, KapakResimUrl = "/img/oyuncak/urun_100.jpg", YeniCikanMi = false, CokSatanMi = true }
+            );
+
+
+
+
+            modelBuilder.Entity<Kullanicilar>().HasData(
+    new Kullanicilar
+    {
+        KullaniciId = 1,
+        AdSoyad = "Eco Solangül",
+        Email = "e@gmail.com",
+        Sifre = "1234",
+        Rol = "Admin"
+    }
+);
+
+
+
+
         }
     }
 

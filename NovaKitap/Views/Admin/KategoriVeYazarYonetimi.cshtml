@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Yazar ve Kategori Yönetimi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="color: var(--star-beige);">✦ Kategori & Yazar Yönetimi</h2>
+        <a href="/Admin/Index" class="btn btn-outline-light">Geri Dön</a>
+    </div>
+
+    @if (TempData["Mesaj"] != null)
+    {
+        <div class="alert alert-success shadow-sm">
+            @TempData["Mesaj"]
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card p-4 shadow-sm h-100" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 12px;">
+                <h4 class="text-light mb-4">🖋️ Yeni Yazar Ekle</h4>
+                <form action="/Admin/YazarEkle" method="post">
+                    <div class="mb-3">
+                        <label class="text-light mb-1">Yazarın Adı Soyadı</label>
+                        <input type="text" name="AdSoyad" class="form-control" required placeholder="Örn: Yaşar Kemal" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="text-light mb-1">Kısa Biyografi / Açıklama</label>
+                        <textarea name="Biyografi" class="form-control" rows="3" placeholder="Yazar hakkında bilgi..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-nova w-100 mt-auto">Yazarı Sisteme Kaydet</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card p-4 shadow-sm h-100" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 12px;">
+                <h4 class="text-light mb-4">📁 Yeni Kitap Kategorisi Ekle</h4>
+                <form action="/Admin/KategoriEkle" method="post">
+                    <div class="mb-3">
+                        <label class="text-light mb-1">Kategori Adı</label>
+                        <input type="text" name="KategoriAdi" class="form-control" required placeholder="Örn: Bilim Kurgu" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="text-light mb-1">İkon (Emoji)</label>
+                        <input type="text" name="IkonSifi" class="form-control" placeholder="Örn: 🚀 (Emoji kopyalayıp yapıştırabilirsiniz)" />
+                    </div>
+                    <button type="submit" class="btn btn-nova w-100 mt-auto">Kategoriyi Sisteme Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

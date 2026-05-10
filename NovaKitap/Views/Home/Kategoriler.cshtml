@@ -13,117 +13,101 @@
         Aradığın her neyse, Nova Kitap evreninde onun için ayrılmış bir köşe mutlaka vardır. Keşfetmeye başla!
     </p>
 
-    <!-- Kategoriler Izgarası (Grid) -->
-    <div class="row mt-4">
-        
-        <!-- Klasik -->
+    <h4 class="mt-4 mb-3" style="color: var(--header-bg); font-weight: bold;">📚 Kitap Türleri</h4>
+    <div class="row mt-2">
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="/Home/Kategori?id=1&isim=Klasik" class="text-decoration-none">
                 <div class="card h-100 p-4 text-center shadow-sm category-card">
                     <div class="cat-icon">📜</div>
-                    <h4 class="cat-title">Klasikler</h4>
+                    <h5 class="cat-title">Klasikler</h5>
                 </div>
             </a>
         </div>
-
-        <!-- Edebiyat -->
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="/Home/Kategori?id=2&isim=Edebiyat" class="text-decoration-none">
                 <div class="card h-100 p-4 text-center shadow-sm category-card">
                     <div class="cat-icon">🖋️</div>
-                    <h4 class="cat-title">Edebiyat</h4>
+                    <h5 class="cat-title">Edebiyat</h5>
                 </div>
             </a>
         </div>
-
-        <!-- Psikoloji -->
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="/Home/Kategori?id=3&isim=Psikoloji" class="text-decoration-none">
                 <div class="card h-100 p-4 text-center shadow-sm category-card">
                     <div class="cat-icon">🧠</div>
-                    <h4 class="cat-title">Psikoloji</h4>
+                    <h5 class="cat-title">Psikoloji</h5>
                 </div>
             </a>
         </div>
-
-        <!-- Tarih -->
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="/Home/Kategori?id=4&isim=Tarih" class="text-decoration-none">
                 <div class="card h-100 p-4 text-center shadow-sm category-card">
                     <div class="cat-icon">🏛️</div>
-                    <h4 class="cat-title">Tarih</h4>
+                    <h5 class="cat-title">Tarih</h5>
                 </div>
             </a>
         </div>
-
-        <!-- Felsefe -->
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="/Home/Kategori?id=5&isim=Felsefe" class="text-decoration-none">
                 <div class="card h-100 p-4 text-center shadow-sm category-card">
                     <div class="cat-icon">🤔</div>
-                    <h4 class="cat-title">Felsefe</h4>
-                </div>
+                    <h5 class="cat-title">Felsefe</h5>
+                </div>     
             </a>
         </div>
-
-        <!-- Polisiye -->
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="/Home/Kategori?id=6&isim=Polisiye" class="text-decoration-none">
                 <div class="card h-100 p-4 text-center shadow-sm category-card">
                     <div class="cat-icon">🕵️‍♂️</div>
-                    <h4 class="cat-title">Polisiye</h4>
+                    <h5 class="cat-title">Polisiye</h5>
                 </div>
             </a>
         </div>
-
-        <!-- Roman -->
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="/Home/Kategori?id=7&isim=Roman" class="text-decoration-none">
                 <div class="card h-100 p-4 text-center shadow-sm category-card">
                     <div class="cat-icon">📖</div>
-                    <h4 class="cat-title">Roman</h4>
+                    <h5 class="cat-title">Roman</h5>
                 </div>
             </a>
         </div>
+    </div>
 
+    <h4 class="mt-5 mb-3" style="color: var(--header-bg); font-weight: bold;">🚀 Diğer Evrenler</h4>
+    <div class="row mt-2">
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="/Home/Yazarlar" class="text-decoration-none">
+                <div class="card h-100 p-4 text-center shadow-sm category-card special-card" style="border-bottom: 4px solid var(--star-beige);">
+                    <div class="cat-icon">✍️</div>
+                    <h4 class="cat-title">Yazarlarımız</h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="/Home/Kirtasiye" class="text-decoration-none">
+                <div class="card h-100 p-4 text-center shadow-sm category-card special-card" style="border-bottom: 4px solid #4A80A8;">
+                    <div class="cat-icon">✒️</div>
+                    <h4 class="cat-title">Kırtasiye & Ofis</h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+            <a href="/Home/Oyuncak" class="text-decoration-none">
+                <div class="card h-100 p-4 text-center shadow-sm category-card special-card" style="border-bottom: 4px solid #32CD32;">
+                    <div class="cat-icon">🧸</div>
+                    <h4 class="cat-title">Oyuncak Dünyası</h4>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 
-<!-- Bu Sayfaya Özel Güzelleştirmeler -->
 <style>
-    .category-card {
-        border-radius: 15px;
-        transition: all 0.3s ease;
-        border: 1px solid var(--grey-accent);
-        background-color: var(--card-bg);
-    }
-    
-    .cat-icon {
-        font-size: 3.5rem;
-        margin-bottom: 15px;
-        transition: transform 0.3s ease;
-    }
-
-    .cat-title {
-        color: var(--text-main);
-        font-weight: 600;
-        margin-bottom: 0;
-    }
-
-    /* Üzerine Gelince (Hover) Çalışacak Efektler */
-    .category-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 25px rgba(0,0,0,0.1) !important;
-        border-color: var(--star-beige) !important;
-        /* Hafif bir bej parlaması */
-        background-color: rgba(212, 175, 55, 0.03) !important;
-    }
-
-        .category-card:hover .cat-icon {
-            transform: scale(1.15); /* İkon hafifçe büyür */
-        }
-    
-        .category-card:hover .cat-title {
-            color: var(--star-beige); /* Yazı bej rengine döner */
-        }
+    .category-card { border-radius: 15px; transition: all 0.3s ease; border: 1px solid var(--grey-accent); background-color: var(--card-bg); }
+    .cat-icon { font-size: 3.5rem; margin-bottom: 15px; transition: transform 0.3s ease; }
+    .cat-title { color: var(--text-main); font-weight: 600; margin-bottom: 0; }
+    .category-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.1) !important; border-color: var(--star-beige) !important; background-color: rgba(212, 175, 55, 0.03) !important; }
+    .category-card:hover .cat-icon { transform: scale(1.15); }
+    .category-card:hover .cat-title { color: var(--star-beige); }
+    .special-card { background-color: #f8f9fa; }
 </style>
