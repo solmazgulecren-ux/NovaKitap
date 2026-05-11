@@ -19,9 +19,7 @@
         <table class="table table-hover align-middle mb-0">
             <thead style="background-color: var(--space-blue); color: var(--star-beige);">
                 <tr>
-                    <th>Sipariş No</th>
-                    <th>Kullanıcı ID</th>
-                    <th>Tarih</th>
+                    <th class="ps-3">Sipariş Tarihi</th>
                     <th>Tutar</th>
                     <th>Durum</th>
                     <th>İşlem</th>
@@ -33,9 +31,7 @@
                     foreach (var siparis in Model)
                     {
                         <tr>
-                            <td class="fw-bold">#@siparis.SiparisId</td>
-                            <td>@siparis.KullaniciId</td>
-                            <td>@siparis.SiparisTarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td class="ps-3 fw-bold">@siparis.SiparisTarihi.ToString("dd.MM.yyyy HH:mm")</td>
                             <td class="fw-bold text-success">@siparis.ToplamTutar ₺</td>
                             <td>
                                 @if (siparis.SiparisDurumu == "Onay Bekliyor")
@@ -75,7 +71,7 @@
                 else
                 {
                     <tr>
-                        <td colspan="6" class="text-center py-4 text-muted">Henüz hiç sipariş bulunmuyor.</td>
+                        <td colspan="4" class="text-center py-4 text-muted">Henüz hiç sipariş bulunmuyor.</td>
                     </tr>
                 }
             </tbody>

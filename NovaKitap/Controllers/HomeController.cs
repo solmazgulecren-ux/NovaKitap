@@ -166,25 +166,48 @@ namespace NovaKitap.Controllers
         {
             GetKaydedilenIdler();
 
-            if (tip == "Kirtasiye" || tip == "Kırtasiye") 
+            // Bu ürüne ait yorumları veritabanından çekiyoruz (Yeniden eskiye)
+            var yorumlar = _context.Yorumlars
+                .Where(y => y.UrunId == id && y.UrunTipi == tip)
+                .OrderByDescending(y => y.Tarih)
+                .ToList();
+
+            if (tip == "Kirtasiye" || tip == "Kırtasiye")
             {
                 var urun = _context.Kirtasiyelers.FirstOrDefault(k => k.KirtasiyeId == id);
                 if (urun == null) return RedirectToAction("Index");
-
-                return View("UrunDetay", new UrunViewModel { Id = urun.KirtasiyeId, UrunAdi = urun.UrunAdi, Fiyat = urun.Fiyat, KapakResimUrl = urun.KapakResimUrl, UrunTipi = "Kırtasiye", Aciklama = urun.Aciklama, Marka = urun.Marka, EkBilgi = urun.UrunTuru });
+                return View("UrunDetay", new UrunViewModel { Id = urun.KirtasiyeId, UrunAdi = urun.UrunAdi, Fiyat = urun.Fiyat, KapakResimUrl = urun.KapakResimUrl, UrunTipi = "Kirtasiye", Aciklama = urun.Aciklama, Marka = urun.Marka, EkBilgi = urun.UrunTuru, YorumlarListesi = yorumlar });
             }
             else if (tip == "Oyuncak")
             {
                 var urun = _context.Oyuncaklars.FirstOrDefault(o => o.OyuncakId == id);
                 if (urun == null) return RedirectToAction("Index");
-
-                return View("UrunDetay", new UrunViewModel { Id = urun.OyuncakId, UrunAdi = urun.UrunAdi, Fiyat = urun.Fiyat, KapakResimUrl = urun.KapakResimUrl, UrunTipi = "Oyuncak", Aciklama = urun.Aciklama, Marka = urun.Marka, EkBilgi = urun.YasGrubu });
+                return View("UrunDetay", new UrunViewModel { Id = urun.OyuncakId, UrunAdi = urun.UrunAdi, Fiyat = urun.Fiyat, KapakResimUrl = urun.KapakResimUrl, UrunTipi = "Oyuncak", Aciklama = urun.Aciklama, Marka = urun.Marka, EkBilgi = urun.YasGrubu, YorumlarListesi = yorumlar });
             }
 
-            // Varsayılan: Kitap Detay
             var kitap = _context.Kitaplars.Include(k => k.Yazar).Include(k => k.Kategori).FirstOrDefault(k => k.KitapId == id);
             if (kitap == null) return RedirectToAction("Index");
-            return View(kitap);
+
+            return View("UrunDetay", new UrunViewModel { Id = kitap.KitapId, UrunAdi = kitap.KitapAdi, Fiyat = kitap.Fiyat, KapakResimUrl = kitap.KapakResimUrl, UrunTipi = "Kitap", Aciklama = kitap.Aciklama, Marka = kitap.Yazar?.AdSoyad, EkBilgi = kitap.Yayinevi, YorumlarListesi = yorumlar });
+        }
+
+        [HttpPost]
+        public IActionResult YorumEkle(int UrunId, string UrunTipi, string KullaniciAdi, int Yildiz, string YorumMetni)
+        {
+            if (!string.IsNullOrEmpty(YorumMetni))
+            {
+                _context.Yorumlars.Add(new Yorumlar
+                {
+                    UrunId = UrunId,
+                    UrunTipi = UrunTipi,
+                    KullaniciAdi = string.IsNullOrEmpty(KullaniciAdi) ? "Anonim Kullanıcı" : KullaniciAdi,
+                    Yildiz = Yildiz,
+                    YorumMetni = YorumMetni,
+                    Tarih = DateTime.Now
+                });
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Detay", new { id = UrunId, tip = UrunTipi });
         }
 
         public IActionResult SepeteEkle(int id, string tip = "Kitap")
@@ -510,55 +533,9 @@ namespace NovaKitap.Controllers
         }
 
         // --- YAPAY ZEKA (GEMINI API) ENTEGRASYONU ---
-        [HttpPost]
-        public async Task<IActionResult> AsistanCevap([FromBody] ChatRequest istek)
-        {
-            if (istek == null || string.IsNullOrEmpty(istek.Mesaj)) return BadRequest();
-
-            try
-            {
-                var aktifKitaplar = _context.Kitaplars
-                    .Include(k => k.Yazar)
-                    .Select(k => k.KitapAdi + " (" + k.Fiyat + " TL)")
-                    .ToList();
-
-                string dbVerisi = string.Join(" | ", aktifKitaplar);
-
-                string kullaniciAdSoyad = HttpContext.Session.GetString("KullaniciAdSoyad") ?? "Müşteri";
-                string kullaniciIlkAd = kullaniciAdSoyad.Split(' ')[0];
-
-                string prompt = $"Sen 'Nova Asistan' adında bir yapay zekasın. Kullanıcı adı: {kullaniciIlkAd}. Soru: '{istek.Mesaj}'. Stoktaki kitaplar: {dbVerisi}. Stoklara göre kısa ve kibar cevap ver.";
-
-                string apiKey = "AIzaSyDcDP6qH3lH7toHZK9_ePhtfz-ihmjh7jk";
-                string apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey;
-
-                using (var client = new HttpClient())
-                {
-                    var requestBody = new { contents = new[] { new { parts = new[] { new { text = prompt } } } } };
-                    var jsonContent = new StringContent(JsonSerializer.Serialize(requestBody), System.Text.Encoding.UTF8, "application/json");
-
-                    var response = await client.PostAsync(apiUrl, jsonContent);
-                    var responseString = await response.Content.ReadAsStringAsync();
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        using (var doc = JsonDocument.Parse(responseString))
-                        {
-                            var root = doc.RootElement;
-                            var cevapMetni = root.GetProperty("candidates")[0].GetProperty("content").GetProperty("parts")[0].GetProperty("text").GetString();
-                            return Json(new { cevap = cevapMetni });
-                        }
-                    }
-                    else
-                    {
-                        return Json(new { cevap = $"Google API Hatası: {response.StatusCode} - Detay: {responseString}" });
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return Json(new { cevap = $"Sistem Hatası: {ex.Message}" });
-            }
-        }
+ 
+        
+        
+        
     }
 }

@@ -10,5 +10,6 @@
         public string? Aciklama { get; set; }
         public string? Marka { get; set; }
         public string? EkBilgi { get; set; }
+        public List<Yorumlar> YorumlarListesi { get; set; } = new List<Yorumlar>();
     }
 }
