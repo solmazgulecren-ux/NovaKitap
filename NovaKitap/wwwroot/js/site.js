@@ -1,4 +1,4 @@
-﻿// --- 1. KUTUP YILDIZI KAYDETME İŞLEMİ ---
+// --- 1. KUTUP YILDIZI KAYDETME İŞLEMİ ---
 function toggleStar(button, kitapId) {
     const emptyStar = '✧';
     const filledStar = '✦';
@@ -92,3 +92,34 @@ function sendMessage() {
             if (indicator) indicator.remove();
         });
 }
+
+// --- 3. KARANLIK MOD (DARK MODE) ENTEGRASYONU ---
+function toggleTheme() {
+    const isDark = document.body.classList.toggle('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateThemeUI(isDark);
+}
+
+function updateThemeUI(isDark) {
+    const icon = document.getElementById('theme-toggle-icon');
+    const text = document.getElementById('theme-toggle-text');
+    if (icon && text) {
+        icon.innerText = isDark ? '☀️' : '🌙';
+        text.innerText = isDark ? 'Aydınlık Mod' : 'Karanlık Mod';
+    }
+}
+
+// Sayfa yüklendiğinde temayı uygula
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+
+    if (shouldBeDark) {
+        document.body.classList.add('dark-theme');
+        updateThemeUI(true);
+    } else {
+        document.body.classList.remove('dark-theme');
+        updateThemeUI(false);
+    }
+});

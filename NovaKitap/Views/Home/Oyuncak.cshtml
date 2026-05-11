@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NovaKitap.Models.UrunViewModel>
+@model IEnumerable<NovaKitap.Models.UrunViewModel>
 @{
     ViewData["Title"] = "Oyuncak Dünyası";
 }
@@ -29,7 +29,7 @@
                             <h5 class="mt-auto mb-3" style="color: var(--star-beige); font-weight: bold;">₺@urun.Fiyat.ToString("N2")</h5>
                         </div>
                         <div class="card-footer bg-transparent border-0 pb-3 d-flex gap-2">
-                            <a href="/Home/Detay?id=@urun.Id&tip=Oyuncak" class="btn btn-sm btn-outline-light flex-fill py-2 rounded-pill" style="color: var(--header-bg) !important; border-color: var(--header-bg) !important;">
+                            <a href="/Home/Detay?id=@urun.Id&tip=Oyuncak" class="btn btn-sm btn-outline-light flex-fill py-2 rounded-pill">
                                 İncele
                             </a>
     

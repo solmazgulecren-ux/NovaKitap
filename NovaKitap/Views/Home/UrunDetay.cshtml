@@ -1,4 +1,4 @@
-﻿@model NovaKitap.Models.UrunViewModel
+@model NovaKitap.Models.UrunViewModel
 
 @{
     ViewData["Title"] = Model.UrunAdi;
@@ -86,11 +86,11 @@
                             <input type="hidden" name="UrunTipi" value="@Model.UrunTipi" />
                             
                             <div class="mb-3">
-                                <input type="text" name="KullaniciAdi" class="form-control" placeholder="Adınız Soyadınız" required style="background-color: #ffffff; color: #000;">
+                                <input type="text" name="KullaniciAdi" class="form-control" placeholder="Adınız Soyadınız" required>
                             </div>
                             
                             <div class="mb-3">
-                                <select name="Yildiz" class="form-select" required style="background-color: #ffffff; color: #000;">
+                                <select name="Yildiz" class="form-select" required>
                                     <option value="5">★★★★★ - Mükemmel</option>
                                     <option value="4">★★★★☆ - Çok İyi</option>
                                     <option value="3">★★★☆☆ - İdare Eder</option>
@@ -100,7 +100,7 @@
                             </div>
                             
                             <div class="mb-3">
-                                <textarea name="YorumMetni" class="form-control" rows="4" placeholder="Ürün hakkındaki düşüncelerinizi paylaşın..." required style="background-color: #ffffff; color: #000;"></textarea>
+                                <textarea name="YorumMetni" class="form-control" rows="4" placeholder="Ürün hakkındaki düşüncelerinizi paylaşın..." required></textarea>
                             </div>
                             
                             <button type="submit" class="btn btn-outline-light w-100 font-weight-bold">Yorum Gönder</button>

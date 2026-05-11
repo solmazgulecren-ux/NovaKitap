@@ -8,6 +8,8 @@ using System.Text.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using System.Text;
 
 namespace NovaKitap.Controllers
 {
@@ -20,10 +22,12 @@ namespace NovaKitap.Controllers
     public class HomeController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(AppDbContext context)
+        public HomeController(AppDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // Yıldızları her sayfada senkronize eden metod
@@ -543,9 +547,75 @@ namespace NovaKitap.Controllers
         }
 
         // --- YAPAY ZEKA (GEMINI API) ENTEGRASYONU ---
- 
-        
-        
-        
+        [HttpPost]
+        public async Task<IActionResult> AsistanCevap([FromBody] ChatRequest request)
+        {
+            if (request == null || string.IsNullOrWhiteSpace(request.Mesaj))
+            {
+                return Json(new { cevap = "Lütfen bana bir mesaj yazın." });
+            }
+
+            // Müşterinin adını alıyoruz (Giriş yaptıysa)
+            var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
+            var kullaniciAdi = "Müşteri";
+            if (kullaniciId.HasValue)
+            {
+                var kullanici = _context.Kullanicilars.Find(kullaniciId.Value);
+                if (kullanici != null)
+                {
+                    kullaniciAdi = kullanici.AdSoyad;
+                }
+            }
+
+            var msj = request.Mesaj.ToLower();
+            string botCevap = "";
+
+            if (msj.Contains("merhaba") || msj.Contains("selam"))
+            {
+                botCevap = $"Merhaba {kullaniciAdi}! 👋 Ben Nova Asistan. Sana nasıl yardımcı olabilirim? Kitap, kırtasiye veya oyuncak arıyorsan bana söyleyebilirsin.";
+            }
+            else if (msj.Contains("kitap") || msj.Contains("roman") || msj.Contains("hikaye") || msj.Contains("okumak"))
+            {
+                var list = await _context.Kitaplars.ToListAsync();
+                var oneriler = list.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
+                botCevap = $"Harika bir seçim! 📚 Sana şu kitapları önerebilirim:<br><br>";
+                foreach (var k in oneriler)
+                {
+                    botCevap += $"- <a href='/Home/Detay?id={k.KitapId}&tip=Kitap' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{k.KitapAdi}</a> ({k.Fiyat}₺)<br>";
+                }
+            }
+            else if (msj.Contains("kırtasiye") || msj.Contains("kirtasiye") || msj.Contains("kalem") || msj.Contains("defter") || msj.Contains("silgi") || msj.Contains("boya"))
+            {
+                var list = await _context.Kirtasiyelers.ToListAsync();
+                var oneriler = list.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
+                botCevap = $"Kırtasiye ihtiyaçların için buradayım! ✏️ İşte senin için seçtiklerim:<br><br>";
+                foreach (var k in oneriler)
+                {
+                    botCevap += $"- <a href='/Home/Detay?id={k.KirtasiyeId}&tip=Kirtasiye' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{k.UrunAdi}</a> ({k.Fiyat}₺)<br>";
+                }
+            }
+            else if (msj.Contains("oyuncak") || msj.Contains("araba") || msj.Contains("oyun") || msj.Contains("bebek") || msj.Contains("lego"))
+            {
+                var list = await _context.Oyuncaklars.ToListAsync();
+                var oneriler = list.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
+                botCevap = $"Eğlence başlasın! 🎲 İşte çok sevilen oyuncaklarımız:<br><br>";
+                foreach (var o in oneriler)
+                {
+                    botCevap += $"- <a href='/Home/Detay?id={o.OyuncakId}&tip=Oyuncak' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{o.UrunAdi}</a> ({o.Fiyat}₺)<br>";
+                }
+            }
+            else
+            {
+                var list = await _context.Kitaplars.ToListAsync();
+                var urun = list.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+                botCevap = $"Hmm, bunu tam olarak anlayamadım {kullaniciAdi}. 🤔 Ama eğer ilgini çekerse şu harika ürüne göz atabilirsin:<br><br>";
+                if (urun != null)
+                {
+                    botCevap += $"🌟 <a href='/Home/Detay?id={urun.KitapId}&tip=Kitap' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{urun.KitapAdi}</a> ({urun.Fiyat}₺)<br>";
+                }
+            }
+
+            return Json(new { cevap = botCevap });
+        }
     }
 }

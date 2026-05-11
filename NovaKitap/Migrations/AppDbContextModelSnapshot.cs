@@ -142,6 +142,42 @@ namespace NovaKitap.Migrations
                             KategoriId = 7,
                             IkonSifi = "✧",
                             KategoriAdi = "Roman"
+                        },
+                        new
+                        {
+                            KategoriId = 1004,
+                            IkonSifi = "✧",
+                            KategoriAdi = "Dünya Klasikleri"
+                        },
+                        new
+                        {
+                            KategoriId = 1005,
+                            IkonSifi = "✧",
+                            KategoriAdi = "Türk Edebiyatı"
+                        },
+                        new
+                        {
+                            KategoriId = 1006,
+                            IkonSifi = "✧",
+                            KategoriAdi = "Bilim Kurgu"
+                        },
+                        new
+                        {
+                            KategoriId = 1007,
+                            IkonSifi = "✧",
+                            KategoriAdi = "Macera"
+                        },
+                        new
+                        {
+                            KategoriId = 1008,
+                            IkonSifi = "✧",
+                            KategoriAdi = "Araştırma"
+                        },
+                        new
+                        {
+                            KategoriId = 1009,
+                            IkonSifi = "✧",
+                            KategoriAdi = "Kişisel Gelişim"
                         });
                 });
 
@@ -230,7 +266,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "A4 boyutunda, 80 yaprak, tel spiralli klasik öğrenci defteri.",
                             CokSatanMi = true,
                             Fiyat = 35.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_1.jpg",
+                            KapakResimUrl = "/img/kirtasiye/NovaKlasikCizgiliDefter.jpg.jpeg",
                             Marka = "Nova Design",
                             StokAdedi = 200,
                             UrunAdi = "Nova Klasik Çizgili Defter",
@@ -243,7 +279,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Gece mavisi kapaklı, 80 sayfa, yüksek kaliteli fildişi kağıt.",
                             CokSatanMi = true,
                             Fiyat = 85.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_2.jpg",
+                            KapakResimUrl = "/img/kirtasiye/NovaYildizliCizgisizDefter.jpg.jpeg",
                             Marka = "Nova Design",
                             StokAdedi = 100,
                             UrunAdi = "Nova Yıldızlı Çizgisiz Defter",
@@ -256,7 +292,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Matematik ve sayısal dersler için ideal, 120 yaprak kareli defter.",
                             CokSatanMi = true,
                             Fiyat = 45.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_3.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KareliSpiralliDefterA5Mopak.jpg.jpeg",
                             Marka = "Mopak",
                             StokAdedi = 150,
                             UrunAdi = "Kareli Spiralli Defter A5",
@@ -269,7 +305,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Sanatçılar için özel dokulu, 140 gramajlı çizgisiz kağıt.",
                             CokSatanMi = false,
                             Fiyat = 150.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_4.jpg",
+                            KapakResimUrl = "/img/kirtasiye/DeriKaplEskizDefteriMoleskine.jpg.jpeg",
                             Marka = "Moleskine",
                             StokAdedi = 50,
                             UrunAdi = "Deri Kaplı Eskiz Defteri",
@@ -282,7 +318,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Planlama yapmak isteyenler için özel noktalı sayfalar, krem rengi kağıt.",
                             CokSatanMi = true,
                             Fiyat = 110.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_5.jpg",
+                            KapakResimUrl = "/img/kirtasiye/NoktaliBulletJournalMattNotebook.webp",
                             Marka = "Matt Notebook",
                             StokAdedi = 80,
                             UrunAdi = "Noktalı Bullet Journal",
@@ -295,7 +331,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Günlük planlayıcı, tarihli, deri görünümlü sert kapak ajanda.",
                             CokSatanMi = false,
                             Fiyat = 220.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_6.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SertKapakliAjanda2026EceAjandas.jpg.jpeg",
                             Marka = "Ece Ajandası",
                             StokAdedi = 60,
                             UrunAdi = "Sert Kapaklı Ajanda 2026",
@@ -308,7 +344,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Müzik notaları yazmak için özel çizgili, yatay formatlı defter.",
                             CokSatanMi = false,
                             Fiyat = 25.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_7.jpg",
+                            KapakResimUrl = "/img/kirtasiye/Mzik(Porte)DefteriGipta.jpg.jpeg",
                             Marka = "Gıpta",
                             StokAdedi = 300,
                             UrunAdi = "Müzik (Porte) Defteri",
@@ -321,7 +357,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Eğik çizgili, ilkokul ve kaligrafi öğrencileri için özel.",
                             CokSatanMi = false,
                             Fiyat = 20.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_8.jpg",
+                            KapakResimUrl = "/img/kirtasiye/GuzelYazi(Kaligrafi)DefteriMopak.jpg.jpeg",
                             Marka = "Mopak",
                             StokAdedi = 250,
                             UrunAdi = "Güzel Yazı (Kaligrafi) Defteri",
@@ -334,7 +370,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Doğa dostu kraft kağıttan üretilmiş çizgili defter.",
                             CokSatanMi = true,
                             Fiyat = 40.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_9.jpg",
+                            KapakResimUrl = "/img/kirtasiye/GeriDonusumluKraftDefterKeskinColor.jpg.jpeg",
                             Marka = "Keskin Color",
                             StokAdedi = 120,
                             UrunAdi = "Geri Dönüşümlü Kraft Defter",
@@ -347,7 +383,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Sulu boya ve akrilik çalışmalarına uygun kalın yapraklı resim defteri.",
                             CokSatanMi = true,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_10.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SpiralliResimDefteriAlexSchoeller.jpg.jpeg",
                             Marka = "Alex Schoeller",
                             StokAdedi = 90,
                             UrunAdi = "Spiralli Resim Defteri",
@@ -360,7 +396,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Gizli yazılar için asma kilitli, renkli kapaklı hatıra defteri.",
                             CokSatanMi = false,
                             Fiyat = 95.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_11.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KilitliHatiraDefteriNoki.jpg.jpeg",
                             Marka = "Noki",
                             StokAdedi = 40,
                             UrunAdi = "Kilitli Hatıra Defteri",
@@ -373,7 +409,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Üstten spiralli, kolay koparılabilir kareli bloknot.",
                             CokSatanMi = true,
                             Fiyat = 55.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_12.jpg",
+                            KapakResimUrl = "/img/kirtasiye/A4KareliBloknotGipta.jpg.jpeg",
                             Marka = "Gıpta",
                             StokAdedi = 180,
                             UrunAdi = "A4 Kareli Bloknot",
@@ -386,7 +422,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Toplantılar için ideal, cep boy çizgili not defteri.",
                             CokSatanMi = true,
                             Fiyat = 30.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_13.jpg",
+                            KapakResimUrl = "/img/kirtasiye/A5CizgiliBloknotGipta.jpg.jpeg",
                             Marka = "Gıpta",
                             StokAdedi = 200,
                             UrunAdi = "A5 Çizgili Bloknot",
@@ -399,7 +435,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Jel kalemler ve metalik boyalar için tamamen siyah yapraklı tasarım defter.",
                             CokSatanMi = true,
                             Fiyat = 85.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_14.jpg",
+                            KapakResimUrl = "/img/kirtasiye/NovaSiyahYaprakliDefter.jpg.jpeg",
                             Marka = "Nova Design",
                             StokAdedi = 70,
                             UrunAdi = "Siyah Yapraklı Defter",
@@ -412,7 +448,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Üniversite öğrencileri için ayraçlı, 4 ortalı geniş hacimli defter.",
                             CokSatanMi = true,
                             Fiyat = 130.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_15.jpg",
+                            KapakResimUrl = "/img/kirtasiye/CiltliAkademikDefterKeskinColor.jpg.jpeg",
                             Marka = "Keskin Color",
                             StokAdedi = 110,
                             UrunAdi = "Ciltli Akademik Defter",
@@ -425,7 +461,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Cepte taşınabilir, lastikli, 9x14 cm boyutlarında not defteri.",
                             CokSatanMi = false,
                             Fiyat = 45.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_16.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KucukBoyCepDefteriMoleskine.jpg.jpeg",
                             Marka = "Moleskine",
                             StokAdedi = 150,
                             UrunAdi = "Küçük Boy Cep Defteri",
@@ -438,7 +474,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Profesyonel sanatçılar için soğuk pres pamuklu kağıt.",
                             CokSatanMi = false,
                             Fiyat = 350.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_17.jpg",
+                            KapakResimUrl = "/img/KirtasiyeVeOyuncakResimleri/SuluBoyaDefteri100PamukCanson.jpg",
                             Marka = "Canson",
                             StokAdedi = 20,
                             UrunAdi = "Sulu Boya Defteri %100 Pamuk",
@@ -451,7 +487,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Suni deri kapaklı, prestijli ofis not defteri.",
                             CokSatanMi = false,
                             Fiyat = 175.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_18.jpg",
+                            KapakResimUrl = "/img/kirtasiye/NovaPremiumCizgisizDefter.jpg.jpeg",
                             Marka = "Nova Office",
                             StokAdedi = 50,
                             UrunAdi = "Nova Premium Çizgisiz",
@@ -464,7 +500,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Modern mermer desen kapaklı, estetik A5 çizgili defter.",
                             CokSatanMi = true,
                             Fiyat = 60.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_19.jpg",
+                            KapakResimUrl = "/img/kirtasiye/MermerDesenliDefterKeskinColor.jpg.jpeg",
                             Marka = "Keskin Color",
                             StokAdedi = 140,
                             UrunAdi = "Mermer Desenli Defter",
@@ -477,7 +513,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Geniş boyutlu, standart okul harita metod defteri.",
                             CokSatanMi = true,
                             Fiyat = 45.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_20.jpg",
+                            KapakResimUrl = "/img/kirtasiye/HaritaMetodDefteriMopak.jpg.jpeg",
                             Marka = "Mopak",
                             StokAdedi = 300,
                             UrunAdi = "Harita Metod Defteri",
@@ -490,7 +526,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Ergonomik tutuş, metal gövde. Uzun süreli yazımlar için ideal.",
                             CokSatanMi = true,
                             Fiyat = 120.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_21.jpg",
+                            KapakResimUrl = "/img/kirtasiye/MekanikKursunKalem0.7mmRotring.png",
                             Marka = "Rotring",
                             StokAdedi = 200,
                             UrunAdi = "Mekanik Kurşun Kalem 0.7mm",
@@ -503,7 +539,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "12 farklı sertlikte (6B-4H) teknik çizim kalem seti.",
                             CokSatanMi = false,
                             Fiyat = 245.50m,
-                            KapakResimUrl = "/img/kirtasiye/urun_22.jpg",
+                            KapakResimUrl = "/img/kirtasiye/ProfesyonelCizimKalemSetiFaberCastell.jpg.jpeg",
                             Marka = "Faber Castell",
                             StokAdedi = 50,
                             UrunAdi = "Profesyonel Çizim Kalem Seti",
@@ -516,7 +552,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Ofis kullanımı için ekonomik, akıtma yapmayan tükenmez kalem.",
                             CokSatanMi = true,
                             Fiyat = 150.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_23.jpg",
+                            KapakResimUrl = "/img/kirtasiye/TukenmezKalemMavi50liKutuBic.jpg.jpeg",
                             Marka = "Bic",
                             StokAdedi = 80,
                             UrunAdi = "Tükenmez Kalem Mavi 50li Kutu",
@@ -529,7 +565,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Paslanmaz çelik uç, pompa ve kartuş ile kullanıma uygun klasik dolma kalem.",
                             CokSatanMi = false,
                             Fiyat = 450.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_24.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KlasikDolmaKalemSiyahLamy.jpg.jpeg",
                             Marka = "Lamy",
                             StokAdedi = 30,
                             UrunAdi = "Klasik Dolma Kalem Siyah",
@@ -542,7 +578,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Akıcı yazım sağlayan, ıslak mürekkepli 1.0mm kalınlığında imza kalemi.",
                             CokSatanMi = true,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_25.jpg",
+                            KapakResimUrl = "/img/kirtasiye/JelmzaKalemiMaviUniball.jpg.jpeg",
                             Marka = "Uniball",
                             StokAdedi = 120,
                             UrunAdi = "Jel İmza Kalemi Mavi",
@@ -555,7 +591,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Öğrenciler için pastel renkli, yumuşak tutuşlu mekanik kalem.",
                             CokSatanMi = true,
                             Fiyat = 45.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_26.jpg",
+                            KapakResimUrl = "/img/kirtasiye/UcluKalem0.5mmPastelFaberCastell.jpg.jpeg",
                             Marka = "Faber Castell",
                             StokAdedi = 250,
                             UrunAdi = "Uçlu Kalem 0.5mm Pastel",
@@ -568,7 +604,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Öğretmenler ve düzeltmenler için standart kırmızı kurşun kalem.",
                             CokSatanMi = true,
                             Fiyat = 15.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_27.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KirmiziKopyaKalemiFatih.jpg.jpeg",
                             Marka = "Fatih",
                             StokAdedi = 400,
                             UrunAdi = "Kırmızı Kopya Kalemi",
@@ -581,7 +617,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Sarı, yeşil, pembe, turuncu renklerde solmayan fosforlu kalemler.",
                             CokSatanMi = true,
                             Fiyat = 75.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_28.jpg",
+                            KapakResimUrl = "/img/kirtasiye/FosforluKalemSeti4lStabilo.jpg.jpeg",
                             Marka = "Stabilo",
                             StokAdedi = 150,
                             UrunAdi = "Fosforlu Kalem Seti 4lü",
@@ -594,7 +630,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Yıkanabilir mürekkepli, çocuklar için güvenli keçeli boya kalemi.",
                             CokSatanMi = false,
                             Fiyat = 90.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_29.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KeceliKalem12liSetCarioca.jpg.jpeg",
                             Marka = "Carioca",
                             StokAdedi = 100,
                             UrunAdi = "Keçeli Kalem 12li Set",
@@ -607,7 +643,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Çizim ve ince notlar için siyah renk fineliner.",
                             CokSatanMi = true,
                             Fiyat = 25.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_30.jpg",
+                            KapakResimUrl = "/img/kirtasiye/Fineliner04mmInceUcluKalem.png",
                             Marka = "Stabilo",
                             StokAdedi = 300,
                             UrunAdi = "Fineliner 0.4mm İnce Uçlu Kalem",
@@ -620,7 +656,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Siyah kağıtlar ve parlamalar yapmak için örtücü beyaz jel kalem.",
                             CokSatanMi = true,
                             Fiyat = 35.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_31.jpg",
+                            KapakResimUrl = "/img/kirtasiye/BeyazJelKalem.jpg.jpeg",
                             Marka = "Sakura Gelly Roll",
                             StokAdedi = 140,
                             UrunAdi = "Beyaz Jel Kalem",
@@ -633,7 +669,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Güzel yazı sanatıyla ilgilenenler için 2.0mm kesik uçlu kalem.",
                             CokSatanMi = false,
                             Fiyat = 85.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_32.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KaligrafiKalemiKesikUclu.jpg.jpeg",
                             Marka = "Artline",
                             StokAdedi = 60,
                             UrunAdi = "Kaligrafi Kalemi Kesik Uçlu",
@@ -646,7 +682,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "CD, cam ve plastik yüzeylere yazabilen silinmez kalem.",
                             CokSatanMi = false,
                             Fiyat = 30.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_33.jpg",
+                            KapakResimUrl = "/img/kirtasiye/AsetatKalemiSInce.png",
                             Marka = "Edding",
                             StokAdedi = 120,
                             UrunAdi = "Asetat Kalemi S (İnce)",
@@ -659,7 +695,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Siyah renk, çevre dostu mürekkep doldurulabilir tahta kalemi.",
                             CokSatanMi = true,
                             Fiyat = 45.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_34.jpg",
+                            KapakResimUrl = "/img/kirtasiye/BeyazTahtaKalemiDoldurulabilir.jpg.jpeg",
                             Marka = "Edding",
                             StokAdedi = 180,
                             UrunAdi = "Beyaz Tahta Kalemi Doldurulabilir",
@@ -672,7 +708,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Optik formları kolay doldurmak için yumuşak uçlu 2B kurşun kalem.",
                             CokSatanMi = true,
                             Fiyat = 10.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_35.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SinavKalemi2B.png",
                             Marka = "Faber Castell",
                             StokAdedi = 500,
                             UrunAdi = "Sınav Kalemi 2B",
@@ -685,7 +721,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Gümüş, altın ve bronz renklerinde yaldızlı jel kalemler.",
                             CokSatanMi = false,
                             Fiyat = 110.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_36.jpg",
+                            KapakResimUrl = "/img/kirtasiye/MetalikRenkliJelKalemSeti.jpg.jpeg",
                             Marka = "Uniball",
                             StokAdedi = 80,
                             UrunAdi = "Metalik Renkli Jel Kalem Seti",
@@ -698,7 +734,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Lacivert renk, şişede yüksek kaliteli dolma kalem mürekkebi.",
                             CokSatanMi = false,
                             Fiyat = 150.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_37.jpg",
+                            KapakResimUrl = "/img/kirtasiye/DolmaKalemMurekkebi30ml.jpg.jpeg",
                             Marka = "Pelikan",
                             StokAdedi = 40,
                             UrunAdi = "Dolma Kalem Mürekkebi 30ml",
@@ -711,7 +747,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Kırılmaya dayanıklı, 120 adet yedek 0.7mm uç.",
                             CokSatanMi = true,
                             Fiyat = 35.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_38.jpg",
+                            KapakResimUrl = "/img/kirtasiye/07mmKalemUcuMin3lu.jpg.jpeg",
                             Marka = "Tombow",
                             StokAdedi = 400,
                             UrunAdi = "0.7mm Kalem Ucu (Min) 3lü",
@@ -724,7 +760,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Kırmızı, mavi, siyah ve yeşil rengi tek gövdede sunan pratik kalem.",
                             CokSatanMi = true,
                             Fiyat = 40.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_39.jpg",
+                            KapakResimUrl = "/img/kirtasiye/CokRenkliTukenmezKalem4in1.jpg.jpeg",
                             Marka = "Bic",
                             StokAdedi = 150,
                             UrunAdi = "Çok Renkli Tükenmez Kalem (4 in 1)",
@@ -737,7 +773,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Arkasındaki özel silgiyle ısıyla silinebilen mavi tükenmez kalem.",
                             CokSatanMi = true,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_40.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SilinebilirTukenmezKalem.jpg.jpeg",
                             Marka = "Frixion",
                             StokAdedi = 200,
                             UrunAdi = "Silinebilir Tükenmez Kalem",
@@ -750,7 +786,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Kalın kurşun kalem hissi veren teknik tasarım kalemi.",
                             CokSatanMi = false,
                             Fiyat = 130.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_41.jpg",
+                            KapakResimUrl = "/img/kirtasiye/VersatilKalem20mm.jpg.jpeg",
                             Marka = "Rotring",
                             StokAdedi = 50,
                             UrunAdi = "Versatil Kalem 2.0mm",
@@ -763,7 +799,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "14 ayar altın uçlu, özel ahşap kutusunda koleksiyonluk kalem.",
                             CokSatanMi = false,
                             Fiyat = 3500.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_42.jpg",
+                            KapakResimUrl = "/img/kirtasiye/AltinUcluPrestijDolmaKalem.jpg.jpeg",
                             Marka = "Parker",
                             StokAdedi = 5,
                             UrunAdi = "Altın Uçlu Prestij Dolma Kalem",
@@ -776,7 +812,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Kalın uç sevenler ve sert yazanlar için 0.9mm versatil kalem.",
                             CokSatanMi = false,
                             Fiyat = 85.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_43.jpg",
+                            KapakResimUrl = "/img/kirtasiye/UcluKalem09mm.jpg.jpeg",
                             Marka = "Pentel",
                             StokAdedi = 90,
                             UrunAdi = "Uçlu Kalem 0.9mm",
@@ -789,7 +825,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Bir ucu fırça, diğer ucu kesik 6 renkli marker seti.",
                             CokSatanMi = false,
                             Fiyat = 280.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_44.jpg",
+                            KapakResimUrl = "/img/kirtasiye/CiftUcluKaligrafiMarkerSeti.jpg.jpeg",
                             Marka = "Tombow",
                             StokAdedi = 40,
                             UrunAdi = "Çift Uçlu Kaligrafi Marker Seti",
@@ -802,7 +838,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Çok akıcı ve pürüzsüz yazım sağlayan sıvı mürekkepli roller.",
                             CokSatanMi = true,
                             Fiyat = 55.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_45.jpg",
+                            KapakResimUrl = "/img/kirtasiye/RollerKalemIgneUclu.jpg.jpeg",
                             Marka = "Uniball",
                             StokAdedi = 160,
                             UrunAdi = "Roller Kalem İğne Uçlu",
@@ -815,7 +851,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Koliler ve kargo paketleri için kalın uçlu çıkmaz kalem.",
                             CokSatanMi = true,
                             Fiyat = 35.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_46.jpg",
+                            KapakResimUrl = "/img/kirtasiye/PermanentMarkerSiyahKalin.jpg.jpeg",
                             Marka = "Sharpie",
                             StokAdedi = 200,
                             UrunAdi = "Permanent Marker Siyah Kalın",
@@ -828,7 +864,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Göz yormayan soft pastel renklerden oluşan 6lı işaretleme kalemi.",
                             CokSatanMi = true,
                             Fiyat = 120.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_47.jpg",
+                            KapakResimUrl = "/img/kirtasiye/PastelRenkFosforluKalemSeti.jpg.jpeg",
                             Marka = "Stabilo",
                             StokAdedi = 130,
                             UrunAdi = "Pastel Renk Fosforlu Kalem Seti",
@@ -841,7 +877,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Canlı pigmentli, kırılmaya dayanıklı profesyonel kuru boya seti.",
                             CokSatanMi = false,
                             Fiyat = 350.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_48.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KuruBoyaSeti24luMetalKutu.jpg.jpeg",
                             Marka = "Faber Castell",
                             StokAdedi = 40,
                             UrunAdi = "Kuru Boya Seti 24lü Metal Kutu",
@@ -854,7 +890,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Metal gövdeli, şık tasarımlı hediyelik tükenmez kalem.",
                             CokSatanMi = false,
                             Fiyat = 250.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_49.jpg",
+                            KapakResimUrl = "/img/kirtasiye/TukenmezKalemOzelSeri.jpg.jpeg",
                             Marka = "Scrikss",
                             StokAdedi = 30,
                             UrunAdi = "Tükenmez Kalem Özel Seri",
@@ -867,7 +903,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Cam ve porselen yüzeylerde fırınlandıktan sonra sabitlenen boya kalemi.",
                             CokSatanMi = false,
                             Fiyat = 85.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_50.jpg",
+                            KapakResimUrl = "/img/kirtasiye/CamBoyamaKalemi.jpg.jpeg",
                             Marka = "Edding",
                             StokAdedi = 50,
                             UrunAdi = "Cam Boyama Kalemi",
@@ -880,7 +916,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Okul kullanımı için fırçalı klasik sulu boya paleti.",
                             CokSatanMi = true,
                             Fiyat = 75.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_51.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SuluBoyaSeti12RenkTablet.jpg.jpeg",
                             Marka = "Faber Castell",
                             StokAdedi = 150,
                             UrunAdi = "Sulu Boya Seti 12 Renk Tablet",
@@ -893,7 +929,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Tuval, ahşap ve seramik boyamaya uygun temel renk akrilik tüpleri.",
                             CokSatanMi = true,
                             Fiyat = 220.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_52.jpg",
+                            KapakResimUrl = "/img/kirtasiye/AkrilikBoyaSeti6x75ml.jpg.jpeg",
                             Marka = "Pebeo",
                             StokAdedi = 60,
                             UrunAdi = "Akrilik Boya Seti 6x75ml",
@@ -906,7 +942,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Yüksek örtücülüğe sahip mat guaj boyalar.",
                             CokSatanMi = false,
                             Fiyat = 190.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_53.jpg",
+                            KapakResimUrl = "/img/kirtasiye/GuajBoyaSeti10Renk.jpg.jpeg",
                             Marka = "Talens",
                             StokAdedi = 70,
                             UrunAdi = "Guaj Boya Seti 10 Renk",
@@ -919,7 +955,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Profesyonel ressamlar için büyük tüp yağlı boya.",
                             CokSatanMi = false,
                             Fiyat = 240.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_54.jpg",
+                            KapakResimUrl = "/img/kirtasiye/YagliBoya200mlTitanyumBeyazi.jpg.jpeg",
                             Marka = "Van Gogh",
                             StokAdedi = 40,
                             UrunAdi = "Yağlı Boya 200ml Titanyum Beyazı",
@@ -932,7 +968,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Farklı numaralarda, kıl dökmez sentetik resim fırçaları.",
                             CokSatanMi = true,
                             Fiyat = 130.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_55.jpg",
+                            KapakResimUrl = "/img/kirtasiye/FircaSetiSentetikUclu5li.jpg.jpeg",
                             Marka = "PonART",
                             StokAdedi = 100,
                             UrunAdi = "Fırça Seti Sentetik Uçlu 5li",
@@ -945,7 +981,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Toz pastel çalışmaları için yumuşak formüllü tebeşir formunda pastel.",
                             CokSatanMi = false,
                             Fiyat = 280.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_56.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KuruPastelSeti24Renk.jpg.jpeg",
                             Marka = "Rembrandt",
                             StokAdedi = 30,
                             UrunAdi = "Kuru Pastel Seti 24 Renk",
@@ -958,7 +994,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Yoğun pigmentli, kağıt üzeri kolay dağılan yağlı pastel boya.",
                             CokSatanMi = true,
                             Fiyat = 110.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_57.jpg",
+                            KapakResimUrl = "/img/kirtasiye/YagliPastelSeti12Renk.jpg.jpeg",
                             Marka = "Crayola",
                             StokAdedi = 90,
                             UrunAdi = "Yağlı Pastel Seti 12 Renk",
@@ -971,7 +1007,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Tuval ressamları için klasik oval kesim ahşap boya paleti.",
                             CokSatanMi = false,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_58.jpg",
+                            KapakResimUrl = "/img/kirtasiye/AhsapKaristirmaPaleti.jpg.jpeg",
                             Marka = "PonART",
                             StokAdedi = 80,
                             UrunAdi = "Ahşap Karıştırma Paleti",
@@ -984,7 +1020,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Küçük tuvaller için ayarlanabilir açılı gürgen şövale.",
                             CokSatanMi = false,
                             Fiyat = 350.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_59.jpg",
+                            KapakResimUrl = "/img/kirtasiye/MasaustuAhsapSovale.jpg.jpeg",
                             Marka = "PonART",
                             StokAdedi = 20,
                             UrunAdi = "Masaüstü Ahşap Şövale",
@@ -997,7 +1033,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Akrilik ve yağlı boyaya hazır astarlanmış pamuklu germe tuval.",
                             CokSatanMi = true,
                             Fiyat = 120.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_60.jpg",
+                            KapakResimUrl = "/img/kirtasiye/Tuval35x50cmPamuklu.jpg.jpeg",
                             Marka = "Nova Art",
                             StokAdedi = 150,
                             UrunAdi = "Tuval 35x50 cm Pamuklu",
@@ -1010,7 +1046,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Sokakta ve atölyede kağıt tutturmak için telli sert altlık.",
                             CokSatanMi = false,
                             Fiyat = 95.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_61.jpg",
+                            KapakResimUrl = "/img/kirtasiye/ResimKagidiDuraliti.jpg.jpeg",
                             Marka = "Nova Art",
                             StokAdedi = 60,
                             UrunAdi = "Resim Kağıdı Duraliti",
@@ -1023,7 +1059,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Doku vermek ve boya yaymak için farklı gözeneklerde deniz süngeri.",
                             CokSatanMi = false,
                             Fiyat = 55.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_62.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SanatsalSungerSeti.jpg.jpeg",
                             Marka = "Pebeo",
                             StokAdedi = 100,
                             UrunAdi = "Sanatsal Sünger Seti",
@@ -1036,7 +1072,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Söğüt ağacından yapılmış, gölgelendirme için natürel füzen.",
                             CokSatanMi = true,
                             Fiyat = 75.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_63.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KomurKalemFuzenSeti.jpg.jpeg",
                             Marka = "Derwent",
                             StokAdedi = 80,
                             UrunAdi = "Kömür Kalem (Füzen) Seti",
@@ -1049,7 +1085,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Füzen ve karakalem hatalarını iz bırakmadan silmek için yoğrulabilir silgi.",
                             CokSatanMi = true,
                             Fiyat = 35.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_64.jpg",
+                            KapakResimUrl = "/img/kirtasiye/HamurSilgi.jpg.jpeg",
                             Marka = "Faber Castell",
                             StokAdedi = 200,
                             UrunAdi = "Hamur Silgi",
@@ -1062,7 +1098,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Karakalem ve pastel çalışmaların dağılmasını önleyen vernik spreyi.",
                             CokSatanMi = false,
                             Fiyat = 250.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_65.jpg",
+                            KapakResimUrl = "/img/kirtasiye/FixativeSpreySabitleyici.jpg.jpeg",
                             Marka = "Talens",
                             StokAdedi = 40,
                             UrunAdi = "Fixative Sprey (Sabitleyici)",
@@ -1075,7 +1111,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Profesyoneller için yüksek dayanımlı birinci sınıf keten tuval.",
                             CokSatanMi = false,
                             Fiyat = 320.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_66.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KetenTuval50x70cm.jpg.jpeg",
                             Marka = "Nova Art",
                             StokAdedi = 30,
                             UrunAdi = "Keten Tuval 50x70 cm",
@@ -1088,7 +1124,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Haznesine su doldurularak dış mekanlarda rahatça kullanılabilen fırça.",
                             CokSatanMi = true,
                             Fiyat = 90.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_67.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SuluBoyaFircasiSuHazneli.jpg.jpeg",
                             Marka = "Pentel",
                             StokAdedi = 70,
                             UrunAdi = "Sulu Boya Fırçası Su Hazneli",
@@ -1101,7 +1137,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "En ince detaylar ve imza atmak için ultra ince uçlu fırça.",
                             CokSatanMi = false,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_68.jpg",
+                            KapakResimUrl = "/img/kirtasiye/LinerKilFircaNumara000.jpg.jpeg",
                             Marka = "Da Vinci",
                             StokAdedi = 90,
                             UrunAdi = "Liner (Kıl) Fırça Numara 000",
@@ -1114,7 +1150,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Yağlı boya ve fırça temizliği için kokusuz çözücü sıvı.",
                             CokSatanMi = false,
                             Fiyat = 180.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_69.jpg",
+                            KapakResimUrl = "/img/kirtasiye/BoyaIncelticiKokusuzTerebentin.jpg.jpeg",
                             Marka = "Talens",
                             StokAdedi = 40,
                             UrunAdi = "Boya İnceltici (Kokusuz Terebentin)",
@@ -1127,7 +1163,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Tişört ve bez çanta tasarlamak için yıkamaya dayanıklı kumaş boyaları.",
                             CokSatanMi = true,
                             Fiyat = 195.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_70.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KumasBoyasi6liSet.jpg.jpeg",
                             Marka = "Pebeo",
                             StokAdedi = 50,
                             UrunAdi = "Kumaş Boyası 6lı Set",
@@ -1140,7 +1176,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Üniversite ve ofis kullanımı için hakiki deri görünümlü yatay çanta.",
                             CokSatanMi = false,
                             Fiyat = 1200.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_71.jpg",
+                            KapakResimUrl = "/img/kirtasiye/DeriPostaciCantasi.jpg.jpeg",
                             Marka = "Nova Premium",
                             StokAdedi = 15,
                             UrunAdi = "Deri Postacı Çantası",
@@ -1153,7 +1189,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Küçük çocuklar için tekerlekli, hafif ve sevimli desenli çanta.",
                             CokSatanMi = true,
                             Fiyat = 650.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_72.jpg",
+                            KapakResimUrl = "/img/kirtasiye/AnaokuluCantasiCekcekli.jpg.jpeg",
                             Marka = "Yaygan",
                             StokAdedi = 40,
                             UrunAdi = "Anaokulu Çantası Çekçekli",
@@ -1166,7 +1202,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Doğa dostu ham bez kumaş, omuzdan askılı günlük çanta.",
                             CokSatanMi = true,
                             Fiyat = 120.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_73.jpg",
+                            KapakResimUrl = "/img/kirtasiye/BezCanta(Tote Bag)NovaLogolu.jpg.jpeg",
                             Marka = "Nova Design",
                             StokAdedi = 200,
                             UrunAdi = "Bez Çanta (Tote Bag) Nova Logolu",
@@ -1179,7 +1215,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Eski usul metal, içi süngerli dayanıklı kalemlik.",
                             CokSatanMi = false,
                             Fiyat = 180.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_74.jpg",
+                            KapakResimUrl = "/img/kirtasiye/MetalKalemlikKutusu.jpg.jpeg",
                             Marka = "Faber Castell",
                             StokAdedi = 60,
                             UrunAdi = "Metal Kalemlik Kutusu",
@@ -1192,7 +1228,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Sınavlar için uygun, içi görünen fermuarlı file kalem kutusu.",
                             CokSatanMi = true,
                             Fiyat = 75.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_75.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SeffafFileKalemlik.jpg.jpeg",
                             Marka = "Noki",
                             StokAdedi = 150,
                             UrunAdi = "Şeffaf File Kalemlik",
@@ -1205,7 +1241,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Sanatçılar için çok sayıda kalemi rulo yaparak saran kanvas kumaş.",
                             CokSatanMi = false,
                             Fiyat = 220.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_76.jpg",
+                            KapakResimUrl = "/img/kirtasiye/RuloBezKalemlik.jpg.jpeg",
                             Marka = "Nova Art",
                             StokAdedi = 40,
                             UrunAdi = "Rulo Bez Kalemlik",
@@ -1218,7 +1254,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Masaya renk katacak yumuşak silikondan meyve figürlü kalemlik.",
                             CokSatanMi = true,
                             Fiyat = 130.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_77.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SilikonMuzKalemlik.jpg.jpeg",
                             Marka = "Kraf",
                             StokAdedi = 80,
                             UrunAdi = "Silikon Muz Kalemlik",
@@ -1231,7 +1267,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Kalem, silgi ve boyaları ayrı tutmak için geniş iç hacimli kumaş kalemlik.",
                             CokSatanMi = true,
                             Fiyat = 250.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_78.jpg",
+                            KapakResimUrl = "/img/kirtasiye/3BolmeliKalemCantasi.jpg.jpeg",
                             Marka = "Eastpak",
                             StokAdedi = 70,
                             UrunAdi = "3 Bölmeli Kalem Çantası",
@@ -1244,7 +1280,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Sadece bilgisayar ve birkaç dosya taşımak için suya dayanıklı evrak çantası.",
                             CokSatanMi = false,
                             Fiyat = 680.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_79.jpg",
+                            KapakResimUrl = "/img/kirtasiye/LaptopEvrakCantasiInce.jpg.jpeg",
                             Marka = "Targus",
                             StokAdedi = 25,
                             UrunAdi = "Laptop Evrak Çantası İnce",
@@ -1257,7 +1293,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Ofis masaları için kalem, kartvizit ve ataş bölmeli doğal ahşap organizer.",
                             CokSatanMi = true,
                             Fiyat = 190.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_80.jpg",
+                            KapakResimUrl = "/img/kirtasiye/MasaustuAhsapKalemlik.jpg.jpeg",
                             Marka = "Nova Office",
                             StokAdedi = 45,
                             UrunAdi = "Masaüstü Ahşap Kalemlik",
@@ -1270,7 +1306,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Tek bir prestijli dolma kalemi korumak için deri çıtçıtlı kılıf.",
                             CokSatanMi = false,
                             Fiyat = 150.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_81.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SuniDeriKalemKilifi.jpg.jpeg",
                             Marka = "Scrikss",
                             StokAdedi = 50,
                             UrunAdi = "Suni Deri Kalem Kılıfı",
@@ -1283,7 +1319,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Kullanılmadığında cüzdan boyutuna küçülen pratik market çantası.",
                             CokSatanMi = true,
                             Fiyat = 55.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_82.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KatlanabilirAlsverisCantasi.jpg.jpeg",
                             Marka = "Nova Eco",
                             StokAdedi = 120,
                             UrunAdi = "Katlanabilir Alışveriş Çantası",
@@ -1296,7 +1332,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Mimarlar ve mühendisler için pafta taşımaya yarayan uzayabilen tüp.",
                             CokSatanMi = false,
                             Fiyat = 280.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_83.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SeffafCizimTupuProjeCantasi.jpg.jpeg",
                             Marka = "PonART",
                             StokAdedi = 30,
                             UrunAdi = "Şeffaf Çizim Tüpü (Proje Çantası)",
@@ -1309,7 +1345,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "50x70 cm boyutlarındaki resimleri kırmadan taşımak için fermuarlı portfolyo.",
                             CokSatanMi = false,
                             Fiyat = 340.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_84.jpg",
+                            KapakResimUrl = "/img/kirtasiye/CiftSapliResimCantasi(Portfolyo).jpg.jpeg",
                             Marka = "Nova Art",
                             StokAdedi = 20,
                             UrunAdi = "Çift Saplı Resim Çantası (Portfolyo)",
@@ -1322,7 +1358,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Doğa dostu kraft kağıttan üretilmiş, 500 sayfa kapasiteli geniş klasör.",
                             CokSatanMi = false,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_85.jpg",
+                            KapakResimUrl = "/img/kirtasiye/A4KraftDosyaKlasoru.jpg.jpeg",
                             Marka = "Nova Office",
                             StokAdedi = 150,
                             UrunAdi = "A4 Kraft Dosya Klasörü",
@@ -1335,7 +1371,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Evrakları delmeden korumak için 11 delikli şeffaf A4 poşet dosya.",
                             CokSatanMi = true,
                             Fiyat = 80.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_86.jpg",
+                            KapakResimUrl = "/img/kirtasiye/PosetDosya100luPaket.jpg.jpeg",
                             Marka = "Noki",
                             StokAdedi = 300,
                             UrunAdi = "Poşet Dosya 100lü Paket",
@@ -1348,7 +1384,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Ödev ve rapor teslimi için önü şeffaf, arkası renkli plastik dosya.",
                             CokSatanMi = true,
                             Fiyat = 12.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_87.jpg",
+                            KapakResimUrl = "/img/kirtasiye/TelliSunumDosyasi.jpg.jpeg",
                             Marka = "Noki",
                             StokAdedi = 500,
                             UrunAdi = "Telli Sunum Dosyası",
@@ -1361,7 +1397,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Masaüstü hatırlatmalar için iz bırakmayan yapışkanlı kağıt.",
                             CokSatanMi = true,
                             Fiyat = 25.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_88.jpg",
+                            KapakResimUrl = "/img/kirtasiye/YapiskanliNotKagidiPostItSari.jpg.jpeg",
                             Marka = "Post-it",
                             StokAdedi = 400,
                             UrunAdi = "Yapışkanlı Not Kağıdı (Post-it) Sarı",
@@ -1374,7 +1410,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Kitap ve evraklarda önemli yerleri işaretlemek için plastik yapışkanlı sekme.",
                             CokSatanMi = true,
                             Fiyat = 35.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_89.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SayfaAyracBandi5Renk.jpg.jpeg",
                             Marka = "Kraf",
                             StokAdedi = 250,
                             UrunAdi = "Sayfa Ayraç Bandı 5 Renk",
@@ -1387,7 +1423,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Sayfayı yıpratmayan, tozsuz ve iz bırakmayan yumuşak silgi.",
                             CokSatanMi = true,
                             Fiyat = 15.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_90.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KlasikBeyazSilgiSinavTipi.jpg.jpeg",
                             Marka = "Faber Castell",
                             StokAdedi = 600,
                             UrunAdi = "Klasik Beyaz Silgi Sınav Tipi",
@@ -1400,7 +1436,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Hem ince hem kalın kalemler için keskin bıçaklı alüminyum kalemtıraş.",
                             CokSatanMi = true,
                             Fiyat = 45.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_91.jpg",
+                            KapakResimUrl = "/img/kirtasiye/MetalCiftDelikliKalemtras.jpg.jpeg",
                             Marka = "Maped",
                             StokAdedi = 200,
                             UrunAdi = "Metal Çift Delikli Kalemtıraş",
@@ -1413,7 +1449,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Kollu sistemle çalışan, kalem çöpünü haznesinde biriktiren büyük kalemtıraş.",
                             CokSatanMi = false,
                             Fiyat = 250.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_92.jpg",
+                            KapakResimUrl = "/img/kirtasiye/HazneliMasaustuKalemtras.jpg.jpeg",
                             Marka = "Carl",
                             StokAdedi = 40,
                             UrunAdi = "Hazneli Masaüstü Kalemtıraş",
@@ -1426,7 +1462,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Paslanmaz çelikten üretilmiş, evrakları bir arada tutan gümüş renkli ataş.",
                             CokSatanMi = false,
                             Fiyat = 20.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_93.jpg",
+                            KapakResimUrl = "/img/kirtasiye/Atas100luKutu.jpg.jpeg",
                             Marka = "Noki",
                             StokAdedi = 300,
                             UrunAdi = "Ataş 100lü Kutu",
@@ -1439,7 +1475,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Pratik kullanım için çanta boyunda mini zımba ve tel takımı.",
                             CokSatanMi = true,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_94.jpg",
+                            KapakResimUrl = "/img/kirtasiye/KucukZimbaMakinesi.jpg.jpeg",
                             Marka = "Mas",
                             StokAdedi = 150,
                             UrunAdi = "Küçük Zımba Makinesi",
@@ -1452,7 +1488,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Lazer ve mürekkep püskürtmeli yazıcılar için 80gr parlak beyaz kağıt.",
                             CokSatanMi = true,
                             Fiyat = 140.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_95.jpg",
+                            KapakResimUrl = "/img/kirtasiye/A4FotokopiKagidi500luTop.jpg.jpeg",
                             Marka = "Navigator",
                             StokAdedi = 100,
                             UrunAdi = "A4 Fotokopi Kağıdı 500lü Top",
@@ -1465,7 +1501,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Paketleme ve onarım için güçlü yapışkanlı, geniş şeffaf bant.",
                             CokSatanMi = true,
                             Fiyat = 35.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_96.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SeffafKoliBandi.jpg.jpeg",
                             Marka = "Ve-Ge",
                             StokAdedi = 200,
                             UrunAdi = "Şeffaf Koli Bandı",
@@ -1478,7 +1514,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Duvara poster asmak veya maket yapmak için süngerli çift taraflı bant.",
                             CokSatanMi = false,
                             Fiyat = 45.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_97.jpg",
+                            KapakResimUrl = "/img/kirtasiye/CiftTarafliBant.jpg.jpeg",
                             Marka = "3M",
                             StokAdedi = 120,
                             UrunAdi = "Çift Taraflı Bant",
@@ -1491,7 +1527,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Kesim işlerinde falçata kaymasını engelleyen paslanmaz çelik mühendis cetveli.",
                             CokSatanMi = false,
                             Fiyat = 60.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_98.jpg",
+                            KapakResimUrl = "/img/kirtasiye/CelikCetvel30cm.jpg.jpeg",
                             Marka = "Mas",
                             StokAdedi = 90,
                             UrunAdi = "Çelik Cetvel 30 cm",
@@ -1504,7 +1540,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Tükenmez kalem hatalarını anında kapatıp üzerine yazmaya izin veren şerit.",
                             CokSatanMi = true,
                             Fiyat = 40.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_99.jpg",
+                            KapakResimUrl = "/img/kirtasiye/SeritSiliciDaksil.jpg.jpeg",
                             Marka = "Tipp-Ex",
                             StokAdedi = 250,
                             UrunAdi = "Şerit Silici (Daksil)",
@@ -1517,7 +1553,7 @@ namespace NovaKitap.Migrations
                             Aciklama = "Ortopedik sırt desteği.",
                             CokSatanMi = true,
                             Fiyat = 850.00m,
-                            KapakResimUrl = "/img/kirtasiye/urun_100.jpg",
+                            KapakResimUrl = "/img/kirtasiye/UzayTemaliSirtCantasi.jpg.jpeg",
                             Marka = "Nova Travel",
                             StokAdedi = 30,
                             UrunAdi = "Uzay Temalı Sırt Çantası",
@@ -1593,7 +1629,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1866,
                             CokSatanMi = true,
                             Fiyat = 145.50m,
-                            KapakResimUrl = "/img/kitaplar/kitap_1.jpg",
+                            KapakResimUrl = "/img/kitaplar/suc_ve_ceza.jpg",
                             KategoriId = 1,
                             KitapAdi = "Suç ve Ceza",
                             SayfaSayisi = 687,
@@ -1609,7 +1645,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1880,
                             CokSatanMi = false,
                             Fiyat = 185.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_2.jpg",
+                            KapakResimUrl = "/img/kitaplar/Karamazov Kardeşler.jpg",
                             KategoriId = 1,
                             KitapAdi = "Karamazov Kardeşler",
                             SayfaSayisi = 840,
@@ -1625,7 +1661,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1862,
                             CokSatanMi = true,
                             Fiyat = 250.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_3.jpg",
+                            KapakResimUrl = "/img/kitaplar/Sefiller.jpg",
                             KategoriId = 1,
                             KitapAdi = "Sefiller",
                             SayfaSayisi = 1200,
@@ -1641,7 +1677,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1869,
                             CokSatanMi = false,
                             Fiyat = 275.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_4.jpg",
+                            KapakResimUrl = "/img/kitaplar/SavasSanati.jpg",
                             KategoriId = 1,
                             KitapAdi = "Savaş ve Barış",
                             SayfaSayisi = 1225,
@@ -1657,7 +1693,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1877,
                             CokSatanMi = false,
                             Fiyat = 190.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_5.jpg",
+                            KapakResimUrl = "/img/kitaplar/Anna Karenina.jpg",
                             KategoriId = 1,
                             KitapAdi = "Anna Karenina",
                             SayfaSayisi = 864,
@@ -1673,7 +1709,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1813,
                             CokSatanMi = true,
                             Fiyat = 95.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_6.jpg",
+                            KapakResimUrl = "/img/kitaplar/gururveonyargi.jpg",
                             KategoriId = 1,
                             KitapAdi = "Gurur ve Önyargı",
                             SayfaSayisi = 432,
@@ -1689,7 +1725,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1864,
                             CokSatanMi = false,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_7.jpg",
+                            KapakResimUrl = "/img/kitaplar/OlulerEvindenAnilar.jpg",
                             KategoriId = 1,
                             KitapAdi = "Yeraltından Notlar",
                             SayfaSayisi = 150,
@@ -1705,7 +1741,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1866,
                             CokSatanMi = false,
                             Fiyat = 75.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_8.jpg",
+                            KapakResimUrl = "/img/kitaplar/Kumarbaz.jpg",
                             KategoriId = 1,
                             KitapAdi = "Kumarbaz",
                             SayfaSayisi = 190,
@@ -1721,7 +1757,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1949,
                             CokSatanMi = true,
                             Fiyat = 110.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_9.jpg",
+                            KapakResimUrl = "/img/kitaplar/George Orwell 1984.jpg",
                             KategoriId = 7,
                             KitapAdi = "1984",
                             SayfaSayisi = 352,
@@ -1737,7 +1773,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1945,
                             CokSatanMi = true,
                             Fiyat = 85.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_10.jpg",
+                            KapakResimUrl = "/img/kitaplar/HaniminCiftligi.jpg",
                             KategoriId = 7,
                             KitapAdi = "Hayvan Çiftliği",
                             SayfaSayisi = 152,
@@ -1753,7 +1789,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1943,
                             CokSatanMi = true,
                             Fiyat = 70.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_11.jpg",
+                            KapakResimUrl = "/img/kitaplar/Kürk Mantolu Madonna.jpg",
                             KategoriId = 7,
                             KitapAdi = "Kürk Mantolu Madonna",
                             SayfaSayisi = 160,
@@ -1769,7 +1805,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1940,
                             CokSatanMi = false,
                             Fiyat = 90.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_12.jpg",
+                            KapakResimUrl = "/img/kitaplar/KirmiziKitap.jpg",
                             KategoriId = 7,
                             KitapAdi = "İçimizdeki Şeytan",
                             SayfaSayisi = 260,
@@ -1785,7 +1821,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1937,
                             CokSatanMi = false,
                             Fiyat = 85.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_13.jpg",
+                            KapakResimUrl = "/img/kitaplar/Buyukuyku.jpg",
                             KategoriId = 7,
                             KitapAdi = "Kuyucaklı Yusuf",
                             SayfaSayisi = 220,
@@ -1801,7 +1837,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1943,
                             CokSatanMi = true,
                             Fiyat = 45.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_14.jpg",
+                            KapakResimUrl = "/img/kitaplar/satranc.jpg",
                             KategoriId = 7,
                             KitapAdi = "Satranç",
                             SayfaSayisi = 85,
@@ -1833,7 +1869,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1915,
                             CokSatanMi = true,
                             Fiyat = 55.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_16.jpg",
+                            KapakResimUrl = "/img/kitaplar/Donusum.jpg",
                             KategoriId = 2,
                             KitapAdi = "Dönüşüm",
                             SayfaSayisi = 104,
@@ -1849,7 +1885,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1925,
                             CokSatanMi = false,
                             Fiyat = 95.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_17.jpg",
+                            KapakResimUrl = "/img/kitaplar/Dava.jpg",
                             KategoriId = 2,
                             KitapAdi = "Dava",
                             SayfaSayisi = 270,
@@ -1865,7 +1901,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1961,
                             CokSatanMi = true,
                             Fiyat = 130.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_18.jpg",
+                            KapakResimUrl = "/img/kitaplar/saatleridurdurmaenstitusu.jpg",
                             KategoriId = 7,
                             KitapAdi = "Saatleri Ayarlama Enstitüsü",
                             SayfaSayisi = 382,
@@ -1881,7 +1917,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1949,
                             CokSatanMi = false,
                             Fiyat = 135.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_19.jpg",
+                            KapakResimUrl = "/img/kitaplar/RuhUzerine.jpg",
                             KategoriId = 2,
                             KitapAdi = "Huzur",
                             SayfaSayisi = 390,
@@ -1897,7 +1933,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1972,
                             CokSatanMi = true,
                             Fiyat = 210.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_20.jpg",
+                            KapakResimUrl = "/img/kitaplar/Ölü Canlar.jpg",
                             KategoriId = 7,
                             KitapAdi = "Tutunamayanlar",
                             SayfaSayisi = 724,
@@ -1913,7 +1949,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1973,
                             CokSatanMi = false,
                             Fiyat = 150.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_21.jpg",
+                            KapakResimUrl = "/img/kitaplar/TehlikeliOyunlar.jpg",
                             KategoriId = 7,
                             KitapAdi = "Tehlikeli Oyunlar",
                             SayfaSayisi = 480,
@@ -1929,7 +1965,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1942,
                             CokSatanMi = true,
                             Fiyat = 60.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_22.jpg",
+                            KapakResimUrl = "/img/kitaplar/Yabanci.jpg",
                             KategoriId = 2,
                             KitapAdi = "Yabancı",
                             SayfaSayisi = 112,
@@ -1945,7 +1981,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1947,
                             CokSatanMi = false,
                             Fiyat = 115.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_23.jpg",
+                            KapakResimUrl = "/img/kitaplar/Veba.jpg",
                             KategoriId = 2,
                             KitapAdi = "Veba",
                             SayfaSayisi = 300,
@@ -1961,7 +1997,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1870,
                             CokSatanMi = false,
                             Fiyat = 125.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_24.jpg",
+                            KapakResimUrl = "/img/kitaplar/denzleraltndayrmbnfersah.jpg",
                             KategoriId = 7,
                             KitapAdi = "Denizler Altında Yirmibin Fersah",
                             SayfaSayisi = 450,
@@ -1977,7 +2013,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1873,
                             CokSatanMi = false,
                             Fiyat = 110.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_25.jpg",
+                            KapakResimUrl = "/img/kitaplar/seksengundedevrialem.jpg",
                             KategoriId = 7,
                             KitapAdi = "Seksen Günde Devri Alem",
                             SayfaSayisi = 320,
@@ -1993,7 +2029,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1922,
                             CokSatanMi = false,
                             Fiyat = 40.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_26.jpg",
+                            KapakResimUrl = "/img/kitaplar/AmokKosucusu.jpg",
                             KategoriId = 2,
                             KitapAdi = "Amok Koşucusu",
                             SayfaSayisi = 70,
@@ -2009,7 +2045,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1939,
                             CokSatanMi = true,
                             Fiyat = 105.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_27.jpg",
+                            KapakResimUrl = "/img/kitaplar/OnKisiydiler.jpg",
                             KategoriId = 6,
                             KitapAdi = "On Kişiydiler (On Küçük Zenci)",
                             SayfaSayisi = 224,
@@ -2025,7 +2061,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1934,
                             CokSatanMi = true,
                             Fiyat = 115.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_28.jpg",
+                            KapakResimUrl = "/img/kitaplar/DoguEkspresindeCinayet.jpg",
                             KategoriId = 6,
                             KitapAdi = "Doğu Ekspresinde Cinayet",
                             SayfaSayisi = 256,
@@ -2041,7 +2077,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1926,
                             CokSatanMi = false,
                             Fiyat = 120.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_29.jpg",
+                            KapakResimUrl = "/img/kitaplar/RogerAckroydCinayeti.jpg",
                             KategoriId = 6,
                             KitapAdi = "Roger Ackroyd Cinayeti",
                             SayfaSayisi = 280,
@@ -2057,7 +2093,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 2020,
                             CokSatanMi = false,
                             Fiyat = 130.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_30.jpg",
+                            KapakResimUrl = "/img/kitaplar/NildeOlum.jpg",
                             KategoriId = 6,
                             KitapAdi = "Nil'de Ölüm",
                             SayfaSayisi = 310,
@@ -2073,7 +2109,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1887,
                             CokSatanMi = true,
                             Fiyat = 75.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_31.jpg",
+                            KapakResimUrl = "/img/kitaplar/SherlockHolmesKzlSorusturma.jpg",
                             KategoriId = 6,
                             KitapAdi = "Sherlock Holmes - Kızıl Soruşturma",
                             SayfaSayisi = 160,
@@ -2089,7 +2125,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1890,
                             CokSatanMi = false,
                             Fiyat = 80.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_32.jpg",
+                            KapakResimUrl = "/img/kitaplar/SherlockHolmesDortlerinmzasi.jpg",
                             KategoriId = 6,
                             KitapAdi = "Sherlock Holmes - Dörtlerin İmzası",
                             SayfaSayisi = 180,
@@ -2105,7 +2141,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 2020,
                             CokSatanMi = true,
                             Fiyat = 100.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_33.jpg",
+                            KapakResimUrl = "/img/kitaplar/BaskervillelerinKopegi.jpg",
                             KategoriId = 6,
                             KitapAdi = "Baskerville'lerin Köpeği",
                             SayfaSayisi = 240,
@@ -2121,7 +2157,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1899,
                             CokSatanMi = true,
                             Fiyat = 180.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_34.jpg",
+                            KapakResimUrl = "/img/kitaplar/DuslerinYorumu.jpg",
                             KategoriId = 3,
                             KitapAdi = "Düşlerin Yorumu",
                             SayfaSayisi = 550,
@@ -2137,7 +2173,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1930,
                             CokSatanMi = false,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_35.jpg",
+                            KapakResimUrl = "/img/kitaplar/UygarlığınHuzursuzluğu.jpg",
                             KategoriId = 3,
                             KitapAdi = "Uygarlığın Huzursuzluğu",
                             SayfaSayisi = 120,
@@ -2153,7 +2189,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1901,
                             CokSatanMi = false,
                             Fiyat = 135.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_36.jpg",
+                            KapakResimUrl = "/img/kitaplar/GundelikHayatinPsikopatolojisi.jpg",
                             KategoriId = 3,
                             KitapAdi = "Gündelik Hayatın Psikopatolojisi",
                             SayfaSayisi = 320,
@@ -2169,7 +2205,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1928,
                             CokSatanMi = false,
                             Fiyat = 125.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_37.jpg",
+                            KapakResimUrl = "/img/kitaplar/InsanRuhunaYonelis.jpg",
                             KategoriId = 3,
                             KitapAdi = "İnsan Ruhuna Yöneliş",
                             SayfaSayisi = 280,
@@ -2185,7 +2221,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1957,
                             CokSatanMi = true,
                             Fiyat = 75.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_38.jpg",
+                            KapakResimUrl = "/img/kitaplar/KesfedilmemisBenlik.jpg",
                             KategoriId = 3,
                             KitapAdi = "Keşfedilmemiş Benlik",
                             SayfaSayisi = 140,
@@ -2201,7 +2237,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 2009,
                             CokSatanMi = false,
                             Fiyat = 250.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_39.jpg",
+                            KapakResimUrl = "/img/kitaplar/KirmiziKitap.jpg",
                             KategoriId = 3,
                             KitapAdi = "Kırmızı Kitap",
                             SayfaSayisi = 400,
@@ -2217,7 +2253,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1883,
                             CokSatanMi = true,
                             Fiyat = 140.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_40.jpg",
+                            KapakResimUrl = "/img/kitaplar/BoyleSoylediZerdust.jpg",
                             KategoriId = 5,
                             KitapAdi = "Böyle Söyledi Zerdüşt",
                             SayfaSayisi = 350,
@@ -2233,7 +2269,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1886,
                             CokSatanMi = false,
                             Fiyat = 110.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_41.jpg",
+                            KapakResimUrl = "/img/kitaplar/IyiliginveKotulugunOtesinde.jpg",
                             KategoriId = 5,
                             KitapAdi = "İyinin ve Kötünün Ötesinde",
                             SayfaSayisi = 240,
@@ -2249,7 +2285,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1889,
                             CokSatanMi = false,
                             Fiyat = 70.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_42.jpg",
+                            KapakResimUrl = "/img/kitaplar/PutlarinAlacakaranlg.jpg",
                             KategoriId = 5,
                             KitapAdi = "Putların Alacakaranlığı",
                             SayfaSayisi = 130,
@@ -2265,7 +2301,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 180,
                             CokSatanMi = true,
                             Fiyat = 80.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_43.jpg",
+                            KapakResimUrl = "/img/kitaplar/KendimeDusunceler.jpg",
                             KategoriId = 5,
                             KitapAdi = "Kendime Düşünceler",
                             SayfaSayisi = 160,
@@ -2281,7 +2317,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1942,
                             CokSatanMi = true,
                             Fiyat = 75.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_44.jpg",
+                            KapakResimUrl = "/img/kitaplar/SisifosSoyleni.jpg",
                             KategoriId = 5,
                             KitapAdi = "Sisifos Söyleni",
                             SayfaSayisi = 150,
@@ -2297,7 +2333,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1951,
                             CokSatanMi = false,
                             Fiyat = 145.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_45.jpg",
+                            KapakResimUrl = "/img/kitaplar/BaskaldiranInsan.jpg",
                             KategoriId = 5,
                             KitapAdi = "Başkaldıran İnsan",
                             SayfaSayisi = 380,
@@ -2313,7 +2349,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 2011,
                             CokSatanMi = true,
                             Fiyat = 160.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_46.jpg",
+                            KapakResimUrl = "/img/kitaplar/SapiensHayvanlardanTanrilara.jpg",
                             KategoriId = 4,
                             KitapAdi = "Sapiens: Hayvanlardan Tanrılara",
                             SayfaSayisi = 412,
@@ -2329,7 +2365,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 2015,
                             CokSatanMi = true,
                             Fiyat = 175.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_47.jpg",
+                            KapakResimUrl = "/img/kitaplar/HomoDeusYarininKisaTarihi.jpg",
                             KategoriId = 4,
                             KitapAdi = "Homo Deus: Yarının Kısa Tarihi",
                             SayfaSayisi = 450,
@@ -2345,7 +2381,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 2018,
                             CokSatanMi = false,
                             Fiyat = 150.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_48.jpg",
+                            KapakResimUrl = "/img/kitaplar/21YuzyilIcin21Ders.jpg",
                             KategoriId = 4,
                             KitapAdi = "21. Yüzyıl İçin 21 Ders",
                             SayfaSayisi = 368,
@@ -2361,7 +2397,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 2019,
                             CokSatanMi = true,
                             Fiyat = 130.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_49.jpg",
+                            KapakResimUrl = "/img/kitaplar/BirOmurNasilYasanir.jpg",
                             KategoriId = 4,
                             KitapAdi = "Bir Ömür Nasıl Yaşanır?",
                             SayfaSayisi = 288,
@@ -2377,7 +2413,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 2018,
                             CokSatanMi = true,
                             Fiyat = 195.00m,
-                            KapakResimUrl = "/img/kitaplar/kitap_50.jpg",
+                            KapakResimUrl = "/img/kitaplar/GaziMustafaKemalAtaturk.jpg",
                             KategoriId = 4,
                             KitapAdi = "Gazi Mustafa Kemal Atatürk",
                             SayfaSayisi = 480,
@@ -2385,6 +2421,2806 @@ namespace NovaKitap.Migrations
                             Yayinevi = "Kronik Kitap",
                             YazarId = 10,
                             YeniCikanMi = true
+                        },
+                        new
+                        {
+                            KitapId = 1180,
+                            Aciklama = "Küçük Zeze'nin duygusal büyüme hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 135.00m,
+                            KapakResimUrl = "/img/kitaplar/OtomatikPortakal.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Şeker Portakalı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 69,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1181,
+                            Aciklama = "Adalet ve ırkçılık üzerine unutulmaz roman.",
+                            CokSatanMi = false,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/MutluOlum.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Bülbülü Öldürmek",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 70,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1182,
+                            Aciklama = "Gençlik bunalımı ve yabancılaşma hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 155.00m,
+                            KapakResimUrl = "/img/kitaplar/geceyarisicocuklari.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Çavdar Tarlasında Çocuklar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 71,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1183,
+                            Aciklama = "Takıntılı bir aşkın çarpıcı anlatımı.",
+                            CokSatanMi = false,
+                            Fiyat = 190.00m,
+                            KapakResimUrl = "/img/kitaplar/Politika.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Lolita",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 72,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1184,
+                            Aciklama = "Gotik atmosferli psikolojik gerilim romanı.",
+                            CokSatanMi = false,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/Veba.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Rebecca",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 73,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1185,
+                            Aciklama = "Kayıp kuşağın Avrupa macerası.",
+                            CokSatanMi = false,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/kitap_1185.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Güneş de Doğar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 74,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1186,
+                            Aciklama = "Savaşın ortasında yaşanan trajik aşk.",
+                            CokSatanMi = false,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/ucSilahsorler.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Silahlara Veda",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 74,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1187,
+                            Aciklama = "Bir balıkçının doğayla mücadelesi.",
+                            CokSatanMi = true,
+                            Fiyat = 125.00m,
+                            KapakResimUrl = "/img/kitaplar/AslaYalnizYeme.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Yaşlı Adam ve Deniz",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 74,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1188,
+                            Aciklama = "Savaş yıllarında bir genç kızın günlüğü.",
+                            CokSatanMi = false,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/YarınınKısaBirTarihi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Anna Frank'ın Hatıra Defteri",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 75,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1189,
+                            Aciklama = "Dört kız kardeşin büyüme hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/Ölü Canlar.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Küçük Kadınlar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 76,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1190,
+                            Aciklama = "Güçlü bir kadının bağımsızlık mücadelesi.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/insanneileyasar.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Jane Eyre",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 77,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1191,
+                            Aciklama = "Evlilik ve sosyal ilişkiler üzerine klasik roman.",
+                            CokSatanMi = false,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/Empati.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Emma",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 19,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1192,
+                            Aciklama = "Vahşi doğada hayatta kalma öyküsü.",
+                            CokSatanMi = true,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/mobydick.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Beyaz Diş",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 78,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1193,
+                            Aciklama = "Bir köpeğin içgüdülerine dönüş hikayesi.",
+                            CokSatanMi = false,
+                            Fiyat = 135.00m,
+                            KapakResimUrl = "/img/kitaplar/sineklerintanrisi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Vahşetin Çağrısı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 78,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1194,
+                            Aciklama = "Hırs ve aşk arasında kalan genç adamın hikayesi.",
+                            CokSatanMi = false,
+                            Fiyat = 185.00m,
+                            KapakResimUrl = "/img/kitaplar/MaiveSiyah.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Kızıl ve Siyah",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 79,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1195,
+                            Aciklama = "Tembellik ve toplum eleştirisi üzerine klasik eser.",
+                            CokSatanMi = true,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/kitap_1195.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Oblomov",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 80,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1196,
+                            Aciklama = "Saf iyiliğin toplumdaki yeri üzerine roman.",
+                            CokSatanMi = true,
+                            Fiyat = 220.00m,
+                            KapakResimUrl = "/img/kitaplar/Dracula.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Budala",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 1,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1197,
+                            Aciklama = "Zorlu bir hayatın sert anlatımı.",
+                            CokSatanMi = false,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/defineadasi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Ekmek Arası",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 81,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1198,
+                            Aciklama = "Amerikan alt kültürüne mizahi bakış.",
+                            CokSatanMi = false,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/satranc.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Postane",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 81,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1199,
+                            Aciklama = "Yazar olma hayali kuran bir denizcinin hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/marti.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Martin Eden",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 78,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1200,
+                            Aciklama = "Modern İran edebiyatının kült romanı.",
+                            CokSatanMi = false,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/KorBaykus.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Kör Baykuş",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 82,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1201,
+                            Aciklama = "İspanya İç Savaşı sırasında geçen dramatik roman.",
+                            CokSatanMi = true,
+                            Fiyat = 190.00m,
+                            KapakResimUrl = "/img/kitaplar/canlarkmncncalyor.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Çanlar Kimin İçin Çalıyor",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 74,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1202,
+                            Aciklama = "Karşılıksız aşkın trajik öyküsü.",
+                            CokSatanMi = false,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/gencwertherinacilari.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Genç Werther'in Acıları",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 83,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1203,
+                            Aciklama = "İhanet ve intikam üzerine epik macera.",
+                            CokSatanMi = true,
+                            Fiyat = 240.00m,
+                            KapakResimUrl = "/img/kitaplar/montekristokontu.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Monte Kristo Kontu",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 84,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1204,
+                            Aciklama = "Onur ve dostluk dolu şövalyelik hikayesi.",
+                            CokSatanMi = false,
+                            Fiyat = 210.00m,
+                            KapakResimUrl = "/img/kitaplar/ucSilahsorler.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Üç Silahşörler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 84,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1205,
+                            Aciklama = "Paris'te geçen dramatik aşk hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 195.00m,
+                            KapakResimUrl = "/img/kitaplar/notredameinkamburu.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Notre Dame'ın Kamburu",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 7,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1206,
+                            Aciklama = "İnsan doğası üzerine felsefi düşünceler.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/Denemeler.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Denemeler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 85,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1207,
+                            Aciklama = "Devlet ve toplum sözleşmesi üzerine eser.",
+                            CokSatanMi = false,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/Leviathan.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Leviathan",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 86,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1208,
+                            Aciklama = "Kadın kimliği üzerine çığır açan çalışma.",
+                            CokSatanMi = true,
+                            Fiyat = 230.00m,
+                            KapakResimUrl = "/img/kitaplar/İkincicinsiyet.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "İkinci Cins",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 87,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1209,
+                            Aciklama = "Halk egemenliği ve özgürlük üzerine klasik eser.",
+                            CokSatanMi = false,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/Toplumsozlesmesi.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Toplum Sözleşmesi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 88,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1210,
+                            Aciklama = "Dil ve mantık üzerine önemli felsefi eser.",
+                            CokSatanMi = false,
+                            Fiyat = 200.00m,
+                            KapakResimUrl = "/img/kitaplar/tractatuslogicophilosophicus.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Tractatus Logico-Philosophicus",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 89,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1211,
+                            Aciklama = "Varoluşçuluk felsefesinin temel açıklaması.",
+                            CokSatanMi = true,
+                            Fiyat = 120.00m,
+                            KapakResimUrl = "/img/kitaplar/Varolusculukbirhumanizmdir.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Varoluşçuluk Bir Hümanizmdir",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 90,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1212,
+                            Aciklama = "Disiplin ve çalışma alışkanlığı geliştirme rehberi.",
+                            CokSatanMi = true,
+                            Fiyat = 135.00m,
+                            KapakResimUrl = "/img/kitaplar/iradeterbiyesi.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "İrade Terbiyesi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 91,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1213,
+                            Aciklama = "Derin odaklanma ile verimli çalışma yöntemleri.",
+                            CokSatanMi = true,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/DeepWork.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Deep Work",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 92,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1214,
+                            Aciklama = "Başarı ve finansal özgürlük üzerine klasik eser.",
+                            CokSatanMi = true,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/dusunvezenginol.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Düşün ve Zengin Ol",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 93,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1215,
+                            Aciklama = "Sabah rutinleriyle hayatı değiştirme rehberi.",
+                            CokSatanMi = false,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/Ölü Canlar.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Mucize Sabahlar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 94,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1216,
+                            Aciklama = "Mutluluk ve üretkenlik psikolojisi üzerine çalışma.",
+                            CokSatanMi = true,
+                            Fiyat = 190.00m,
+                            KapakResimUrl = "/img/kitaplar/Akis.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Akış",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 95,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1217,
+                            Aciklama = "Başarının görünmeyen dinamikleri.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/outliers.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Outliers",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 60,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1218,
+                            Aciklama = "Girişimcilik dünyasının zorlukları üzerine.",
+                            CokSatanMi = false,
+                            Fiyat = 210.00m,
+                            KapakResimUrl = "/img/kitaplar/Startup.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Startup",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 96,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1219,
+                            Aciklama = "Psikoloji biliminin temel taşlarından biri.",
+                            CokSatanMi = false,
+                            Fiyat = 220.00m,
+                            KapakResimUrl = "/img/kitaplar/psikolojinintemelilkeleri.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Psikolojinin Temel İlkeleri",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 97,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1220,
+                            Aciklama = "Bilişsel terapi teknikleriyle mutluluk rehberi.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/iyihissetmek.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "İyi Hissetmek",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 98,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1221,
+                            Aciklama = "Modern dedektif hikayelerinin başlangıcı.",
+                            CokSatanMi = false,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/morguesokaicinayeti.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Morgue Sokağı Cinayetleri",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 99,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1222,
+                            Aciklama = "Kara roman türünün öncü eserlerinden biri.",
+                            CokSatanMi = true,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/maltasahinikitap.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Malta Şahini",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 100,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1223,
+                            Aciklama = "Özel dedektif Philip Marlowe'un ilk macerası.",
+                            CokSatanMi = false,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/Buyukuyku.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Büyük Uyku",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 101,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1224,
+                            Aciklama = "Orta Çağ manastırında geçen gizemli cinayetler.",
+                            CokSatanMi = true,
+                            Fiyat = 240.00m,
+                            KapakResimUrl = "/img/kitaplar/gulunadi.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Gülün Adı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 102,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1225,
+                            Aciklama = "Masonluk ve sembollerle dolu gerilim romanı.",
+                            CokSatanMi = true,
+                            Fiyat = 220.00m,
+                            KapakResimUrl = "/img/kitaplar/Kaybolansembol.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Kaybolan Sembol",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 103,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1226,
+                            Aciklama = "Polisiye ve suç dünyasında sürükleyici hikaye.",
+                            CokSatanMi = false,
+                            Fiyat = 185.00m,
+                            KapakResimUrl = "/img/kitaplar/olumsessizgeldi.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Ölüm Sessiz Geldi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 104,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1227,
+                            Aciklama = "Zeki bir seri katilin izini süren dedektifler.",
+                            CokSatanMi = true,
+                            Fiyat = 195.00m,
+                            KapakResimUrl = "/img/kitaplar/kemikkoleksiyoncusu.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Kemik Koleksiyoncusu",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 105,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1228,
+                            Aciklama = "Fantastik ve korku öğelerini birleştiren seri.",
+                            CokSatanMi = true,
+                            Fiyat = 260.00m,
+                            KapakResimUrl = "/img/kitaplar/karakule.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Kara Kule",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 106,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1229,
+                            Aciklama = "Doğaüstü güçlerle çevrili gerilim hikayesi.",
+                            CokSatanMi = false,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/medyum.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Medyum",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 106,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1230,
+                            Aciklama = "Kaptan Ahab'ın beyaz balina takıntısı.",
+                            CokSatanMi = true,
+                            Fiyat = 195.00m,
+                            KapakResimUrl = "/img/kitaplar/mobydick.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Moby Dick",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 107,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1231,
+                            Aciklama = "Aşk, gurur ve toplumsal sınıf çatışmaları.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/gururveonyargi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Gurur ve Önyargı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 19,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1232,
+                            Aciklama = "Tutkulu ve trajik bir aşk hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/ugultulutepeler.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Uğultulu Tepeler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 108,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1233,
+                            Aciklama = "Kendini keşfetme yolculuğu.",
+                            CokSatanMi = false,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/Simurg.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Simurg",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 109,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1234,
+                            Aciklama = "Modern insanın içsel çatışmaları.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/bozkrkurdu.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Bozkırkurdu",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 109,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1235,
+                            Aciklama = "Özgürlük ve kendini geliştirme üzerine alegori.",
+                            CokSatanMi = true,
+                            Fiyat = 95.00m,
+                            KapakResimUrl = "/img/kitaplar/marti.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Martı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 110,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1236,
+                            Aciklama = "Issız adada hayatta kalma mücadelesi.",
+                            CokSatanMi = false,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/robinsoncrusoe.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Robinson Crusoe",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 111,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1237,
+                            Aciklama = "Korsanlar ve hazine avı macerası.",
+                            CokSatanMi = false,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/defineadasi.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Define Adası",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 22,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1238,
+                            Aciklama = "Yaramaz bir çocuğun eğlenceli maceraları.",
+                            CokSatanMi = true,
+                            Fiyat = 120.00m,
+                            KapakResimUrl = "/img/kitaplar/tomsawyerinmaceralari.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Tom Sawyer'ın Maceraları",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 112,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1239,
+                            Aciklama = "Amerika nehirlerinde geçen özgürlük yolculuğu.",
+                            CokSatanMi = false,
+                            Fiyat = 125.00m,
+                            KapakResimUrl = "/img/kitaplar/huckleberryfinn.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Huckleberry Finn",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 112,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1240,
+                            Aciklama = "Kaptan Nemo ile denizaltı macerası.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/denzleraltndayrmbnfersah.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Denizler Altında 20 Bin Fersah",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 18,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1241,
+                            Aciklama = "Dünya turuna çıkan bir adamın yarışı.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/seksengundedevrialem.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Seksen Günde Devri Alem",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 18,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1242,
+                            Aciklama = "Çocukluk dostluğu ve mahalle mücadelesi.",
+                            CokSatanMi = true,
+                            Fiyat = 115.00m,
+                            KapakResimUrl = "/img/kitaplar/palsokagcocuklari.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Pal Sokağı Çocukları",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 113,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1243,
+                            Aciklama = "Medeniyetten uzak kalan çocukların vahşileşmesi.",
+                            CokSatanMi = true,
+                            Fiyat = 155.00m,
+                            KapakResimUrl = "/img/kitaplar/sineklerintanrisi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Sineklerin Tanrısı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 114,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1244,
+                            Aciklama = "Hindistan'ın bağımsızlığıyla doğan çocukların hikayesi.",
+                            CokSatanMi = false,
+                            Fiyat = 210.00m,
+                            KapakResimUrl = "/img/kitaplar/geceyarisicocuklari.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Gece Yarısı Çocukları",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 115,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1245,
+                            Aciklama = "Afganistan'da iki kadının dramatik yaşamı.",
+                            CokSatanMi = true,
+                            Fiyat = 190.00m,
+                            KapakResimUrl = "/img/kitaplar/bnmuhtesemgunes.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Bin Muhteşem Güneş",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 116,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1246,
+                            Aciklama = "Dostluk, ihanet ve kefaret üzerine roman.",
+                            CokSatanMi = true,
+                            Fiyat = 185.00m,
+                            KapakResimUrl = "/img/kitaplar/ucurtmaavcisi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Uçurtma Avcısı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 116,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1247,
+                            Aciklama = "Bir çocuk ve kaplanın okyanustaki hayatta kalma mücadelesi.",
+                            CokSatanMi = true,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/pininyasami.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Pi'nin Yaşamı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 117,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1248,
+                            Aciklama = "Özgür ruhlu bir adamın hayat felsefesi.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/zorba.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Zorba",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 118,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1249,
+                            Aciklama = "Ölüm cezasına karşı etkileyici bir anlatım.",
+                            CokSatanMi = false,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/brdammahkumununsongunu.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Bir İdam Mahkumunun Son Günü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 7,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1250,
+                            Aciklama = "Zaman ve insan ilişkileri üzerine düşündüren roman.",
+                            CokSatanMi = false,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/saatleridurdurmaenstitusu.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Saatleri Durdurma Enstitüsü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 28,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1251,
+                            Aciklama = "Psikolojik gerilim dolu kısa roman.",
+                            CokSatanMi = true,
+                            Fiyat = 120.00m,
+                            KapakResimUrl = "/img/kitaplar/satranc.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Satranç",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 4,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1252,
+                            Aciklama = "İnsan özgürlüğü ve başkaldırı üzerine deneme.",
+                            CokSatanMi = false,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/ayaklanma.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Ayaklanma",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 13,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1253,
+                            Aciklama = "Felsefeyi günlük yaşama uyarlayan eser.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/felsefenintesellisi.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Felsefenin Tesellisi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 119,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1254,
+                            Aciklama = "İnanç ve etik üzerine derin düşünceler.",
+                            CokSatanMi = false,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/korkuvetitreme.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Korku ve Titreme",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 120,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1255,
+                            Aciklama = "Siyaset ve erdem üzerine klasik eser.",
+                            CokSatanMi = false,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/devletadam.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Devlet Adamı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 121,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1256,
+                            Aciklama = "Stoacı yaşam felsefesinin temel taşlarından biri.",
+                            CokSatanMi = true,
+                            Fiyat = 135.00m,
+                            KapakResimUrl = "/img/kitaplar/mutluyasamuzerine.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Mutlu Yaşam Üzerine",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 122,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1257,
+                            Aciklama = "İnsan sevgisi ve merhamet üzerine öyküler.",
+                            CokSatanMi = true,
+                            Fiyat = 110.00m,
+                            KapakResimUrl = "/img/kitaplar/insanneileyasar.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "İnsan Neyle Yaşar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 14,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1258,
+                            Aciklama = "Sade yaşamın gücü üzerine modern rehber.",
+                            CokSatanMi = true,
+                            Fiyat = 155.00m,
+                            KapakResimUrl = "/img/kitaplar/minimalizm.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Minimalizm",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 123,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1259,
+                            Aciklama = "Alışkanlıkların hayatımızı nasıl şekillendirdiği.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/aliskanliklaringucu.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Alışkanlıkların Gücü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 124,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1260,
+                            Aciklama = "Odaklanarak başarıya ulaşmanın yolları.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/teksey.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Tek Şey",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 125,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1261,
+                            Aciklama = "Verimli çalışma ve özgür yaşam rehberi.",
+                            CokSatanMi = true,
+                            Fiyat = 185.00m,
+                            KapakResimUrl = "/img/kitaplar/4SaatlikcalsmaHaftasi.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "4 Saatlik Çalışma Haftası",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 126,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1262,
+                            Aciklama = "İnsan ilişkileri ve network kurma sanatı.",
+                            CokSatanMi = false,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/AslaYalnizYeme.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Asla Yalnız Yeme",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 127,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1263,
+                            Aciklama = "Gelecekte yapay zekanın dünyayı nasıl değiştireceği.",
+                            CokSatanMi = false,
+                            Fiyat = 220.00m,
+                            KapakResimUrl = "/img/kitaplar/YapayZeka2041.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Yapay Zeka 2041",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 128,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1264,
+                            Aciklama = "Travma ve insan psikolojisi üzerine çalışma.",
+                            CokSatanMi = true,
+                            Fiyat = 230.00m,
+                            KapakResimUrl = "/img/kitaplar/BedenKaytTutar.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Beden Kayıt Tutar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 129,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1265,
+                            Aciklama = "İnsan ilişkilerinde empati kurmanın önemi.",
+                            CokSatanMi = false,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/Empati.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Empati",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 130,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1266,
+                            Aciklama = "Gizem ve sembollerle dolu sürükleyici macera.",
+                            CokSatanMi = true,
+                            Fiyat = 215.00m,
+                            KapakResimUrl = "/img/kitaplar/KayipSembol.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Kayıp Sembol",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 103,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1267,
+                            Aciklama = "Sert polisiye türünün dikkat çeken eserlerinden biri.",
+                            CokSatanMi = false,
+                            Fiyat = 135.00m,
+                            KapakResimUrl = "/img/kitaplar/KanunBenim.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Kanun Benim",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 131,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1268,
+                            Aciklama = "İpucu avıyla ilerleyen gerilim dolu polisiye.",
+                            CokSatanMi = true,
+                            Fiyat = 190.00m,
+                            KapakResimUrl = "/img/kitaplar/seytanAyrintidaGizlidir.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Şeytan Ayrıntıda Gizlidir",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 105,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1269,
+                            Aciklama = "Geçmişin sırlarıyla yüzleşen bir kadının hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/KaranlikYerler.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Karanlık Yerler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 132,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1270,
+                            Aciklama = "Gizemli bir kayboluşun psikolojik çözümlemesi.",
+                            CokSatanMi = true,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/TrendekiKiz.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Trendeki Kız",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 133,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1271,
+                            Aciklama = "Konuşmayı bırakan bir kadının gizemi.",
+                            CokSatanMi = true,
+                            Fiyat = 195.00m,
+                            KapakResimUrl = "/img/kitaplar/SessizHasta.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Sessiz Hasta",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 134,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1272,
+                            Aciklama = "Alfabetik seri cinayetlerin izini süren dedektif.",
+                            CokSatanMi = false,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/CinayetAlfabesi.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Cinayet Alfabesi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 135,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1273,
+                            Aciklama = "Fransız Alplerinde geçen karanlık cinayet hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 210.00m,
+                            KapakResimUrl = "/img/kitaplar/KizilNehirler.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Kızıl Nehirler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 136,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1274,
+                            Aciklama = "Doğaüstü olaylarla örülü polisiye roman.",
+                            CokSatanMi = false,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/oluRuhlarKulubu.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Ölü Ruhlar Kulübü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 137,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1275,
+                            Aciklama = "Sherlock Holmes'un en ünlü vakalarından biri.",
+                            CokSatanMi = true,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/BaskervilleTazisi.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Baskerville Tazısı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 15,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1276,
+                            Aciklama = "Batı toplumunun parıltılı ama boş yaşam eleştirisi.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/TheGreatGatsby.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "The Great Gatsby",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 138,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1277,
+                            Aciklama = "Buendia ailesinin nesiller boyu süren büyülü hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 210.00m,
+                            KapakResimUrl = "/img/kitaplar/YuzyillikYalnizlik.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Yüzyıllık Yalnızlık",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 139,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1278,
+                            Aciklama = "Anlam verilemeyen bir suçlama karşısında bireyin çaresizliği.",
+                            CokSatanMi = true,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/Dava.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Dava",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 5,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1279,
+                            Aciklama = "Paul Atreides’in imparatorluk sonrası yaşadığı çatışmalar.",
+                            CokSatanMi = true,
+                            Fiyat = 195.00m,
+                            KapakResimUrl = "/img/kitaplar/DuneMesihi.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Dune Mesihi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 68,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1280,
+                            Aciklama = "Absürdizmin ve yabancılaşmanın başyapıtı.",
+                            CokSatanMi = true,
+                            Fiyat = 115.00m,
+                            KapakResimUrl = "/img/kitaplar/Yabanci.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Yabancı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 13,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1281,
+                            Aciklama = "Gregor Samsa'nın bir sabah böceğe dönüşme hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 95.00m,
+                            KapakResimUrl = "/img/kitaplar/Donusum.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Dönüşüm",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 5,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1282,
+                            Aciklama = "St. Petersburg'da geçen hüzünlü bir hayalperest öyküsü.",
+                            CokSatanMi = false,
+                            Fiyat = 105.00m,
+                            KapakResimUrl = "/img/kitaplar/Denemeler.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Beyaz Geceler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 1,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1283,
+                            Aciklama = "Tutku ve irade çatışması üzerine sarsıcı bir roman.",
+                            CokSatanMi = true,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/Kumarbaz.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Kumarbaz",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 1,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1284,
+                            Aciklama = "Dostoyevski'nin ilk romanı ve toplumsal dram.",
+                            CokSatanMi = false,
+                            Fiyat = 110.00m,
+                            KapakResimUrl = "/img/kitaplar/Insanciklar.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "İnsancıklar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 1,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1285,
+                            Aciklama = "Sibirya'daki hapishane hayatının gerçekçi anlatımı.",
+                            CokSatanMi = false,
+                            Fiyat = 155.00m,
+                            KapakResimUrl = "/img/kitaplar/OlulerEvindenAnilar.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Ölüler Evinden Anılar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 1,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1286,
+                            Aciklama = "Bürokrasi ve yolsuzluk üzerine sert bir yergi.",
+                            CokSatanMi = false,
+                            Fiyat = 100.00m,
+                            KapakResimUrl = "/img/kitaplar/Mufettis.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Müfettiş",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 21,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1287,
+                            Aciklama = "Ulaşılamayan otorite ve bürokratik labirentler.",
+                            CokSatanMi = true,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/satranc.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Şato",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 5,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1288,
+                            Aciklama = "Edebiyat tarihinin en derinlikli aşk mektupları.",
+                            CokSatanMi = true,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/MilenayaMektuplar.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Milena'ya Mektuplar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 5,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1289,
+                            Aciklama = "İnsan doğasındaki iyi ve kötünün savaşı.",
+                            CokSatanMi = true,
+                            Fiyat = 115.00m,
+                            KapakResimUrl = "/img/kitaplar/DrJekyllveMrHyde.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Dr. Jekyll ve Mr. Hyde",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 22,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1290,
+                            Aciklama = "Güzellik, gençlik ve ahlaki çöküşün romanı.",
+                            CokSatanMi = true,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/DorianGrayinPortresi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Dorian Gray'in Portresi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 23,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1291,
+                            Aciklama = "Fedakarlık ve iyilik üzerine etkileyici masallar.",
+                            CokSatanMi = false,
+                            Fiyat = 90.00m,
+                            KapakResimUrl = "/img/kitaplar/MutluPrens.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Mutlu Prens",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 23,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1292,
+                            Aciklama = "Yetimhaneden sokaklara uzanan bir hayatta kalma öyküsü.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/OliverTwist.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Oliver Twist",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 24,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1293,
+                            Aciklama = "Fransız Devrimi gölgesinde kaos ve aşk.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/kiSehrinHikayesi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "İki Şehrin Hikayesi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 24,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1294,
+                            Aciklama = "Pip'in çocukluğundan yetişkinliğine uzanan sancılı büyüme hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/BuyukUmutlar.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Büyük Umutlar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 24,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1295,
+                            Aciklama = "İnsan doğasına ve topluma yönelik keskin bir eleştiri.",
+                            CokSatanMi = false,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/GulliverinGezileri.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Gulliver'in Gezileri",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 25,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1296,
+                            Aciklama = "Çocukların gözünden büyüklerin dünyası.",
+                            CokSatanMi = true,
+                            Fiyat = 85.00m,
+                            KapakResimUrl = "/img/kitaplar/KucukPrens.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Küçük Prens",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 26,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1297,
+                            Aciklama = "Aşk ve cinsellik üzerine provokatif bir anlatı.",
+                            CokSatanMi = false,
+                            Fiyat = 155.00m,
+                            KapakResimUrl = "/img/kitaplar/OnBirDakika.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "On Bir Dakika",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 27,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1298,
+                            Aciklama = "Yaşamın anlamını sorgulayan bir delilik hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/VeronikaOlmekIstiyor.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Veronika Ölmek İstiyor",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 27,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1299,
+                            Aciklama = "Bilinmeyen bir körlük salgınının yarattığı toplumsal kaos.",
+                            CokSatanMi = true,
+                            Fiyat = 190.00m,
+                            KapakResimUrl = "/img/kitaplar/Korluk.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Körlük",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 28,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1300,
+                            Aciklama = "Demokrasi ve siyaset üzerine alegorik bir roman.",
+                            CokSatanMi = false,
+                            Fiyat = 185.00m,
+                            KapakResimUrl = "/img/kitaplar/Gormek.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Görmek",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 28,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1301,
+                            Aciklama = "Salgın hastalık karşısında insanlık ve dayanışma.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/Veba.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Veba",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 13,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1302,
+                            Aciklama = "Mutluluğu arayan bir adamın felsefi yolculuğu.",
+                            CokSatanMi = false,
+                            Fiyat = 125.00m,
+                            KapakResimUrl = "/img/kitaplar/MutluOlum.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Mutlu Ölüm",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 13,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1303,
+                            Aciklama = "Büyük Buhran döneminde iki arkadaşın dokunaklı hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 110.00m,
+                            KapakResimUrl = "/img/kitaplar/FarelerveInsanlar.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Fareler ve İnsanlar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 29,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1304,
+                            Aciklama = "Topraklarından koparılan mevsimlik işçilerin dramı.",
+                            CokSatanMi = true,
+                            Fiyat = 220.00m,
+                            KapakResimUrl = "/img/kitaplar/GazapUzumleri.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Gazap Üzümleri",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 29,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1305,
+                            Aciklama = "Büyük bir inci bulan balıkçının trajedisi.",
+                            CokSatanMi = false,
+                            Fiyat = 100.00m,
+                            KapakResimUrl = "/img/kitaplar/Inci.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "İnci",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 29,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1306,
+                            Aciklama = "Bilimsel deneyler ve canavarlığa dönüşüm.",
+                            CokSatanMi = false,
+                            Fiyat = 135.00m,
+                            KapakResimUrl = "/img/kitaplar/DrMoreaununAdasi.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Dr. Moreau'nun Adası",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 30,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1307,
+                            Aciklama = "Marslıların dünyayı istilası üzerine klasik bilim kurgu.",
+                            CokSatanMi = true,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/DunyalarSavasi.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Dünyalar Savaşı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 30,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1308,
+                            Aciklama = "Görünmezliği bulan bir bilim insanının yalnızlığı.",
+                            CokSatanMi = false,
+                            Fiyat = 120.00m,
+                            KapakResimUrl = "/img/kitaplar/GorunmezAdam.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Görünmez Adam",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 30,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1309,
+                            Aciklama = "Robotik yasaları ve yapay zeka öyküleri.",
+                            CokSatanMi = true,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/BenRobot.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Ben, Robot",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 31,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1310,
+                            Aciklama = "Galaktik İmparatorluğun kaderini belirleyen savaşlar.",
+                            CokSatanMi = true,
+                            Fiyat = 185.00m,
+                            KapakResimUrl = "/img/kitaplar/VakifveImparatorluk.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Vakıf ve İmparatorluk",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 31,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1311,
+                            Aciklama = "Psiko-tarih biliminin gizli koruyucuları.",
+                            CokSatanMi = false,
+                            Fiyat = 185.00m,
+                            KapakResimUrl = "/img/kitaplar/kinciVakif.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "İkinci Vakıf",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 31,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1312,
+                            Aciklama = "Dünya dışı üstün bir ırkın insanlığa müdahalesi.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/CocuklugunSonu.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Çocukluğun Sonu",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 32,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1313,
+                            Aciklama = "İnsanın evrimine ve geleceğine dair epik yolculuk.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/2001BirUzayDestani.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "2001: Bir Uzay Destanı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 32,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1314,
+                            Aciklama = "Işınlanma ve intikam temalı siberpunk öncüsü.",
+                            CokSatanMi = false,
+                            Fiyat = 155.00m,
+                            KapakResimUrl = "/img/kitaplar/KaplanKaplan.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Kaplan! Kaplan!",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 33,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1315,
+                            Aciklama = "Anarşist bir ütopya ile kapitalist dünyanın kıyaslanması.",
+                            CokSatanMi = true,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/mutluyasamuzerine.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Mülksüzler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 34,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1316,
+                            Aciklama = "Büyü, isimler ve gölgeler üzerine fantastik bir klasik.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/YerdenizBuyucusu.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Yerdeniz Büyücüsü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 34,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1317,
+                            Aciklama = "Şiddet, özgür irade ve devlet kontrolü.",
+                            CokSatanMi = true,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/OtomatikPortakal.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Otomatik Portakal",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 35,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1318,
+                            Aciklama = "Kadınların sadece damızlık olarak görüldüğü karanlık gelecek.",
+                            CokSatanMi = true,
+                            Fiyat = 190.00m,
+                            KapakResimUrl = "/img/kitaplar/DamizlikKizinOykusu.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Damızlık Kızın Öyküsü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 36,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1319,
+                            Aciklama = "İnsan ve maymun rollerinin değiştiği şaşırtıcı gezegen.",
+                            CokSatanMi = false,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/MaymunlarGezegeni.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Maymunlar Gezegeni",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 37,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1320,
+                            Aciklama = "Yaratıcısına isyan eden bir canavarın trajik öyküsü.",
+                            CokSatanMi = true,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/Frankenstein.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Frankenstein",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 38,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1321,
+                            Aciklama = "Transilvanya'dan Londra'ya uzanan gotik korku.",
+                            CokSatanMi = true,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/Dracula.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Dracula",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 39,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1322,
+                            Aciklama = "Sherlock Holmes ve Watson'ın çözdüğü ilk dava.",
+                            CokSatanMi = true,
+                            Fiyat = 125.00m,
+                            KapakResimUrl = "/img/kitaplar/KzilSorusturmaArthurConanDoyle.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Kızıl Soruşturma",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 15,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1323,
+                            Aciklama = "Kayıp hazine ve gizemli bir intikam hikayesi.",
+                            CokSatanMi = false,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/SherlockHolmesDortlerinmzasi.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Dörtlerin İmzası",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 15,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1324,
+                            Aciklama = "Lüks bir gemide işlenen ustaca kurgulanmış cinayet.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/NildeOlum.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Nil'de Ölüm",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 6,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1325,
+                            Aciklama = "Polisiye tarihinin en şaşırtıcı sonlarından biri.",
+                            CokSatanMi = true,
+                            Fiyat = 155.00m,
+                            KapakResimUrl = "/img/kitaplar/RogerAckroydCinayeti.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Roger Ackroyd Cinayeti",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 6,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1326,
+                            Aciklama = "Jane Marple'ın keskin zekasıyla çözülen sırlar.",
+                            CokSatanMi = false,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/CesetlerMerdiveni.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Cesetler Merdiveni",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 6,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1327,
+                            Aciklama = "Geçmişten gelen bir cinayetin ürpertici izleri.",
+                            CokSatanMi = false,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/UyuyanOlum.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Uyuyan Ölüm",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 6,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1328,
+                            Aciklama = "Yaşanmamış hayatlar arasında bir seçim yolculuğu.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/GeceYarisiKutuphanesi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Gece Yarısı Kütüphanesi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 40,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1329,
+                            Aciklama = "Türk edebiyatında modern romanın başlangıcı.",
+                            CokSatanMi = false,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/MaiveSiyah.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Mai ve Siyah",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 41,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1330,
+                            Aciklama = "Edebiyatımızın ilk psikolojik romanı.",
+                            CokSatanMi = false,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/Eylul.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Eylül",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 42,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1331,
+                            Aciklama = "Doğu-Batı çatışması ve kültürel ikilem.",
+                            CokSatanMi = true,
+                            Fiyat = 125.00m,
+                            KapakResimUrl = "/img/kitaplar/FatihHarbiye.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Fatih-Harbiye",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 43,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1332,
+                            Aciklama = "Mistisizm ve realizm arasında bir arayış hikayesi.",
+                            CokSatanMi = false,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/MatmazelNoraliyaninKoltugu.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Matmazel Noraliya'nın Koltuğu",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 43,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1333,
+                            Aciklama = "27 Mayıs öncesi Türkiye'nin siyasi ve sosyal portresi.",
+                            CokSatanMi = true,
+                            Fiyat = 210.00m,
+                            KapakResimUrl = "/img/kitaplar/BirGunTekBasina.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Bir Gün Tek Başına",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 44,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1334,
+                            Aciklama = "Osmanlı Devleti'nin kuruluş dönemine epik bir bakış.",
+                            CokSatanMi = true,
+                            Fiyat = 220.00m,
+                            KapakResimUrl = "/img/kitaplar/DevletAna.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Devlet Ana",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 45,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1335,
+                            Aciklama = "Milli Mücadele döneminin zorlu şartları ve insanları.",
+                            CokSatanMi = false,
+                            Fiyat = 200.00m,
+                            KapakResimUrl = "/img/kitaplar/YorgunSavasci.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Yorgun Savaşçı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 45,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1336,
+                            Aciklama = "Modern şehir hayatında bireyin yalnızlığı ve yabancılaşması.",
+                            CokSatanMi = true,
+                            Fiyat = 135.00m,
+                            KapakResimUrl = "/img/kitaplar/AylakAdam.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Aylak Adam",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 46,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1337,
+                            Aciklama = "Zebercet'in iç dünyasındaki karanlık ve yalnızlık.",
+                            CokSatanMi = false,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/AnayurtOteli.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Anayurt Oteli",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 46,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1338,
+                            Aciklama = "Bireyin iç dünyasını yansıtan sarsıcı öyküler.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/KorkuyuBeklerken.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Korkuyu Beklerken",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 12,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1339,
+                            Aciklama = "Gerçekle hayalin birbirine karıştığı modern bir roman.",
+                            CokSatanMi = true,
+                            Fiyat = 240.00m,
+                            KapakResimUrl = "/img/kitaplar/TehlikeliOyunlar.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Tehlikeli Oyunlar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 12,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1340,
+                            Aciklama = "Toplumsal eleştiri içeren çarpıcı öyküler ve masallar.",
+                            CokSatanMi = true,
+                            Fiyat = 115.00m,
+                            KapakResimUrl = "/img/kitaplar/SircaKosk.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Sırça Köşk",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 3,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1341,
+                            Aciklama = "Sabahattin Ali'nin ilk öykü kitabı ve aşk hikayeleri.",
+                            CokSatanMi = false,
+                            Fiyat = 110.00m,
+                            KapakResimUrl = "/img/kitaplar/Degirmen.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Değirmen",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 3,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1342,
+                            Aciklama = "Anadolu insanının yaşamına ışık tutan gerçekçi öyküler.",
+                            CokSatanMi = false,
+                            Fiyat = 110.00m,
+                            KapakResimUrl = "/img/kitaplar/YeniDunya.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Yeni Dünya",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 3,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1343,
+                            Aciklama = "Çukurova'da ağalık düzeni ve sınıf çatışmaları.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/HaniminCiftligi.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Hanımın Çiftliği",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 47,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1344,
+                            Aciklama = "Görevine sadık bir bekçinin trajikomik hikayesi.",
+                            CokSatanMi = false,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/Murtaza.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Murtaza",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 47,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1345,
+                            Aciklama = "Tarım işçilerinin zorlu yaşam savaşı.",
+                            CokSatanMi = true,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/BereketliTopraklarUzerinde.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Bereketli Topraklar Üzerinde",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 47,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1346,
+                            Aciklama = "Köy hayatı ve imece ruhu üzerine bir başyapıt.",
+                            CokSatanMi = false,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/Kaplumbagalar.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Kaplumbağalar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 48,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1347,
+                            Aciklama = "Toprak kavgası ve köylünün hak arama mücadelesi.",
+                            CokSatanMi = true,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/YilanlarinOcu.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Yılanların Öcü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 48,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1348,
+                            Aciklama = "Stoacı imparatorun yaşam ve ölüm üzerine notları.",
+                            CokSatanMi = true,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/KendimeDusunceler.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Kendime Düşünceler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 17,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1349,
+                            Aciklama = "Türkiye Cumhuriyeti'nin kuruluş belgesi ve tarihi söylev.",
+                            CokSatanMi = true,
+                            Fiyat = 250.00m,
+                            KapakResimUrl = "/img/kitaplar/Nutuk.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Nutuk",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 49,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1350,
+                            Aciklama = "Strateji ve liderlik üzerine binlerce yıllık rehber.",
+                            CokSatanMi = true,
+                            Fiyat = 95.00m,
+                            KapakResimUrl = "/img/kitaplar/SavasSanati.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Savaş Sanatı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 50,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1351,
+                            Aciklama = "Tasavvuf felsefesinin en önemli hikmet dolu eseri.",
+                            CokSatanMi = true,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/MesnevidenSecmeler.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Mesnevi'den Seçmeler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 51,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1352,
+                            Aciklama = "Hayat, şarap ve varoluş üzerine felsefi dörtlükler.",
+                            CokSatanMi = false,
+                            Fiyat = 120.00m,
+                            KapakResimUrl = "/img/kitaplar/Rubailer.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Rubailer",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 52,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1353,
+                            Aciklama = "Karamsar felsefenin yaşam bilgeliği üzerine yorumları.",
+                            CokSatanMi = false,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/HicliginMutlulugu.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Hiçliğin Mutluluğu",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 53,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1354,
+                            Aciklama = "Geleneksel ahlakın ve değerlerin yıkımı.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/IyiliginveKotulugunOtesinde.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "İyinin ve Kötünün Ötesinde",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 9,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1355,
+                            Aciklama = "Nietzsche'nin kendi felsefesini ve hayatını anlattığı eser.",
+                            CokSatanMi = false,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/EcceHomo.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Ecce Homo",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 9,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1356,
+                            Aciklama = "Batı felsefesine ve değerlerine sert bir meydan okuyuş.",
+                            CokSatanMi = false,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/PutlarinAlacakaranlg.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Putların Alacakaranlığı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 9,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1357,
+                            Aciklama = "Aşk ve sevgi üzerine yapılmış felsefi tartışmalar.",
+                            CokSatanMi = true,
+                            Fiyat = 125.00m,
+                            KapakResimUrl = "/img/kitaplar/Solen.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Şölen",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 54,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1358,
+                            Aciklama = "Ruhun ölümsüzlüğü üzerine Sokrates'in son konuşması.",
+                            CokSatanMi = false,
+                            Fiyat = 120.00m,
+                            KapakResimUrl = "/img/kitaplar/Phaidon.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Phaidon",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 54,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1359,
+                            Aciklama = "Retorik, güç ve adalet üzerine bir diyalog.",
+                            CokSatanMi = false,
+                            Fiyat = 135.00m,
+                            KapakResimUrl = "/img/kitaplar/Gorgias.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Gorgias",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 54,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1360,
+                            Aciklama = "Mutluluk ve erdemli bir yaşamın temelleri.",
+                            CokSatanMi = true,
+                            Fiyat = 190.00m,
+                            KapakResimUrl = "/img/kitaplar/NikomakhosaEtik.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Nikomakhos'a Etik",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 55,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1361,
+                            Aciklama = "Devlet yönetimi ve toplumsal düzen üzerine inceleme.",
+                            CokSatanMi = true,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/Politika.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Politika",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 55,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1362,
+                            Aciklama = "Canlılık, algı ve akıl üzerine felsefi analiz.",
+                            CokSatanMi = false,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/RuhUzerine.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Ruh Üzerine",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 55,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1363,
+                            Aciklama = "Sabah erken kalkmanın verimlilik üzerindeki gücü.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/Sabah5Kulubu.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "5 AM Kulübü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 56,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1364,
+                            Aciklama = "Maddi dünyadan ruhsal huzura giden bir yol haritası.",
+                            CokSatanMi = true,
+                            Fiyat = 155.00m,
+                            KapakResimUrl = "/img/kitaplar/FerrarisiniSatanBilge.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Ferrari'sini Satan Bilge",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 56,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1365,
+                            Aciklama = "Toltek bilgeliği ile kişisel özgürlük rehberi.",
+                            CokSatanMi = true,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/DortAnlasma.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Dört Anlaşma",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 57,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1366,
+                            Aciklama = "Zihnin karmaşasından kurtulup anı yaşama sanatı.",
+                            CokSatanMi = true,
+                            Fiyat = 180.00m,
+                            KapakResimUrl = "/img/kitaplar/SimdininGucu.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Şimdinin Gücü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 58,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1367,
+                            Aciklama = "Hayatı daha anlamlı kılmak için neleri dert etmeli.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/KafayaTakmamaSanat.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Kafaya Takmama Sanatı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 59,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1368,
+                            Aciklama = "Tanımadığımız insanları neden yanlış anlarız?",
+                            CokSatanMi = false,
+                            Fiyat = 185.00m,
+                            KapakResimUrl = "/img/kitaplar/YabancilarlaKonusmak.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Yabancılarla Konuşmak",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 60,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1369,
+                            Aciklama = "Olumlu düşüncelerin sağlık üzerindeki etkileri.",
+                            CokSatanMi = true,
+                            Fiyat = 145.00m,
+                            KapakResimUrl = "/img/kitaplar/DusunceGucuyleTedavi.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Düşünce Gücüyle Tedavi",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 61,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1370,
+                            Aciklama = "Değer yatırımı üzerine finans dünyasının kutsal kitabı.",
+                            CokSatanMi = true,
+                            Fiyat = 250.00m,
+                            KapakResimUrl = "/img/kitaplar/AkilliYatirimci.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Akıllı Yatırımcı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 62,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1371,
+                            Aciklama = "Geleceği şekillendiren bir girişimcinin biyografisi.",
+                            CokSatanMi = true,
+                            Fiyat = 220.00m,
+                            KapakResimUrl = "/img/kitaplar/ElonMusk.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Elon Musk",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 63,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1372,
+                            Aciklama = "Apple'ın kurucusunun hayatı ve teknoloji vizyonu.",
+                            CokSatanMi = true,
+                            Fiyat = 230.00m,
+                            KapakResimUrl = "/img/kitaplar/SteveJobsWalterIsaacson.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Steve Jobs",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 64,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1373,
+                            Aciklama = "Tarihin en meraklı dehasının hayat hikayesi.",
+                            CokSatanMi = false,
+                            Fiyat = 240.00m,
+                            KapakResimUrl = "/img/kitaplar/LeonardodaVinci.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Leonardo da Vinci",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 64,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1374,
+                            Aciklama = "Yarının kısa bir tarihi ve insanlığın geleceği.",
+                            CokSatanMi = true,
+                            Fiyat = 210.00m,
+                            KapakResimUrl = "/img/kitaplar/HomoDeus.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "Homo Deus",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 16,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1375,
+                            Aciklama = "Günümüz dünyasının en acil sorularına cevaplar.",
+                            CokSatanMi = false,
+                            Fiyat = 200.00m,
+                            KapakResimUrl = "/img/kitaplar/21YuzyilIcin21Ders.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "21. Yüzyıl İçin 21 Ders",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 16,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1376,
+                            Aciklama = "Nitelik kavramı üzerine felsefi bir yolculuk.",
+                            CokSatanMi = true,
+                            Fiyat = 195.00m,
+                            KapakResimUrl = "/img/kitaplar/ZenveMotosikletBakimSanati.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Zen ve Motosiklet Bakım Sanatı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 65,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1377,
+                            Aciklama = "Özdenetim ve iradenin bilimsel temelleri.",
+                            CokSatanMi = false,
+                            Fiyat = 170.00m,
+                            KapakResimUrl = "/img/kitaplar/IradeGucu.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "İrade Gücü",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 66,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1378,
+                            Aciklama = "Hayali şehirler üzerinden bir rüya anlatısı.",
+                            CokSatanMi = true,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/GorunmezKentler.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Görünmez Kentler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 67,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1379,
+                            Aciklama = "Dune serisinin devamı; imparatorluk ve kader.",
+                            CokSatanMi = true,
+                            Fiyat = 215.00m,
+                            KapakResimUrl = "/img/kitaplar/DuneCocuklari.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Dune Çocukları",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 68,
+                            YeniCikanMi = false
                         });
                 });
 
@@ -2489,7 +5325,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 1,
                             CokSatanMi = true,
                             Fiyat = 1450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_1.jpg",
+                            KapakResimUrl = "/img/oyuncak/LEGOCityPolisstasyonuLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 15,
                             UrunAdi = "LEGO City Polis İstasyonu",
@@ -2501,7 +5337,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 2,
                             CokSatanMi = true,
                             Fiyat = 550.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_2.jpg",
+                            KapakResimUrl = "/img/oyuncak/BarbieSonsuzHareketBebegiMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 30,
                             UrunAdi = "Barbie Sonsuz Hareket Bebeği",
@@ -2513,7 +5349,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 3,
                             CokSatanMi = true,
                             Fiyat = 2200.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_3.jpg",
+                            KapakResimUrl = "/img/oyuncak/HotWheels50liArabaSetiHotWheels.jpg.jpeg",
                             Marka = "Hot Wheels",
                             StokAdedi = 10,
                             UrunAdi = "Hot Wheels 50'li Araba Seti",
@@ -2525,7 +5361,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 4,
                             CokSatanMi = false,
                             Fiyat = 850.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_4.jpg",
+                            KapakResimUrl = "/img/oyuncak/MonopolyDijitalBankacilikHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 20,
                             UrunAdi = "Monopoly Dijital Bankacılık",
@@ -2537,7 +5373,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 5,
                             CokSatanMi = true,
                             Fiyat = 1200.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_5.jpg",
+                            KapakResimUrl = "/img/oyuncak/NerfUltraOneNerf.jpg.jpeg",
                             Marka = "Nerf",
                             StokAdedi = 12,
                             UrunAdi = "Nerf Ultra One",
@@ -2549,7 +5385,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 6,
                             CokSatanMi = true,
                             Fiyat = 450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_6.jpg",
+                            KapakResimUrl = "/img/oyuncak/FisherPriceEgiticiTabletFisherPrice.jpg.jpeg",
                             Marka = "Fisher-Price",
                             StokAdedi = 40,
                             UrunAdi = "Fisher-Price Eğitici Tablet",
@@ -2561,7 +5397,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 7,
                             CokSatanMi = false,
                             Fiyat = 380.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_7.jpg",
+                            KapakResimUrl = "/img/oyuncak/PlayDohMutfakAtolyesiHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 50,
                             UrunAdi = "Play-Doh Mutfak Atölyesi",
@@ -2573,7 +5409,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 8,
                             CokSatanMi = true,
                             Fiyat = 420.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_8.jpg",
+                            KapakResimUrl = "/img/oyuncak/ScrabbleJuniorMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 25,
                             UrunAdi = "Scrabble Junior",
@@ -2585,7 +5421,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 9,
                             CokSatanMi = false,
                             Fiyat = 1100.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_9.jpg",
+                            KapakResimUrl = "/img/oyuncak/RemoteControlRockCrawlerMaisto.jpg.jpeg",
                             Marka = "Maisto",
                             StokAdedi = 18,
                             UrunAdi = "Remote Control Rock Crawler",
@@ -2597,7 +5433,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 10,
                             CokSatanMi = true,
                             Fiyat = 950.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_10.jpg",
+                            KapakResimUrl = "/img/oyuncak/ClementoniRobotikLaboratuvariClementoni.jpg.jpeg",
                             Marka = "Clementoni",
                             StokAdedi = 15,
                             UrunAdi = "Clementoni Robotik Laboratuvarı",
@@ -2609,7 +5445,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 11,
                             CokSatanMi = true,
                             Fiyat = 3500.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_11.jpg",
+                            KapakResimUrl = "/img/oyuncak/StarWarsMillenniumFalconLEGOLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 5,
                             UrunAdi = "Star Wars Millennium Falcon LEGO",
@@ -2621,7 +5457,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 12,
                             CokSatanMi = true,
                             Fiyat = 750.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_12.jpg",
+                            KapakResimUrl = "/img/oyuncak/LOLSurpriseOMGBebekMGA.jpg.jpeg",
                             Marka = "MGA",
                             StokAdedi = 22,
                             UrunAdi = "LOL Surprise! O.M.G. Bebek",
@@ -2633,7 +5469,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 13,
                             CokSatanMi = false,
                             Fiyat = 650.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_13.jpg",
+                            KapakResimUrl = "/img/oyuncak/TransformersOptimusPrimeHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 30,
                             UrunAdi = "Transformers Optimus Prime",
@@ -2645,7 +5481,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 14,
                             CokSatanMi = true,
                             Fiyat = 250.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_14.jpg",
+                            KapakResimUrl = "/img/oyuncak/ManyetikSatrancTakimiStarGames.jpg.jpeg",
                             Marka = "StarGames",
                             StokAdedi = 100,
                             UrunAdi = "Manyetik Satranç Takımı",
@@ -2657,7 +5493,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 15,
                             CokSatanMi = true,
                             Fiyat = 900.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_15.jpg",
+                            KapakResimUrl = "/img/oyuncak/PelusAyiNova100cmNovaToys.jpg.jpeg",
                             Marka = "NovaToys",
                             StokAdedi = 10,
                             UrunAdi = "Peluş Ayı Nova 100cm",
@@ -2669,7 +5505,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 16,
                             CokSatanMi = true,
                             Fiyat = 120.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_16.jpg",
+                            KapakResimUrl = "/img/oyuncak/UnoKartOyunuMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 200,
                             UrunAdi = "Uno Kart Oyunu",
@@ -2681,7 +5517,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 17,
                             CokSatanMi = false,
                             Fiyat = 280.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_17.jpg",
+                            KapakResimUrl = "/img/oyuncak/Puzzle1000ParcaGalaksiAnatolian.jpg.jpeg",
                             Marka = "Anatolian",
                             StokAdedi = 45,
                             UrunAdi = "Puzzle 1000 Parça: Galaksi",
@@ -2693,7 +5529,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 18,
                             CokSatanMi = true,
                             Fiyat = 1850.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_18.jpg",
+                            KapakResimUrl = "/img/oyuncak/AhsapMutfakSetiWoody.jpg.jpeg",
                             Marka = "Woody",
                             StokAdedi = 8,
                             UrunAdi = "Ahşap Mutfak Seti",
@@ -2705,7 +5541,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 19,
                             CokSatanMi = true,
                             Fiyat = 450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_19.jpg",
+                            KapakResimUrl = "/img/oyuncak/MarvelSpiderManFigurHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 40,
                             UrunAdi = "Marvel Spider-Man Figür",
@@ -2717,7 +5553,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 20,
                             CokSatanMi = true,
                             Fiyat = 850.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_20.jpg",
+                            KapakResimUrl = "/img/oyuncak/BabyAliveMamaYiyenBebekHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 25,
                             UrunAdi = "Baby Alive Mama Yiyen Bebek",
@@ -2729,7 +5565,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 21,
                             CokSatanMi = false,
                             Fiyat = 620.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_21.jpg",
+                            KapakResimUrl = "/img/oyuncak/HatchimalsPixiesSpinMaster.jpg.jpeg",
                             Marka = "Spin Master",
                             StokAdedi = 35,
                             UrunAdi = "Hatchimals Pixies",
@@ -2741,7 +5577,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 22,
                             CokSatanMi = true,
                             Fiyat = 580.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_22.jpg",
+                            KapakResimUrl = "/img/oyuncak/ThomasFriendsTrenSetiFisherPrice.jpg.jpeg",
                             Marka = "Fisher-Price",
                             StokAdedi = 20,
                             UrunAdi = "Thomas & Friends Tren Seti",
@@ -2753,7 +5589,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 23,
                             CokSatanMi = true,
                             Fiyat = 220.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_23.jpg",
+                            KapakResimUrl = "/img/oyuncak/EnchantimalsBebekveHayvaniMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 60,
                             UrunAdi = "Enchantimals Bebek ve Hayvanı",
@@ -2765,7 +5601,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 24,
                             CokSatanMi = true,
                             Fiyat = 350.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_24.jpg",
+                            KapakResimUrl = "/img/oyuncak/JengaKlasikHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 150,
                             UrunAdi = "Jenga Klasik",
@@ -2777,7 +5613,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 25,
                             CokSatanMi = false,
                             Fiyat = 180.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_25.jpg",
+                            KapakResimUrl = "/img/oyuncak/SlimeDevYapimSetiNovaFun.jpg.jpeg",
                             Marka = "NovaFun",
                             StokAdedi = 80,
                             UrunAdi = "Slime Dev Yapım Seti",
@@ -2789,7 +5625,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 26,
                             CokSatanMi = true,
                             Fiyat = 320.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_26.jpg",
+                            KapakResimUrl = "/img/oyuncak/GnesSistemiMaketKitiSciencePlay.jpg.jpeg",
                             Marka = "SciencePlay",
                             StokAdedi = 30,
                             UrunAdi = "Güneş Sistemi Maket Kiti",
@@ -2801,7 +5637,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 27,
                             CokSatanMi = false,
                             Fiyat = 450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_27.jpg",
+                            KapakResimUrl = "/img/oyuncak/PilliIskliKemanMusicStar.jpg.jpeg",
                             Marka = "MusicStar",
                             StokAdedi = 15,
                             UrunAdi = "Pilli Işıklı Keman",
@@ -2813,7 +5649,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 28,
                             CokSatanMi = true,
                             Fiyat = 550.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_28.jpg",
+                            KapakResimUrl = "/img/oyuncak/TabuXLHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 40,
                             UrunAdi = "Tabu XL",
@@ -2825,7 +5661,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 29,
                             CokSatanMi = true,
                             Fiyat = 720.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_29.jpg",
+                            KapakResimUrl = "/img/oyuncak/RiskStratejiOyunuHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 20,
                             UrunAdi = "Risk Strateji Oyunu",
@@ -2837,7 +5673,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 30,
                             CokSatanMi = true,
                             Fiyat = 250.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_30.jpg",
+                            KapakResimUrl = "/img/oyuncak/DuyusalKumSeti2kgSandMagic.jpg.jpeg",
                             Marka = "SandMagic",
                             StokAdedi = 70,
                             UrunAdi = "Duyusal Kum Seti 2kg",
@@ -2849,7 +5685,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 31,
                             CokSatanMi = true,
                             Fiyat = 480.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_31.jpg",
+                            KapakResimUrl = "/img/oyuncak/Frozen2ElsaKostumuDisney.jpg.jpeg",
                             Marka = "Disney",
                             StokAdedi = 15,
                             UrunAdi = "Frozen 2 Elsa Kostümü",
@@ -2861,7 +5697,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 32,
                             CokSatanMi = false,
                             Fiyat = 150.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_32.jpg",
+                            KapakResimUrl = "/img/oyuncak/EgiticiSayilarAbakusuWoody.jpg.jpeg",
                             Marka = "Woody",
                             StokAdedi = 50,
                             UrunAdi = "Eğitici Sayılar Abaküsü",
@@ -2873,7 +5709,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 33,
                             CokSatanMi = false,
                             Fiyat = 650.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_33.jpg",
+                            KapakResimUrl = "/img/oyuncak/WalkieTalkieTelsizSetiSpyKit.jpg.jpeg",
                             Marka = "SpyKit",
                             StokAdedi = 25,
                             UrunAdi = "Walkie Talkie Telsiz Seti",
@@ -2885,7 +5721,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 34,
                             CokSatanMi = true,
                             Fiyat = 1150.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_34.jpg",
+                            KapakResimUrl = "/img/oyuncak/LegoTechnicYarsArabasiLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 12,
                             UrunAdi = "Lego Technic Yarış Arabası",
@@ -2897,7 +5733,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 35,
                             CokSatanMi = true,
                             Fiyat = 580.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_35.jpg",
+                            KapakResimUrl = "/img/oyuncak/BuyukBoyYaziTahtasiNovaArt.jpg.jpeg",
                             Marka = "NovaArt",
                             StokAdedi = 10,
                             UrunAdi = "Büyük Boy Yazı Tahtası",
@@ -2909,7 +5745,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 36,
                             CokSatanMi = false,
                             Fiyat = 340.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_36.jpg",
+                            KapakResimUrl = "/img/oyuncak/MinecraftSteveFigurSetiMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 45,
                             UrunAdi = "Minecraft Steve Figür Seti",
@@ -2921,7 +5757,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 37,
                             CokSatanMi = true,
                             Fiyat = 620.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_37.jpg",
+                            KapakResimUrl = "/img/oyuncak/TrivialPursuitAileBoyuHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 18,
                             UrunAdi = "Trivial Pursuit Aile Boyu",
@@ -2933,7 +5769,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 38,
                             CokSatanMi = true,
                             Fiyat = 7500.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_38.jpg",
+                            KapakResimUrl = "/img/oyuncak/PilsanAkuluAraba12VPilsan.jpg.jpeg",
                             Marka = "Pilsan",
                             StokAdedi = 5,
                             UrunAdi = "Pilsan Akülü Araba 12V",
@@ -2945,7 +5781,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 39,
                             CokSatanMi = true,
                             Fiyat = 420.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_39.jpg",
+                            KapakResimUrl = "/img/oyuncak/TwisterEglenceMatiHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 60,
                             UrunAdi = "Twister Eğlence Matı",
@@ -2957,7 +5793,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 40,
                             CokSatanMi = true,
                             Fiyat = 220.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_40.jpg",
+                            KapakResimUrl = "/img/oyuncak/DoktorSetiCantaliToyMed.jpg.jpeg",
                             Marka = "ToyMed",
                             StokAdedi = 90,
                             UrunAdi = "Doktor Seti Çantalı",
@@ -2969,7 +5805,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 41,
                             CokSatanMi = true,
                             Fiyat = 680.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_41.jpg",
+                            KapakResimUrl = "/img/oyuncak/LegoDuploHayvanCiftligiLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 20,
                             UrunAdi = "Lego Duplo Hayvan Çiftliği",
@@ -2981,7 +5817,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 42,
                             CokSatanMi = false,
                             Fiyat = 780.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_42.jpg",
+                            KapakResimUrl = "/img/oyuncak/BatmanBatmobileAracDCComics.jpg.jpeg",
                             Marka = "DC Comics",
                             StokAdedi = 15,
                             UrunAdi = "Batman Batmobile Araç",
@@ -2993,7 +5829,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 43,
                             CokSatanMi = true,
                             Fiyat = 650.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_43.jpg",
+                            KapakResimUrl = "/img/oyuncak/BarbieVeterinerSetiMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 25,
                             UrunAdi = "Barbie Veteriner Seti",
@@ -3005,7 +5841,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 44,
                             CokSatanMi = true,
                             Fiyat = 490.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_44.jpg",
+                            KapakResimUrl = "/img/oyuncak/SuperDoktorOyunuHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 35,
                             UrunAdi = "Süper Doktor Oyunu",
@@ -3017,7 +5853,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 45,
                             CokSatanMi = true,
                             Fiyat = 890.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_45.jpg",
+                            KapakResimUrl = "/img/oyuncak/KNexMhendislikSetiKNex.jpg.jpeg",
                             Marka = "K-Nex",
                             StokAdedi = 14,
                             UrunAdi = "K'Nex Mühendislik Seti",
@@ -3029,7 +5865,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 46,
                             CokSatanMi = false,
                             Fiyat = 180.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_46.jpg",
+                            KapakResimUrl = "/img/oyuncak/KizKulesiMaketiWoody.jpg.jpeg",
                             Marka = "Woody",
                             StokAdedi = 100,
                             UrunAdi = "Kız Kulesi Maketi",
@@ -3041,7 +5877,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 47,
                             CokSatanMi = true,
                             Fiyat = 320.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_47.jpg",
+                            KapakResimUrl = "/img/oyuncak/VahsiHayvanlarFigurSetiWildLife.jpg.jpeg",
                             Marka = "WildLife",
                             StokAdedi = 50,
                             UrunAdi = "Vahşi Hayvanlar Figür Seti",
@@ -3053,7 +5889,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 48,
                             CokSatanMi = true,
                             Fiyat = 1450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_48.jpg",
+                            KapakResimUrl = "/img/oyuncak/TeleskopBaslangcSetiSciencePlay.jpg.jpeg",
                             Marka = "SciencePlay",
                             StokAdedi = 8,
                             UrunAdi = "Teleskop Başlangıç Seti",
@@ -3065,7 +5901,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 49,
                             CokSatanMi = false,
                             Fiyat = 820.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_49.jpg",
+                            KapakResimUrl = "/img/oyuncak/BratzRetroBebekMGA.jpg.jpeg",
                             Marka = "MGA",
                             StokAdedi = 20,
                             UrunAdi = "Bratz Retro Bebek",
@@ -3077,7 +5913,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 50,
                             CokSatanMi = true,
                             Fiyat = 240.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_50.jpg",
+                            KapakResimUrl = "/img/oyuncak/Domino100ParcaRenkliWoody.jpg.jpeg",
                             Marka = "Woody",
                             StokAdedi = 80,
                             UrunAdi = "Domino 100 Parça Renkli",
@@ -3089,7 +5925,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 51,
                             CokSatanMi = true,
                             Fiyat = 950.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_51.jpg",
+                            KapakResimUrl = "/img/oyuncak/LegoNinjagoEjderhaSetiLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 15,
                             UrunAdi = "Lego Ninjago Ejderha Seti",
@@ -3101,7 +5937,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 52,
                             CokSatanMi = true,
                             Fiyat = 3800.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_52.jpg",
+                            KapakResimUrl = "/img/oyuncak/DisneyPrincessSatoDisney.jpg.jpeg",
                             Marka = "Disney",
                             StokAdedi = 4,
                             UrunAdi = "Disney Princess Şato",
@@ -3113,7 +5949,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 53,
                             CokSatanMi = true,
                             Fiyat = 1650.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_53.jpg",
+                            KapakResimUrl = "/img/oyuncak/HotWheelsSehirMacerasiHotWheels.jpg.jpeg",
                             Marka = "Hot Wheels",
                             StokAdedi = 10,
                             UrunAdi = "Hot Wheels Şehir Macerası",
@@ -3125,7 +5961,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 54,
                             CokSatanMi = true,
                             Fiyat = 850.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_54.jpg",
+                            KapakResimUrl = "/img/oyuncak/CatanMasaOyunuKosmos.jpg.jpeg",
                             Marka = "Kosmos",
                             StokAdedi = 30,
                             UrunAdi = "Catan Masa Oyunu",
@@ -3137,7 +5973,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 55,
                             CokSatanMi = false,
                             Fiyat = 450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_55.jpg",
+                            KapakResimUrl = "/img/oyuncak/BakuganBaslangicPaketiSpinMaster.jpg.jpeg",
                             Marka = "Spin Master",
                             StokAdedi = 55,
                             UrunAdi = "Bakugan Başlangıç Paketi",
@@ -3149,7 +5985,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 56,
                             CokSatanMi = true,
                             Fiyat = 1250.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_56.jpg",
+                            KapakResimUrl = "/img/oyuncak/PawPatrolDevDevriyeAraciSpinMaster.jpg.jpeg",
                             Marka = "Spin Master",
                             StokAdedi = 18,
                             UrunAdi = "Paw Patrol Dev Devriye Aracı",
@@ -3161,7 +5997,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 57,
                             CokSatanMi = true,
                             Fiyat = 750.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_57.jpg",
+                            KapakResimUrl = "/img/oyuncak/PilsanLegoMasaSetiPilsan.jpg.jpeg",
                             Marka = "Pilsan",
                             StokAdedi = 20,
                             UrunAdi = "Pilsan Lego Masa Seti",
@@ -3173,7 +6009,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 58,
                             CokSatanMi = true,
                             Fiyat = 520.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_58.jpg",
+                            KapakResimUrl = "/img/oyuncak/HarryPotterAsa(Isikli)WizardWorld.jpg.jpeg",
                             Marka = "WizardWorld",
                             StokAdedi = 40,
                             UrunAdi = "Harry Potter Asa (Işıklı)",
@@ -3185,7 +6021,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 59,
                             CokSatanMi = true,
                             Fiyat = 450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_59.jpg",
+                            KapakResimUrl = "/img/oyuncak/SquishmallowsYumusakYastikKellytoy.jpg.jpeg",
                             Marka = "Kellytoy",
                             StokAdedi = 35,
                             UrunAdi = "Squishmallows Yumuşak Yastık",
@@ -3197,7 +6033,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 60,
                             CokSatanMi = true,
                             Fiyat = 320.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_60.jpg",
+                            KapakResimUrl = "/img/oyuncak/GuessWho(BilBakalimKim)Hasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 60,
                             UrunAdi = "Guess Who? (Bil Bakalım Kim?)",
@@ -3209,7 +6045,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 61,
                             CokSatanMi = true,
                             Fiyat = 580.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_61.jpg",
+                            KapakResimUrl = "/img/oyuncak/LegoFriendsKafeSetiLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 25,
                             UrunAdi = "Lego Friends Kafe Seti",
@@ -3221,7 +6057,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 62,
                             CokSatanMi = true,
                             Fiyat = 1850.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_62.jpg",
+                            KapakResimUrl = "/img/oyuncak/MagicMixiesSihirliKazanMooseToys.jpg.jpeg",
                             Marka = "Moose Toys",
                             StokAdedi = 12,
                             UrunAdi = "Magic Mixies Sihirli Kazan",
@@ -3233,7 +6069,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 63,
                             CokSatanMi = true,
                             Fiyat = 180.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_63.jpg",
+                            KapakResimUrl = "/img/oyuncak/HotWheelsRenkDegistirenlerHotWheels.jpg.jpeg",
                             Marka = "Hot Wheels",
                             StokAdedi = 120,
                             UrunAdi = "Hot Wheels Renk Değiştirenler",
@@ -3245,7 +6081,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 64,
                             CokSatanMi = false,
                             Fiyat = 750.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_64.jpg",
+                            KapakResimUrl = "/img/oyuncak/MikroskopSeti(1200x)SciencePlay.jpg.jpeg",
                             Marka = "SciencePlay",
                             StokAdedi = 22,
                             UrunAdi = "Mikroskop Seti (1200x)",
@@ -3257,7 +6093,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 65,
                             CokSatanMi = true,
                             Fiyat = 580.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_65.jpg",
+                            KapakResimUrl = "/img/oyuncak/BarbieDreamtopiaDenizkiziMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 45,
                             UrunAdi = "Barbie Dreamtopia Denizkızı",
@@ -3269,7 +6105,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 66,
                             CokSatanMi = true,
                             Fiyat = 520.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_66.jpg",
+                            KapakResimUrl = "/img/oyuncak/CluedoDedektiflikOyunuHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 30,
                             UrunAdi = "Cluedo Dedektiflik Oyunu",
@@ -3281,7 +6117,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 67,
                             CokSatanMi = false,
                             Fiyat = 1100.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_67.jpg",
+                            KapakResimUrl = "/img/oyuncak/LegoStarWarsBobaFettLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 10,
                             UrunAdi = "Lego Star Wars Boba Fett",
@@ -3293,7 +6129,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 68,
                             CokSatanMi = true,
                             Fiyat = 380.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_68.jpg",
+                            KapakResimUrl = "/img/oyuncak/PokemonBattleFigure3PackJazwares.jpg.jpeg",
                             Marka = "Jazwares",
                             StokAdedi = 65,
                             UrunAdi = "Pokemon Battle Figure 3-Pack",
@@ -3305,7 +6141,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 69,
                             CokSatanMi = true,
                             Fiyat = 180.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_69.jpg",
+                            KapakResimUrl = "/img/oyuncak/KayipKelimelerHeceOyunuEgiticiDnya.jpg.jpeg",
                             Marka = "EğiticiDünya",
                             StokAdedi = 100,
                             UrunAdi = "Kayıp Kelimeler Hece Oyunu",
@@ -3317,7 +6153,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 70,
                             CokSatanMi = false,
                             Fiyat = 1250.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_70.jpg",
+                            KapakResimUrl = "/img/oyuncak/BuyukBoyBasketbolPotasiSporty.jpg.jpeg",
                             Marka = "Sporty",
                             StokAdedi = 8,
                             UrunAdi = "Büyük Boy Basketbol Potası",
@@ -3329,7 +6165,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 71,
                             CokSatanMi = true,
                             Fiyat = 820.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_71.jpg",
+                            KapakResimUrl = "/img/oyuncak/LegoMinecraftKaleSavasiLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 20,
                             UrunAdi = "Lego Minecraft Kale Savaşı",
@@ -3341,7 +6177,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 72,
                             CokSatanMi = true,
                             Fiyat = 950.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_72.jpg",
+                            KapakResimUrl = "/img/oyuncak/BarbieGardiropSetiMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 15,
                             UrunAdi = "Barbie Gardırop Seti",
@@ -3353,7 +6189,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 73,
                             CokSatanMi = true,
                             Fiyat = 1450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_73.jpg",
+                            KapakResimUrl = "/img/oyuncak/PlaymobilKorsanGemisiPlaymobil.jpg.jpeg",
                             Marka = "Playmobil",
                             StokAdedi = 7,
                             UrunAdi = "Playmobil Korsan Gemisi",
@@ -3365,7 +6201,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 74,
                             CokSatanMi = true,
                             Fiyat = 780.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_74.jpg",
+                            KapakResimUrl = "/img/oyuncak/CarcassonneStratejiOyunuZManGames.jpg.jpeg",
                             Marka = "Z-Man Games",
                             StokAdedi = 20,
                             UrunAdi = "Carcassonne Strateji Oyunu",
@@ -3377,7 +6213,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 75,
                             CokSatanMi = false,
                             Fiyat = 320.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_75.jpg",
+                            KapakResimUrl = "/img/oyuncak/UcanHelikopter(Sensorlu)TechToys.jpg.jpeg",
                             Marka = "TechToys",
                             StokAdedi = 50,
                             UrunAdi = "Uçan Helikopter (Sensorlü)",
@@ -3389,7 +6225,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 76,
                             CokSatanMi = true,
                             Fiyat = 650.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_76.jpg",
+                            KapakResimUrl = "/img/oyuncak/DisneyCarsSimsekMcQueenMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 30,
                             UrunAdi = "Disney Cars Şimşek McQueen",
@@ -3401,7 +6237,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 77,
                             CokSatanMi = true,
                             Fiyat = 1100.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_77.jpg",
+                            KapakResimUrl = "/img/oyuncak/FurRealSevimliAyicikHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 12,
                             UrunAdi = "FurReal Sevimli Ayıcık",
@@ -3413,7 +6249,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 78,
                             CokSatanMi = true,
                             Fiyat = 380.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_78.jpg",
+                            KapakResimUrl = "/img/oyuncak/AmiralBattiKlasikOyunuHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 40,
                             UrunAdi = "Amiral Battı Klasik Oyunu",
@@ -3425,7 +6261,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 79,
                             CokSatanMi = false,
                             Fiyat = 920.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_79.jpg",
+                            KapakResimUrl = "/img/oyuncak/LegoTechnicKepceLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 15,
                             UrunAdi = "Lego Technic Kepçe",
@@ -3437,7 +6273,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 80,
                             CokSatanMi = true,
                             Fiyat = 220.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_80.jpg",
+                            KapakResimUrl = "/img/oyuncak/GlowintheDarkSlimeKitNovaFun.jpg.jpeg",
                             Marka = "NovaFun",
                             StokAdedi = 60,
                             UrunAdi = "Glow in the Dark Slime Kit",
@@ -3449,7 +6285,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 81,
                             CokSatanMi = false,
                             Fiyat = 850.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_81.jpg",
+                            KapakResimUrl = "/img/oyuncak/NerfFortniteBlasterNerf.jpg.jpeg",
                             Marka = "Nerf",
                             StokAdedi = 25,
                             UrunAdi = "Nerf Fortnite Blaster",
@@ -3461,7 +6297,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 82,
                             CokSatanMi = true,
                             Fiyat = 1350.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_82.jpg",
+                            KapakResimUrl = "/img/oyuncak/BarbieTatilVillasiMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 10,
                             UrunAdi = "Barbie Tatil Villası",
@@ -3473,7 +6309,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 83,
                             CokSatanMi = true,
                             Fiyat = 720.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_83.jpg",
+                            KapakResimUrl = "/img/oyuncak/HotWheelsAkrobasiSetiHotWheels.jpg.jpeg",
                             Marka = "Hot Wheels",
                             StokAdedi = 20,
                             UrunAdi = "Hot Wheels Akrobasi Seti",
@@ -3485,7 +6321,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 84,
                             CokSatanMi = true,
                             Fiyat = 480.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_84.jpg",
+                            KapakResimUrl = "/img/oyuncak/StrategoSavasOyunuJumbo.jpg.jpeg",
                             Marka = "Jumbo",
                             StokAdedi = 35,
                             UrunAdi = "Stratego Savaş Oyunu",
@@ -3497,7 +6333,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 85,
                             CokSatanMi = true,
                             Fiyat = 950.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_85.jpg",
+                            KapakResimUrl = "/img/oyuncak/ManyetikBloklar100ParcaMagnaTiles.jpg.jpeg",
                             Marka = "MagnaTiles",
                             StokAdedi = 22,
                             UrunAdi = "Manyetik Bloklar 100 Parça",
@@ -3509,7 +6345,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 86,
                             CokSatanMi = true,
                             Fiyat = 320.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_86.jpg",
+                            KapakResimUrl = "/img/oyuncak/TalkingTomInteraktifKediDragonI.jpg.jpeg",
                             Marka = "Dragon-I",
                             StokAdedi = 55,
                             UrunAdi = "Talking Tom İnteraktif Kedi",
@@ -3521,7 +6357,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 87,
                             CokSatanMi = true,
                             Fiyat = 280.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_87.jpg",
+                            KapakResimUrl = "/img/oyuncak/AhsapBlokTrenWoody.jpg.jpeg",
                             Marka = "Woody",
                             StokAdedi = 45,
                             UrunAdi = "Ahşap Blok Tren",
@@ -3533,7 +6369,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 88,
                             CokSatanMi = false,
                             Fiyat = 420.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_88.jpg",
+                            KapakResimUrl = "/img/oyuncak/OkculukSeti(Vantuzlu)Sporty.jpg.jpeg",
                             Marka = "Sporty",
                             StokAdedi = 30,
                             UrunAdi = "Okçuluk Seti (Vantuzlu)",
@@ -3545,7 +6381,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 89,
                             CokSatanMi = false,
                             Fiyat = 520.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_89.jpg",
+                            KapakResimUrl = "/img/oyuncak/BarbieSpaGunuBebekMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 25,
                             UrunAdi = "Barbie Spa Günü Bebek",
@@ -3557,7 +6393,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 90,
                             CokSatanMi = true,
                             Fiyat = 450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_90.jpg",
+                            KapakResimUrl = "/img/oyuncak/LegoClassicPencerelerPaketiLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 50,
                             UrunAdi = "Lego Classic Pencereler Paketi",
@@ -3569,7 +6405,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 91,
                             CokSatanMi = true,
                             Fiyat = 350.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_91.jpg",
+                            KapakResimUrl = "/img/oyuncak/MyLittlePonyIsikliFigurHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 40,
                             UrunAdi = "My Little Pony Işıklı Figür",
@@ -3581,7 +6417,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 92,
                             CokSatanMi = false,
                             Fiyat = 650.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_92.jpg",
+                            KapakResimUrl = "/img/oyuncak/AirHockeyMasaustuFunGames.jpg.jpeg",
                             Marka = "FunGames",
                             StokAdedi = 15,
                             UrunAdi = "Air Hockey Masaüstü",
@@ -3593,7 +6429,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 93,
                             CokSatanMi = true,
                             Fiyat = 220.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_93.jpg",
+                            KapakResimUrl = "/img/oyuncak/CizimTableti(LCDYaz)TechToys.jpg.jpeg",
                             Marka = "TechToys",
                             StokAdedi = 100,
                             UrunAdi = "Çizim Tableti (LCD Yazı)",
@@ -3605,7 +6441,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 94,
                             CokSatanMi = true,
                             Fiyat = 480.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_94.jpg",
+                            KapakResimUrl = "/img/oyuncak/PollyPocketSatoCantasiMattel.jpg.jpeg",
                             Marka = "Mattel",
                             StokAdedi = 30,
                             UrunAdi = "Polly Pocket Şato Çantası",
@@ -3617,7 +6453,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 95,
                             CokSatanMi = true,
                             Fiyat = 450.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_95.jpg",
+                            KapakResimUrl = "/img/oyuncak/HulkAksiyonFigur30cmHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 20,
                             UrunAdi = "Hulk Aksiyon Figürü 30cm",
@@ -3629,7 +6465,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 96,
                             CokSatanMi = false,
                             Fiyat = 1250.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_96.jpg",
+                            KapakResimUrl = "/img/oyuncak/RiskGameofThronesEditionHasbro.jpg.jpeg",
                             Marka = "Hasbro",
                             StokAdedi = 10,
                             UrunAdi = "Risk Game of Thrones Edition",
@@ -3641,7 +6477,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 97,
                             CokSatanMi = true,
                             Fiyat = 850.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_97.jpg",
+                            KapakResimUrl = "/img/oyuncak/GitarBaslangicSetiMusicStar.jpg.jpeg",
                             Marka = "MusicStar",
                             StokAdedi = 12,
                             UrunAdi = "Gitar Başlangıç Seti",
@@ -3653,7 +6489,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 98,
                             CokSatanMi = true,
                             Fiyat = 320.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_98.jpg",
+                            KapakResimUrl = "/img/oyuncak/LegoCreator31AradaKusLEGO.jpg.jpeg",
                             Marka = "LEGO",
                             StokAdedi = 40,
                             UrunAdi = "Lego Creator 3'ü 1 Arada Kuş",
@@ -3665,7 +6501,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 99,
                             CokSatanMi = true,
                             Fiyat = 150.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_99.jpg",
+                            KapakResimUrl = "/img/oyuncak/MikadoCubuklariDevBoyFunGames.jpg.jpeg",
                             Marka = "FunGames",
                             StokAdedi = 100,
                             UrunAdi = "Mikado Çubukları Dev Boy",
@@ -3677,7 +6513,7 @@ namespace NovaKitap.Migrations
                             OyuncakId = 100,
                             CokSatanMi = true,
                             Fiyat = 220.00m,
-                            KapakResimUrl = "/img/oyuncak/urun_100.jpg",
+                            KapakResimUrl = "/img/oyuncak/RubikKubu3x3OrijinalRubik.jpg.jpeg",
                             Marka = "Rubik",
                             StokAdedi = 150,
                             UrunAdi = "Rubik Kübü 3x3 Orijinal",
@@ -3772,121 +6608,835 @@ namespace NovaKitap.Migrations
                         {
                             YazarId = 1,
                             AdSoyad = "Fyodor Dostoyevski",
-                            Biyografi = "Rus edebiyatının en büyük yazarlarından."
+                            Biyografi = "Rus edebiyatının devi."
                         },
                         new
                         {
                             YazarId = 2,
                             AdSoyad = "George Orwell",
-                            Biyografi = "Distopik eserleriyle tanınan İngiliz yazar."
+                            Biyografi = "Distopya ustası."
                         },
                         new
                         {
                             YazarId = 3,
                             AdSoyad = "Sabahattin Ali",
-                            Biyografi = "Türk edebiyatının usta kalemlerinden."
+                            Biyografi = "Türk edebiyatının usta kalemi."
                         },
                         new
                         {
                             YazarId = 4,
                             AdSoyad = "Stefan Zweig",
-                            Biyografi = "Avusturyalı romancı ve biyografi yazarı."
+                            Biyografi = "Biyografi ve roman yazarı."
                         },
                         new
                         {
                             YazarId = 5,
                             AdSoyad = "Franz Kafka",
-                            Biyografi = "Modern Alman edebiyatının öncülerinden."
+                            Biyografi = "Modern edebiyatın öncüsü."
                         },
                         new
                         {
                             YazarId = 6,
                             AdSoyad = "Agatha Christie",
-                            Biyografi = "Polisiye edebiyatın kraliçesi."
+                            Biyografi = "Polisiye kraliçesi."
                         },
                         new
                         {
                             YazarId = 7,
                             AdSoyad = "Victor Hugo",
-                            Biyografi = "Fransız edebiyatının en büyük romantik yazarı."
+                            Biyografi = "Fransız romantik yazar."
                         },
                         new
                         {
                             YazarId = 8,
                             AdSoyad = "Sigmund Freud",
-                            Biyografi = "Psikanalizin kurucusu."
+                            Biyografi = "Psikanaliz kurucusu."
                         },
                         new
                         {
                             YazarId = 9,
                             AdSoyad = "Friedrich Nietzsche",
-                            Biyografi = "Alman filozof ve kültür eleştirmeni."
+                            Biyografi = "Alman filozof."
                         },
                         new
                         {
                             YazarId = 10,
                             AdSoyad = "İlber Ortaylı",
-                            Biyografi = "Türk tarihçi ve akademisyen."
+                            Biyografi = "Türk tarihçi."
                         },
                         new
                         {
                             YazarId = 11,
                             AdSoyad = "Ahmet Hamdi Tanpınar",
-                            Biyografi = "Türk romanının ve şiirinin önemli ismi."
+                            Biyografi = "Türk romancı."
                         },
                         new
                         {
                             YazarId = 12,
                             AdSoyad = "Oğuz Atay",
-                            Biyografi = "Postmodern Türk edebiyatının kurucularından."
+                            Biyografi = "Postmodern yazar."
                         },
                         new
                         {
                             YazarId = 13,
                             AdSoyad = "Albert Camus",
-                            Biyografi = "Varoluşçuluk akımının öncülerinden."
+                            Biyografi = "Varoluşçu yazar."
                         },
                         new
                         {
                             YazarId = 14,
                             AdSoyad = "Lev Tolstoy",
-                            Biyografi = "Gerçekçi Rus edebiyatının dev ismi."
+                            Biyografi = "Gerçekçi Rus yazar."
                         },
                         new
                         {
                             YazarId = 15,
                             AdSoyad = "Arthur Conan Doyle",
-                            Biyografi = "Sherlock Holmes karakterinin yaratıcısı."
+                            Biyografi = "Sherlock Holmes yaratıcısı."
                         },
                         new
                         {
                             YazarId = 16,
                             AdSoyad = "Yuval Noah Harari",
-                            Biyografi = "İsrailli tarihçi ve yazar."
+                            Biyografi = "Tarihçi ve yazar."
                         },
                         new
                         {
                             YazarId = 17,
                             AdSoyad = "Marcus Aurelius",
-                            Biyografi = "Roma imparatoru ve Stoacı filozof."
+                            Biyografi = "Stoacı imparator."
                         },
                         new
                         {
                             YazarId = 18,
                             AdSoyad = "Jules Verne",
-                            Biyografi = "Bilimkurgu edebiyatının babası."
+                            Biyografi = "Bilimkurgu babası."
                         },
                         new
                         {
                             YazarId = 19,
                             AdSoyad = "Jane Austen",
-                            Biyografi = "İngiliz edebiyatının romantik dönem yazarı."
+                            Biyografi = "İngiliz romancı."
                         },
                         new
                         {
                             YazarId = 20,
                             AdSoyad = "Carl Gustav Jung",
-                            Biyografi = "Analitik psikolojinin kurucusu."
+                            Biyografi = "Analitik psikoloji."
+                        },
+                        new
+                        {
+                            YazarId = 21,
+                            AdSoyad = "Nikolay Gogol",
+                            Biyografi = "Rus yazar."
+                        },
+                        new
+                        {
+                            YazarId = 22,
+                            AdSoyad = "R. L. Stevenson",
+                            Biyografi = "İngiliz yazar."
+                        },
+                        new
+                        {
+                            YazarId = 23,
+                            AdSoyad = "Oscar Wilde",
+                            Biyografi = "İrlandalı yazar ve şair."
+                        },
+                        new
+                        {
+                            YazarId = 24,
+                            AdSoyad = "Charles Dickens",
+                            Biyografi = "İngiliz yazar."
+                        },
+                        new
+                        {
+                            YazarId = 25,
+                            AdSoyad = "Jonathan Swift",
+                            Biyografi = "İrlandalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 26,
+                            AdSoyad = "Antoine de Saint-Exupery",
+                            Biyografi = "Fransız pilot ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 27,
+                            AdSoyad = "Paulo Coelho",
+                            Biyografi = "Brezilyalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 28,
+                            AdSoyad = "Jose Saramago",
+                            Biyografi = "Portekizli yazar."
+                        },
+                        new
+                        {
+                            YazarId = 29,
+                            AdSoyad = "John Steinbeck",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 30,
+                            AdSoyad = "H.G. Wells",
+                            Biyografi = "İngiliz bilim kurgu yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 31,
+                            AdSoyad = "Isaac Asimov",
+                            Biyografi = "Amerikalı bilim kurgu yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 32,
+                            AdSoyad = "Arthur C. Clarke",
+                            Biyografi = "İngiliz bilim kurgu yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 33,
+                            AdSoyad = "Alfred Bester",
+                            Biyografi = "Amerikalı bilim kurgu yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 34,
+                            AdSoyad = "Ursula K. Le Guin",
+                            Biyografi = "Amerikalı fantastik kurgu yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 35,
+                            AdSoyad = "Anthony Burgess",
+                            Biyografi = "İngiliz yazar."
+                        },
+                        new
+                        {
+                            YazarId = 36,
+                            AdSoyad = "Margaret Atwood",
+                            Biyografi = "Kanadalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 37,
+                            AdSoyad = "Pierre Boulle",
+                            Biyografi = "Fransız yazar."
+                        },
+                        new
+                        {
+                            YazarId = 38,
+                            AdSoyad = "Mary Shelley",
+                            Biyografi = "İngiliz yazar."
+                        },
+                        new
+                        {
+                            YazarId = 39,
+                            AdSoyad = "Bram Stoker",
+                            Biyografi = "İrlandalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 40,
+                            AdSoyad = "Matt Haig",
+                            Biyografi = "İngiliz yazar."
+                        },
+                        new
+                        {
+                            YazarId = 41,
+                            AdSoyad = "Halid Ziya Uşaklıgil",
+                            Biyografi = "Türk yazar."
+                        },
+                        new
+                        {
+                            YazarId = 42,
+                            AdSoyad = "Mehmet Rauf",
+                            Biyografi = "Türk yazar."
+                        },
+                        new
+                        {
+                            YazarId = 43,
+                            AdSoyad = "Peyami Safa",
+                            Biyografi = "Türk romancı ve gazeteci."
+                        },
+                        new
+                        {
+                            YazarId = 44,
+                            AdSoyad = "Vedat Türkali",
+                            Biyografi = "Türk senarist ve romancı."
+                        },
+                        new
+                        {
+                            YazarId = 45,
+                            AdSoyad = "Kemal Tahir",
+                            Biyografi = "Türk yazar."
+                        },
+                        new
+                        {
+                            YazarId = 46,
+                            AdSoyad = "Yusuf Atılgan",
+                            Biyografi = "Türk roman ustası."
+                        },
+                        new
+                        {
+                            YazarId = 47,
+                            AdSoyad = "Orhan Kemal",
+                            Biyografi = "Toplumcu gerçekçi yazar."
+                        },
+                        new
+                        {
+                            YazarId = 48,
+                            AdSoyad = "Fakir Baykurt",
+                            Biyografi = "Türk öğretmen ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 49,
+                            AdSoyad = "Mustafa Kemal Atatürk",
+                            Biyografi = "Türkiye Cumhuriyeti'nin kurucusu."
+                        },
+                        new
+                        {
+                            YazarId = 50,
+                            AdSoyad = "Sun Tzu",
+                            Biyografi = "Çinli komutan ve filozof."
+                        },
+                        new
+                        {
+                            YazarId = 51,
+                            AdSoyad = "Mevlana",
+                            Biyografi = "Mutasavvıf düşünür."
+                        },
+                        new
+                        {
+                            YazarId = 52,
+                            AdSoyad = "Ömer Hayyam",
+                            Biyografi = "İranlı şair ve bilim insanı."
+                        },
+                        new
+                        {
+                            YazarId = 53,
+                            AdSoyad = "Arthur Schopenhauer",
+                            Biyografi = "Alman filozof."
+                        },
+                        new
+                        {
+                            YazarId = 54,
+                            AdSoyad = "Platon",
+                            Biyografi = "Antik Yunan filozofu."
+                        },
+                        new
+                        {
+                            YazarId = 55,
+                            AdSoyad = "Aristoteles",
+                            Biyografi = "Antik Yunan filozofu."
+                        },
+                        new
+                        {
+                            YazarId = 56,
+                            AdSoyad = "Robin Sharma",
+                            Biyografi = "Kişisel gelişim yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 57,
+                            AdSoyad = "Don Miguel Ruiz",
+                            Biyografi = "Toltek bilgesi ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 58,
+                            AdSoyad = "Eckhart Tolle",
+                            Biyografi = "Ruhsal öğretmen ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 59,
+                            AdSoyad = "Mark Manson",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 60,
+                            AdSoyad = "Malcolm Gladwell",
+                            Biyografi = "Kanadalı gazeteci ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 61,
+                            AdSoyad = "Louise Hay",
+                            Biyografi = "Motivasyon yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 62,
+                            AdSoyad = "Benjamin Graham",
+                            Biyografi = "Amerikalı ekonomist."
+                        },
+                        new
+                        {
+                            YazarId = 63,
+                            AdSoyad = "Ashlee Vance",
+                            Biyografi = "Amerikalı köşe yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 64,
+                            AdSoyad = "Walter Isaacson",
+                            Biyografi = "Biyografi yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 65,
+                            AdSoyad = "Robert Pirsig",
+                            Biyografi = "Amerikalı yazar ve filozof."
+                        },
+                        new
+                        {
+                            YazarId = 66,
+                            AdSoyad = "Roy Baumeister",
+                            Biyografi = "Sosyal psikolog."
+                        },
+                        new
+                        {
+                            YazarId = 67,
+                            AdSoyad = "Italo Calvino",
+                            Biyografi = "İtalyan yazar."
+                        },
+                        new
+                        {
+                            YazarId = 68,
+                            AdSoyad = "Frank Herbert",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 69,
+                            AdSoyad = "Jose Mauro de Vasconcelos",
+                            Biyografi = "Brezilyalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 70,
+                            AdSoyad = "Harper Lee",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 71,
+                            AdSoyad = "J.D. Salinger",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 72,
+                            AdSoyad = "Vladimir Nabokov",
+                            Biyografi = "Rus-Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 73,
+                            AdSoyad = "Daphne du Maurier",
+                            Biyografi = "İngiliz romancı."
+                        },
+                        new
+                        {
+                            YazarId = 74,
+                            AdSoyad = "Ernest Hemingway",
+                            Biyografi = "Amerikalı yazar ve gazeteci."
+                        },
+                        new
+                        {
+                            YazarId = 75,
+                            AdSoyad = "Anne Frank",
+                            Biyografi = "Alman-Yahudi günlük yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 76,
+                            AdSoyad = "Louisa May Alcott",
+                            Biyografi = "Amerikalı romancı."
+                        },
+                        new
+                        {
+                            YazarId = 77,
+                            AdSoyad = "Charlotte Bronte",
+                            Biyografi = "İngiliz romancı."
+                        },
+                        new
+                        {
+                            YazarId = 78,
+                            AdSoyad = "Jack London",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 79,
+                            AdSoyad = "Stendhal",
+                            Biyografi = "Fransız gerçekçi yazar."
+                        },
+                        new
+                        {
+                            YazarId = 80,
+                            AdSoyad = "İvan Gonçarov",
+                            Biyografi = "Rus romancı."
+                        },
+                        new
+                        {
+                            YazarId = 81,
+                            AdSoyad = "Charles Bukowski",
+                            Biyografi = "Amerikalı yazar ve şair."
+                        },
+                        new
+                        {
+                            YazarId = 82,
+                            AdSoyad = "Sadık Hidayet",
+                            Biyografi = "İranlı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 83,
+                            AdSoyad = "Goethe",
+                            Biyografi = "Alman edebiyatçı."
+                        },
+                        new
+                        {
+                            YazarId = 84,
+                            AdSoyad = "Alexandre Dumas",
+                            Biyografi = "Fransız yazar."
+                        },
+                        new
+                        {
+                            YazarId = 85,
+                            AdSoyad = "Montaigne",
+                            Biyografi = "Fransız deneme yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 86,
+                            AdSoyad = "Thomas Hobbes",
+                            Biyografi = "İngiliz filozof."
+                        },
+                        new
+                        {
+                            YazarId = 87,
+                            AdSoyad = "Simone de Beauvoir",
+                            Biyografi = "Fransız yazar ve filozof."
+                        },
+                        new
+                        {
+                            YazarId = 88,
+                            AdSoyad = "Rousseau",
+                            Biyografi = "Cenevreli filozof."
+                        },
+                        new
+                        {
+                            YazarId = 89,
+                            AdSoyad = "Wittgenstein",
+                            Biyografi = "Avusturyalı filozof."
+                        },
+                        new
+                        {
+                            YazarId = 90,
+                            AdSoyad = "Jean-Paul Sartre",
+                            Biyografi = "Fransız varoluşçu filozof."
+                        },
+                        new
+                        {
+                            YazarId = 91,
+                            AdSoyad = "Jules Payot",
+                            Biyografi = "Fransız eğitimci."
+                        },
+                        new
+                        {
+                            YazarId = 92,
+                            AdSoyad = "Cal Newport",
+                            Biyografi = "Akademisyen ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 93,
+                            AdSoyad = "Napoleon Hill",
+                            Biyografi = "Kişisel başarı yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 94,
+                            AdSoyad = "Hal Elrod",
+                            Biyografi = "Motivasyon konuşmacısı."
+                        },
+                        new
+                        {
+                            YazarId = 95,
+                            AdSoyad = "Mihaly Csikszentmihalyi",
+                            Biyografi = "Psikolog."
+                        },
+                        new
+                        {
+                            YazarId = 96,
+                            AdSoyad = "Ben Horowitz",
+                            Biyografi = "Girişimci ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 97,
+                            AdSoyad = "William James",
+                            Biyografi = "Amerikalı psikolog."
+                        },
+                        new
+                        {
+                            YazarId = 98,
+                            AdSoyad = "David Burns",
+                            Biyografi = "Psikiyatrist ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 99,
+                            AdSoyad = "Edgar Allan Poe",
+                            Biyografi = "Amerikalı şair ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 100,
+                            AdSoyad = "Dashiell Hammett",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 101,
+                            AdSoyad = "Raymond Chandler",
+                            Biyografi = "Polisiye romancı."
+                        },
+                        new
+                        {
+                            YazarId = 102,
+                            AdSoyad = "Umberto Eco",
+                            Biyografi = "İtalyan yazar ve göstergebilimci."
+                        },
+                        new
+                        {
+                            YazarId = 103,
+                            AdSoyad = "Dan Brown",
+                            Biyografi = "Amerikalı gerilim yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 104,
+                            AdSoyad = "Michael Connelly",
+                            Biyografi = "Polisiye romancı."
+                        },
+                        new
+                        {
+                            YazarId = 105,
+                            AdSoyad = "Jeffery Deaver",
+                            Biyografi = "Amerikalı gizem yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 106,
+                            AdSoyad = "Stephen King",
+                            Biyografi = "Gerilim ve korku ustası."
+                        },
+                        new
+                        {
+                            YazarId = 107,
+                            AdSoyad = "Herman Melville",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 108,
+                            AdSoyad = "Emily Bronte",
+                            Biyografi = "İngiliz romancı."
+                        },
+                        new
+                        {
+                            YazarId = 109,
+                            AdSoyad = "Hermann Hesse",
+                            Biyografi = "Alman-İsviçreli yazar."
+                        },
+                        new
+                        {
+                            YazarId = 110,
+                            AdSoyad = "Richard Bach",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 111,
+                            AdSoyad = "Daniel Defoe",
+                            Biyografi = "İngiliz gazeteci ve romancı."
+                        },
+                        new
+                        {
+                            YazarId = 112,
+                            AdSoyad = "Mark Twain",
+                            Biyografi = "Amerikalı mizahçı ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 113,
+                            AdSoyad = "Ferenc Molnar",
+                            Biyografi = "Macar oyun yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 114,
+                            AdSoyad = "William Golding",
+                            Biyografi = "İngiliz romancı."
+                        },
+                        new
+                        {
+                            YazarId = 115,
+                            AdSoyad = "Salman Rushdie",
+                            Biyografi = "Hint asıllı İngiliz yazar."
+                        },
+                        new
+                        {
+                            YazarId = 116,
+                            AdSoyad = "Khaled Hosseini",
+                            Biyografi = "Afgan asıllı Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 117,
+                            AdSoyad = "Yann Martel",
+                            Biyografi = "Kanadalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 118,
+                            AdSoyad = "Nikos Kazancakis",
+                            Biyografi = "Yunan yazar."
+                        },
+                        new
+                        {
+                            YazarId = 119,
+                            AdSoyad = "Alain de Botton",
+                            Biyografi = "İsviçreli yazar ve filozof."
+                        },
+                        new
+                        {
+                            YazarId = 120,
+                            AdSoyad = "Soren Kierkegaard",
+                            Biyografi = "Danimarkalı filozof."
+                        },
+                        new
+                        {
+                            YazarId = 121,
+                            AdSoyad = "Cicero",
+                            Biyografi = "Romalı filozof."
+                        },
+                        new
+                        {
+                            YazarId = 122,
+                            AdSoyad = "Seneca",
+                            Biyografi = "Romalı Stoacı düşünür."
+                        },
+                        new
+                        {
+                            YazarId = 123,
+                            AdSoyad = "Joshua Fields Millburn",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 124,
+                            AdSoyad = "Charles Duhigg",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 125,
+                            AdSoyad = "Gary Keller",
+                            Biyografi = "Girişimci ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 126,
+                            AdSoyad = "Tim Ferriss",
+                            Biyografi = "Yatırımcı ve yazar."
+                        },
+                        new
+                        {
+                            YazarId = 127,
+                            AdSoyad = "Keith Ferrazzi",
+                            Biyografi = "Yazar ve girişimci."
+                        },
+                        new
+                        {
+                            YazarId = 128,
+                            AdSoyad = "Kai-Fu Lee",
+                            Biyografi = "Tayvanlı bilgisayar bilimcisi."
+                        },
+                        new
+                        {
+                            YazarId = 129,
+                            AdSoyad = "Bessel van der Kolk",
+                            Biyografi = "Psikiyatrist."
+                        },
+                        new
+                        {
+                            YazarId = 130,
+                            AdSoyad = "Roman Krznaric",
+                            Biyografi = "Kültür düşünürü."
+                        },
+                        new
+                        {
+                            YazarId = 131,
+                            AdSoyad = "Mickey Spillane",
+                            Biyografi = "Amerikalı suç yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 132,
+                            AdSoyad = "Gillian Flynn",
+                            Biyografi = "Amerikalı yazar."
+                        },
+                        new
+                        {
+                            YazarId = 133,
+                            AdSoyad = "Paula Hawkins",
+                            Biyografi = "İngiliz romancı."
+                        },
+                        new
+                        {
+                            YazarId = 134,
+                            AdSoyad = "Alex Michaelides",
+                            Biyografi = "Kıbrıslı-İngiliz yazar."
+                        },
+                        new
+                        {
+                            YazarId = 135,
+                            AdSoyad = "Sue Grafton",
+                            Biyografi = "Dedektif romanları yazarı."
+                        },
+                        new
+                        {
+                            YazarId = 136,
+                            AdSoyad = "Jean-Christophe Grange",
+                            Biyografi = "Fransız romancı."
+                        },
+                        new
+                        {
+                            YazarId = 137,
+                            AdSoyad = "Charlaine Harris",
+                            Biyografi = "Amerikalı romancı."
+                        },
+                        new
+                        {
+                            YazarId = 138,
+                            AdSoyad = "F. Scott Fitzgerald",
+                            Biyografi = "Amerikalı romancı."
+                        },
+                        new
+                        {
+                            YazarId = 139,
+                            AdSoyad = "Gabriel García Márquez",
+                            Biyografi = "Kolombiyalı romancı."
                         });
                 });
 

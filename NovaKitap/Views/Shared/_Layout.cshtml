@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 @{
     var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
@@ -66,6 +66,11 @@
                     <a asp-controller="Home" asp-action="Sepet" class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 20px;">
                         <span style="font-size: 1.2rem;">🛒</span> Sepetim
                     </a>
+
+                    <!-- TEMA DEĞİŞTİRME BUTONU -->
+                    <button id="theme-toggle-btn" class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 20px;" onclick="toggleTheme()">
+                        <span id="theme-toggle-icon" style="font-size: 1.2rem;">🌙</span> <span id="theme-toggle-text">Karanlık Mod</span>
+                    </button>
 
                     @if (!string.IsNullOrEmpty(adSoyad))
                     {

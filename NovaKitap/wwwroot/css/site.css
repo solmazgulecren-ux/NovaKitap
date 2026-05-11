@@ -11,18 +11,33 @@
     --grey-accent: #E0E0E0; /* Çizgiler ve Kenarlıklar için açık gri */
 
     --card-bg: #FFFFFF; /* Kartlar Bembeyaz */
+    --space-blue: #FFFFFF; /* Kartların aydınlık temadaki beyaz arka planı */
+    --space-dark: #1A3A5A; /* Koyu lacivert yazılar */
+}
+
+body.dark-theme {
+    /* Sayfa Arka Planı ve Yazı Renkleri (KARANLIK TEMA) */
+    --bg-main: #121212; /* Derin Siyah Arka Plan */
+    --text-main: #E5E5E5; /* Gözü yormayan açık gri yazılar */
+    --card-bg: #1E1E1E; /* Koyu Gri Kartlar */
+    --grey-accent: #333333; /* Belirgin koyu gri çizgiler */
+    --silver: #AAAAAA; /* Açık gümüş rengi */
+    --header-bg: #0C1D2F; /* Çok daha koyu asil bir lacivert */
+    --category-bg: #1F364D; /* Koyu kategori barı */
+    --space-blue: #1E1E1E; /* Kartların karanlık moddaki arka planı */
+    --space-dark: #FFFFFF; /* Karanlık modda beyaz yazılar */
 }
 
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-    /* SİHİRLİ KOD: Eski sayfalardaki beyaz yazıları otomatik siyah yapar */
-    /* (Böylece sayfaları tek tek düzeltmene gerek kalmaz) */
-    body :not(.nova-topbar):not(.nova-category-bar):not(.btn) > .text-white,
-    body :not(.nova-topbar):not(.nova-category-bar):not(.btn) > .text-light,
+    /* SİHİRLİ KOD: Eski sayfalardaki beyaz yazıları otomatik siyah yapar (Sadece aydınlık temada çalışır) */
+    body:not(.dark-theme) :not(.nova-topbar):not(.nova-category-bar):not(.btn) > .text-white,
+    body:not(.dark-theme) :not(.nova-topbar):not(.nova-category-bar):not(.btn) > .text-light,
     .book-card h6 {
         color: var(--text-main) !important;
         text-shadow: none !important;
@@ -207,13 +222,170 @@ h1, h2, h3, h4, h5, h6, p, span, strong, small, label {
 /* --- OTOMATİK RENK DÜZELTİCİ (GÜNCELLENDİ) --- */
 /* Artık sadece ana içerik alanındaki (main) kartların içindeki beyaz yazıları koyulaştıracak.
    Üst menü (nova-topbar) ve Chatbot bu kuraldan etkilenmeyecek! */
-main .card [style*="color: #ffffff"],
-main .card [style*="color: rgb(255, 255, 255)"] {
+body:not(.dark-theme) main .card [style*="color: #ffffff"],
+body:not(.dark-theme) main .card [style*="color: rgb(255, 255, 255)"] {
     color: var(--text-main) !important;
 }
 
-main .card [style*="color: var(--silver)"] {
+body:not(.dark-theme) main .card [style*="color: var(--silver)"] {
     color: #555555 !important;
+}
+
+/* --- KARANLIK MOD FORM VE TABLO UYUMLULUĞU --- */
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea,
+body.dark-theme .form-control,
+body.dark-theme .form-select,
+body.dark-theme .nova-search,
+body.dark-theme .nova-mega-search,
+body.dark-theme .input-group-text {
+    background-color: #252525 !important;
+    color: #E5E5E5 !important;
+    border-color: #444444 !important;
+}
+
+/* Girdilerin içindeki geçici yer tutucu (placeholder) yazıları */
+body.dark-theme ::placeholder,
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder,
+body.dark-theme .form-control::placeholder {
+    color: #888888 !important;
+    opacity: 1 !important; /* Firefox için tam görünürlük */
+}
+
+/* Tarayıcı otomatik tamamlama (Autofill) renklerinin siyah/sarı olmasını engelleyip koyu tema yapma */
+body.dark-theme input:-webkit-autofill,
+body.dark-theme input:-webkit-autofill:hover,
+body.dark-theme input:-webkit-autofill:focus,
+body.dark-theme textarea:-webkit-autofill,
+body.dark-theme textarea:-webkit-autofill:hover,
+body.dark-theme textarea:-webkit-autofill:focus,
+body.dark-theme select:-webkit-autofill,
+body.dark-theme select:-webkit-autofill:hover,
+body.dark-theme select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #E5E5E5 !important;
+    -webkit-box-shadow: 0 0 0px 1000px #252525 inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Yorum formlarındaki veya diğer sayfalardaki inline (style="color: #000; background-color: #fff;") ezmeleri */
+body.dark-theme input[style*="color:"],
+body.dark-theme select[style*="color:"],
+body.dark-theme textarea[style*="color:"],
+body.dark-theme .form-control[style*="color:"],
+body.dark-theme .form-select[style*="color:"],
+body.dark-theme input[style*="background-color:"],
+body.dark-theme select[style*="background-color:"],
+body.dark-theme textarea[style*="background-color:"],
+body.dark-theme .form-control[style*="background-color:"],
+body.dark-theme .form-select[style*="background-color:"] {
+    background-color: #252525 !important;
+    color: #E5E5E5 !important;
+}
+
+body.dark-theme input:focus,
+body.dark-theme select:focus,
+body.dark-theme textarea:focus,
+body.dark-theme .form-control:focus,
+body.dark-theme .form-select:focus,
+body.dark-theme .nova-mega-search:focus {
+    background-color: #333333 !important;
+    color: #FFFFFF !important;
+    border-color: var(--star-beige) !important;
+}
+
+body.dark-theme table,
+body.dark-theme .table {
+    color: #E5E5E5 !important;
+}
+
+body.dark-theme table th,
+body.dark-theme table td,
+body.dark-theme .table th,
+body.dark-theme .table td {
+    border-color: #333333 !important;
+    color: #E5E5E5 !important;
+}
+
+body.dark-theme .text-dark,
+body.dark-theme .text-black,
+body.dark-theme .text-muted,
+body.dark-theme .text-secondary {
+    color: #AAAAAA !important;
+}
+
+body.dark-theme .bg-light,
+body.dark-theme .bg-white {
+    background-color: #1E1E1E !important;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme label,
+body.dark-theme strong,
+body.dark-theme small {
+    color: #E5E5E5 !important;
+}
+
+/* Sayfa başlıklarındaki inline var(--header-bg) veya var(--silver) ezmeleri */
+body.dark-theme [style*="color: var(--header-bg)"],
+body.dark-theme [style*="color:var(--header-bg)"],
+body.dark-theme [style*="color: #1A3A5A"],
+body.dark-theme [style*="color:#1A3A5A"],
+body.dark-theme [style*="color: #1a3a5a"],
+body.dark-theme [style*="color:#1a3a5a"],
+body.dark-theme [style*="color: #000000"],
+body.dark-theme [style*="color:#000000"],
+body.dark-theme [style*="color: #000"],
+body.dark-theme [style*="color:#000"],
+body.dark-theme [style*="color: #333333"],
+body.dark-theme [style*="color:#333333"],
+body.dark-theme [style*="color: #333"],
+body.dark-theme [style*="color:#333"] {
+    color: #E5E5E5 !important;
+}
+
+body.dark-theme [style*="color: var(--silver)"],
+body.dark-theme [style*="color:var(--silver)"],
+body.dark-theme [style*="color: #666666"],
+body.dark-theme [style*="color:#666666"] {
+    color: #AAAAAA !important;
+}
+
+/* Sayfa geçişleri (Pagination) butonları */
+body.dark-theme .page-link {
+    background-color: #252525 !important;
+    color: #E5E5E5 !important;
+    border-color: #444444 !important;
+}
+body.dark-theme .page-item.active .page-link {
+    background-color: var(--star-beige) !important;
+    color: var(--header-bg) !important;
+    border-color: var(--star-beige) !important;
+}
+body.dark-theme .page-item.disabled .page-link {
+    background-color: #121212 !important;
+    color: #666666 !important;
+    border-color: #222222 !important;
+}
+
+/* İncele/Giriş Yap gibi .btn-outline-light butonlarının karanlık modda görünmez olmasını düzeltme */
+body.dark-theme .btn-outline-light {
+    color: #E5E5E5 !important;
+    border-color: #E5E5E5 !important;
+    background-color: transparent !important;
+}
+body.dark-theme .btn-outline-light:hover {
+    background-color: var(--star-beige) !important;
+    color: var(--header-bg) !important;
+    border-color: var(--star-beige) !important;
 }
 
 /* Chatbot içindeki mesaj yazılarının her zaman bembeyaz kalmasını garantileyelim */
