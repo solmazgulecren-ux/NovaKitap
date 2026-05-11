@@ -58,16 +58,26 @@ namespace NovaKitap.Controllers
             return View(viewModel);
         }
 
-        public IActionResult Kategori(int id, string? isim)
+        public IActionResult Kategori(int id)
         {
+            // Sepetteki sayı gibi ortak veriler için (varsa)
             GetKaydedilenIdler();
 
-            var kitaplar = _context.Kitaplars
-                                   .Where(k => k.KategoriId == id)
-                                   .ToList();
+            // Önce Kategoriyi bulalım ki adını sayfada başlık olarak yazabilelim
+            var kategori = _context.Kategorilers.FirstOrDefault(k => k.KategoriId == id);
+            if (kategori == null)
+            {
+                return RedirectToAction("Index"); // Kategori yoksa anasayfaya at
+            }
 
-            ViewBag.KategoriAdi = isim ?? "Kategori";
-            ViewBag.KategoriId = id;
+            // O kategoriye ait kitapları, yazar bilgileriyle beraber çekiyoruz
+            var kitaplar = _context.Kitaplars
+                .Include(k => k.Yazar)
+                .Where(k => k.KategoriId == id)
+                .ToList();
+
+            ViewBag.KategoriAdi = kategori.KategoriAdi;
+            ViewBag.Ikon = kategori.IkonSifi;
 
             return View(kitaplar);
         }

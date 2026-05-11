@@ -19,11 +19,15 @@
                         <div class="card h-100 p-4 text-center shadow-sm category-card" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px; transition: transform 0.3s ease;">
                             <div class="cat-icon" style="font-size: 3rem; margin-bottom: 15px;">🖋️</div>
                             <h4 class="text-white fw-bold mb-2">@yazar.AdSoyad</h4>
-                            <p class="text-muted small">@yazar.Biyografi</p>
+                            
+                            <p class="text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; line-height: 1.5;">
+                                @yazar.Biyografi
+                            </p>
+                            
                             <div class="mt-auto pt-3">
-                                <a href="/Home/YazarDetay?id=@yazar.YazarId" class="btn btn-sm btn-outline-light rounded-pill px-4">
+                                <span class="btn btn-sm btn-outline-light rounded-pill px-4">
                                     Eserleri İncele
-                                </a>
+                                </span>
                             </div>
                         </div>
                     </a>

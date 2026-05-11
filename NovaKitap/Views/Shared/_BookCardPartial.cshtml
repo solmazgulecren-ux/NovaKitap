@@ -31,10 +31,20 @@
         @(isSaved ? "✦" : "✧")
     </button>
     
-    <img src="@(string.IsNullOrEmpty(Model.KapakResimUrl) ? "https://via.placeholder.com/220x300/1B2A4A/C0C0C0?text=Kapak+Yok" : Model.KapakResimUrl)"
+    @{
+        // Kitap ismini klasördeki formata dönüştür (Küçük harf yap ve boşlukları sil/alt tire yap)
+        // Örn: "Anna Karenina" -> "annakarenina"
+        string temizIsim = Model.KitapAdi.ToLower()
+                           .Replace(" ", "")
+                           .Replace("ı", "i").Replace("ğ", "g").Replace("ü", "u")
+                           .Replace("ş", "s").Replace("ö", "o").Replace("ç", "c");
+    }
+
+    <img src="@(string.IsNullOrEmpty(Model.KapakResimUrl) ? "/img/default.jpg" : Model.KapakResimUrl)"
+         class="img-fluid rounded shadow-sm"
          alt="@Model.KitapAdi"
-         class="img-fluid w-100"
-         style="height: 280px; object-fit: cover;">
+         style="height: 220px; object-fit: contain;"
+         onerror="this.onerror=null; this.src='https://via.placeholder.com/220x300/1B2A4A/C0C0C0?text=Gorsel+Hazirlaniyor';">
     
     <div class="p-3 d-flex flex-column flex-grow-1">
         <h6 class="text-white text-truncate mb-1" title="@Model.KitapAdi">@Model.KitapAdi</h6>
