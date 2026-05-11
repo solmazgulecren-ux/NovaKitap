@@ -547,6 +547,7 @@ namespace NovaKitap.Controllers
         }
 
         // --- YAPAY ZEKA (GEMINI API) ENTEGRASYONU ---
+<<<<<<< HEAD
         [HttpPost]
         public async Task<IActionResult> AsistanCevap([FromBody] ChatRequest request)
         {
@@ -617,5 +618,11 @@ namespace NovaKitap.Controllers
 
             return Json(new { cevap = botCevap });
         }
+=======
+ 
+        
+        
+        
+>>>>>>> origin/master
     }
 }
