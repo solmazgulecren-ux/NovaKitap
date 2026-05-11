@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NovaKitap.Models;
 
@@ -11,9 +12,11 @@ using NovaKitap.Models;
 namespace NovaKitap.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260511222359_FixAllCoverImageUrls")]
+    partial class FixAllCoverImageUrls
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1677,7 +1680,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1869,
                             CokSatanMi = false,
                             Fiyat = 275.00m,
-                            KapakResimUrl = "/img/kitaplar/YorgunSavasci.jpg",
+                            KapakResimUrl = "/img/kitaplar/insanneileyasar.jpg",
                             KategoriId = 1,
                             KitapAdi = "Savaş ve Barış",
                             SayfaSayisi = 1225,
@@ -1725,7 +1728,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1864,
                             CokSatanMi = false,
                             Fiyat = 65.00m,
-                            KapakResimUrl = "/img/kitaplar/bozkrkurdu.jpg",
+                            KapakResimUrl = "/img/kitaplar/Kumarbaz.jpg",
                             KategoriId = 1,
                             KitapAdi = "Yeraltından Notlar",
                             SayfaSayisi = 150,
@@ -1773,7 +1776,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1945,
                             CokSatanMi = true,
                             Fiyat = 85.00m,
-                            KapakResimUrl = "/img/kitaplar/HaniminCiftligi.jpg",
+                            KapakResimUrl = "/img/kitaplar/George Orwell 1984.jpg",
                             KategoriId = 7,
                             KitapAdi = "Hayvan Çiftliği",
                             SayfaSayisi = 152,
@@ -1805,7 +1808,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1940,
                             CokSatanMi = false,
                             Fiyat = 90.00m,
-                            KapakResimUrl = "/img/kitaplar/seytanAyrintidaGizlidir.jpg",
+                            KapakResimUrl = "/img/kitaplar/Kürk Mantolu Madonna.jpg",
                             KategoriId = 7,
                             KitapAdi = "İçimizdeki Şeytan",
                             SayfaSayisi = 260,
@@ -1821,7 +1824,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1937,
                             CokSatanMi = false,
                             Fiyat = 85.00m,
-                            KapakResimUrl = "/img/kitaplar/KorkuyuBeklerken.jpg",
+                            KapakResimUrl = "/img/kitaplar/Kürk Mantolu Madonna.jpg",
                             KategoriId = 7,
                             KitapAdi = "Kuyucaklı Yusuf",
                             SayfaSayisi = 220,
@@ -1853,7 +1856,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1922,
                             CokSatanMi = false,
                             Fiyat = 35.00m,
-                            KapakResimUrl = "/img/kitaplar/MilenayaMektuplar.jpg",
+                            KapakResimUrl = "/img/kitaplar/satranc.jpg",
                             KategoriId = 7,
                             KitapAdi = "Bilinmeyen Bir Kadının Mektubu",
                             SayfaSayisi = 65,
@@ -1917,7 +1920,7 @@ namespace NovaKitap.Migrations
                             BasimYili = 1949,
                             CokSatanMi = false,
                             Fiyat = 135.00m,
-                            KapakResimUrl = "/img/kitaplar/AylakAdam.jpg",
+                            KapakResimUrl = "/img/kitaplar/saatleridurdurmaenstitusu.jpg",
                             KategoriId = 2,
                             KitapAdi = "Huzur",
                             SayfaSayisi = 390,
@@ -3138,6 +3141,20 @@ namespace NovaKitap.Migrations
                         },
                         new
                         {
+                            KitapId = 1231,
+                            Aciklama = "Aşk, gurur ve toplumsal sınıf çatışmaları.",
+                            CokSatanMi = true,
+                            Fiyat = 175.00m,
+                            KapakResimUrl = "/img/kitaplar/gururveonyargi.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Gurur ve Önyargı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 19,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
                             KitapId = 1232,
                             Aciklama = "Tutkulu ve trajik bir aşk hikayesi.",
                             CokSatanMi = true,
@@ -3257,6 +3274,20 @@ namespace NovaKitap.Migrations
                             KapakResimUrl = "/img/kitaplar/denzleraltndayrmbnfersah.jpg",
                             KategoriId = 1006,
                             KitapAdi = "Denizler Altında 20 Bin Fersah",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 18,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1241,
+                            Aciklama = "Dünya turuna çıkan bir adamın yarışı.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/seksengundedevrialem.jpg",
+                            KategoriId = 1006,
+                            KitapAdi = "Seksen Günde Devri Alem",
                             StokAdedi = 50,
                             Yayinevi = "Nova Kitap",
                             YazarId = 18,
@@ -3386,6 +3417,20 @@ namespace NovaKitap.Migrations
                             StokAdedi = 50,
                             Yayinevi = "Nova Kitap",
                             YazarId = 28,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1251,
+                            Aciklama = "Psikolojik gerilim dolu kısa roman.",
+                            CokSatanMi = true,
+                            Fiyat = 120.00m,
+                            KapakResimUrl = "/img/kitaplar/satranc.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Satranç",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 4,
                             YeniCikanMi = false
                         },
                         new
@@ -3754,6 +3799,20 @@ namespace NovaKitap.Migrations
                         },
                         new
                         {
+                            KitapId = 1278,
+                            Aciklama = "Anlam verilemeyen bir suçlama karşısında bireyin çaresizliği.",
+                            CokSatanMi = true,
+                            Fiyat = 150.00m,
+                            KapakResimUrl = "/img/kitaplar/Dava.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Dava",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 5,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
                             KitapId = 1279,
                             Aciklama = "Paul Atreides’in imparatorluk sonrası yaşadığı çatışmalar.",
                             CokSatanMi = true,
@@ -3768,6 +3827,34 @@ namespace NovaKitap.Migrations
                         },
                         new
                         {
+                            KitapId = 1280,
+                            Aciklama = "Absürdizmin ve yabancılaşmanın başyapıtı.",
+                            CokSatanMi = true,
+                            Fiyat = 115.00m,
+                            KapakResimUrl = "/img/kitaplar/Yabanci.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Yabancı",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 13,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1281,
+                            Aciklama = "Gregor Samsa'nın bir sabah böceğe dönüşme hikayesi.",
+                            CokSatanMi = true,
+                            Fiyat = 95.00m,
+                            KapakResimUrl = "/img/kitaplar/Donusum.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Dönüşüm",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 5,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
                             KitapId = 1282,
                             Aciklama = "St. Petersburg'da geçen hüzünlü bir hayalperest öyküsü.",
                             CokSatanMi = false,
@@ -3775,6 +3862,20 @@ namespace NovaKitap.Migrations
                             KapakResimUrl = "/img/kitaplar/Denemeler.jpg",
                             KategoriId = 1004,
                             KitapAdi = "Beyaz Geceler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 1,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1283,
+                            Aciklama = "Tutku ve irade çatışması üzerine sarsıcı bir roman.",
+                            CokSatanMi = true,
+                            Fiyat = 130.00m,
+                            KapakResimUrl = "/img/kitaplar/Kumarbaz.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Kumarbaz",
                             StokAdedi = 50,
                             Yayinevi = "Nova Kitap",
                             YazarId = 1,
@@ -4016,6 +4117,20 @@ namespace NovaKitap.Migrations
                             StokAdedi = 50,
                             Yayinevi = "Nova Kitap",
                             YazarId = 28,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1301,
+                            Aciklama = "Salgın hastalık karşısında insanlık ve dayanışma.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/Veba.jpg",
+                            KategoriId = 1004,
+                            KitapAdi = "Veba",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 13,
                             YeniCikanMi = false
                         },
                         new
@@ -4328,6 +4443,34 @@ namespace NovaKitap.Migrations
                         },
                         new
                         {
+                            KitapId = 1324,
+                            Aciklama = "Lüks bir gemide işlenen ustaca kurgulanmış cinayet.",
+                            CokSatanMi = true,
+                            Fiyat = 160.00m,
+                            KapakResimUrl = "/img/kitaplar/NildeOlum.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Nil'de Ölüm",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 6,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1325,
+                            Aciklama = "Polisiye tarihinin en şaşırtıcı sonlarından biri.",
+                            CokSatanMi = true,
+                            Fiyat = 155.00m,
+                            KapakResimUrl = "/img/kitaplar/RogerAckroydCinayeti.jpg",
+                            KategoriId = 1007,
+                            KitapAdi = "Roger Ackroyd Cinayeti",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 6,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
                             KitapId = 1326,
                             Aciklama = "Jane Marple'ın keskin zekasıyla çözülen sırlar.",
                             CokSatanMi = false,
@@ -4510,6 +4653,20 @@ namespace NovaKitap.Migrations
                         },
                         new
                         {
+                            KitapId = 1339,
+                            Aciklama = "Gerçekle hayalin birbirine karıştığı modern bir roman.",
+                            CokSatanMi = true,
+                            Fiyat = 240.00m,
+                            KapakResimUrl = "/img/kitaplar/TehlikeliOyunlar.jpg",
+                            KategoriId = 1005,
+                            KitapAdi = "Tehlikeli Oyunlar",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 12,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
                             KitapId = 1340,
                             Aciklama = "Toplumsal eleştiri içeren çarpıcı öyküler ve masallar.",
                             CokSatanMi = true,
@@ -4622,6 +4779,20 @@ namespace NovaKitap.Migrations
                         },
                         new
                         {
+                            KitapId = 1348,
+                            Aciklama = "Stoacı imparatorun yaşam ve ölüm üzerine notları.",
+                            CokSatanMi = true,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/KendimeDusunceler.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Kendime Düşünceler",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 17,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
                             KitapId = 1349,
                             Aciklama = "Türkiye Cumhuriyeti'nin kuruluş belgesi ve tarihi söylev.",
                             CokSatanMi = true,
@@ -4692,6 +4863,20 @@ namespace NovaKitap.Migrations
                         },
                         new
                         {
+                            KitapId = 1354,
+                            Aciklama = "Geleneksel ahlakın ve değerlerin yıkımı.",
+                            CokSatanMi = true,
+                            Fiyat = 165.00m,
+                            KapakResimUrl = "/img/kitaplar/IyiliginveKotulugunOtesinde.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "İyinin ve Kötünün Ötesinde",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 9,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
                             KitapId = 1355,
                             Aciklama = "Nietzsche'nin kendi felsefesini ve hayatını anlattığı eser.",
                             CokSatanMi = false,
@@ -4699,6 +4884,20 @@ namespace NovaKitap.Migrations
                             KapakResimUrl = "/img/kitaplar/EcceHomo.jpg",
                             KategoriId = 1008,
                             KitapAdi = "Ecce Homo",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 9,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1356,
+                            Aciklama = "Batı felsefesine ve değerlerine sert bir meydan okuyuş.",
+                            CokSatanMi = false,
+                            Fiyat = 140.00m,
+                            KapakResimUrl = "/img/kitaplar/PutlarinAlacakaranlg.jpg",
+                            KategoriId = 1008,
+                            KitapAdi = "Putların Alacakaranlığı",
                             StokAdedi = 50,
                             Yayinevi = "Nova Kitap",
                             YazarId = 9,
@@ -4951,6 +5150,20 @@ namespace NovaKitap.Migrations
                             KapakResimUrl = "/img/kitaplar/HomoDeus.jpg",
                             KategoriId = 1009,
                             KitapAdi = "Homo Deus",
+                            StokAdedi = 50,
+                            Yayinevi = "Nova Kitap",
+                            YazarId = 16,
+                            YeniCikanMi = false
+                        },
+                        new
+                        {
+                            KitapId = 1375,
+                            Aciklama = "Günümüz dünyasının en acil sorularına cevaplar.",
+                            CokSatanMi = false,
+                            Fiyat = 200.00m,
+                            KapakResimUrl = "/img/kitaplar/21YuzyilIcin21Ders.jpg",
+                            KategoriId = 1009,
+                            KitapAdi = "21. Yüzyıl İçin 21 Ders",
                             StokAdedi = 50,
                             Yayinevi = "Nova Kitap",
                             YazarId = 16,

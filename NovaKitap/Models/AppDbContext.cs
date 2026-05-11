@@ -19,7 +19,7 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Kaydedilenler> Kaydedilenlers { get; set; }
 
-    public virtual DbSet<Kitaplar> Kitaplars { get; set; }
+    public virtual DbSet<Kitaplar> Kitaplar { get; set; }
 
     public virtual DbSet<Kullanicilar> Kullanicilars { get; set; }
 

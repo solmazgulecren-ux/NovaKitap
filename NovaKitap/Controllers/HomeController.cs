@@ -10,7 +10,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using System.Text;
-
+using System.Linq;
 namespace NovaKitap.Controllers
 {
     // ChatBot'tan gelen mesajı karşılamak için gereken sınıf
@@ -51,12 +51,11 @@ namespace NovaKitap.Controllers
         public IActionResult Index()
         {
             GetKaydedilenIdler();
-
-            var viewModel = new HomeViewModel
+            HomeViewModel viewModel = new HomeViewModel
             {
-                YeniCikanlar = _context.Kitaplars.Where(k => k.YeniCikanMi == true).Take(10).ToList(),
-                CokSatanlar = _context.Kitaplars.Where(k => k.CokSatanMi == true).Take(10).ToList(),
-                Onerilenler = _context.Kitaplars.Take(10).ToList()
+                YeniCikanlar = _context.Kitaplar.Where(k => k.YeniCikanMi == true).Take(10).ToList(),
+                CokSatanlar = _context.Kitaplar.Where(k => k.CokSatanMi == true).Take(10).ToList(),
+                Onerilenler = _context.Kitaplar.Take(10).ToList()
             };
 
             return View(viewModel);
@@ -75,7 +74,7 @@ namespace NovaKitap.Controllers
             }
 
             // O kategoriye ait kitapları, yazar bilgileriyle beraber çekiyoruz
-            var kitaplar = _context.Kitaplars
+            var kitaplar = _context.Kitaplar
                 .Include(k => k.Yazar)
                 .Where(k => k.KategoriId == id)
                 .ToList();
@@ -90,7 +89,7 @@ namespace NovaKitap.Controllers
         public IActionResult YazarDetay(int id)
         {
             GetKaydedilenIdler();
-            var kitaplar = _context.Kitaplars.Include(k => k.Yazar).Where(k => k.YazarId == id).ToList();
+            var kitaplar = _context.Kitaplar.Include(k => k.Yazar).Where(k => k.YazarId == id).ToList();
             var yazar = _context.Yazarlars.Find(id);
             ViewBag.KategoriAdi = yazar?.AdSoyad + " Eserleri";
             
@@ -106,7 +105,7 @@ namespace NovaKitap.Controllers
 
             string arama = q.ToLower();
 
-            var kitaplar = _context.Kitaplars.Include(k => k.Yazar)
+            var kitaplar = _context.Kitaplar.Include(k => k.Yazar)
                 .Where(k => k.KitapAdi.ToLower().Contains(arama) || (k.Yazar != null && k.Yazar.AdSoyad.ToLower().Contains(arama)))
                 .Select(k => new UrunViewModel { Id = k.KitapId, UrunAdi = k.KitapAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kitap" }).ToList();
 
@@ -199,7 +198,7 @@ namespace NovaKitap.Controllers
                 return View("UrunDetay", new UrunViewModel { Id = urun.OyuncakId, UrunAdi = urun.UrunAdi, Fiyat = urun.Fiyat, KapakResimUrl = urun.KapakResimUrl, UrunTipi = "Oyuncak", Aciklama = urun.Aciklama, Marka = urun.Marka, EkBilgi = urun.YasGrubu, YorumlarListesi = yorumlar });
             }
 
-            var kitap = _context.Kitaplars.Include(k => k.Yazar).Include(k => k.Kategori).FirstOrDefault(k => k.KitapId == id);
+            var kitap = _context.Kitaplar.Include(k => k.Yazar).Include(k => k.Kategori).FirstOrDefault(k => k.KitapId == id);
             if (kitap == null) return RedirectToAction("Index");
 
             return View("UrunDetay", new UrunViewModel { Id = kitap.KitapId, UrunAdi = kitap.KitapAdi, Fiyat = kitap.Fiyat, KapakResimUrl = kitap.KapakResimUrl, UrunTipi = "Kitap", Aciklama = kitap.Aciklama, Marka = kitap.Yazar?.AdSoyad, EkBilgi = kitap.Yayinevi, YorumlarListesi = yorumlar });
@@ -264,7 +263,7 @@ namespace NovaKitap.Controllers
 
                 if (tip == "Kitap")
                 {
-                    var kitap = _context.Kitaplars.Include(k => k.Yazar).FirstOrDefault(k => k.KitapId == id);
+                    var kitap = _context.Kitaplar.Include(k => k.Yazar).FirstOrDefault(k => k.KitapId == id);
                     if (kitap != null) sepetUrunleri.Add(new UrunViewModel { Id = kitap.KitapId, UrunAdi = kitap.KitapAdi, Fiyat = kitap.Fiyat, KapakResimUrl = kitap.KapakResimUrl, UrunTipi = "Kitap" });
                 }
                 else if (tip == "Kirtasiye" || tip == "Kırtasiye")
@@ -302,7 +301,7 @@ namespace NovaKitap.Controllers
 
                 if (tip == "Kitap")
                 {
-                    var k = _context.Kitaplars.Include(x => x.Yazar).FirstOrDefault(x => x.KitapId == id);
+                    var k = _context.Kitaplar.Include(x => x.Yazar).FirstOrDefault(x => x.KitapId == id);
                     if (k != null) sepetUrunleri.Add(new UrunViewModel { Id = k.KitapId, UrunAdi = k.KitapAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kitap", Marka = k.Yazar?.AdSoyad });
                 }
                 else if (tip == "Kirtasiye" || tip == "Kırtasiye")
@@ -410,7 +409,7 @@ namespace NovaKitap.Controllers
                 // Ürünün fiyatını ve tipini buluyoruz
                 if (tip == "Kitap")
                 {
-                    var urun = _context.Kitaplars.Find(id);
+                    var urun = _context.Kitaplar.Find(id);
                     if (urun != null) { birimFiyat = urun.Fiyat; kaydedilecekKitapId = urun.KitapId; }
                 }
                 else if (tip == "Kirtasiye" || tip == "Kırtasiye")
@@ -464,7 +463,7 @@ namespace NovaKitap.Controllers
 
         private List<UrunViewModel> GetYeniCikanUrunlerListesi(int limit)
         {
-            var kitaplar = _context.Kitaplars
+            var kitaplar = _context.Kitaplar
                 .Where(k => k.YeniCikanMi == true)
                 .OrderByDescending(k => k.KitapId)
                 .Select(k => new UrunViewModel { Id = k.KitapId, UrunAdi = k.KitapAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kitap" })
@@ -492,7 +491,7 @@ namespace NovaKitap.Controllers
 
         private List<UrunViewModel> GetCokSatanUrunlerListesi(int limit)
         {
-            var kitaplar = _context.Kitaplars.Where(k => k.CokSatanMi == true)
+            var kitaplar = _context.Kitaplar.Where(k => k.CokSatanMi == true)
                 .Select(k => new UrunViewModel { Id = k.KitapId, UrunAdi = k.KitapAdi, Fiyat = k.Fiyat, KapakResimUrl = k.KapakResimUrl, UrunTipi = "Kitap" }).ToList();
 
             var kirtasiyeler = _context.Kirtasiyelers.Where(k => k.CokSatanMi == true)
@@ -546,8 +545,7 @@ namespace NovaKitap.Controllers
             return View(oyuncaklar);
         }
 
-        // --- YAPAY ZEKA (GEMINI API) ENTEGRASYONU ---
-<<<<<<< HEAD
+
         [HttpPost]
         public async Task<IActionResult> AsistanCevap([FromBody] ChatRequest request)
         {
@@ -577,7 +575,7 @@ namespace NovaKitap.Controllers
             }
             else if (msj.Contains("kitap") || msj.Contains("roman") || msj.Contains("hikaye") || msj.Contains("okumak"))
             {
-                var list = await _context.Kitaplars.ToListAsync();
+                var list = await _context.Kitaplar.ToListAsync();
                 var oneriler = list.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
                 botCevap = $"Harika bir seçim! 📚 Sana şu kitapları önerebilirim:<br><br>";
                 foreach (var k in oneriler)
@@ -607,7 +605,7 @@ namespace NovaKitap.Controllers
             }
             else
             {
-                var list = await _context.Kitaplars.ToListAsync();
+                var list = await _context.Kitaplar.ToListAsync();
                 var urun = list.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
                 botCevap = $"Hmm, bunu tam olarak anlayamadım {kullaniciAdi}. 🤔 Ama eğer ilgini çekerse şu harika ürüne göz atabilirsin:<br><br>";
                 if (urun != null)
@@ -618,11 +616,6 @@ namespace NovaKitap.Controllers
 
             return Json(new { cevap = botCevap });
         }
-=======
- 
-        
-        
-        
->>>>>>> origin/master
+
     }
 }
