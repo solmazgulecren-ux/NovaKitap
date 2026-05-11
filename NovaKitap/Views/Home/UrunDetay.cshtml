@@ -1,59 +1,152 @@
 ﻿@model NovaKitap.Models.UrunViewModel
+
 @{
     ViewData["Title"] = Model.UrunAdi;
+    string markaLabel = Model.UrunTipi == "Kitap" ? "Yazar / Yayınevi" : "Marka / Özellik";
+    
+    // Dinamik Yıldız Hesaplama
+    int yorumSayisi = Model.YorumlarListesi != null ? Model.YorumlarListesi.Count : 0;
+    double ortalamaPuan = yorumSayisi > 0 ? Model.YorumlarListesi.Average(y => y.Yildiz) : 0;
 }
 
-<div class="container-fluid py-4 mb-5">
-    <a href="javascript:history.back()" class="text-decoration-none mb-3 d-inline-block" style="color: var(--silver);">
-        &larr; Geldiğin Sayfaya Dön
-    </a>
+<div class="container mt-5 mb-5">
+    <div class="mb-4">
+        <a href="javascript:history.back()" class="btn btn-outline-light rounded-pill px-4" style="border-color: var(--grey-accent); color: var(--silver);">
+            <span style="color: var(--star-beige);">←</span> Önceki Sayfaya Dön
+        </a>
+    </div>
 
-    <div class="card shadow-lg p-5" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px;">
-        <div class="row">
-            <div class="col-md-4 text-center">
+    <div class="card shadow-lg border-0" style="background-color: var(--space-blue); border-radius: 15px; overflow: hidden;">
+        <div class="row g-0">
+            <div class="col-md-5 p-4 text-center d-flex align-items-center justify-content-center" style="background-color: rgba(0,0,0,0.2);">
                 <img src="@(string.IsNullOrEmpty(Model.KapakResimUrl) ? "/img/default.jpg" : Model.KapakResimUrl)"
-                     alt="@Model.UrunAdi" class="img-fluid shadow-lg"
-                     style="border-radius: 10px; max-height: 550px; object-fit: cover; border: 1px solid var(--grey-accent);">
+                     class="img-fluid rounded shadow-lg" alt="@Model.UrunAdi" style="max-height: 480px; object-fit: contain; border: 1px solid var(--grey-accent);">
             </div>
-
-            <div class="col-md-8 d-flex flex-column justify-content-between ps-md-4 mt-4 mt-md-0">
-                <div>
-                    <h1 style="color: var(--star-beige); font-weight: bold; letter-spacing: 1px;">✦ @Model.UrunAdi</h1>
-                    <h4 class="mb-4" style="color: var(--silver); font-style: italic;">
-                        Marka: <span style="color: #ffffff;">@(Model.Marka ?? "Bilinmiyor")</span>
-                    </h4>
-
-                    <div class="p-4 mb-4 shadow-sm" style="background-color: rgba(192, 192, 192, 0.05); border-left: 4px solid var(--star-beige); border-radius: 8px;">
-                        <h6 style="color: var(--star-beige); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Ürün Açıklaması</h6>
-                        <p style="color: var(--text-light); line-height: 1.8; font-size: 1.1rem; margin-bottom: 0;">
-                            @(Model.Aciklama ?? "Bu ürün için henüz bir açıklama girilmemiştir.")
-                        </p>
-                    </div>
-
-                    <div class="row mb-4">
-                        <div class="col-sm-6 mb-2">
-                            <strong style="color: var(--silver);">Kategori:</strong>
-                            <span style="color: var(--text-light);">@Model.UrunTipi</span>
+            
+            <div class="col-md-7 p-5 position-relative">
+                <span class="badge mb-3 px-3 py-2 text-uppercase shadow-sm" style="background-color: var(--star-beige); color: var(--header-bg); font-weight: bold; letter-spacing: 1px;">
+                    @Model.UrunTipi
+                </span>
+                
+                <h1 style="color: #ffffff; font-weight: 800; font-size: 2.2rem;" class="mb-2">@Model.UrunAdi</h1>
+                
+                <div class="mb-4 pb-3" style="border-bottom: 1px dashed rgba(192,192,192,0.2);">
+                    <span style="color: var(--silver); font-size: 1.1rem;"><i class="fas fa-tag me-1"></i> @markaLabel:</span>
+                    <span style="color: #ffffff; font-weight: 600; font-size: 1.1rem; margin-left: 5px;">@Model.Marka @Model.EkBilgi</span>
+                </div>
+                
+                <div class="d-flex align-items-center mb-4 p-3 rounded shadow-sm" style="background-color: rgba(255,255,255,0.05); border: 1px solid var(--grey-accent); display: inline-flex;">
+                    <h2 class="mb-0 me-3" style="color: var(--star-beige); font-weight: bold;">@ortalamaPuan.ToString("0.0")</h2>
+                    <div>
+                        <div class="text-warning fs-5">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= Math.Round(ortalamaPuan))
+                                {
+                                    <span>★</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">★</span>
+                                }
+                            }
                         </div>
-                        <div class="col-sm-6 mb-2">
-                            <strong style="color: var(--silver);">Ek Bilgi:</strong>
-                            <span style="color: var(--text-light);">@(Model.EkBilgi ?? "-")</span>
-                        </div>
+                        <small style="color: var(--silver);">(@yorumSayisi Değerlendirme)</small>
                     </div>
                 </div>
 
-                <div class="mt-auto border-top pt-4" style="border-color: var(--grey-accent) !important;">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <span style="color: var(--silver); font-size: 1.2rem;">Fiyat:</span>
-                        <h2 class="mb-0" style="color: #ffffff; font-weight: bold;">₺@Model.Fiyat.ToString("N2")</h2>
+                <h2 class="mb-4" style="color: #4ade80; font-weight: 800; font-size: 2.5rem;">₺@Model.Fiyat.ToString("N2")</h2>
+                
+                <p style="color: var(--silver); line-height: 1.8; font-size: 1.1rem; margin-bottom: 30px;">
+                    @(string.IsNullOrEmpty(Model.Aciklama) ? "Bu ürün için henüz detaylı bir açıklama girilmemiştir." : Model.Aciklama)
+                </p>
+                
+                <div class="mt-auto">
+                    <a href="/Home/SepeteEkle?id=@Model.Id&tip=@Model.UrunTipi" class="btn btn-nova btn-lg px-5 py-3 w-100 rounded-pill shadow" style="font-weight: bold; font-size: 1.2rem; transition: transform 0.2s;">
+                        Sepete Ekle 🛒
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-sm border-0 p-4 p-md-5" style="background-color: var(--space-blue); border-radius: 15px;">
+                <h3 style="color: #ffffff; border-bottom: 2px solid var(--grey-accent); padding-bottom: 15px; margin-bottom: 30px;">
+                    <span style="color: var(--star-beige);">✦</span> Müşteri Yorumları
+                </h3>
+
+                <div class="row">
+                    <div class="col-md-5 border-end border-secondary mb-4 mb-md-0 pe-md-4">
+                        <h5 style="color: var(--silver); margin-bottom: 20px;">Bu ürünü değerlendirin</h5>
+                        
+                        <form asp-controller="Home" asp-action="YorumEkle" method="post">
+                            <input type="hidden" name="UrunId" value="@Model.Id" />
+                            <input type="hidden" name="UrunTipi" value="@Model.UrunTipi" />
+                            
+                            <div class="mb-3">
+                                <input type="text" name="KullaniciAdi" class="form-control" placeholder="Adınız Soyadınız" required style="background-color: #ffffff; color: #000;">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <select name="Yildiz" class="form-select" required style="background-color: #ffffff; color: #000;">
+                                    <option value="5">★★★★★ - Mükemmel</option>
+                                    <option value="4">★★★★☆ - Çok İyi</option>
+                                    <option value="3">★★★☆☆ - İdare Eder</option>
+                                    <option value="2">★★☆☆☆ - Kötü</option>
+                                    <option value="1">★☆☆☆☆ - Berbat</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <textarea name="YorumMetni" class="form-control" rows="4" placeholder="Ürün hakkındaki düşüncelerinizi paylaşın..." required style="background-color: #ffffff; color: #000;"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-outline-light w-100 font-weight-bold">Yorum Gönder</button>
+                        </form>
                     </div>
-                    <div class="d-flex gap-3">
-                        <a href="javascript:history.back()" class="btn btn-outline-light flex-grow-1 py-3" style="font-weight: 500; font-size: 1.1rem;">
-                            Alışverişe Devam Et
-                        </a>
-                        <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@Model.Id" asp-route-tip="@Model.UrunTipi" class="btn btn-nova flex-grow-1 py-3 shadow" style="font-weight: bold; font-size: 1.1rem;">
-                            Sepete Ekle 🛒
-                        </a>
+
+                    <div class="col-md-7 ps-md-4" style="max-height: 400px; overflow-y: auto;">
+                        @if (Model.YorumlarListesi != null && Model.YorumlarListesi.Any())
+                        {
+                            foreach (var yorum in Model.YorumlarListesi)
+                            {
+                                <div class="mb-4 pb-4" style="border-bottom: 1px dashed rgba(192, 192, 192, 0.2);">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 45px; height: 45px; background-color: var(--star-beige); color: var(--header-bg); font-weight: bold; font-size: 1.2rem;">
+                                                @(string.IsNullOrEmpty(yorum.KullaniciAdi) ? "A" : yorum.KullaniciAdi.Substring(0, 1).ToUpper())
+                                            </div>
+                                            <strong style="color: #ffffff; font-size: 1.15rem;">@yorum.KullaniciAdi</strong>
+                                        </div>
+                                        <span class="text-warning fs-6">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                if (i <= yorum.Yildiz)
+                                                {
+                                                    <span>★</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">★</span>
+                                                }
+                                            }
+                                        </span>
+                                    </div>
+                                    <p style="color: var(--silver); font-size: 1.05rem; margin-top: 10px; margin-bottom: 8px;">@yorum.YorumMetni</p>
+                                    <small style="color: var(--grey-accent);">@yorum.Tarih.ToString("dd MMM yyyy")</small>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="text-center py-5">
+                                <h1 style="color: var(--grey-accent);">💬</h1>
+                                <h5 style="color: var(--silver);">Henüz yorum yapılmamış.</h5>
+                                <p style="color: var(--grey-accent);">İlk yorumu siz yapın!</p>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

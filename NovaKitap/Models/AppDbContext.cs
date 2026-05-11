@@ -25,7 +25,7 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Yazarlar> Yazarlars { get; set; }
 
-
+    public DbSet<Yorumlar> Yorumlars { get; set; }
 
     public DbSet<Siparis> Siparisler { get; set; }
     public DbSet<SiparisDetayi> SiparisDetaylari { get; set; }

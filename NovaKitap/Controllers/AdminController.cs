@@ -274,5 +274,56 @@ namespace NovaKitap.Controllers
 
             return RedirectToAction("StokYonetimi");
         }
+
+
+        [HttpGet]
+        public IActionResult StokAra(string q, string kategori)
+        {
+            // Eğer hiçbir şey yazılmadan veya 'Hepsi' seçilip aranırsa, ana stok listesine geri dön
+            if (string.IsNullOrWhiteSpace(q) && (string.IsNullOrEmpty(kategori) || kategori == "Hepsi"))
+            {
+                return RedirectToAction("StokYonetimi");
+            }
+
+            var aranan = string.IsNullOrWhiteSpace(q) ? "" : q.ToLower();
+            var model = new StokYonetimiViewModel();
+
+            // 1. KİTAPLARDA ARAMA
+            if (kategori == "Hepsi" || kategori == "Kitap")
+            {
+                // Kitap adı veya yazar adında arama yapar
+                model.Kitaplar = _context.Kitaplars
+                    .Where(x => x.KitapAdi.ToLower().Contains(aranan))
+                    .ToList();
+            }
+            else { model.Kitaplar = new List<Kitaplar>(); }
+
+            // 2. KIRTASİYEDE ARAMA
+            if (kategori == "Hepsi" || kategori == "Kirtasiye")
+            {
+                // Ürün adı veya markada arama yapar
+                model.Kirtasiyeler = _context.Kirtasiyelers
+                    .Where(x => x.UrunAdi.ToLower().Contains(aranan) || (x.Marka != null && x.Marka.ToLower().Contains(aranan)))
+                    .ToList();
+            }
+            else { model.Kirtasiyeler = new List<Kirtasiyeler>(); }
+
+            // 3. OYUNCAKLARDA ARAMA
+            if (kategori == "Hepsi" || kategori == "Oyuncak")
+            {
+                // Ürün adı veya markada arama yapar
+                model.Oyuncaklar = _context.Oyuncaklars
+                    .Where(x => x.UrunAdi.ToLower().Contains(aranan) || (x.Marka != null && x.Marka.ToLower().Contains(aranan)))
+                    .ToList();
+            }
+            else { model.Oyuncaklar = new List<Oyuncaklar>(); }
+
+            // Aynı görünümü (StokYonetimi.cshtml) filtrelenmiş verilerle tekrar açıyoruz
+            TempData["Mesaj"] = $"'{q}' araması için sonuçlar listeleniyor.";
+            return View("StokYonetimi", model);
+        }
     }
+
+
+
 }
