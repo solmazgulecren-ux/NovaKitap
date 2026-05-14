@@ -551,12 +551,12 @@ namespace NovaKitap.Controllers
         {
             if (request == null || string.IsNullOrWhiteSpace(request.Mesaj))
             {
-                return Json(new { cevap = "Lütfen bana bir mesaj yazın." });
+                return Json(new { cevap = "Lütfen bana bir mesaj yazın. 😊" });
             }
 
             // Müşterinin adını alıyoruz (Giriş yaptıysa)
             var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
-            var kullaniciAdi = "Müşteri";
+            var kullaniciAdi = "sevgili müşterimiz";
             if (kullaniciId.HasValue)
             {
                 var kullanici = _context.Kullanicilars.Find(kullaniciId.Value);
@@ -566,52 +566,270 @@ namespace NovaKitap.Controllers
                 }
             }
 
-            var msj = request.Mesaj.ToLower();
-            string botCevap = "";
+            // --- TÜM ÜRÜN KATALOĞUNU HAZIRLAMA ---
+            // Kitapları kategorileriyle ve yazarlarıyla birlikte çekiyoruz
+            var kitaplar = await _context.Kitaplar
+                .Include(k => k.Yazar)
+                .Include(k => k.Kategori)
+                .ToListAsync();
 
-            if (msj.Contains("merhaba") || msj.Contains("selam"))
+            var kirtasiyeler = await _context.Kirtasiyelers.ToListAsync();
+            var oyuncaklar = await _context.Oyuncaklars.ToListAsync();
+            var kategoriler = await _context.Kategorilers.ToListAsync();
+
+            // Ürün kataloğunu metin olarak hazırlıyoruz (Gemini'ye gönderilecek)
+            var katalogBuilder = new StringBuilder();
+
+            // Kategorileri listele
+            katalogBuilder.AppendLine("=== KATEGORİLER ===");
+            foreach (var kat in kategoriler)
             {
-                botCevap = $"Merhaba {kullaniciAdi}! 👋 Ben Nova Asistan. Sana nasıl yardımcı olabilirim? Kitap, kırtasiye veya oyuncak arıyorsan bana söyleyebilirsin.";
+                var katKitapSayisi = kitaplar.Count(k => k.KategoriId == kat.KategoriId);
+                katalogBuilder.AppendLine($"- {kat.KategoriAdi} (ID: {kat.KategoriId}, {katKitapSayisi} kitap)");
             }
-            else if (msj.Contains("kitap") || msj.Contains("roman") || msj.Contains("hikaye") || msj.Contains("okumak"))
+
+            // Kitapları kategorilere göre grupla
+            katalogBuilder.AppendLine("\n=== KİTAPLAR (Kategoriye göre) ===");
+            var grupluKitaplar = kitaplar.GroupBy(k => k.Kategori?.KategoriAdi ?? "Kategorisiz");
+            foreach (var grup in grupluKitaplar)
             {
-                var list = await _context.Kitaplar.ToListAsync();
-                var oneriler = list.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
-                botCevap = $"Harika bir seçim! 📚 Sana şu kitapları önerebilirim:<br><br>";
-                foreach (var k in oneriler)
+                katalogBuilder.AppendLine($"\n📂 {grup.Key}:");
+                foreach (var k in grup)
+                {
+                    katalogBuilder.AppendLine($"  • KitapID:{k.KitapId} | \"{k.KitapAdi}\" | Kategori: {grup.Key} | Yazar: {k.Yazar?.AdSoyad ?? "Bilinmiyor"} | Fiyat: {k.Fiyat}₺ | Sayfa: {k.SayfaSayisi} | Stok: {k.StokAdedi ?? 0}");
+                }
+            }
+
+            // Kırtasiye ürünleri
+            if (kirtasiyeler.Any())
+            {
+                katalogBuilder.AppendLine("\n=== KIRTASİYE ÜRÜNLERİ ===");
+                foreach (var k in kirtasiyeler)
+                {
+                    katalogBuilder.AppendLine($"  • KirtasiyeID:{k.KirtasiyeId} | \"{k.UrunAdi}\" | Kategori: Kırtasiye ({k.UrunTuru ?? "Genel"}) | Marka: {k.Marka ?? "-"} | Fiyat: {k.Fiyat}₺ | Stok: {k.StokAdedi}");
+                }
+            }
+
+            // Oyuncaklar
+            if (oyuncaklar.Any())
+            {
+                katalogBuilder.AppendLine("\n=== OYUNCAKLAR ===");
+                foreach (var o in oyuncaklar)
+                {
+                    katalogBuilder.AppendLine($"  • OyuncakID:{o.OyuncakId} | \"{o.UrunAdi}\" | Kategori: Oyuncak ({o.YasGrubu ?? "Genel"}) | Marka: {o.Marka ?? "-"} | Fiyat: {o.Fiyat}₺ | Stok: {o.StokAdedi}");
+                }
+            }
+
+            // --- GEMİNİ API SİSTEM PROMPT'U ---
+            var sistemPrompt = $@"Sen ""Nova Asistan"" adlı, samimi ve sevecen bir mağaza asistanısın. Nova Kitap & Kırtasiye & Oyuncak Mağazası'nda çalışıyorsun. Mağazamızda tam 250 kitap, 100 oyuncak ve 100 kırtasiye ürünü bulunuyor.
+
+MÜŞTERİ BİLGİSİ:
+- Şu an seninle konuşan kişi: {kullaniciAdi}
+
+EN ÖNEMLİ KURAL (MUTLAKA UYULMALI):
+Kullanıcı bir ürün adı veya ürün türü aradığında (örneğin ""cetvel"", ""defter"", ""lego"", ""roman"" vb.), aşağıdaki katalogda o kelimeyi İÇEREN ürünleri BUL ve SADECE O ÜRÜN veya ÜRÜNLERİ öner.
+ASLA katalogda OLMAYAN bir ürün uydurma! Sadece aşağıdaki katalogdaki ürünleri öner.
+Örnek: Kullanıcı ""cetvel"" derse, katalogda adında ""Cetvel"" geçen ürünü bul ve onu öner.
+Örnek: Kullanıcı ""silgi"" derse, katalogda adında ""Silgi"" geçen ürünü bul ve onu öner.
+
+TEMEL KURALLARIN:
+1. HER ZAMAN samimi, sıcak ve arkadaşça bir dil kullan. ""Sen"" diye hitap et.
+2. ASLA ""anlayamadım"", ""bunu bilmiyorum"" DEME.
+3. Kullanıcı belirli bir ürün aradığında, katalogda ürün adlarını tara ve eşleşen ürünleri getir. ID ve tip bilgilerini DOĞRU kullan.
+
+ÖNERİ VE LİSTELEME KURALLARI (ÇOK ÖNEMLİ):
+- Ürün listelerken MUTLAKA ürünün tam adını, ID'sini ve tipini KATALOGDAN al. Kendin uydurmak YOK!
+- Ürünün adında veya açıklamasında kullanıcının aradığı kelime geçiyorsa O ÜRÜNÜ öner.
+- Her yanıtta ihtiyaca en uygun 1-5 arası ürün listele.
+- Ürün önerirken şu HTML formatını KESİNLİKLE kullan:
+  <a href='/Home/Detay?id=URUN_ID&tip=URUN_TIPI' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>URUN_ADI</a> (FİYAT₺)
+- URUN_TIPI: Kitaplar için ""Kitap"", Kırtasiye için ""Kirtasiye"", Oyuncaklar için ""Oyuncak"" olmalı.
+- URUN_ID: Katalogdaki numaralar (KitapID, KirtasiyeID, OyuncakID). DOĞRU ID KULLAN!
+
+YANITLAMA FORMATI:
+- Önce kısa, samimi bir karşılama/açıklama yaz (1-2 cümle).
+- Sonra ürünleri listele (her biri yeni satırda, - ile başlasın).
+- Satır sonu için <br> kullan.
+
+İŞTE MAĞAZAMIZDAKİ TAM 450 ÜRÜNLÜK (250 Kitap, 100 Kırtasiye, 100 Oyuncak) DEV KATALOG:
+{katalogBuilder}";
+
+            // --- GEMİNİ API ÇAĞRISI ---
+            try
+            {
+                var apiKey = _configuration["Gemini:ApiKey"];
+                if (string.IsNullOrEmpty(apiKey))
+                {
+                    return Json(new { cevap = $"Hay aksi, şu an teknik bir sorun yaşıyoruz {kullaniciAdi}! 😅 Ama merak etme, bizi birazdan tekrar ziyaret edersen sana harika öneriler sunabilirim! 💫" });
+                }
+
+                using var httpClient = new HttpClient();
+                httpClient.Timeout = TimeSpan.FromSeconds(30);
+
+                var geminiUrl = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={apiKey}";
+
+                var requestBody = new
+                {
+                    contents = new[]
+                    {
+                        new
+                        {
+                            role = "user",
+                            parts = new[]
+                            {
+                                new { text = $"[SİSTEM TALİMATLARI]\n{sistemPrompt}\n\n[MÜŞTERİ MESAJI]\n{request.Mesaj}" }
+                            }
+                        }
+                    },
+                    generationConfig = new
+                    {
+                        temperature = 0.8,
+                        topP = 0.95,
+                        topK = 40,
+                        maxOutputTokens = 1024
+                    }
+                };
+
+                var jsonContent = new StringContent(
+                    JsonSerializer.Serialize(requestBody),
+                    Encoding.UTF8,
+                    "application/json"
+                );
+
+                var response = await httpClient.PostAsync(geminiUrl, jsonContent);
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    using var doc = JsonDocument.Parse(responseString);
+                    var root = doc.RootElement;
+
+                    // Gemini yanıtından metni çıkar
+                    if (root.TryGetProperty("candidates", out var candidates) &&
+                        candidates.GetArrayLength() > 0)
+                    {
+                        var firstCandidate = candidates[0];
+                        if (firstCandidate.TryGetProperty("content", out var content) &&
+                            content.TryGetProperty("parts", out var parts) &&
+                            parts.GetArrayLength() > 0)
+                        {
+                            var botCevap = parts[0].GetProperty("text").GetString() ?? "";
+
+                            // Markdown bold'u HTML'e çevir ve satır sonlarını düzenle
+                            botCevap = botCevap
+                                .Replace("**", "")
+                                .Replace("\n", "<br>");
+
+                            return Json(new { cevap = botCevap });
+                        }
+                    }
+
+                    // Yanıt parse edilemezse yine samimi bir cevap
+                    return Json(new { cevap = $"Harika bir soru {kullaniciAdi}! 🌟 Tam sana göre öneriler hazırlamak isterdim ama şu an küçük bir aksaklık yaşıyorum. Birazdan tekrar dene, seni hayal kırıklığına uğratmayacağım! 💪" });
+                }
+                else
+                {
+                    // API hatası durumunda bile samimi bir fallback
+                    return await FallbackOneri(kullaniciAdi, request.Mesaj);
+                }
+            }
+            catch (TaskCanceledException)
+            {
+                // Timeout durumunda akıllı fallback
+                return await FallbackOneri(kullaniciAdi, request.Mesaj);
+            }
+            catch (Exception)
+            {
+                // Herhangi bir hata durumunda akıllı fallback
+                return await FallbackOneri(kullaniciAdi, request.Mesaj);
+            }
+        }
+
+        /// <summary>
+        /// Gemini API çalışmadığında devreye giren akıllı fallback öneri sistemi.
+        /// Anahtar kelime analizi + kategori eşleşmesi ile her zaman bir öneri sunar.
+        /// </summary>
+        private async Task<IActionResult> FallbackOneri(string kullaniciAdi, string mesaj)
+        {
+            var msj = mesaj.ToLower();
+            string botCevap;
+
+            var selamAnahtarlar = new[] { "merhaba", "selam", "hey", "naber", "nasılsın", "günaydın", "iyi akşamlar", "iyi günler", "sa", "slm", "mrb", "heyy" };
+
+            // 1. Selamlama kontrolü
+            if (selamAnahtarlar.Any(a => msj.Contains(a)))
+            {
+                var cokSatanlar = await _context.Kitaplar.Where(k => k.CokSatanMi == true).OrderBy(x => Guid.NewGuid()).Take(3).ToListAsync();
+                botCevap = $"Merhaba {kullaniciAdi}! 👋 Nova Mağaza'ya hoş geldin! Sana nasıl yardımcı olabilirim? İşte bugün en çok ilgi çeken kitaplarımız:<br><br>";
+                foreach (var k in cokSatanlar)
                 {
                     botCevap += $"- <a href='/Home/Detay?id={k.KitapId}&tip=Kitap' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{k.KitapAdi}</a> ({k.Fiyat}₺)<br>";
                 }
+                botCevap += "<br>Kitap, kırtasiye veya oyuncak... Ne ararsan buradayım! 😊";
+                return Json(new { cevap = botCevap });
             }
-            else if (msj.Contains("kırtasiye") || msj.Contains("kirtasiye") || msj.Contains("kalem") || msj.Contains("defter") || msj.Contains("silgi") || msj.Contains("boya"))
+
+            // 2. Kullanıcının yazdığı kelimeleri ürün isimlerinde ARA (en önemli kısım!)
+            var aramaKelimeleri = msj.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Where(k => k.Length >= 3) // 3 harften kısa kelimeleri atla
+                .ToList();
+
+            // Kırtasiye ürünlerinde ara
+            var eslesenKirtasiye = await _context.Kirtasiyelers
+                .Where(k => aramaKelimeleri.Any(a => k.UrunAdi.ToLower().Contains(a) || (k.UrunTuru != null && k.UrunTuru.ToLower().Contains(a))))
+                .Take(5).ToListAsync();
+
+            // Oyuncaklarda ara
+            var eslesenOyuncak = await _context.Oyuncaklars
+                .Where(o => aramaKelimeleri.Any(a => o.UrunAdi.ToLower().Contains(a) || (o.Marka != null && o.Marka.ToLower().Contains(a))))
+                .Take(5).ToListAsync();
+
+            // Kitaplarda ara
+            var eslesenKitap = await _context.Kitaplar.Include(k => k.Yazar)
+                .Where(k => aramaKelimeleri.Any(a => k.KitapAdi.ToLower().Contains(a) || (k.Yazar != null && k.Yazar.AdSoyad.ToLower().Contains(a))))
+                .Take(5).ToListAsync();
+
+            // 3. Eşleşen ürünler varsa onları göster
+            if (eslesenKirtasiye.Any() || eslesenOyuncak.Any() || eslesenKitap.Any())
             {
-                var list = await _context.Kirtasiyelers.ToListAsync();
-                var oneriler = list.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
-                botCevap = $"Kırtasiye ihtiyaçların için buradayım! ✏️ İşte senin için seçtiklerim:<br><br>";
-                foreach (var k in oneriler)
+                botCevap = $"Aradığını buldum {kullaniciAdi}! 🎯 İşte sana uygun ürünlerimiz:<br><br>";
+
+                foreach (var k in eslesenKirtasiye)
                 {
-                    botCevap += $"- <a href='/Home/Detay?id={k.KirtasiyeId}&tip=Kirtasiye' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{k.UrunAdi}</a> ({k.Fiyat}₺)<br>";
+                    botCevap += $"✏️ <a href='/Home/Detay?id={k.KirtasiyeId}&tip=Kirtasiye' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{k.UrunAdi}</a> ({k.Fiyat}₺)<br>";
                 }
-            }
-            else if (msj.Contains("oyuncak") || msj.Contains("araba") || msj.Contains("oyun") || msj.Contains("bebek") || msj.Contains("lego"))
-            {
-                var list = await _context.Oyuncaklars.ToListAsync();
-                var oneriler = list.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
-                botCevap = $"Eğlence başlasın! 🎲 İşte çok sevilen oyuncaklarımız:<br><br>";
-                foreach (var o in oneriler)
+                foreach (var o in eslesenOyuncak)
                 {
-                    botCevap += $"- <a href='/Home/Detay?id={o.OyuncakId}&tip=Oyuncak' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{o.UrunAdi}</a> ({o.Fiyat}₺)<br>";
+                    botCevap += $"🎲 <a href='/Home/Detay?id={o.OyuncakId}&tip=Oyuncak' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{o.UrunAdi}</a> ({o.Fiyat}₺)<br>";
                 }
+                foreach (var k in eslesenKitap)
+                {
+                    botCevap += $"📚 <a href='/Home/Detay?id={k.KitapId}&tip=Kitap' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{k.KitapAdi}</a> - {k.Yazar?.AdSoyad ?? ""} ({k.Fiyat}₺)<br>";
+                }
+                botCevap += "<br>Başka bir şey arıyorsan söyle yeter! 😊";
             }
             else
             {
-                var list = await _context.Kitaplar.ToListAsync();
-                var urun = list.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
-                botCevap = $"Hmm, bunu tam olarak anlayamadım {kullaniciAdi}. 🤔 Ama eğer ilgini çekerse şu harika ürüne göz atabilirsin:<br><br>";
-                if (urun != null)
+                // 4. Hiçbir eşleşme yoksa, popüler ürünlerden öner
+                var kitapOnerisi = await _context.Kitaplar.Include(k => k.Yazar).Where(k => k.CokSatanMi == true).OrderBy(x => Guid.NewGuid()).Take(2).ToListAsync();
+                var kirtasiyeOnerisi = await _context.Kirtasiyelers.OrderBy(x => Guid.NewGuid()).Take(1).ToListAsync();
+                var oyuncakOnerisi = await _context.Oyuncaklars.OrderBy(x => Guid.NewGuid()).Take(1).ToListAsync();
+
+                botCevap = $"Tam sana göre bir şeyler bulayım {kullaniciAdi}! 🌟 İşte mağazamızdan harika seçenekler:<br><br>";
+
+                foreach (var k in kitapOnerisi)
                 {
-                    botCevap += $"🌟 <a href='/Home/Detay?id={urun.KitapId}&tip=Kitap' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{urun.KitapAdi}</a> ({urun.Fiyat}₺)<br>";
+                    botCevap += $"📚 <a href='/Home/Detay?id={k.KitapId}&tip=Kitap' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{k.KitapAdi}</a> - {k.Yazar?.AdSoyad ?? ""} ({k.Fiyat}₺)<br>";
                 }
+                foreach (var k in kirtasiyeOnerisi)
+                {
+                    botCevap += $"✏️ <a href='/Home/Detay?id={k.KirtasiyeId}&tip=Kirtasiye' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{k.UrunAdi}</a> ({k.Fiyat}₺)<br>";
+                }
+                foreach (var o in oyuncakOnerisi)
+                {
+                    botCevap += $"🎲 <a href='/Home/Detay?id={o.OyuncakId}&tip=Oyuncak' style='color: var(--star-beige); font-weight: bold; text-decoration: underline;'>{o.UrunAdi}</a> ({o.Fiyat}₺)<br>";
+                }
+                botCevap += "<br>Daha spesifik bir şey arıyorsan söyle, sana en uygun ürünleri bulayım! 💪";
             }
 
             return Json(new { cevap = botCevap });

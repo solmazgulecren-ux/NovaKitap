@@ -44,7 +44,7 @@ namespace NovaKitap.Migrations
 
                     b.HasKey("AdresId");
 
-                    b.ToTable("Adresler");
+                    b.ToTable("Adresler", (string)null);
                 });
 
             modelBuilder.Entity("NovaKitap.Models.Kartlar", b =>
@@ -75,7 +75,7 @@ namespace NovaKitap.Migrations
 
                     b.HasKey("KartId");
 
-                    b.ToTable("Kartlar");
+                    b.ToTable("Kartlar", (string)null);
                 });
 
             modelBuilder.Entity("NovaKitap.Models.Kategoriler", b =>
@@ -257,7 +257,7 @@ namespace NovaKitap.Migrations
 
                     b.HasIndex("KategoriId");
 
-                    b.ToTable("Kirtasiyeler");
+                    b.ToTable("Kirtasiyeler", (string)null);
 
                     b.HasData(
                         new
@@ -5107,7 +5107,7 @@ namespace NovaKitap.Migrations
 
                     b.HasIndex("KategoriId");
 
-                    b.ToTable("Oyuncaklar");
+                    b.ToTable("Oyuncaklar", (string)null);
 
                     b.HasData(
                         new
@@ -6340,7 +6340,7 @@ namespace NovaKitap.Migrations
 
                     b.HasKey("SiparisId");
 
-                    b.ToTable("Siparisler");
+                    b.ToTable("Siparisler", (string)null);
                 });
 
             modelBuilder.Entity("NovaKitap.Models.SiparisDetayi", b =>
@@ -6369,7 +6369,7 @@ namespace NovaKitap.Migrations
 
                     b.HasIndex("SiparisId");
 
-                    b.ToTable("SiparisDetaylari");
+                    b.ToTable("SiparisDetaylari", (string)null);
                 });
 
             modelBuilder.Entity("NovaKitap.Models.Yazarlar", b =>
@@ -7261,7 +7261,7 @@ namespace NovaKitap.Migrations
 
                     b.HasKey("YorumId");
 
-                    b.ToTable("Yorumlars");
+                    b.ToTable("Yorumlars", (string)null);
                 });
 
             modelBuilder.Entity("NovaKitap.Models.Kaydedilenler", b =>

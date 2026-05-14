@@ -411,7 +411,22 @@ namespace NovaKitap.Models
         new Kitaplar { KitapId = 1376, KitapAdi = "Zen ve Motosiklet Bakım Sanatı", Aciklama = "Nitelik kavramı üzerine felsefi bir yolculuk.", Fiyat = 195.00m, KapakResimUrl = "/img/kitaplar/ZenveMotosikletBakimSanati.jpg", YazarId = 65, KategoriId = 1008, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
         new Kitaplar { KitapId = 1377, KitapAdi = "İrade Gücü", Aciklama = "Özdenetim ve iradenin bilimsel temelleri.", Fiyat = 170.00m, KapakResimUrl = "/img/kitaplar/IradeGucu.jpg", YazarId = 66, KategoriId = 1009, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = false },
         new Kitaplar { KitapId = 1378, KitapAdi = "Görünmez Kentler", Aciklama = "Hayali şehirler üzerinden bir rüya anlatısı.", Fiyat = 150.00m, KapakResimUrl = "/img/kitaplar/GorunmezKentler.jpg", YazarId = 67, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
-        new Kitaplar { KitapId = 1379, KitapAdi = "Dune Çocukları", Aciklama = "Dune serisinin devamı; imparatorluk ve kader.", Fiyat = 215.00m, KapakResimUrl = "/img/kitaplar/DuneCocuklari.jpg", YazarId = 68, KategoriId = 1006, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true }
+        new Kitaplar { KitapId = 1379, KitapAdi = "Dune Çocukları", Aciklama = "Dune serisinin devamı; imparatorluk ve kader.", Fiyat = 215.00m, KapakResimUrl = "/img/kitaplar/DuneCocuklari.jpg", YazarId = 68, KategoriId = 1006, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1380, KitapAdi = "Vahşetin Çağrısı 2", Aciklama = "Vahşi doğada bir köpeğin hikayesi.", Fiyat = 160.00m, KapakResimUrl = "/img/kitaplar/MartinEden.jpg", YazarId = 78, KategoriId = 1007, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1381, KitapAdi = "Strateji Üzerine", Aciklama = "Liderlik ve strateji klasikleri.", Fiyat = 95.00m, KapakResimUrl = "/img/kitaplar/SavasSanati.jpg", YazarId = 50, KategoriId = 1008, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1382, KitapAdi = "Aşk ve Karakter", Aciklama = "Taşra soylularının aşkı ve hayatı.", Fiyat = 145.00m, KapakResimUrl = "/img/kitaplar/AskveGurur.jpg", YazarId = 19, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1383, KitapAdi = "Zaman Makinesi", Aciklama = "Zaman yolculuğunun babası.", Fiyat = 155.00m, KapakResimUrl = "/img/kitaplar/sineklerintanrisi.jpg", YazarId = 30, KategoriId = 1006, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = false },
+        new Kitaplar { KitapId = 1384, KitapAdi = "Ölü Canlar", Aciklama = "Rus edebiyatının eşsiz yergi eseri.", Fiyat = 185.00m, KapakResimUrl = "/img/kitaplar/bozkrkurdu.jpg", YazarId = 21, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1385, KitapAdi = "Cennetin Doğusu", Aciklama = "Kabil ve Habil efsanesinin modern yansıması.", Fiyat = 250.00m, KapakResimUrl = "/img/kitaplar/KucukKadinlar.jpg", YazarId = 29, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = false },
+        new Kitaplar { KitapId = 1386, KitapAdi = "Oliver Twist (Tam Metin)", Aciklama = "Pip'in maceraları gibi zorluklarla dolu öykü.", Fiyat = 180.00m, KapakResimUrl = "/img/kitaplar/BuyukUmutlar.jpg", YazarId = 24, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1387, KitapAdi = "Paris Düşerken", Aciklama = "Savaş yıllarında devrimler ve düşüşler.", Fiyat = 210.00m, KapakResimUrl = "/img/kitaplar/brdammahkumununsongunu.jpg", YazarId = 7, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = false },
+        new Kitaplar { KitapId = 1388, KitapAdi = "Şato (Tam Metin)", Aciklama = "Otorite labirenti.", Fiyat = 195.00m, KapakResimUrl = "/img/kitaplar/Donusum.jpg", YazarId = 5, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1389, KitapAdi = "Yabancı Şövalye", Aciklama = "Dışlanmış ve yoksul bir adamın isyanı.", Fiyat = 120.00m, KapakResimUrl = "/img/kitaplar/Yabanci.jpg", YazarId = 13, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1390, KitapAdi = "Amok Koşucusu", Aciklama = "Zihnin amansız koşturmacası.", Fiyat = 85.00m, KapakResimUrl = "/img/kitaplar/satranc.jpg", YazarId = 4, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1391, KitapAdi = "Katalonya'ya Selam", Aciklama = "İspanya İç Savaşı anıları.", Fiyat = 115.00m, KapakResimUrl = "/img/kitaplar/HaniminCiftligi.jpg", YazarId = 2, KategoriId = 1004, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1392, KitapAdi = "Kürk Mantolu Madonna 2", Aciklama = "Raif Efendi'nin aşkının yankıları.", Fiyat = 105.00m, KapakResimUrl = "/img/kitaplar/Kürk Mantolu Madonna.jpg", YazarId = 3, KategoriId = 1005, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true },
+        new Kitaplar { KitapId = 1393, KitapAdi = "Şeytanın Diktatörlüğü", Aciklama = "İradenin teslimiyeti.", Fiyat = 130.00m, KapakResimUrl = "/img/kitaplar/seytanAyrintidaGizlidir.jpg", YazarId = 3, KategoriId = 1005, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = false },
+        new Kitaplar { KitapId = 1394, KitapAdi = "Eskici ve Oğulları", Aciklama = "Topal Eskici'nin zorlu yaşam mücadelesi.", Fiyat = 145.00m, KapakResimUrl = "/img/kitaplar/KorkuyuBeklerken.jpg", YazarId = 47, KategoriId = 1005, StokAdedi = 50, Yayinevi = "Nova Kitap", YeniCikanMi = false, CokSatanMi = true }
     );
             // 4. KIRTASİYELER VE OFİS ÜRÜNLERİ (Tam 100 Adet)
             modelBuilder.Entity<Kirtasiyeler>().HasData(
@@ -636,10 +651,10 @@ namespace NovaKitap.Models
     }
 );
 
-
-
+            // ===============================================
+            // 6. YORUMLAR - Program.cs'de runtime'da eklenir
+            // ===============================================
 
         }
     }
-
 }
