@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-@model NovaKitap.Models.UrunViewModel
-=======
-﻿@model NovaKitap.Models.UrunViewModel
->>>>>>> origin/master
 
+@model NovaKitap.Models.UrunViewModel
+﻿
 @{
     ViewData["Title"] = Model.UrunAdi;
     string markaLabel = Model.UrunTipi == "Kitap" ? "Yazar / Yayınevi" : "Marka / Özellik";
@@ -90,19 +87,13 @@
                             <input type="hidden" name="UrunTipi" value="@Model.UrunTipi" />
                             
                             <div class="mb-3">
-<<<<<<< HEAD
-                                <input type="text" name="KullaniciAdi" class="form-control" placeholder="Adınız Soyadınız" required>
+                                <label class="form-label text-white-50" style="font-weight: 500;">Adınız Soyadınız</label>
+                                <input type="text" name="KullaniciAdi" class="form-control" placeholder="Adınız Soyadınız" required style="background-color: #ffffff; color: #000; border-radius: 8px;">
                             </div>
                             
                             <div class="mb-3">
-                                <select name="Yildiz" class="form-select" required>
-=======
-                                <input type="text" name="KullaniciAdi" class="form-control" placeholder="Adınız Soyadınız" required style="background-color: #ffffff; color: #000;">
-                            </div>
-                            
-                            <div class="mb-3">
-                                <select name="Yildiz" class="form-select" required style="background-color: #ffffff; color: #000;">
->>>>>>> origin/master
+                                <label class="form-label text-white-50" style="font-weight: 500;">Değerlendirme</label>
+                                <select name="Yildiz" class="form-select" required style="background-color: #ffffff; color: #000; border-radius: 8px;">
                                     <option value="5">★★★★★ - Mükemmel</option>
                                     <option value="4">★★★★☆ - Çok İyi</option>
                                     <option value="3">★★★☆☆ - İdare Eder</option>
@@ -112,14 +103,11 @@
                             </div>
                             
                             <div class="mb-3">
-<<<<<<< HEAD
-                                <textarea name="YorumMetni" class="form-control" rows="4" placeholder="Ürün hakkındaki düşüncelerinizi paylaşın..." required></textarea>
-=======
-                                <textarea name="YorumMetni" class="form-control" rows="4" placeholder="Ürün hakkındaki düşüncelerinizi paylaşın..." required style="background-color: #ffffff; color: #000;"></textarea>
->>>>>>> origin/master
+                                <label class="form-label text-white-50" style="font-weight: 500;">Yorumunuz</label>
+                                <textarea name="YorumMetni" class="form-control" rows="4" placeholder="Ürün hakkındaki düşüncelerinizi paylaşın..." required style="background-color: #ffffff; color: #000; border-radius: 8px;"></textarea>
                             </div>
                             
-                            <button type="submit" class="btn btn-outline-light w-100 font-weight-bold">Yorum Gönder</button>
+                            <button type="submit" class="btn btn-outline-light w-100 font-weight-bold rounded-pill py-2">Yorum Gönder</button>
                         </form>
                     </div>
 

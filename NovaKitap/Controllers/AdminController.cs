@@ -54,7 +54,7 @@ namespace NovaKitap.Controllers
         {
             if (UrunTuru == "Kitap")
             {
-                _context.Kitaplars.Add(new Kitaplar
+                _context.Kitaplar.Add(new Kitaplar
                 {
                     KitapAdi = UrunAdi,
                     Fiyat = Fiyat,
@@ -108,7 +108,7 @@ namespace NovaKitap.Controllers
         {
             var viewModel = new StokYonetimiViewModel
             {
-                Kitaplar = _context.Kitaplars.ToList(),
+                Kitaplar = _context.Kitaplar.ToList(),
                 Kirtasiyeler = _context.Kirtasiyelers.ToList(),
                 Oyuncaklar = _context.Oyuncaklars.ToList()
             };
@@ -122,7 +122,7 @@ namespace NovaKitap.Controllers
         {
             if (UrunTuru == "Kitap")
             {
-                var urun = _context.Kitaplars.Find(UrunId);
+                var urun = _context.Kitaplar.Find(UrunId);
                 if (urun != null) { urun.StokAdedi = Stok; urun.Fiyat = Fiyat; }
             }
             else if (UrunTuru == "Kirtasiye")
@@ -147,7 +147,7 @@ namespace NovaKitap.Controllers
         public async Task<IActionResult> KapaklariOtomatikCek()
         {
             // Veritabanındaki tüm kitapları çekiyoruz
-            var kitaplar = _context.Kitaplars.ToList();
+            var kitaplar = _context.Kitaplar.ToList();
             int guncellenenSayi = 0;
 
             using (var client = new HttpClient())
@@ -249,8 +249,8 @@ namespace NovaKitap.Controllers
             {
                 if (UrunTuru == "Kitap")
                 {
-                    var urun = _context.Kitaplars.Find(UrunId);
-                    if (urun != null) _context.Kitaplars.Remove(urun);
+                    var urun = _context.Kitaplar.Find(UrunId);
+                    if (urun != null) _context.Kitaplar.Remove(urun);
                 }
                 else if (UrunTuru == "Kirtasiye")
                 {
@@ -292,7 +292,7 @@ namespace NovaKitap.Controllers
             if (kategori == "Hepsi" || kategori == "Kitap")
             {
                 // Kitap adı veya yazar adında arama yapar
-                model.Kitaplar = _context.Kitaplars
+                model.Kitaplar = _context.Kitaplar
                     .Where(x => x.KitapAdi.ToLower().Contains(aranan))
                     .ToList();
             }
