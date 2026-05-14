@@ -16,33 +16,51 @@
         }
     }
 }
-
-<div class="book-card p-0 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 12px; overflow: hidden; position: relative; transition: 0.3s;">
+<div class="book-card p-0 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 12px; overflow: hidden; position: relative; transition: 0.3s; display: flex; flex-direction: column; height: 100%;">
     
+    <span class="badge position-absolute top-0 start-0 m-2" style="background-color: #FFD700; color: #000; font-weight: bold; z-index: 5;">
+        Kitap
+    </span>
+
     <button class="save-star-btn"
             onclick="toggleStar(this, @Model.KitapId)"
             title="Kaydet"
-            style="position: absolute; top: 10px; right: 10px; background: rgba(11, 16, 33, 0.7); border: none; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s;
+            style="position: absolute; top: 10px; right: 10px; background: rgba(11, 16, 33, 0.7); border: none; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; z-index: 10;
         color: @(isSaved ? "#ffffff" : "var(--star-beige)");
         text-shadow: @(isSaved ? "0 0 10px var(--star-beige)" : "none");">
         @(isSaved ? "✦" : "✧")
     </button>
     
-    <img src="@(string.IsNullOrEmpty(Model.KapakResimUrl) ? "https://via.placeholder.com/220x300/1B2A4A/C0C0C0?text=Kapak+Yok" : Model.KapakResimUrl)"
+    @{
+        // Kitap ismini klasördeki formata dönüştür (Küçük harf yap ve boşlukları sil/alt tire yap)
+        // Örn: "Anna Karenina" -> "annakarenina"
+        string temizIsim = Model.KitapAdi.ToLower()
+                           .Replace(" ", "")
+                           .Replace("ı", "i").Replace("ğ", "g").Replace("ü", "u")
+                           .Replace("ş", "s").Replace("ö", "o").Replace("ç", "c");
+    }
+
+    <img src="@(string.IsNullOrEmpty(Model.KapakResimUrl) ? "/img/default.jpg" : Model.KapakResimUrl)"
+         class="img-fluid rounded shadow-sm"
          alt="@Model.KitapAdi"
-         class="img-fluid w-100"
-         style="height: 280px; object-fit: cover;">
+         style="height: 220px; object-fit: contain;"
+         onerror="this.onerror=null; this.src='https://via.placeholder.com/220x300/1B2A4A/C0C0C0?text=Gorsel+Hazirlaniyor';">
     
-    <div class="p-3">
+    <div class="p-3 d-flex flex-column flex-grow-1">
         <h6 class="text-white text-truncate mb-1" title="@Model.KitapAdi">@Model.KitapAdi</h6>
-        <p class="text-muted small mb-3">₺@Model.Fiyat.ToString("N2")</p>
-        <h5 class="mt-2" style="color: var(--star-beige); font-weight: bold; font-size: 1.15rem;">
-    ₺@Model.Fiyat.ToString("N2")
-</h5>
-        <div class="d-flex justify-content-between mt-auto">
-            <a asp-controller="Home" asp-action="Detay" asp-route-id="@Model.KitapId" class="btn btn-sm btn-outline-light w-50 me-1">İncele</a>
+        
+        <p class="text-muted small mb-2 text-truncate" title="@Model.Yayinevi">
+            @(string.IsNullOrEmpty(Model.Yayinevi) ? "Nova Kitap" : Model.Yayinevi)
+        </p>
+        
+        <h5 class="mt-auto mb-3" style="color: var(--star-beige); font-weight: bold; font-size: 1.15rem;">
+            @Model.Fiyat.ToString("N2") ₺
+        </h5>
+        
+        <div class="d-flex gap-2">
+            <a asp-controller="Home" asp-action="Detay" asp-route-id="@Model.KitapId" asp-route-tip="Kitap" class="btn btn-sm btn-outline-light flex-fill py-2" style="border-radius: 8px;">İncele</a>
             
-            <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@Model.KitapId" class="btn btn-sm btn-nova w-50 ms-1">Sepete Ekle</a>
+            <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@Model.KitapId" asp-route-tip="Kitap" class="btn btn-sm btn-nova flex-fill py-2" style="border-radius: 8px;">Sepete Ekle</a>
         </div>
     </div>
 </div>

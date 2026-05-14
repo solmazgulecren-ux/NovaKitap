@@ -1,0 +1,7 @@
+﻿INSERT INTO [dbo].[Kirtasiyeler] ([UrunAdi], [Aciklama], [Fiyat], [KapakResimUrl], [YeniCikanMi], [CokSatanMi], [StokAdedi], [Marka], [UrunTuru])
+VALUES 
+('Nova Yıldızlı Çizgisiz Defter', 'Gece mavisi kapaklı, 80 sayfa, yüksek kaliteli fildişi kağıt. Astronomi meraklıları için özel tasarım.', 85.00, 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=500', 1, 1, 100, 'Nova Design', 'Defter'),
+('Profesyonel Çizim Kalem Seti', '12 farklı sertlikte (6B-4H) teknik çizim kalem seti. Metal kutusunda korunaklı.', 245.50, 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=500', 1, 0, 50, 'Faber Castell', 'Kalem'),
+('Mekanik Kurşun Kalem 0.7mm', 'Ergonomik tutuş, metal gövde. Uzun süreli yazımlar için ideal ağırlık dengesi.', 120.00, 'https://images.unsplash.com/photo-1523450001312-daa4e2e1bad6?q=80&w=500', 0, 1, 200, 'Rotring', 'Kalem'),
+('A4 Kraft Dosya Klasörü', 'Doğa dostu kraft kağıttan üretilmiş, 500 sayfa kapasiteli arşiv klasörü.', 65.00, 'https://images.unsplash.com/photo-1586075010633-24701af700b7?q=80&w=500', 0, 0, 150, 'Nova Office', 'Dosya'),
+('Uzay Temalı Sırt Çantası', 'Su geçirmez kumaş, 15.6 inç laptop bölmeli, ortopedik sırt desteği.', 850.00, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=500', 1, 1, 30, 'Nova Travel', 'Çanta');

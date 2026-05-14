@@ -1,0 +1,80 @@
+﻿@model List<NovaKitap.Models.Siparis>
+@{
+    ViewData["Title"] = "Sipariş Yönetimi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="color: var(--star-beige);">✦ Sipariş Yönetimi</h2>
+        <a href="/Admin/Index" class="btn btn-outline-light">Geri Dön</a>
+    </div>
+
+    @if (TempData["Mesaj"] != null)
+    {
+        <div class="alert alert-success shadow-sm fw-bold">@TempData["Mesaj"]</div>
+    }
+
+    <div class="card shadow-sm border-0" style="border-radius: 12px; overflow: hidden;">
+        <table class="table table-hover align-middle mb-0">
+            <thead style="background-color: var(--space-blue); color: var(--star-beige);">
+                <tr>
+                    <th class="ps-3">Sipariş Tarihi</th>
+                    <th>Tutar</th>
+                    <th>Durum</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var siparis in Model)
+                    {
+                        <tr>
+                            <td class="ps-3 fw-bold">@siparis.SiparisTarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td class="fw-bold text-success">@siparis.ToplamTutar ₺</td>
+                            <td>
+                                @if (siparis.SiparisDurumu == "Onay Bekliyor")
+                                {
+                                    <span class="badge bg-warning text-dark">Onay Bekliyor</span>
+                                }
+                                else if (siparis.SiparisDurumu == "Kargoya Verildi")
+                                {
+                                    <span class="badge bg-info text-dark">Kargoya Verildi</span>
+                                }
+                                else if (siparis.SiparisDurumu == "Tamamlandı")
+                                {
+                                    <span class="badge bg-success">Tamamlandı</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@siparis.SiparisDurumu</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="/Admin/SiparisDetay/@siparis.SiparisId" class="btn btn-sm btn-primary fw-bold">Detay</a>
+                                    
+                                    @if (siparis.SiparisDurumu == "Onay Bekliyor")
+                                    {
+                                        <form action="/Admin/SiparisDurumGuncelle" method="post" class="m-0 p-0">
+                                            <input type="hidden" name="siparisId" value="@siparis.SiparisId" />
+                                            <input type="hidden" name="yeniDurum" value="Kargoya Verildi" />
+                                            <button type="submit" class="btn btn-sm btn-success fw-bold">Onayla</button>
+                                        </form>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center py-4 text-muted">Henüz hiç sipariş bulunmuyor.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

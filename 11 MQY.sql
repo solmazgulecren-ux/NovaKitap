@@ -1,0 +1,1 @@
+﻿UPDATE Kitaplar SET KapakResimUrl = '/img/kitaplar/' + CAST(KitapId AS NVARCHAR) + '.jpg'

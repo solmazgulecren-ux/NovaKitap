@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Admin Kontrol Merkezi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="text-center mb-5">
+        <h2 style="color: var(--star-beige); font-weight: bold;">✦ NOVA Kontrol Merkezi</h2>
+        <p class="text-muted">Sistemin tüm kontrolü parmaklarınızın ucunda.</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm text-center p-4" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">📦</div>
+                <h4 class="text-light">Ürün Ekle</h4>
+                <p style="color: var(--silver);">Sisteme yeni kitap, kırtasiye veya oyuncak ekleyin.</p>
+                <a href="/Admin/UrunEkle" class="btn btn-nova mt-auto">Sayfaya Git</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm text-center p-4" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">📊</div>
+                <h4 class="text-light">Stok ve Fiyat</h4>
+                <p style="color: var(--silver);">Tüm ürünlerin stok durumlarını ve fiyatlarını güncelleyin.</p>
+                <a href="/Admin/StokYonetimi" class="btn btn-nova mt-auto">Sayfaya Git</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm text-center p-4" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">🚚</div>
+                <h4 class="text-light">Siparişler</h4>
+                <p style="color: var(--silver);">Gelen siparişleri, kargo durumlarını ve adresleri yönetin.</p>
+                <a href="/Admin/SiparisYonetimi" class="btn btn-nova mt-auto">Sayfaya Git</a>
+            </div>
+        </div>
+    </div>
+</div>

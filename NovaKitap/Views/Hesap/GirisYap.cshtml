@@ -22,7 +22,8 @@
             </div>
         }
 
-        <form asp-action="GirisYap" method="post">
+        <!-- 1. DÜZELTME: Doğrudan URL (action) kullandık -->
+        <form action="/Hesap/GirisYap" method="post">
             <div class="mb-3">
                 <label class="form-label text-light">E-posta Adresi</label>
                 <input type="email" name="email" class="form-control nova-search" required placeholder="ornek@email.com" />
@@ -36,7 +37,8 @@
 
         <div class="text-center mt-2">
             <span style="color: var(--silver);">Hesabın yok mu? </span>
-            <a asp-action="KayitOl" style="color: var(--star-beige); text-decoration: none;">Hemen Kayıt Ol</a>
+            <!-- 2. DÜZELTME: href ile doğrudan sayfa yolunu verdik -->
+            <a href="/Hesap/KayitOl" style="color: var(--star-beige); text-decoration: none; font-weight: bold;">Hemen Kayıt Ol</a>
         </div>
     </div>
 </div>

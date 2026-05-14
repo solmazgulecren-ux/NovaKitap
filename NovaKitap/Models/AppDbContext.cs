@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-
+using NovaKitap.Models;
 namespace NovaKitap.Models;
 
 public partial class AppDbContext : DbContext
@@ -25,15 +25,14 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Yazarlar> Yazarlars { get; set; }
 
-    public DbSet<Adresler> Adreslers { get; set; }
-
-    public DbSet<Kartlar> Kartlars { get; set; }
+    public DbSet<Yorumlar> Yorumlars { get; set; }
 
     public DbSet<Siparis> Siparisler { get; set; }
     public DbSet<SiparisDetayi> SiparisDetaylari { get; set; }
-
     public DbSet<Adresler> Adresler { get; set; }
     public DbSet<Kartlar> Kartlar { get; set; }
+    public virtual DbSet<Kirtasiyeler> Kirtasiyelers { get; set; }
+    public virtual DbSet<Oyuncaklar> Oyuncaklars { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=NovaKitapDB;Trusted_Connection=True;TrustServerCertificate=True;");
@@ -112,6 +111,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.AdSoyad).HasMaxLength(150);
         });
 
+        modelBuilder.Seed();
         OnModelCreatingPartial(modelBuilder);
     }
 

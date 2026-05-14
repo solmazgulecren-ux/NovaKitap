@@ -25,14 +25,18 @@ namespace NovaKitap.Controllers
         [HttpPost]
         public IActionResult GirisYap(string email, string sifre)
         {
-            // E-posta ve şifre eşleşmesini kontrol et
             var kullanici = _context.Kullanicilars.FirstOrDefault(x => x.Email == email && x.Sifre == sifre);
 
             if (kullanici != null)
             {
-                // Başarılı giriş durumunda bilgileri oturuma (Session) kaydet
                 HttpContext.Session.SetString("KullaniciAdSoyad", kullanici.AdSoyad);
                 HttpContext.Session.SetInt32("KullaniciId", kullanici.KullaniciId);
+
+                // --- GİRİŞ SORUNUNU ÇÖZEN GÜNCELLEME ---
+                // Eğer veritabanında kullanıcının rolü boş (null) kalmışsa çökmesini engeller, "Musteri" sayar.
+                string atanacakRol = string.IsNullOrEmpty(kullanici.Rol) ? "Musteri" : kullanici.Rol;
+                HttpContext.Session.SetString("KullaniciRolu", atanacakRol);
+                // ---------------------------------------
 
                 return RedirectToAction("Index", "Home");
             }

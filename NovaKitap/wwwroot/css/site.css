@@ -1,142 +1,169 @@
 :root {
-    --space-dark: #0B1021; /* Derin Uzay Laciverti */
-    --space-blue: #1B2A4A; /* Açık Lacivert */
-    --silver: #C0C0C0; /* Gümüş */
-    --star-beige: #F5F5DC; /* Kutup Yıldızı Beji */
-    --grey-accent: #4A4E69; /* Gri Detaylar */
-    --text-light: #E0E0E0;
+    /* Üst Menü Renkleri (Gök Mavisi ve Lacivert İmzamız Korunuyor) */
+    --header-bg: #1A3A5A;
+    --category-bg: #4A80A8;
+    /* Sayfa Arka Planı ve Yazı Renkleri (AYDINLIK TEMA) */
+    --bg-main: #FFFFFF; /* Bembeyaz Arka Plan */
+    --text-main: #333333; /* Okunabilir Koyu Gri Yazılar */
+    /* Vurgu Renkleri */
+    --star-beige: #D4AF37; /* Beyaz üstünde okunabilen asil bir Altın/Yıldız Beji */
+    --silver: #666666; /* Gümüş rengi beyazda okunsun diye koyulaştırıldı */
+    --grey-accent: #E0E0E0; /* Çizgiler ve Kenarlıklar için açık gri */
+
+    --card-bg: #FFFFFF; /* Kartlar Bembeyaz */
+    --space-blue: #FFFFFF; /* Kartların aydınlık temadaki beyaz arka planı */
+    --space-dark: #1A3A5A; /* Koyu lacivert yazılar */
+}
+
+body.dark-theme {
+    /* Sayfa Arka Planı ve Yazı Renkleri (KARANLIK TEMA) */
+    --bg-main: #121212; /* Derin Siyah Arka Plan */
+    --text-main: #E5E5E5; /* Gözü yormayan açık gri yazılar */
+    --card-bg: #1E1E1E; /* Koyu Gri Kartlar */
+    --grey-accent: #333333; /* Belirgin koyu gri çizgiler */
+    --silver: #AAAAAA; /* Açık gümüş rengi */
+    --header-bg: #0C1D2F; /* Çok daha koyu asil bir lacivert */
+    --category-bg: #1F364D; /* Koyu kategori barı */
+    --space-blue: #1E1E1E; /* Kartların karanlık moddaki arka planı */
+    --space-dark: #FFFFFF; /* Karanlık modda beyaz yazılar */
 }
 
 body {
-    background-color: var(--space-dark);
-    color: var(--text-light);
+    background-color: var(--bg-main);
+    color: var(--text-main);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Üst Menü (Navbar) */
-.nova-navbar {
-    background-color: var(--space-blue);
-    border-bottom: 2px solid var(--grey-accent);
+    /* SİHİRLİ KOD: Eski sayfalardaki beyaz yazıları otomatik siyah yapar (Sadece aydınlık temada çalışır) */
+    body:not(.dark-theme) :not(.nova-topbar):not(.nova-category-bar):not(.btn) > .text-white,
+    body:not(.dark-theme) :not(.nova-topbar):not(.nova-category-bar):not(.btn) > .text-light,
+    .book-card h6 {
+        color: var(--text-main) !important;
+        text-shadow: none !important;
+    }
+
+h1, h2, h3, h4, h5, h6, p, span, strong, small, label {
+    text-shadow: none !important;
 }
 
-    .nova-navbar .nav-link, .nova-navbar .navbar-brand {
-        color: var(--text-light) !important;
+/* --- MENÜ (HEADER) STİLLERİ --- */
+.nova-topbar {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+    .nova-topbar a, .nova-topbar span {
+        color: #ffffff !important; /* Menü içi yazılar beyaz kalsın */
+    }
+
+.nova-category-bar {
+    background-color: var(--category-bg);
+    border-bottom: 2px solid var(--star-beige);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+    .nova-category-bar .nav-link {
+        color: #ffffff !important;
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 10px 20px;
         transition: 0.3s;
     }
 
-        .nova-navbar .nav-link:hover, .nova-navbar .nav-link.active {
-            color: var(--star-beige) !important;
-            text-shadow: 0 0 8px var(--star-beige);
+        .nova-category-bar .nav-link:hover, .nova-category-bar .active-nav-link {
+            color: var(--header-bg) !important;
+            background-color: var(--star-beige);
+            border-radius: 5px;
         }
 
-/* Sol Menü (Sidebar) */
-.nova-sidebar {
-    background-color: var(--space-dark);
-    border-right: 1px solid var(--grey-accent);
-    min-height: calc(100vh - 70px);
-    padding-top: 20px;
+/* Dev Arama Çubuğu */
+.nova-mega-search {
+    background-color: #ffffff;
+    color: #333333;
+    border: 2px solid var(--star-beige);
 }
 
-.category-btn {
-    width: 100%;
-    text-align: left;
-    background: transparent;
-    color: var(--silver);
-    border: none;
-    padding: 10px 15px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    transition: 0.3s;
-    font-size: 1.1rem;
-}
-
-    .category-btn:hover {
-        background-color: var(--space-blue);
-        color: var(--star-beige);
-    }
-
-/* Dört Köşeli Kutup Yıldızı İkonu (Polaris) */
-.polaris-icon {
-    margin-right: 8px;
-    color: var(--star-beige);
-    font-size: 1.2rem;
-}
-
-/* Arama Çubuğu ve Butonlar */
-.nova-search {
-    background-color: var(--space-dark);
-    color: var(--text-light);
-    border: 1px solid var(--grey-accent);
-}
-
-    .nova-search:focus {
-        background-color: var(--space-dark);
-        color: white;
+    .nova-mega-search:focus {
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         border-color: var(--star-beige);
-        box-shadow: 0 0 5px var(--star-beige);
     }
 
+/* Butonlar */
 .btn-nova {
-    background-color: var(--silver);
-    color: var(--space-dark);
+    background-color: var(--star-beige);
+    color: var(--header-bg) !important;
     font-weight: bold;
+    transition: 0.3s;
+    border: none;
 }
 
     .btn-nova:hover {
-        background-color: var(--star-beige);
-        color: var(--space-dark);
+        background-color: var(--header-bg);
+        color: #ffffff !important;
+        box-shadow: 0 0 10px var(--star-beige);
     }
+
+/* Profil ve İkonlar */
+.nav-profile {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+    .nav-profile:hover {
+        background-color: var(--category-bg);
+    }
+
+/* Kitap Kartları */
 .book-card {
-    background-color: var(--space-blue);
-    border: 1px solid var(--grey-accent);
-    border-radius: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--grey-accent) !important;
+    border-radius: 12px;
     width: 220px;
     flex: 0 0 auto;
-    position: relative; /* Yıldız ikonu için önemli */
+    position: relative;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Beyazda şık duran hafif gri gölge */
 }
 
     .book-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(192, 192, 192, 0.2); /* Gümüş parlama */
-        border-color: var(--silver);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        border-color: var(--star-beige) !important;
     }
 
-.book-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    background-color: #2a3b5c; /* Resim yoksa yer tutucu renk */
-}
-
-/* Sağ Üstteki Kutup Yıldızı Kaydetme İkonu */
-.save-star-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(11, 16, 33, 0.7);
-    border: none;
+/* Chatbot Butonu */
+.chatbot-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    background-color: var(--star-beige);
+    color: var(--header-bg);
+    border: none;
+    font-size: 2.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--star-beige);
-    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     cursor: pointer;
+    z-index: 1000;
     transition: 0.3s;
-    z-index: 10;
 }
 
-    .save-star-btn:hover {
+    .chatbot-toggle:hover {
         transform: scale(1.1);
-        color: white;
-        box-shadow: 0 0 10px var(--star-beige);
     }
 
-/* Yatay Kaydırma Alanı (Barlar) */
+/* Scrollbar Tasarımı (Beyaz temaya uyarlandı) */
 .book-row-container {
     display: flex;
     overflow-x: auto;
@@ -145,13 +172,12 @@ body {
     padding-top: 5px;
 }
 
-    /* Scrollbar Tasarımı (Webkit) */
     .book-row-container::-webkit-scrollbar {
         height: 8px;
     }
 
     .book-row-container::-webkit-scrollbar-track {
-        background: var(--space-dark);
+        background: #f1f1f1;
     }
 
     .book-row-container::-webkit-scrollbar-thumb {
@@ -163,47 +189,244 @@ body {
             background: var(--silver);
         }
 
-
-/* Profil Bölümü Konteynırı */
-.nav-profile {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 5px 15px;
-    border-radius: 50px;
-    transition: 0.3s;
-    background-color: rgba(192, 192, 192, 0.1); /* Hafif gümüş şeffaflık */
+/* Diğer Büyük Kartların (Detay, Ödeme, Sepet) Arka Planını Aydınlık Yapma */
+.card {
+    background-color: var(--card-bg) !important;
+    border-color: var(--grey-accent) !important;
 }
 
-    .nav-profile:hover {
-        background-color: var(--space-blue);
-        box-shadow: 0 0 10px var(--star-beige);
+/* --- NOVA ASİSTAN SOHBET BALONLARI --- */
+.chat-message-bot {
+    background-color: var(--header-bg);
+    color: #ffffff;
+    border-radius: 15px 15px 15px 0;
+    padding: 12px;
+    margin-bottom: 12px;
+    max-width: 85%;
+    align-self: flex-start;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.chat-message-user {
+    background-color: var(--category-bg);
+    color: #ffffff;
+    border-radius: 15px 15px 0 15px;
+    padding: 12px;
+    margin-bottom: 12px;
+    max-width: 85%;
+    align-self: flex-end;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/* --- OTOMATİK RENK DÜZELTİCİ (GÜNCELLENDİ) --- */
+/* Artık sadece ana içerik alanındaki (main) kartların içindeki beyaz yazıları koyulaştıracak.
+   Üst menü (nova-topbar) ve Chatbot bu kuraldan etkilenmeyecek! */
+body:not(.dark-theme) main .card [style*="color: #ffffff"],
+body:not(.dark-theme) main .card [style*="color: rgb(255, 255, 255)"] {
+    color: var(--text-main) !important;
+}
+
+body:not(.dark-theme) main .card [style*="color: var(--silver)"] {
+    color: #555555 !important;
+}
+
+/* --- KARANLIK MOD FORM VE TABLO UYUMLULUĞU --- */
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea,
+body.dark-theme .form-control,
+body.dark-theme .form-select,
+body.dark-theme .nova-search,
+body.dark-theme .nova-mega-search,
+body.dark-theme .input-group-text {
+    background-color: #252525 !important;
+    color: #E5E5E5 !important;
+    border-color: #444444 !important;
+}
+
+/* Girdilerin içindeki geçici yer tutucu (placeholder) yazıları */
+body.dark-theme ::placeholder,
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder,
+body.dark-theme .form-control::placeholder {
+    color: #888888 !important;
+    opacity: 1 !important; /* Firefox için tam görünürlük */
+}
+
+/* Tarayıcı otomatik tamamlama (Autofill) renklerinin siyah/sarı olmasını engelleyip koyu tema yapma */
+body.dark-theme input:-webkit-autofill,
+body.dark-theme input:-webkit-autofill:hover,
+body.dark-theme input:-webkit-autofill:focus,
+body.dark-theme textarea:-webkit-autofill,
+body.dark-theme textarea:-webkit-autofill:hover,
+body.dark-theme textarea:-webkit-autofill:focus,
+body.dark-theme select:-webkit-autofill,
+body.dark-theme select:-webkit-autofill:hover,
+body.dark-theme select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #E5E5E5 !important;
+    -webkit-box-shadow: 0 0 0px 1000px #252525 inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Yorum formlarındaki veya diğer sayfalardaki inline (style="color: #000; background-color: #fff;") ezmeleri */
+body.dark-theme input[style*="color:"],
+body.dark-theme select[style*="color:"],
+body.dark-theme textarea[style*="color:"],
+body.dark-theme .form-control[style*="color:"],
+body.dark-theme .form-select[style*="color:"],
+body.dark-theme input[style*="background-color:"],
+body.dark-theme select[style*="background-color:"],
+body.dark-theme textarea[style*="background-color:"],
+body.dark-theme .form-control[style*="background-color:"],
+body.dark-theme .form-select[style*="background-color:"] {
+    background-color: #252525 !important;
+    color: #E5E5E5 !important;
+}
+
+body.dark-theme input:focus,
+body.dark-theme select:focus,
+body.dark-theme textarea:focus,
+body.dark-theme .form-control:focus,
+body.dark-theme .form-select:focus,
+body.dark-theme .nova-mega-search:focus {
+    background-color: #333333 !important;
+    color: #FFFFFF !important;
+    border-color: var(--star-beige) !important;
+}
+
+body.dark-theme table,
+body.dark-theme .table {
+    color: #E5E5E5 !important;
+}
+
+body.dark-theme table th,
+body.dark-theme table td,
+body.dark-theme .table th,
+body.dark-theme .table td {
+    border-color: #333333 !important;
+    color: #E5E5E5 !important;
+}
+
+body.dark-theme .text-dark,
+body.dark-theme .text-black,
+body.dark-theme .text-muted,
+body.dark-theme .text-secondary {
+    color: #AAAAAA !important;
+}
+
+body.dark-theme .bg-light,
+body.dark-theme .bg-white {
+    background-color: #1E1E1E !important;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme label,
+body.dark-theme strong,
+body.dark-theme small {
+    color: #E5E5E5 !important;
+}
+
+/* Sayfa başlıklarındaki inline var(--header-bg) veya var(--silver) ezmeleri */
+body.dark-theme [style*="color: var(--header-bg)"],
+body.dark-theme [style*="color:var(--header-bg)"],
+body.dark-theme [style*="color: #1A3A5A"],
+body.dark-theme [style*="color:#1A3A5A"],
+body.dark-theme [style*="color: #1a3a5a"],
+body.dark-theme [style*="color:#1a3a5a"],
+body.dark-theme [style*="color: #000000"],
+body.dark-theme [style*="color:#000000"],
+body.dark-theme [style*="color: #000"],
+body.dark-theme [style*="color:#000"],
+body.dark-theme [style*="color: #333333"],
+body.dark-theme [style*="color:#333333"],
+body.dark-theme [style*="color: #333"],
+body.dark-theme [style*="color:#333"] {
+    color: #E5E5E5 !important;
+}
+
+body.dark-theme [style*="color: var(--silver)"],
+body.dark-theme [style*="color:var(--silver)"],
+body.dark-theme [style*="color: #666666"],
+body.dark-theme [style*="color:#666666"] {
+    color: #AAAAAA !important;
+}
+
+/* Sayfa geçişleri (Pagination) butonları */
+body.dark-theme .page-link {
+    background-color: #252525 !important;
+    color: #E5E5E5 !important;
+    border-color: #444444 !important;
+}
+body.dark-theme .page-item.active .page-link {
+    background-color: var(--star-beige) !important;
+    color: var(--header-bg) !important;
+    border-color: var(--star-beige) !important;
+}
+body.dark-theme .page-item.disabled .page-link {
+    background-color: #121212 !important;
+    color: #666666 !important;
+    border-color: #222222 !important;
+}
+
+/* İncele/Giriş Yap gibi .btn-outline-light butonlarının karanlık modda görünmez olmasını düzeltme */
+body.dark-theme .btn-outline-light {
+    color: #E5E5E5 !important;
+    border-color: #E5E5E5 !important;
+    background-color: transparent !important;
+}
+body.dark-theme .btn-outline-light:hover {
+    background-color: var(--star-beige) !important;
+    color: var(--header-bg) !important;
+    border-color: var(--star-beige) !important;
+}
+
+/* Chatbot içindeki mesaj yazılarının her zaman bembeyaz kalmasını garantileyelim */
+.chat-message-bot {
+    color: #ffffff !important;
+}
+
+/* Sepet ve Ödeme sayfalarındaki kenarlıkları belirginleştirir */
+.card {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Açık temada görünmez olan beyaz çerçeveli butonları düzeltme */
+.btn-outline-light {
+    color: var(--header-bg) !important;
+    border-color: var(--header-bg) !important;
+    background-color: transparent !important;
+}
+
+    .btn-outline-light:hover {
+        background-color: var(--header-bg) !important;
+        color: #ffffff !important;
     }
 
-/* Daire Profil Fotoğrafı */
-.profile-circle {
-    width: 35px;
-    height: 35px;
-    background-color: var(--silver);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    color: var(--space-dark);
-    font-size: 1.2rem;
-    overflow: hidden;
+.nova-category-bar .nav-link {
+    color: #ffffff !important;
+    /* Yazılar varsayılan olarak beyaz olsun */
 }
 
-/* Kullanıcı İsmi */
-.profile-name {
-    color: var(--text-light);
-    font-weight: 500;
-    font-size: 0.95rem;
-}
+    .nova-category-bar .nav-link:focus,
+    .nova-category-bar .nav-link.active,
+    .nova-category-bar .active-nav-link {
+        color: var(--header-bg) !important;
+        background-color: var(--star-beige) !important;
+        border-radius: 5px;
+        /* Tıklanınca ve aktifken Lacivert yazı, Yıldız Beji arkaplan */
+    }
 
-.aktif-kategori {
-    color: var(--star-beige) !important;
-    font-weight: bold;
-    background-color: rgba(192, 192, 192, 0.1);
-}
+    .nova-category-bar .nav-link:hover {
+        color: var(--header-bg) !important;
+        background-color: var(--star-beige) !important;
+        border-radius: 5px;
+        /* Üzerine gelince (Hover) de aynı tepkiyi versin */
+    }

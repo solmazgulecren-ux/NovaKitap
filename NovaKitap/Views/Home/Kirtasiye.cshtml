@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NovaKitap.Models.UrunViewModel>
+@{
+    ViewData["Title"] = "Kırtasiye";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center mb-4" style="color: var(--header-bg); font-weight: bold;">
+        <span style="color: var(--star-beige);">✒️</span> Kırtasiye Koleksiyonu
+    </h2>
+    <hr class="mb-5" style="width: 100px; margin: auto; border: 2px solid var(--star-beige);">
+
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var urun in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 position-relative book-card" style="background-color: var(--space-blue); border-radius: 12px; display: flex; flex-direction: column;">
+                    
+                    <span class="badge position-absolute top-0 start-0 m-2" style="background-color: #00BFFF; color: #fff; font-weight: bold; z-index: 5;">
+                        Kırtasiye
+                    </span>
+
+                    <img src="@(string.IsNullOrEmpty(urun.KapakResimUrl) ? "/img/default.jpg" : urun.KapakResimUrl)"
+                         class="card-img-top p-3" alt="@urun.UrunAdi" style="height: 250px; object-fit: contain;">
+                    
+                    <div class="card-body text-center d-flex flex-column flex-grow-1">
+                        <h6 class="card-title fw-bold text-white mb-2 text-truncate" title="@urun.UrunAdi">@urun.UrunAdi</h6>
+                        
+                        <h5 class="mt-auto mb-2" style="color: var(--star-beige); font-weight: bold;">₺@urun.Fiyat.ToString("N2")</h5>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-3 text-center d-flex gap-2">
+                        <a href="/Home/Detay?id=@urun.Id&tip=Kirtasiye" class="btn btn-sm btn-outline-light flex-fill py-2 rounded-pill">
+                            İncele
+                        </a>
+    
+                        <a href="/Home/SepeteEkle?id=@urun.Id&tip=Kirtasiye" class="btn btn-sm btn-nova flex-fill py-2 rounded-pill">
+                            Ekle 🛒
+                        </a>
+                    </div>
+                   
+                </div>
+            </div>
+        }
+    </div>
+</div>

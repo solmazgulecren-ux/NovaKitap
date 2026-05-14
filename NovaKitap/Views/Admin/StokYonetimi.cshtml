@@ -1,0 +1,154 @@
+﻿@model NovaKitap.Models.StokYonetimiViewModel
+@{
+    ViewData["Title"] = "Stok ve Fiyat Yönetimi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="color: var(--star-beige);">✦ Stok ve Fiyat Yönetimi</h2>
+        <a href="/Admin/Index" class="btn btn-outline-light">Geri Dön</a>
+    </div>
+    
+    @if (TempData["Mesaj"] != null)
+    {
+        <div class="alert alert-success shadow-sm">@TempData["Mesaj"]</div>
+    }
+    @if (TempData["Hata"] != null)
+    {
+        <div class="alert alert-danger shadow-sm">@TempData["Hata"]</div>
+    }
+    <div class="card p-4 shadow-sm mb-4" style="background-color: #1B2A4A; border: 1px solid #4A80A8; border-radius: 10px;">
+        <h5 style="color: #ffffff; margin-bottom: 15px;">📦 Stok Yönetimi & Hızlı Arama</h5>
+    
+        <form action="/Admin/StokAra" method="get">
+            <div class="input-group input-group-lg">
+                <span class="input-group-text" style="background-color: #ffffff; border: none;">🔍</span>
+            
+                <input type="text" name="q" class="form-control" placeholder="Stok kontrolü için ürün adı, barkod veya yazar arayın..." style="background-color: #ffffff; color: #000000; border: none; font-size: 1rem;">
+            
+                <select name="kategori" class="form-select" style="max-width: 180px; background-color: #f8f9fa; border-left: 1px solid #ddd;">
+                    <option value="Hepsi">Tüm Depo</option>
+                    <option value="Kitap">Sadece Kitap</option>
+                    <option value="Kirtasiye">Sadece Kırtasiye</option>
+                    <option value="Oyuncak">Sadece Oyuncak</option>
+                </select>
+            
+                <button class="btn btn-nova px-4" type="submit" style="font-weight: bold;">Stok Ara</button>
+            </div>
+        </form>
+    </div>
+    <ul class="nav nav-tabs" id="stokTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active fw-bold text-dark" data-bs-toggle="tab" data-bs-target="#kitap" type="button" role="tab">Kitaplar</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold text-dark" data-bs-toggle="tab" data-bs-target="#kirtasiye" type="button" role="tab">Kırtasiye</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold text-dark" data-bs-toggle="tab" data-bs-target="#oyuncak" type="button" role="tab">Oyuncaklar</button>
+        </li>
+    </ul>
+
+    <div class="tab-content bg-white p-0 border border-top-0 shadow-sm" id="stokTabContent" style="border-radius: 0 0 12px 12px; overflow: hidden;">
+        
+        <div class="tab-pane fade show active" id="kitap" role="tabpanel">
+            <table class="table table-hover align-middle mb-0">
+                <thead style="background-color: var(--space-blue); color: var(--star-beige);">
+                    <tr><th class="ps-3">Ürün Adı</th><th>Stok Adedi</th><th>Fiyat (₺)</th><th>İşlem</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Kitaplar)
+                    {
+                        <tr>
+                            <td class="ps-3 fw-bold">@item.KitapAdi</td>
+                            <td><input type="number" form="form-kitap-@item.KitapId" name="Stok" value="@item.StokAdedi" class="form-control form-control-sm" style="width: 90px;" /></td>
+                            <td><input type="text" form="form-kitap-@item.KitapId" name="Fiyat" value="@item.Fiyat" class="form-control form-control-sm" style="width: 100px;" /></td>
+                            <td>
+                                <div class="d-flex gap-1">
+                                    <form id="form-kitap-@item.KitapId" action="/Admin/StokGuncelle" method="post" class="m-0 p-0">
+                                        <input type="hidden" name="UrunTuru" value="Kitap" />
+                                        <input type="hidden" name="UrunId" value="@item.KitapId" />
+                                        <button type="submit" class="btn btn-sm btn-success fw-bold">Kaydet</button>
+                                    </form>
+                                    
+                                    <form action="/Admin/UrunKaldir" method="post" class="m-0 p-0" onsubmit="return confirm('Bu ürünü sistemden kaldırmak istediğinize emin misiniz?');">
+                                        <input type="hidden" name="UrunTuru" value="Kitap" />
+                                        <input type="hidden" name="UrunId" value="@item.KitapId" />
+                                        <button type="submit" class="btn btn-sm btn-danger fw-bold">Kaldır</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="kirtasiye" role="tabpanel">
+            <table class="table table-hover align-middle mb-0">
+                <thead style="background-color: var(--space-blue); color: var(--star-beige);">
+                    <tr><th class="ps-3">Ürün Adı</th><th>Stok Adedi</th><th>Fiyat (₺)</th><th>İşlem</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Kirtasiyeler)
+                    {
+                        <tr>
+                            <td class="ps-3 fw-bold">@item.UrunAdi</td>
+                            <td><input type="number" form="form-kirtasiye-@item.KirtasiyeId" name="Stok" value="@item.StokAdedi" class="form-control form-control-sm" style="width: 90px;" /></td>
+                            <td><input type="text" form="form-kirtasiye-@item.KirtasiyeId" name="Fiyat" value="@item.Fiyat" class="form-control form-control-sm" style="width: 100px;" /></td>
+                            <td>
+                                <div class="d-flex gap-1">
+                                    <form id="form-kirtasiye-@item.KirtasiyeId" action="/Admin/StokGuncelle" method="post" class="m-0 p-0">
+                                        <input type="hidden" name="UrunTuru" value="Kirtasiye" />
+                                        <input type="hidden" name="UrunId" value="@item.KirtasiyeId" />
+                                        <button type="submit" class="btn btn-sm btn-success fw-bold">Kaydet</button>
+                                    </form>
+                                    
+                                    <form action="/Admin/UrunKaldir" method="post" class="m-0 p-0" onsubmit="return confirm('Bu ürünü sistemden kaldırmak istediğinize emin misiniz?');">
+                                        <input type="hidden" name="UrunTuru" value="Kirtasiye" />
+                                        <input type="hidden" name="UrunId" value="@item.KirtasiyeId" />
+                                        <button type="submit" class="btn btn-sm btn-danger fw-bold">Kaldır</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="oyuncak" role="tabpanel">
+            <table class="table table-hover align-middle mb-0">
+                <thead style="background-color: var(--space-blue); color: var(--star-beige);">
+                    <tr><th class="ps-3">Ürün Adı</th><th>Stok Adedi</th><th>Fiyat (₺)</th><th>İşlem</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Oyuncaklar)
+                    {
+                        <tr>
+                            <td class="ps-3 fw-bold">@item.UrunAdi</td>
+                            <td><input type="number" form="form-oyuncak-@item.OyuncakId" name="Stok" value="@item.StokAdedi" class="form-control form-control-sm" style="width: 90px;" /></td>
+                            <td><input type="text" form="form-oyuncak-@item.OyuncakId" name="Fiyat" value="@item.Fiyat" class="form-control form-control-sm" style="width: 100px;" /></td>
+                            <td>
+                                <div class="d-flex gap-1">
+                                    <form id="form-oyuncak-@item.OyuncakId" action="/Admin/StokGuncelle" method="post" class="m-0 p-0">
+                                        <input type="hidden" name="UrunTuru" value="Oyuncak" />
+                                        <input type="hidden" name="UrunId" value="@item.OyuncakId" />
+                                        <button type="submit" class="btn btn-sm btn-success fw-bold">Kaydet</button>
+                                    </form>
+                                    
+                                    <form action="/Admin/UrunKaldir" method="post" class="m-0 p-0" onsubmit="return confirm('Bu ürünü sistemden kaldırmak istediğinize emin misiniz?');">
+                                        <input type="hidden" name="UrunTuru" value="Oyuncak" />
+                                        <input type="hidden" name="UrunId" value="@item.OyuncakId" />
+                                        <button type="submit" class="btn btn-sm btn-danger fw-bold">Kaldır</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

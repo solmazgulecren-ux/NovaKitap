@@ -1,12 +1,14 @@
-﻿@model List<NovaKitap.Models.Kitaplar>
+﻿@model List<NovaKitap.Models.UrunViewModel>
 
 @{
     ViewData["Title"] = "Sepetim";
     decimal toplamFiyat = Model != null ? Model.Sum(k => k.Fiyat) : 0;
     
-    // Aynı ID'ye sahip kitapları gruplayıp adetlerini hesaplıyoruz
-    var grupluKitaplar = Model != null
-        ? Model.GroupBy(k => k.KitapId).Select(g => new { Kitap = g.First(), Adet = g.Count() }).ToList()
+    // Gruplama işlemini UrunTipi ve Id'ye göre yapıyoruz
+    var grupluUrunler = Model != null
+        ? Model.GroupBy(k => new { k.Id, k.UrunTipi })
+               .Select(g => new { Urun = g.First(), Adet = g.Count() })
+               .ToList()
         : null;
 }
 
@@ -15,26 +17,24 @@
         <span style="color: var(--star-beige);">✦</span> Sepetiniz
     </h2>
 
-    @if (grupluKitaplar != null && grupluKitaplar.Any())
+    @if (grupluUrunler != null && grupluUrunler.Any())
     {
         <div class="row">
-            <!-- Sepetteki Kitapların Listesi -->
             <div class="col-md-8">
-                @foreach (var item in grupluKitaplar)
+                @foreach (var item in grupluUrunler)
                 {
-                    var kitap = item.Kitap;
+                    var urun = item.Urun;
                     <div class="card mb-3 p-3 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 10px;">
                         <div class="row g-0 align-items-center">
                             <div class="col-md-2 text-center">
-                                <img src="@(string.IsNullOrEmpty(kitap.KapakResimUrl) ? "https://via.placeholder.com/100x150/1B2A4A/C0C0C0?text=Kapak+Yok" : kitap.KapakResimUrl)"
+                                <img src="@(string.IsNullOrEmpty(urun.KapakResimUrl) ? "https://via.placeholder.com/100x150/1B2A4A/C0C0C0?text=Gorsel+Yok" : urun.KapakResimUrl)"
                                      class="img-fluid rounded shadow-sm"
                                      style="max-height: 110px; object-fit: cover; border: 1px solid var(--grey-accent);"
-                                     alt="@kitap.KitapAdi">
+                                     alt="@urun.UrunAdi">
                             </div>
                             <div class="col-md-8 px-4">
                                 <h5 class="mb-2 d-flex align-items-center" style="color: #ffffff; font-weight: 500;">
-                                    @kitap.KitapAdi
-                                    <!-- Adet Gösterimi (Eğer 1'den fazlaysa gösterilir) -->
+                                    @urun.UrunAdi
                                     @if (item.Adet > 1)
                                     {
                                         <span class="badge ms-3 py-1 px-2" style="background-color: var(--grey-accent); color: var(--star-beige); border: 1px solid var(--silver); font-size: 0.85rem;">
@@ -43,15 +43,14 @@
                                     }
                                 </h5>
                                 <p class="mb-0" style="color: var(--silver); font-size: 0.95rem;">
-                                    Yazar: <span style="color: var(--star-beige);">@kitap.Yazar.AdSoyad</span>
+                                    Tür: <span style="color: var(--star-beige);">@urun.UrunTipi</span>
                                 </p>
                             </div>
                             <div class="col-md-2 text-end pr-3">
-                                <!-- Ürünün adedine göre çarpılmış fiyatı -->
-                                <h5 style="color: var(--star-beige); font-weight: bold;">₺@((kitap.Fiyat * item.Adet).ToString("N2"))</h5>
+                                <h5 style="color: var(--star-beige); font-weight: bold;">₺@((urun.Fiyat * item.Adet).ToString("N2"))</h5>
                                 @if (item.Adet > 1)
                                 {
-                                    <small style="color: var(--silver); font-size: 0.8rem;">(Adet: ₺@kitap.Fiyat.ToString("N2"))</small>
+                                    <small style="color: var(--silver); font-size: 0.8rem;">(Adet: ₺@urun.Fiyat.ToString("N2"))</small>
                                 }
                             </div>
                         </div>
@@ -59,7 +58,6 @@
                 }
             </div>
 
-            <!-- Sipariş Özeti -->
             <div class="col-md-4">
                 <div class="card p-4 shadow-lg sticky-top" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px; top: 20px;">
                     <h4 style="color: #ffffff; border-bottom: 1px solid var(--grey-accent); padding-bottom: 10px;">Sipariş Özeti</h4>
@@ -78,12 +76,11 @@
                         <h4 style="color: var(--star-beige); font-weight: bold;">₺@toplamFiyat.ToString("N2")</h4>
                     </div>
 
-                    <!-- Ödeme Sayfasına Yönlendiren Buton -->
-                    <a asp-controller="Home" asp-action="Odeme" class="btn btn-nova w-100 mt-2 btn-lg text-center" style="font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(245, 245, 220, 0.2);">
+                    <a href="/Home/Odeme" class="btn btn-nova w-100 mt-2 btn-lg text-center" style="font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(245, 245, 220, 0.2);">
                         Ödeme Adımına Geç
                     </a>
 
-                    <a asp-action="Index" class="btn btn-outline-light w-100 mt-3 text-center" style="font-size: 1.05rem;">
+                    <a href="/Home/Index" class="btn btn-outline-light w-100 mt-3 text-center" style="font-size: 1.05rem;">
                         Alışverişe Devam Et
                     </a>
                 </div>
@@ -92,12 +89,11 @@
     }
     else
     {
-        <!-- Boş Sepet Durumu -->
         <div class="col-12 text-center p-5 shadow-lg" style="background-color: var(--space-blue); border-radius: 15px; border: 1px dashed var(--silver);">
             <div style="font-size: 4rem; margin-bottom: 15px; text-shadow: 0 0 15px rgba(255,255,255,0.2);">🛒</div>
             <h3 style="color: #ffffff; margin-bottom: 15px;">Sepetiniz şu an bomboş...</h3>
-            <p style="color: var(--silver); font-size: 1.2rem;">Okunacak yeni kitaplar keşfetmek için mağazamıza göz atın.</p>
-            <a asp-controller="Home" asp-action="Index" class="btn btn-nova mt-4 btn-lg px-5">Alışverişe Başla</a>
+            <p style="color: var(--silver); font-size: 1.2rem;">Yeni şeyler keşfetmek için mağazamıza göz atın.</p>
+            <a href="/Home/Index" class="btn btn-nova mt-4 btn-lg px-5">Alışverişe Başla</a>
         </div>
     }
 </div>

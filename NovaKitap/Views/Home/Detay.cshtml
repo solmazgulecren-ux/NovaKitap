@@ -5,8 +5,8 @@
 }
 
 <div class="container-fluid py-4 mb-5">
-    <a asp-controller="Home" asp-action="Index" class="text-decoration-none mb-3 d-inline-block" style="color: var(--silver);">
-        &larr; Galaksiye (Anasayfaya) Dön
+    <a href="javascript:history.back()" class="text-decoration-none mb-3 d-inline-block" style="color: var(--silver);">
+        &larr; Geldiğin Sayfaya Dön
     </a>
 
     <div class="card shadow-lg p-5" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px;">
@@ -25,24 +25,24 @@
                     <h1 style="color: var(--star-beige); font-weight: bold; letter-spacing: 1px;">✦ @Model.KitapAdi</h1>
                     
                     <h4 class="mb-4" style="color: var(--silver); font-style: italic;">
-                        Yazar: <span style="color: #ffffff;">@Model.Yazar.AdSoyad</span>
+                        Yazar: <span style="color: #ffffff;">@(Model.Yazar?.AdSoyad ?? "Bilinmiyor")</span>
                     </h4>
 
                     <div class="p-4 mb-4 shadow-sm" style="background-color: rgba(192, 192, 192, 0.05); border-left: 4px solid var(--star-beige); border-radius: 8px;">
                         <h6 style="color: var(--star-beige); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Kitap Özeti</h6>
                         <p style="color: var(--text-light); line-height: 1.8; font-size: 1.1rem; margin-bottom: 0;">
-                            @Model.Aciklama
+                            @(Model.Aciklama ?? "Bu kitap için henüz bir özet girilmemiştir.")
                         </p>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-sm-6 mb-2">
                             <strong style="color: var(--silver);">Sayfa Sayısı:</strong>
-                            <span style="color: var(--text-light);">@Model.SayfaSayisi</span>
+                            <span style="color: var(--text-light);">@(Model.SayfaSayisi?.ToString() ?? "Bilinmiyor")</span>
                         </div>
                         <div class="col-sm-6 mb-2">
                             <strong style="color: var(--silver);">Kategori:</strong>
-                            <span style="color: var(--text-light);">@Model.Kategori.KategoriAdi</span>
+                            <span style="color: var(--text-light);">@(Model.Kategori?.KategoriAdi ?? "Bilinmiyor")</span>
                         </div>
                         <div class="col-sm-6 mb-2">
                             <strong style="color: var(--silver);">Yayınevi:</strong>
@@ -62,10 +62,10 @@
                     </div>
                     
                     <div class="d-flex gap-3">
-                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-light flex-grow-1 py-3" style="font-weight: 500; font-size: 1.1rem;">
+                        <a href="javascript:history.back()" class="btn btn-outline-light flex-grow-1 py-3" style="font-weight: 500; font-size: 1.1rem;">
                             Alışverişe Devam Et
                         </a>
-                        <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@Model.KitapId" class="btn btn-nova flex-grow-1 py-3 shadow" style="font-weight: bold; font-size: 1.1rem;">
+                        <a asp-controller="Home" asp-action="SepeteEkle" asp-route-id="@Model.KitapId" asp-route-tip="Kitap" class="btn btn-nova flex-grow-1 py-3 shadow" style="font-weight: bold; font-size: 1.1rem;">
                             Sepete Ekle 🛒
                         </a>
                     </div>

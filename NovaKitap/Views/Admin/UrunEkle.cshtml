@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Yeni Ürün Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="color: var(--star-beige);">✦ Yeni Ürün Ekle</h2>
+        <a href="/Admin/Index" class="btn btn-outline-light">Geri Dön</a>
+    </div>
+
+    <div class="card p-4 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 12px;">
+        <form action="/Admin/UrunEkle" method="post">
+            
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Ürün Türü</label>
+                    <select name="UrunTuru" id="UrunTuruSelect" class="form-select nova-search" required>
+                        <option value="Kitap">Kitap</option>
+                        <option value="Kirtasiye">Kırtasiye</option>
+                        <option value="Oyuncak">Oyuncak</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Kategori</label>
+                    <select name="Kategori" id="KategoriSelect" class="form-select nova-search" required>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="text-light mb-1">Ürün Adı</label>
+                <input type="text" name="UrunAdi" class="form-control nova-search" required placeholder="Ürünün adını girin" />
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Marka / Yayınevi (Seç veya Yaz)</label>
+                    <input type="text" name="Marka" list="markaListesi" class="form-control nova-search" placeholder="Listeden ara veya yeni yaz..." autocomplete="off" />
+                    
+                    <datalist id="markaListesi">
+                        <option value="İş Bankası Kültür Yayınları"></option>
+                        <option value="Can Yayınları"></option>
+                        <option value="Yapı Kredi Yayınları"></option>
+                        <option value="Faber Castell"></option>
+                        <option value="Rotring"></option>
+                        <option value="Bic"></option>
+                        <option value="Stabilo"></option>
+                        <option value="Moleskine"></option>
+                        <option value="Nova Design"></option>
+                        <option value="Lego"></option>
+                        <option value="Hasbro"></option>
+                        <option value="Mattel"></option>
+                    </datalist>
+                </div>
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Ek Bilgi (Kalem, Defter, Çanta veya Yaş Grubu)</label>
+                    <input type="text" name="EkBilgi" class="form-control nova-search" placeholder="Örn: Kalem, Çanta veya 3+ Yaş" />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="text-light mb-1">Kapak Resim Linki (URL)</label>
+                <input type="text" name="KapakResimUrl" class="form-control nova-search" placeholder="Örn: https://..." />
+            </div>
+
+            <div class="mb-3">
+                <label class="text-light mb-1">Ürün Açıklaması / Özeti</label>
+                <textarea name="Aciklama" class="form-control nova-search" rows="3" placeholder="Ürün hakkında detaylı açıklama girin..."></textarea>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Fiyat (₺)</label>
+                    <input type="text" name="Fiyat" class="form-control nova-search" required placeholder="Örn: 150,50" />
+                </div>
+                <div class="col-md-6">
+                    <label class="text-light mb-1">Başlangıç Stok Adedi</label>
+                    <input type="number" name="StokAdedi" class="form-control nova-search" required value="10" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-nova w-100">Sisteme ve Veritabanına Ekle</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const urunTuruSelect = document.getElementById("UrunTuruSelect");
+        const kategoriSelect = document.getElementById("KategoriSelect");
+
+        const kategoriler = {
+            "Kitap": ["Edebiyat", "Klasik", "Bilim Kurgu", "Tarih", "Kişisel Gelişim", "Ders Kitabı"],
+            "Kirtasiye": ["Kalem", "Defter", "Silgi & Kalemtıraş", "Boya Malzemeleri", "Dosya & Klasör", "Çanta", "Ofis"],
+            "Oyuncak": ["Eğitici Oyuncak", "Kutu Oyunu", "Peluş", "Figür", "Yapboz (Puzzle)"]
+        };
+
+        function kategorileriGuncelle() {
+            const secilenTur = urunTuruSelect.value;
+            kategoriSelect.innerHTML = "";
+
+            if (kategoriler[secilenTur]) {
+                kategoriler[secilenTur].forEach(function (kat) {
+                    const option = document.createElement("option");
+                    option.value = kat;
+                    option.textContent = kat;
+                    kategoriSelect.appendChild(option);
+                });
+            }
+        }
+
+        urunTuruSelect.addEventListener("change", kategorileriGuncelle);
+        kategorileriGuncelle();
+    });
+</script>

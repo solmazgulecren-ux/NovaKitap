@@ -1,13 +1,52 @@
-﻿@{
-    ViewData["Title"] = "Yazarlar"; // Burayı sayfanın adına göre değiştir
+﻿@model IEnumerable<NovaKitap.Models.Yazarlar>
+@{
+    ViewData["Title"] = "Yazarlarımız";
 }
 
-<div class="container mt-5">
-    <h2 style="color: var(--silver);">
+<div class="container mt-5 mb-5">
+    <h2 style="color: var(--silver);" class="mb-4">
         <span style="color: var(--star-beige);">✦</span> @ViewData["Title"]
     </h2>
     <hr style="border-color: var(--grey-accent);" />
-    <div class="p-5 text-center" style="background-color: var(--space-blue); border-radius: 15px; border: 1px dashed var(--silver);">
-        <p class="text-muted fs-5">Bu sayfa şu an yapım aşamasındadır. Yıldızlar henüz buraya taşınmadı...</p>
+    
+    <div class="row mt-4">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var yazar in Model)
+            {
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <a href="/Home/YazarDetay?id=@yazar.YazarId" class="text-decoration-none">
+                        <div class="card h-100 p-4 text-center shadow-sm category-card" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px; transition: transform 0.3s ease;">
+                            <div class="cat-icon" style="font-size: 3rem; margin-bottom: 15px;">🖋️</div>
+                            <h4 class="text-white fw-bold mb-2">@yazar.AdSoyad</h4>
+                            
+                            <p class="text-muted small" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; line-height: 1.5;">
+                                @yazar.Biyografi
+                            </p>
+                            
+                            <div class="mt-auto pt-3">
+                                <span class="btn btn-sm btn-outline-light rounded-pill px-4">
+                                    Eserleri İncele
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center p-5">
+                <p class="text-muted fs-5">Sistemde henüz kayıtlı yazar bulunmuyor.</p>
+            </div>
+        }
     </div>
 </div>
+
+<style>
+    .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2) !important;
+        border-color: var(--star-beige) !important;
+    }
+</style>
