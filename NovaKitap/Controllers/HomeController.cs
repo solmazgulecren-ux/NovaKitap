@@ -279,6 +279,7 @@ namespace NovaKitap.Controllers
             }
 
             return View(sepetUrunleri);
+<<<<<<< HEAD
         }
 
         [HttpPost]
@@ -303,6 +304,8 @@ namespace NovaKitap.Controllers
             }
 
             return RedirectToAction("Sepet");
+=======
+>>>>>>> 7639197 (dü)
         }
 
         public IActionResult Odeme()

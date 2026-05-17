@@ -376,6 +376,7 @@ body.dark-theme .page-item.disabled .page-link {
     border-color: #222222 !important;
 }
 
+<<<<<<< HEAD
 /* --- KARANLIK MOD: Bootstrap CSS Değişken Ezmeleri --- */
 body.dark-theme {
     --bs-body-bg: #121212;
@@ -458,6 +459,8 @@ body.dark-theme [style*="background-color:#f8f9fa"] {
     color: #E5E5E5 !important;
 }
 
+=======
+>>>>>>> 7639197 (dü)
 /* İncele/Giriş Yap gibi .btn-outline-light butonlarının karanlık modda görünmez olmasını düzeltme */
 body.dark-theme .btn-outline-light {
     color: #E5E5E5 !important;
