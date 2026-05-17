@@ -39,7 +39,7 @@ public partial class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Kategoriler>(entity =>
+        ModelBuilder modelBuilder1 = modelBuilder.Entity<Kategoriler>(entity =>
         {
             entity.HasKey(e => e.KategoriId).HasName("PK__Kategori__1782CC72FD64979E");
 
