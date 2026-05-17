@@ -99,6 +99,11 @@ namespace NovaKitap.Migrations
                         .HasName("PK__Kategori__1782CC72FD64979E");
 
                     b.ToTable("Kategoriler", (string)null);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
 
                     b.HasData(
                         new
@@ -179,6 +184,10 @@ namespace NovaKitap.Migrations
                             IkonSifi = "✧",
                             KategoriAdi = "Kişisel Gelişim"
                         });
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
                 });
 
             modelBuilder.Entity("NovaKitap.Models.Kaydedilenler", b =>
@@ -210,6 +219,11 @@ namespace NovaKitap.Migrations
                     b.ToTable("Kaydedilenler", (string)null);
                 });
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
             modelBuilder.Entity("NovaKitap.Models.Kirtasiyeler", b =>
                 {
                     b.Property<int>("KirtasiyeId")
@@ -1562,6 +1576,10 @@ namespace NovaKitap.Migrations
                         });
                 });
 
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
             modelBuilder.Entity("NovaKitap.Models.Kitaplar", b =>
                 {
                     b.Property<int>("KitapId")
@@ -1592,16 +1610,34 @@ namespace NovaKitap.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("KitapAdi")
+<<<<<<< HEAD
+<<<<<<< HEAD
+                        .IsRequired()
+=======
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<int?>("SayfaSayisi")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    b.Property<string>("Yayinevi")
+                        .IsRequired()
+=======
+=======
+>>>>>>> origin/master
                     b.Property<int?>("StokAdedi")
                         .HasColumnType("int");
 
                     b.Property<string>("Yayinevi")
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("YazarId")
@@ -1620,6 +1656,11 @@ namespace NovaKitap.Migrations
                     b.HasIndex("YazarId");
 
                     b.ToTable("Kitaplar", (string)null);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
 
                     b.HasData(
                         new
@@ -5012,6 +5053,10 @@ namespace NovaKitap.Migrations
                             YazarId = 68,
                             YeniCikanMi = false
                         });
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
                 });
 
             modelBuilder.Entity("NovaKitap.Models.Kullanicilar", b =>
@@ -5032,10 +5077,19 @@ namespace NovaKitap.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
                     b.Property<string>("Rol")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
                     b.Property<string>("Sifre")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -5048,6 +5102,11 @@ namespace NovaKitap.Migrations
                         .IsUnique();
 
                     b.ToTable("Kullanicilar", (string)null);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
 
                     b.HasData(
                         new
@@ -6310,6 +6369,10 @@ namespace NovaKitap.Migrations
                             YasGrubu = "8+",
                             YeniCikanMi = false
                         });
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
                 });
 
             modelBuilder.Entity("NovaKitap.Models.Siparis", b =>
@@ -6326,9 +6389,18 @@ namespace NovaKitap.Migrations
                     b.Property<int>("KullaniciId")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
                     b.Property<string>("OdemeYontemi")
                         .HasColumnType("nvarchar(max)");
 
+>>>>>>> origin/master
+=======
+                    b.Property<string>("OdemeYontemi")
+                        .HasColumnType("nvarchar(max)");
+
+>>>>>>> origin/master
                     b.Property<string>("SiparisDurumu")
                         .HasColumnType("nvarchar(max)");
 
@@ -6392,6 +6464,11 @@ namespace NovaKitap.Migrations
                         .HasName("PK__Yazarlar__CF636CE1C5425819");
 
                     b.ToTable("Yazarlar", (string)null);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
 
                     b.HasData(
                         new
@@ -7261,7 +7338,12 @@ namespace NovaKitap.Migrations
 
                     b.HasKey("YorumId");
 
+<<<<<<< HEAD
+                    b.ToTable("Yorumlars");
+>>>>>>> origin/master
+=======
                     b.ToTable("Yorumlars", (string)null);
+>>>>>>> origin/master
                 });
 
             modelBuilder.Entity("NovaKitap.Models.Kaydedilenler", b =>
@@ -7281,6 +7363,11 @@ namespace NovaKitap.Migrations
                     b.Navigation("Kullanici");
                 });
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
             modelBuilder.Entity("NovaKitap.Models.Kirtasiyeler", b =>
                 {
                     b.HasOne("NovaKitap.Models.Kategoriler", "Kategori")
@@ -7290,6 +7377,10 @@ namespace NovaKitap.Migrations
                     b.Navigation("Kategori");
                 });
 
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
             modelBuilder.Entity("NovaKitap.Models.Kitaplar", b =>
                 {
                     b.HasOne("NovaKitap.Models.Kategoriler", "Kategori")
@@ -7307,6 +7398,11 @@ namespace NovaKitap.Migrations
                     b.Navigation("Yazar");
                 });
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
             modelBuilder.Entity("NovaKitap.Models.Oyuncaklar", b =>
                 {
                     b.HasOne("NovaKitap.Models.Kategoriler", "Kategori")
@@ -7316,6 +7412,10 @@ namespace NovaKitap.Migrations
                     b.Navigation("Kategori");
                 });
 
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
             modelBuilder.Entity("NovaKitap.Models.SiparisDetayi", b =>
                 {
                     b.HasOne("NovaKitap.Models.Kitaplar", "Kitap")
@@ -7325,7 +7425,15 @@ namespace NovaKitap.Migrations
                         .IsRequired();
 
                     b.HasOne("NovaKitap.Models.Siparis", "Siparis")
+<<<<<<< HEAD
+<<<<<<< HEAD
+                        .WithMany("SiparişDetaylari")
+=======
                         .WithMany("SiparisDetaylari")
+>>>>>>> origin/master
+=======
+                        .WithMany("SiparisDetaylari")
+>>>>>>> origin/master
                         .HasForeignKey("SiparisId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -7352,7 +7460,15 @@ namespace NovaKitap.Migrations
 
             modelBuilder.Entity("NovaKitap.Models.Siparis", b =>
                 {
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    b.Navigation("SiparişDetaylari");
+=======
                     b.Navigation("SiparisDetaylari");
+>>>>>>> origin/master
+=======
+                    b.Navigation("SiparisDetaylari");
+>>>>>>> origin/master
                 });
 
             modelBuilder.Entity("NovaKitap.Models.Yazarlar", b =>
