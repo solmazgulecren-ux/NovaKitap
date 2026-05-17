@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 @model List<NovaKitap.Models.UrunViewModel>
-=======
-﻿@model List<NovaKitap.Models.UrunViewModel>
->>>>>>> 7639197 (dü)
 
 @{
     ViewData["Title"] = "Sepetim";
@@ -28,11 +24,7 @@
                 @foreach (var item in grupluUrunler)
                 {
                     var urun = item.Urun;
-<<<<<<< HEAD
                     <div class="card mb-3 p-3 shadow-sm" style="background-color: var(--card-bg); border: 1px solid var(--grey-accent); border-radius: 10px;">
-=======
-                    <div class="card mb-3 p-3 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 10px;">
->>>>>>> 7639197 (dü)
                         <div class="row g-0 align-items-center">
                             <div class="col-md-2 text-center">
                                 <img src="@(string.IsNullOrEmpty(urun.KapakResimUrl) ? "https://via.placeholder.com/100x150/1B2A4A/C0C0C0?text=Gorsel+Yok" : urun.KapakResimUrl)"
@@ -41,11 +33,7 @@
                                      alt="@urun.UrunAdi">
                             </div>
                             <div class="col-md-8 px-4">
-<<<<<<< HEAD
                                 <h5 class="mb-2 d-flex align-items-center" style="color: var(--text-main); font-weight: 500;">
-=======
-                                <h5 class="mb-2 d-flex align-items-center" style="color: #ffffff; font-weight: 500;">
->>>>>>> 7639197 (dü)
                                     @urun.UrunAdi
                                     @if (item.Adet > 1)
                                     {
@@ -110,17 +98,10 @@
     }
     else
     {
-<<<<<<< HEAD
         <div class="col-12 text-center p-5 shadow-lg" style="background-color: var(--card-bg); border-radius: 15px; border: 1px dashed var(--silver);">
             <div style="font-size: 4rem; margin-bottom: 15px;">🛒</div>
             <h3 style="color: var(--text-main) !important; margin-bottom: 15px;">Sepetiniz şu an bomboş...</h3>
             <p class="text-muted" style="font-size: 1.2rem;">Yeni şeyler keşfetmek için mağazamıza göz atın.</p>
-=======
-        <div class="col-12 text-center p-5 shadow-lg" style="background-color: var(--space-blue); border-radius: 15px; border: 1px dashed var(--silver);">
-            <div style="font-size: 4rem; margin-bottom: 15px; text-shadow: 0 0 15px rgba(255,255,255,0.2);">🛒</div>
-            <h3 style="color: #ffffff; margin-bottom: 15px;">Sepetiniz şu an bomboş...</h3>
-            <p style="color: var(--silver); font-size: 1.2rem;">Yeni şeyler keşfetmek için mağazamıza göz atın.</p>
->>>>>>> 7639197 (dü)
             <a href="/Home/Index" class="btn btn-nova mt-4 btn-lg px-5">Alışverişe Başla</a>
         </div>
     }

@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 using Microsoft.AspNetCore.Mvc;
-=======
+
 ﻿using Microsoft.AspNetCore.Mvc;
->>>>>>> 7639197 (dü)
+
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
@@ -211,7 +211,7 @@ namespace NovaKitap.Controllers
         [HttpGet]
         public IActionResult SiparisYonetimi()
         {
-<<<<<<< HEAD
+
             var siparisler = _context.Siparisler.OrderByDescending(s => s.SiparisTarihi).ToList();
 
             // Her siparişin kullanıcı adını da çekelim
@@ -222,10 +222,9 @@ namespace NovaKitap.Controllers
 
             ViewBag.KullaniciAdlari = kullanicilar;
 
-=======
             // Veritabanındaki Siparisler (Siparislers olarak tanımlı olabilir, DbContext'e göre düzeltilir)
-            var siparisler = _context.Siparisler.OrderByDescending(s => s.SiparisTarihi).ToList();
->>>>>>> 7639197 (dü)
+            var siparislers = _context.Siparisler.OrderByDescending(s => s.SiparisTarihi).ToList();
+
             return View(siparisler);
         }
 
@@ -245,7 +244,6 @@ namespace NovaKitap.Controllers
             return View(siparis);
         }
 
-<<<<<<< HEAD
         // AJAX ile sipariş durumu güncelleme (JSON döner)
         [HttpPost]
         public IActionResult SiparisDurumGuncelle([FromForm] int siparisId, [FromForm] string yeniDurum)
@@ -260,19 +258,6 @@ namespace NovaKitap.Controllers
             _context.SaveChanges();
 
             return Json(new { basarili = true, mesaj = $"#{siparisId} numaralı sipariş '{yeniDurum}' olarak güncellendi!", yeniDurum = yeniDurum });
-=======
-        [HttpPost]
-        public IActionResult SiparisDurumGuncelle(int siparisId, string yeniDurum)
-        {
-            var siparis = _context.Siparisler.FirstOrDefault(s => s.SiparisId == siparisId);
-            if (siparis != null)
-            {
-                siparis.SiparisDurumu = yeniDurum;
-                _context.SaveChanges();
-                TempData["Mesaj"] = $"#{siparisId} numaralı sipariş başarıyla '{yeniDurum}' olarak güncellendi!";
-            }
-            return RedirectToAction("SiparisYonetimi");
->>>>>>> 7639197 (dü)
         }
 
         // --- ÜRÜN KALDIRMA (SİLME) METODU ---
