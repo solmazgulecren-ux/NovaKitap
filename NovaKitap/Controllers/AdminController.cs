@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
@@ -207,8 +207,16 @@ namespace NovaKitap.Controllers
         [HttpGet]
         public IActionResult SiparisYonetimi()
         {
-            // Veritabanındaki Siparisler (Siparislers olarak tanımlı olabilir, DbContext'e göre düzeltilir)
             var siparisler = _context.Siparisler.OrderByDescending(s => s.SiparisTarihi).ToList();
+
+            // Her siparişin kullanıcı adını da çekelim
+            var kullaniciIdler = siparisler.Select(s => s.KullaniciId).Distinct().ToList();
+            var kullanicilar = _context.Kullanicilars
+                .Where(k => kullaniciIdler.Contains(k.KullaniciId))
+                .ToDictionary(k => k.KullaniciId, k => k.AdSoyad);
+
+            ViewBag.KullaniciAdlari = kullanicilar;
+
             return View(siparisler);
         }
 
@@ -228,17 +236,20 @@ namespace NovaKitap.Controllers
             return View(siparis);
         }
 
+        // AJAX ile sipariş durumu güncelleme (JSON döner)
         [HttpPost]
-        public IActionResult SiparisDurumGuncelle(int siparisId, string yeniDurum)
+        public IActionResult SiparisDurumGuncelle([FromForm] int siparisId, [FromForm] string yeniDurum)
         {
             var siparis = _context.Siparisler.FirstOrDefault(s => s.SiparisId == siparisId);
-            if (siparis != null)
+            if (siparis == null)
             {
-                siparis.SiparisDurumu = yeniDurum;
-                _context.SaveChanges();
-                TempData["Mesaj"] = $"#{siparisId} numaralı sipariş başarıyla '{yeniDurum}' olarak güncellendi!";
+                return Json(new { basarili = false, mesaj = "Sipariş bulunamadı!" });
             }
-            return RedirectToAction("SiparisYonetimi");
+
+            siparis.SiparisDurumu = yeniDurum;
+            _context.SaveChanges();
+
+            return Json(new { basarili = true, mesaj = $"#{siparisId} numaralı sipariş '{yeniDurum}' olarak güncellendi!", yeniDurum = yeniDurum });
         }
 
         // --- ÜRÜN KALDIRMA (SİLME) METODU ---
