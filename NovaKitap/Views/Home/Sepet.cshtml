@@ -1,4 +1,4 @@
-﻿@model List<NovaKitap.Models.UrunViewModel>
+@model List<NovaKitap.Models.UrunViewModel>
 
 @{
     ViewData["Title"] = "Sepetim";
@@ -24,7 +24,7 @@
                 @foreach (var item in grupluUrunler)
                 {
                     var urun = item.Urun;
-                    <div class="card mb-3 p-3 shadow-sm" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 10px;">
+                    <div class="card mb-3 p-3 shadow-sm" style="background-color: var(--card-bg); border: 1px solid var(--grey-accent); border-radius: 10px;">
                         <div class="row g-0 align-items-center">
                             <div class="col-md-2 text-center">
                                 <img src="@(string.IsNullOrEmpty(urun.KapakResimUrl) ? "https://via.placeholder.com/100x150/1B2A4A/C0C0C0?text=Gorsel+Yok" : urun.KapakResimUrl)"
@@ -33,7 +33,7 @@
                                      alt="@urun.UrunAdi">
                             </div>
                             <div class="col-md-8 px-4">
-                                <h5 class="mb-2 d-flex align-items-center" style="color: #ffffff; font-weight: 500;">
+                                <h5 class="mb-2 d-flex align-items-center" style="color: var(--text-main); font-weight: 500;">
                                     @urun.UrunAdi
                                     @if (item.Adet > 1)
                                     {
@@ -52,6 +52,15 @@
                                 {
                                     <small style="color: var(--silver); font-size: 0.8rem;">(Adet: ₺@urun.Fiyat.ToString("N2"))</small>
                                 }
+                                <div class="mt-2">
+                                    <form asp-controller="Home" asp-action="SepettenCikar" method="post" class="d-inline">
+                                        <input type="hidden" name="urunId" value="@urun.Id" />
+                                        <input type="hidden" name="urunTipi" value="@urun.UrunTipi" />
+                                        <button type="submit" class="btn btn-sm btn-outline-danger px-3 py-1" style="border-radius: 20px;">
+                                            <span style="font-size: 0.9rem;">🗑️ Çıkar</span>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -59,12 +68,12 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card p-4 shadow-lg sticky-top" style="background-color: var(--space-blue); border: 1px solid var(--grey-accent); border-radius: 15px; top: 20px;">
-                    <h4 style="color: #ffffff; border-bottom: 1px solid var(--grey-accent); padding-bottom: 10px;">Sipariş Özeti</h4>
+                <div class="card p-4 shadow-lg sticky-top" style="background-color: var(--card-bg); border: 1px solid var(--grey-accent); border-radius: 15px; top: 20px;">
+                    <h4 style="color: var(--text-main); border-bottom: 1px solid var(--grey-accent); padding-bottom: 10px;">Sipariş Özeti</h4>
                     
                     <div class="d-flex justify-content-between mt-3 mb-2" style="color: var(--silver); font-size: 1.1rem;">
                         <span>Ara Toplam (@Model.Count Ürün)</span>
-                        <span style="color: #ffffff;">₺@toplamFiyat.ToString("N2")</span>
+                        <span style="color: var(--text-main);">₺@toplamFiyat.ToString("N2")</span>
                     </div>
                     <div class="d-flex justify-content-between mb-3" style="color: var(--silver); font-size: 1.1rem;">
                         <span>Kargo</span>
@@ -72,7 +81,7 @@
                     </div>
                     
                     <div class="d-flex justify-content-between mt-3 pt-3 mb-4" style="border-top: 1px dashed var(--silver);">
-                        <h4 style="color: #ffffff; font-weight: bold;">Genel Toplam</h4>
+                        <h4 style="color: var(--text-main); font-weight: bold;">Genel Toplam</h4>
                         <h4 style="color: var(--star-beige); font-weight: bold;">₺@toplamFiyat.ToString("N2")</h4>
                     </div>
 
@@ -89,10 +98,10 @@
     }
     else
     {
-        <div class="col-12 text-center p-5 shadow-lg" style="background-color: var(--space-blue); border-radius: 15px; border: 1px dashed var(--silver);">
-            <div style="font-size: 4rem; margin-bottom: 15px; text-shadow: 0 0 15px rgba(255,255,255,0.2);">🛒</div>
-            <h3 style="color: #ffffff; margin-bottom: 15px;">Sepetiniz şu an bomboş...</h3>
-            <p style="color: var(--silver); font-size: 1.2rem;">Yeni şeyler keşfetmek için mağazamıza göz atın.</p>
+        <div class="col-12 text-center p-5 shadow-lg" style="background-color: var(--card-bg); border-radius: 15px; border: 1px dashed var(--silver);">
+            <div style="font-size: 4rem; margin-bottom: 15px;">🛒</div>
+            <h3 style="color: var(--text-main) !important; margin-bottom: 15px;">Sepetiniz şu an bomboş...</h3>
+            <p class="text-muted" style="font-size: 1.2rem;">Yeni şeyler keşfetmek için mağazamıza göz atın.</p>
             <a href="/Home/Index" class="btn btn-nova mt-4 btn-lg px-5">Alışverişe Başla</a>
         </div>
     }

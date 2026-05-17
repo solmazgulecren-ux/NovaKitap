@@ -281,6 +281,30 @@ namespace NovaKitap.Controllers
             return View(sepetUrunleri);
         }
 
+        [HttpPost]
+        public IActionResult SepettenCikar(int urunId, string urunTipi)
+        {
+            if (urunTipi == "Kırtasiye") urunTipi = "Kirtasiye";
+            string keyToRemove1 = $"{urunTipi}-{urunId}";
+            string keyToRemove2 = $"Kırtasiye-{urunId}";
+
+            string? sepetJson = HttpContext.Session.GetString("Sepetim");
+            if (!string.IsNullOrEmpty(sepetJson))
+            {
+                var sepetHamListe = JsonSerializer.Deserialize<List<string>>(sepetJson) ?? new List<string>();
+                
+                var itemToRemove = sepetHamListe.FirstOrDefault(x => x == keyToRemove1 || x == keyToRemove2);
+                if (itemToRemove != null)
+                {
+                    sepetHamListe.Remove(itemToRemove);
+                    HttpContext.Session.SetString("Sepetim", JsonSerializer.Serialize(sepetHamListe));
+                    TempData["Mesaj"] = "Ürün sepetten çıkarıldı.";
+                }
+            }
+
+            return RedirectToAction("Sepet");
+        }
+
         public IActionResult Odeme()
         {
             var kullaniciId = HttpContext.Session.GetInt32("KullaniciId");
