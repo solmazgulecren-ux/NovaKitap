@@ -376,6 +376,88 @@ body.dark-theme .page-item.disabled .page-link {
     border-color: #222222 !important;
 }
 
+/* --- KARANLIK MOD: Bootstrap CSS Değişken Ezmeleri --- */
+body.dark-theme {
+    --bs-body-bg: #121212;
+    --bs-body-color: #E5E5E5;
+    --bs-border-color: #333333;
+    --bs-table-bg: transparent;
+    --bs-table-color: #E5E5E5;
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.075);
+    --bs-table-hover-color: #E5E5E5;
+    --bs-card-bg: #1E1E1E;
+}
+
+/* --- KARANLIK MOD: Tablo Hücre Arka Planları (Admin Sayfaları) --- */
+body.dark-theme .table > :not(caption) > * > * {
+    background-color: var(--card-bg) !important;
+    color: #E5E5E5 !important;
+    border-bottom-color: #333333 !important;
+}
+
+body.dark-theme .table > thead > tr > * {
+    background-color: var(--header-bg) !important;
+    color: var(--star-beige) !important;
+}
+
+body.dark-theme .table-hover > tbody > tr:hover > * {
+    background-color: #2a2a2a !important;
+    color: #FFFFFF !important;
+}
+
+/* --- KARANLIK MOD: Bootstrap Nav Tabs (Stok Yönetimi Sekmeleri) --- */
+body.dark-theme .nav-tabs {
+    border-bottom-color: #444444 !important;
+}
+
+body.dark-theme .nav-tabs .nav-link {
+    color: #AAAAAA !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+body.dark-theme .nav-tabs .nav-link.active {
+    background-color: var(--card-bg) !important;
+    color: var(--star-beige) !important;
+    border-color: #444444 #444444 var(--card-bg) !important;
+}
+
+body.dark-theme .nav-tabs .nav-link:hover:not(.active) {
+    border-color: #555555 #555555 #444444 !important;
+    color: #E5E5E5 !important;
+}
+
+/* --- KARANLIK MOD: Tab Content Alanı --- */
+body.dark-theme .tab-content {
+    background-color: var(--card-bg) !important;
+    border-color: #444444 !important;
+}
+
+/* --- KARANLIK MOD: Uyarı Kutuları (Alert) --- */
+body.dark-theme .alert-success {
+    background-color: #1a3d2a !important;
+    color: #75e6a0 !important;
+    border-color: #2a5e3f !important;
+}
+
+body.dark-theme .alert-danger {
+    background-color: #3d1a1a !important;
+    color: #e67575 !important;
+    border-color: #5e2a2a !important;
+}
+
+/* --- KARANLIK MOD: Inline style ile beyaz arka plan verilmiş TÜM elementler --- */
+body.dark-theme [style*="background-color: #ffffff"],
+body.dark-theme [style*="background-color:#ffffff"],
+body.dark-theme [style*="background-color: #fff"],
+body.dark-theme [style*="background-color:#fff"],
+body.dark-theme [style*="background-color: rgb(255"],
+body.dark-theme [style*="background-color: #f8f9fa"],
+body.dark-theme [style*="background-color:#f8f9fa"] {
+    background-color: #252525 !important;
+    color: #E5E5E5 !important;
+}
+
 /* İncele/Giriş Yap gibi .btn-outline-light butonlarının karanlık modda görünmez olmasını düzeltme */
 body.dark-theme .btn-outline-light {
     color: #E5E5E5 !important;

@@ -1,0 +1,497 @@
+@model NovaKitap.Models.ProfilViewModel
+@{
+    ViewData["Title"] = "Profilim";
+}
+
+<style>
+    /* ===== PROFİL SAYFASI STİLLERİ ===== */
+    .profil-sol-panel {
+        background: linear-gradient(135deg, var(--header-bg), #2C5F8A);
+        border-radius: 16px;
+        padding: 30px 20px;
+        text-align: center;
+        color: #ffffff;
+        position: sticky;
+        top: 20px;
+    }
+    .profil-avatar {
+        width: 90px; height: 90px;
+        background: linear-gradient(135deg, var(--star-beige), #E8C547);
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2.5rem;
+        margin: 0 auto 15px;
+        box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+    }
+    .profil-tabs .nav-link {
+        color: var(--text-main);
+        font-weight: 500;
+        padding: 12px 20px;
+        border: none;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s;
+    }
+    .profil-tabs .nav-link.active {
+        color: var(--star-beige) !important;
+        border-bottom-color: var(--star-beige);
+        background: transparent;
+    }
+    .profil-tabs .nav-link:hover:not(.active) {
+        color: var(--header-bg);
+        border-bottom-color: var(--grey-accent);
+    }
+    .siparis-card {
+        border: 1px solid var(--grey-accent);
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin-bottom: 12px;
+        background-color: var(--card-bg);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .siparis-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .yildiz-card {
+        border: 1px solid var(--grey-accent);
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: var(--card-bg);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .yildiz-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        border-color: var(--star-beige);
+    }
+    .btn-cikis {
+        background-color: #DC3545;
+        color: #ffffff !important;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        padding: 10px 20px;
+        width: 100%;
+        transition: all 0.3s;
+        margin-top: 20px;
+    }
+    .btn-cikis:hover {
+        background-color: #A71D2A;
+        box-shadow: 0 4px 15px rgba(220,53,69,0.4);
+        transform: translateY(-1px);
+    }
+    .adres-kart {
+        border: 2px solid var(--grey-accent);
+        border-radius: 12px;
+        padding: 16px;
+        background-color: var(--card-bg);
+        height: 100%;
+        transition: border-color 0.2s;
+    }
+    .adres-kart:hover { border-color: var(--star-beige); }
+    .kredi-kart {
+        background: linear-gradient(135deg, var(--header-bg), #2C5F8A);
+        border-radius: 14px;
+        padding: 20px;
+        color: #ffffff;
+        height: 100%;
+        min-height: 140px;
+        position: relative;
+        overflow: hidden;
+    }
+    .kredi-kart::before {
+        content: '';
+        position: absolute;
+        top: -30px; right: -30px;
+        width: 100px; height: 100px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.05);
+    }
+    .bos-durum {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--silver);
+    }
+    .bos-durum-ikon {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        opacity: 0.5;
+    }
+    .form-ekle-panel {
+        background-color: var(--card-bg);
+        border: 2px dashed var(--grey-accent);
+        border-radius: 12px;
+        padding: 24px;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container-fluid py-4">
+    <div class="row g-4">
+
+        <!-- ===== SOL PANEL ===== -->
+        <div class="col-lg-3 col-md-4">
+            <div class="profil-sol-panel shadow">
+                <div class="profil-avatar">👤</div>
+                <h5 class="mb-1" style="color: #ffffff !important;">@Model.Kullanici.AdSoyad</h5>
+                <p class="mb-0 small" style="color: rgba(255,255,255,0.75) !important;">@Model.Kullanici.Email</p>
+                @if (!string.IsNullOrEmpty(Model.Kullanici.Telefon))
+                {
+                    <p class="mb-0 small mt-1" style="color: rgba(255,255,255,0.75) !important;">📞 @Model.Kullanici.Telefon</p>
+                }
+
+                <hr style="border-color: rgba(255,255,255,0.2);" />
+
+                <div class="text-start px-2">
+                    <div class="d-flex justify-content-between mb-2" style="color: rgba(255,255,255,0.8);">
+                        <small>Aktif Sipariş</small>
+                        <strong>@Model.AktifSiparisler.Count</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2" style="color: rgba(255,255,255,0.8);">
+                        <small>Geçmiş Sipariş</small>
+                        <strong>@Model.GecmisSiparisler.Count</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2" style="color: rgba(255,255,255,0.8);">
+                        <small>Yıldızladıklarım</small>
+                        <strong>@Model.Yildizladiklarim.Count</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2" style="color: rgba(255,255,255,0.8);">
+                        <small>Kayıtlı Adres</small>
+                        <strong>@Model.Adresler.Count</strong>
+                    </div>
+                    <div class="d-flex justify-content-between" style="color: rgba(255,255,255,0.8);">
+                        <small>Kayıtlı Kart</small>
+                        <strong>@Model.Kartlar.Count</strong>
+                    </div>
+                </div>
+
+                <a asp-controller="Profil" asp-action="CikisYap" class="btn btn-cikis mt-3">
+                    🚪 Çıkış Yap
+                </a>
+            </div>
+        </div>
+
+        <!-- ===== SAĞ PANEL (SEKMELER) ===== -->
+        <div class="col-lg-9 col-md-8">
+
+            @if (TempData["Mesaj"] != null)
+            {
+                <div class="alert alert-success shadow-sm fw-bold mb-3" style="border-radius: 10px;">
+                    ✅ @TempData["Mesaj"]
+                </div>
+            }
+
+            <ul class="nav nav-tabs profil-tabs mb-0" id="profilTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="bilgi-tab" data-bs-toggle="tab" href="#bilgilerim" role="tab">📋 Bilgilerim</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="aktif-tab" data-bs-toggle="tab" href="#aktifSiparisler" role="tab">📦 Aktif Siparişlerim</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="gecmis-tab" data-bs-toggle="tab" href="#gecmisSiparisler" role="tab">📜 Geçmiş Siparişlerim</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="yildiz-tab" data-bs-toggle="tab" href="#yildizladiklarim" role="tab">⭐ Yıldızladıklarım</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="adreskart-tab" data-bs-toggle="tab" href="#adresKart" role="tab">🏠 Adreslerim & Kartlarım</a>
+                </li>
+            </ul>
+
+            <div class="tab-content p-4" id="profilTabsContent" style="border: 1px solid var(--grey-accent); border-top: none; border-radius: 0 0 12px 12px; background-color: var(--card-bg);">
+
+                <!-- ===== SEKME 1: BİLGİLERİM ===== -->
+                <div class="tab-pane fade show active" id="bilgilerim" role="tabpanel">
+                    <h5 class="mb-4" style="color: var(--header-bg); font-weight: 700;">
+                        <span style="color: var(--star-beige);">✦</span> Kişisel Bilgilerim
+                    </h5>
+                    <form asp-controller="Profil" asp-action="BilgiGuncelle" method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Ad Soyad</label>
+                                <input type="text" name="adSoyad" class="form-control py-2" value="@Model.Kullanici.AdSoyad" required
+                                       style="border-radius: 10px; border: 2px solid var(--grey-accent);">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Telefon Numarası</label>
+                                <input type="tel" name="telefon" class="form-control py-2" value="@Model.Kullanici.Telefon"
+                                       placeholder="05XX XXX XX XX"
+                                       style="border-radius: 10px; border: 2px solid var(--grey-accent);">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">E-posta</label>
+                                <input type="email" class="form-control py-2" value="@Model.Kullanici.Email" disabled
+                                       style="border-radius: 10px; border: 2px solid var(--grey-accent); opacity: 0.7;">
+                                <small class="text-muted">E-posta adresi değiştirilemez.</small>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button type="submit" class="btn btn-nova px-5 py-2" style="border-radius: 10px; font-size: 1.05rem;">
+                                    💾 Bilgilerimi Güncelle
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- ===== SEKME 2: AKTİF SİPARİŞLERİM ===== -->
+                <div class="tab-pane fade" id="aktifSiparisler" role="tabpanel">
+                    <h5 class="mb-4" style="color: var(--header-bg); font-weight: 700;">
+                        <span style="color: var(--star-beige);">✦</span> Aktif Siparişlerim
+                    </h5>
+
+                    @if (Model.AktifSiparisler.Any())
+                    {
+                        @foreach (var siparis in Model.AktifSiparisler)
+                        {
+                            <div class="siparis-card">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                    <div>
+                                        <strong style="font-size: 1.1rem;">Sipariş #@siparis.SiparisId</strong>
+                                        <br />
+                                        <small class="text-muted">@siparis.SiparisTarihi.ToString("dd MMMM yyyy - HH:mm")</small>
+                                    </div>
+                                    <div class="text-end">
+                                        @{
+                                            var durumRenk = siparis.SiparisDurumu switch
+                                            {
+                                                "Onay Bekliyor" => "warning",
+                                                "Onaylandı" => "success",
+                                                "Hazırlanıyor" => "primary",
+                                                "Kargoya Verildi" => "info",
+                                                _ => "secondary"
+                                            };
+                                        }
+                                        <span class="badge bg-@durumRenk px-3 py-2" style="font-size: 0.85rem; border-radius: 8px;">
+                                            @siparis.SiparisDurumu
+                                        </span>
+                                        <br />
+                                        <strong style="color: var(--star-beige); font-size: 1.1rem;">₺@siparis.ToplamTutar.ToString("N2")</strong>
+                                    </div>
+                                </div>
+                                @if (!string.IsNullOrEmpty(siparis.KargoAdresi))
+                                {
+                                    <div class="mt-2 pt-2" style="border-top: 1px dashed var(--grey-accent);">
+                                        <small class="text-muted">📍 @siparis.KargoAdresi</small>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="bos-durum">
+                            <div class="bos-durum-ikon">📦</div>
+                            <h6>Aktif siparişiniz bulunmuyor</h6>
+                            <p class="mb-0">Hemen alışverişe başlayın!</p>
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-nova mt-3 px-4">Alışverişe Başla</a>
+                        </div>
+                    }
+                </div>
+
+                <!-- ===== SEKME 3: GEÇMİŞ SİPARİŞLERİM ===== -->
+                <div class="tab-pane fade" id="gecmisSiparisler" role="tabpanel">
+                    <h5 class="mb-4" style="color: var(--header-bg); font-weight: 700;">
+                        <span style="color: var(--star-beige);">✦</span> Geçmiş Siparişlerim
+                    </h5>
+
+                    @if (Model.GecmisSiparisler.Any())
+                    {
+                        @foreach (var siparis in Model.GecmisSiparisler)
+                        {
+                            <div class="siparis-card" style="opacity: 0.85;">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                    <div>
+                                        <strong style="font-size: 1.1rem;">Sipariş #@siparis.SiparisId</strong>
+                                        <br />
+                                        <small class="text-muted">@siparis.SiparisTarihi.ToString("dd MMMM yyyy - HH:mm")</small>
+                                    </div>
+                                    <div class="text-end">
+                                        @{
+                                            var gecmisDurumRenk = siparis.SiparisDurumu switch
+                                            {
+                                                "Teslim Edildi" => "success",
+                                                "Tamamlandı" => "success",
+                                                "İptal Edildi" => "danger",
+                                                _ => "secondary"
+                                            };
+                                        }
+                                        <span class="badge bg-@gecmisDurumRenk px-3 py-2" style="font-size: 0.85rem; border-radius: 8px;">
+                                            @siparis.SiparisDurumu
+                                        </span>
+                                        <br />
+                                        <strong style="color: var(--silver); font-size: 1.1rem;">₺@siparis.ToplamTutar.ToString("N2")</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="bos-durum">
+                            <div class="bos-durum-ikon">📜</div>
+                            <h6>Geçmiş siparişiniz bulunmuyor</h6>
+                            <p class="mb-0">Henüz teslim edilen veya iptal edilen siparişiniz yok.</p>
+                        </div>
+                    }
+                </div>
+
+                <!-- ===== SEKME 4: YILDIZLADIKLARIM ===== -->
+                <div class="tab-pane fade" id="yildizladiklarim" role="tabpanel">
+                    <h5 class="mb-4" style="color: var(--header-bg); font-weight: 700;">
+                        <span style="color: var(--star-beige);">✦</span> Yıldızladıklarım
+                    </h5>
+
+                    @if (Model.Yildizladiklarim.Any())
+                    {
+                        <div class="row g-3">
+                            @foreach (var kayit in Model.Yildizladiklarim)
+                            {
+                                if (kayit.Kitap != null)
+                                {
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <a href="/Home/Detay?id=@kayit.KitapId&tip=Kitap" class="text-decoration-none">
+                                            <div class="yildiz-card">
+                                                <img src="@(string.IsNullOrEmpty(kayit.Kitap.KapakResimUrl) ? "/img/default.jpg" : kayit.Kitap.KapakResimUrl)"
+                                                     style="width: 100%; height: 200px; object-fit: cover;" alt="@kayit.Kitap.KitapAdi">
+                                                <div class="p-3">
+                                                    <h6 class="mb-1" style="color: var(--text-main); font-weight: 600;">@kayit.Kitap.KitapAdi</h6>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <strong style="color: var(--star-beige);">₺@kayit.Kitap.Fiyat.ToString("N2")</strong>
+                                                        <span style="color: var(--star-beige); font-size: 1.2rem;">★</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="bos-durum">
+                            <div class="bos-durum-ikon">⭐</div>
+                            <h6>Henüz hiçbir ürünü yıldızlamadınız</h6>
+                            <p class="mb-0">Beğendiğiniz ürünlerin yıldızına tıklayarak favorilerinize ekleyin.</p>
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-nova mt-3 px-4">Ürünlere Göz At</a>
+                        </div>
+                    }
+                </div>
+
+                <!-- ===== SEKME 5: ADRESLERİM & KARTLARIM ===== -->
+                <div class="tab-pane fade" id="adresKart" role="tabpanel">
+                    <h5 class="mb-4" style="color: var(--header-bg); font-weight: 700;">
+                        <span style="color: var(--star-beige);">✦</span> Adreslerim & Kartlarım
+                    </h5>
+
+                    <!-- Kayıtlı Adresler -->
+                    <h6 class="mb-3 fw-bold">📍 Kayıtlı Adreslerim</h6>
+                    @if (Model.Adresler.Any())
+                    {
+                        <div class="row g-3 mb-4">
+                            @foreach (var adres in Model.Adresler)
+                            {
+                                <div class="col-md-6">
+                                    <div class="adres-kart">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span style="font-size: 1.3rem; margin-right: 8px;">🏠</span>
+                                            <strong>@adres.AdresBasligi</strong>
+                                        </div>
+                                        <small class="d-block mb-1"><strong>Şehir:</strong> @adres.Sehir</small>
+                                        <small class="text-muted">@adres.AcikAdres</small>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted mb-4">Henüz kayıtlı adresiniz yok.</p>
+                    }
+
+                    <!-- Yeni Adres Ekleme Formu -->
+                    <div class="form-ekle-panel">
+                        <h6 class="mb-3 fw-bold">+ Yeni Adres Ekle</h6>
+                        <form asp-controller="Profil" asp-action="AdresEkle" method="post">
+                            <div class="row g-2">
+                                <div class="col-md-4">
+                                    <input type="text" name="AdresBasligi" class="form-control" placeholder="Adres Başlığı (Ev, İş...)" required style="border-radius: 8px;">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="Sehir" class="form-control" placeholder="Şehir" required style="border-radius: 8px;">
+                                </div>
+                                <div class="col-md-4">
+                                    <textarea name="AcikAdres" class="form-control" rows="1" placeholder="Açık adres..." required style="border-radius: 8px;"></textarea>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <button type="submit" class="btn btn-nova px-4" style="border-radius: 8px;">Adresi Kaydet</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <!-- Kayıtlı Kartlar -->
+                    <h6 class="mb-3 fw-bold">💳 Kayıtlı Kartlarım</h6>
+                    @if (Model.Kartlar.Any())
+                    {
+                        <div class="row g-3 mb-4">
+                            @foreach (var kart in Model.Kartlar)
+                            {
+                                <div class="col-md-6">
+                                    <div class="kredi-kart">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <strong style="font-size: 1.1rem;">@kart.KartBasligi</strong>
+                                            <span style="font-size: 1.3rem;">💳</span>
+                                        </div>
+                                        <div style="font-size: 1.15rem; letter-spacing: 2px; margin-bottom: 12px;">
+                                            **** **** **** @(kart.KartNumarasi != null && kart.KartNumarasi.Length >= 4 ? kart.KartNumarasi.Substring(kart.KartNumarasi.Length - 4) : "****")
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <small>@kart.AdSoyad</small>
+                                            <small>SKT: @kart.SonKullanmaAy/@kart.SonKullanmaYil</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted mb-4">Henüz kayıtlı kartınız yok.</p>
+                    }
+
+                    <!-- Yeni Kart Ekleme Formu -->
+                    <div class="form-ekle-panel">
+                        <h6 class="mb-3 fw-bold">+ Yeni Kart Ekle</h6>
+                        <form asp-controller="Profil" asp-action="KartEkle" method="post">
+                            <div class="row g-2">
+                                <div class="col-md-4">
+                                    <input type="text" name="KartBasligi" class="form-control" placeholder="Kart Başlığı (Maaş, Kredi...)" required style="border-radius: 8px;">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="AdSoyad" class="form-control" placeholder="Kart Üzerindeki İsim" required style="border-radius: 8px;">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="KartNumarasi" class="form-control" placeholder="Kart Numarası" maxlength="16" required style="border-radius: 8px;">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" name="SonKullanmaAy" class="form-control" placeholder="Ay (01-12)" maxlength="2" required style="border-radius: 8px;">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" name="SonKullanmaYil" class="form-control" placeholder="Yıl (28)" maxlength="2" required style="border-radius: 8px;">
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <button type="submit" class="btn btn-nova px-4" style="border-radius: 8px;">Kartı Kaydet</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div> <!-- tab-content -->
+        </div> <!-- col-9 -->
+    </div> <!-- row -->
+</div>

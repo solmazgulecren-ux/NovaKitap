@@ -3,12 +3,12 @@
 @{
     var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
     var aktifKategori = Context.Request.Query["id"].ToString();
-    
+
     // Kullanıcının adını en tepede çekiyoruz ki her yerde kullanabilelim
     var adSoyad = HttpContextAccessor.HttpContext?.Session.GetString("KullaniciAdSoyad");
     // Asistan için sadece ilk ismi alıyoruz (Boşsa "Gezgin" diyoruz)
     var kullaniciIlkAd = !string.IsNullOrEmpty(adSoyad) ? adSoyad.Split(' ')[0] : "Gezgin";
-    
+
     // Admin yetkisi kontrolü için rolü çekiyoruz
     var aktifRol = HttpContextAccessor.HttpContext?.Session.GetString("KullaniciRolu");
 }
@@ -23,58 +23,50 @@
 </head>
 <body>
     <header>
-        <!-- 1. KATMAN: Logo, Dev Arama Çubuğu, Sepet ve Profil -->
         <div class="nova-topbar py-3">
             <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between gap-3">
-                
-                <!-- Logo -->
+
                 <a class="navbar-brand fw-bold fs-2 text-decoration-none" asp-controller="Home" asp-action="Index">
                     <span style="color: var(--star-beige);">✦</span> <span style="color: #fff; letter-spacing: 2px;">NOVA</span>
                 </a>
-        
-                <!-- Dev Arama Çubuğu (KitapSec Tarzı) -->
+
                 <form class="d-flex flex-grow-1 mx-lg-5" action="/Home/Ara" method="get" style="max-width: 700px;">
                     <div class="input-group shadow-sm">
                         <input class="form-control nova-mega-search py-2" type="search" name="q" placeholder="Kitap, yazar, kırtasiye veya oyuncak ara..." aria-label="Search" style="border-radius: 8px 0 0 8px;">
                         <button class="btn btn-nova px-4" type="submit" style="border-radius: 0 8px 8px 0; font-size: 1.1rem;">Ara</button>
                     </div>
                 </form>
-            
-                <!-- Sağ Menü (Yıldızlar, Sepet & Profil) -->
+
                 <div class="d-flex align-items-center gap-3">
-                    
+
                     @if (aktifRol == "Admin")
                     {
-                        <!-- DÜZELTİLEN KISIM: asp-action="Index" yapıldı -->
                         <a asp-controller="Admin" asp-action="Index" class="btn d-flex align-items-center gap-2 shadow-sm" style="background-color: var(--star-beige); color: var(--header-bg); border-radius: 20px; font-weight: bold;">
                             <span style="font-size: 1.1rem;">⚙️</span> Admin Paneli
                         </a>
                     }
                     else
                     {
-                        <!-- Müşteriler veya giriş yapmamış kişiler tıkladığında uyarı veren sahte link -->
                         <a href="#" onclick="alert('Buraya yetkiniz yok! Sadece sistem yöneticileri giriş yapabilir.'); return false;" class="btn d-flex align-items-center gap-2 shadow-sm" style="background-color: var(--star-beige); color: var(--header-bg); border-radius: 20px; font-weight: bold;">
                             <span style="font-size: 1.1rem;">⚙️</span> Admin Paneli
                         </a>
                     }
 
-                    <!-- YILDIZLADIKLARIM BUTONU -->
                     <a asp-controller="Home" asp-action="Kaydedilenler" class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 20px;">
                         <span style="color: var(--star-beige); font-size: 1.2rem;">✦</span> Yıldızladıklarım
                     </a>
-                    
+
                     <a asp-controller="Home" asp-action="Sepet" class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 20px;">
                         <span style="font-size: 1.2rem;">🛒</span> Sepetim
                     </a>
 
-                    <!-- TEMA DEĞİŞTİRME BUTONU -->
                     <button id="theme-toggle-btn" class="btn btn-outline-light d-flex align-items-center gap-2" style="border-radius: 20px;" onclick="toggleTheme()">
                         <span id="theme-toggle-icon" style="font-size: 1.2rem;">🌙</span> <span id="theme-toggle-text">Karanlık Mod</span>
                     </button>
 
                     @if (!string.IsNullOrEmpty(adSoyad))
                     {
-                        <a asp-controller="Hesap" asp-action="Profil" class="nav-profile">
+                        <a asp-controller="Profil" asp-action="Index" class="nav-profile text-decoration-none d-flex align-items-center">
                             <div style="width: 30px; height: 30px; background-color: var(--star-beige); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 8px; color: var(--space-dark);">
                                 👤
                             </div>
@@ -89,7 +81,6 @@
             </div>
         </div>
 
-        <!-- 2. KATMAN: Yatay Kategori Menüsü -->
         <div class="nova-category-bar">
             <div class="container-fluid">
                 <ul class="nav justify-content-center flex-nowrap overflow-auto py-1">
@@ -98,7 +89,7 @@
                     <li class="nav-item"><a class="nav-link @(currentAction == "YeniCikanlar" ? "active-nav-link" : "")" asp-controller="Home" asp-action="YeniCikanlar">Yeni Çıkanlar</a></li>
                     <li class="nav-item"><a class="nav-link @(currentAction == "EnCokSatanlar" ? "active-nav-link" : "")" asp-controller="Home" asp-action="EnCokSatanlar">Çok Satanlar</a></li>
                     <li class="nav-item"><a class="nav-link @(currentAction == "Yazarlar" ? "active-nav-link" : "")" asp-controller="Home" asp-action="Yazarlar">Yazarlarımız</a></li>
-                    
+
                     <li class="nav-item"><a class="nav-link @(currentAction == "Kirtasiye" ? "active-nav-link" : "")" asp-controller="Home" asp-action="Kirtasiye">✒️ Kırtasiye</a></li>
                     <li class="nav-item"><a class="nav-link @(currentAction == "Oyuncak" ? "active-nav-link" : "")" asp-controller="Home" asp-action="Oyuncak">🧸 Oyuncak</a></li>
                 </ul>
@@ -106,43 +97,37 @@
         </div>
     </header>
 
-    <!-- ANA İÇERİK ALANI -->
     <div class="container-fluid p-4 mt-3">
         <main role="main" class="pb-5">
             @RenderBody()
         </main>
     </div>
-    
+
     <button class="chatbot-toggle" onclick="document.getElementById('nova-chatbot').style.display='flex'">
         ✦
     </button>
 
     <div id="nova-chatbot" class="shadow-lg" style="position: fixed; bottom: 100px; right: 30px; width: 350px; background-color: var(--bg-main); border: 2px solid var(--star-beige); border-radius: 15px; display: none; flex-direction: column; z-index: 1001; overflow: hidden;">
-        
-        <!-- Chat Başlığı -->
+
         <div class="p-3 d-flex justify-content-between align-items-center" style="background-color: var(--header-bg);">
             <h5 class="mb-0" style="color: #ffffff; font-weight: bold;">✦ Nova Asistan</h5>
             <button onclick="document.getElementById('nova-chatbot').style.display='none'" style="background: none; border: none; color: #ffffff; font-size: 1.2rem; cursor: pointer;">✖</button>
         </div>
-        
-        <!-- Chat Gövdesi (Arka plan ferah açık gri yapıldı) -->
+
         <div id="chat-body" class="p-3 d-flex flex-column" style="height: 350px; overflow-y: auto; background-color: #f8f9fa;">
             <div class="mb-3">
-                <!-- Bot mesajı lacivert arka plan ve tam beyaz yazı ile çok okunaklı hale getirildi -->
                 <div class="p-2 shadow-sm chat-message-bot" style="background-color: var(--header-bg); color: #ffffff; border-radius: 10px 10px 10px 0; display: inline-block; max-width: 85%;">
                     Merhaba @kullaniciIlkAd! Ben Nova Asistan. Bugün sana aradığın kitabı bulmanda veya siparişlerini kontrol etmende yardımcı olabilirim. 🚀
                 </div>
             </div>
         </div>
-        
-        <!-- Mesaj Yazma Alanı (Arka plan beyaz, kutu hafif gri yapıldı) -->
+
         <div class="p-2 d-flex gap-2" style="background-color: #ffffff; border-top: 1px solid var(--grey-accent);">
             <input type="text" id="chat-input" class="form-control" placeholder="Mesajınızı yazın..." style="background-color: #f1f1f1; color: var(--text-main); border: 1px solid var(--grey-accent);" onkeypress="handleChatKeyPress(event)">
             <button class="btn btn-nova" onclick="sendMessage()">Gönder</button>
         </div>
     </div>
 
-    <!-- Scriptler ve Modallar -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

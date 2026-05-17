@@ -13,6 +13,6 @@ public partial class Kullanicilar
 
     public string Rol { get; set; } = "Musteri";
     public string Sifre { get; set; } = null!;
-
+    public string? Telefon { get; set; }
     public virtual ICollection<Kaydedilenler> Kaydedilenlers { get; set; } = new List<Kaydedilenler>();
 }

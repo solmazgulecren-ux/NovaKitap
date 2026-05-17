@@ -100,6 +100,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.AdSoyad).HasMaxLength(150);
             entity.Property(e => e.Email).HasMaxLength(150);
             entity.Property(e => e.Sifre).HasMaxLength(100);
+            entity.Property(e => e.Telefon).HasMaxLength(20);
         });
 
         modelBuilder.Entity<Yazarlar>(entity =>
