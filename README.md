@@ -27,13 +27,6 @@ NovaKitap, kitaplar, kırtasiye ürünleri ve oyuncakların satıldığı, moder
 
 
 
-
-
-
-
-
-
-
 # NovaKitap E-Ticaret Sistemi
 
 Bu proje, bir kitap ve kırtasiye platformudur.
